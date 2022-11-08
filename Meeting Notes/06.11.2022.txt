@@ -1,0 +1,4 @@
+-İlk iterasyon için kanban board oluşturuldu.
+-Kanban boarda görevler atandı.
+-UML Class diagramı çizilmeye başlandı.
+-07.11.2022'de diğer toplantı yapılacağı planlandı.
