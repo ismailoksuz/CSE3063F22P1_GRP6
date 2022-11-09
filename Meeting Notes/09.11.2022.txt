@@ -1,0 +1,3 @@
+-Classların implementasyonu ile ilgili durum değerlendirmesi yapıldı.
+-Ertesi güne kadar classların implemantasyonlarının tamamlanması gerektiği kararlaştırıldı.
+-10.11.2022'de diğer toplantı yapılacağı planlandı.
