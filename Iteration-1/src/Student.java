@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class Student {
-    // private StudentID studentID;
+    private StudentID studentID;
     // private Transcript transcript;
     // private Advisor advisor;
     // private ArrayList<Course> requestedCourses;
