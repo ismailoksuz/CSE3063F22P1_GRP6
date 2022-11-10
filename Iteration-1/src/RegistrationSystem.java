@@ -4,12 +4,9 @@ public class RegistrationSystem {
     private ArrayList<Course> courses;
     private int quota = 10;
 
-    private Instructor instructor = new Instructor("Ahmet", "Mehmet");
     private Schedule schedule = new Schedule();
 
     public RegistrationSystem() {
-
-    public RegistrationSystem(Student student, Course course) {
     }
 
     public void getCourses() {
