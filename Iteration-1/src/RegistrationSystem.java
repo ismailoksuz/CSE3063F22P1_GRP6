@@ -1,13 +1,21 @@
 public class RegistrationSystem {
-    private ArrayList<Student> students;
-    private ArrayList<Course> courses;
+    private ArrayList <Student> students;
+    private ArrayList <Course> courses;
 
-    public RegistrationSystem() {
-
+    public RegistrationSystem(Student student, Course course){
     }
 
-    public void getCourses() {
-
+    public ArrayList<Student> getStudents() {
+        return students;
     }
 
+    public ArrayList<Course> getCourses() {
+        return courses;
+    }
+
+    public void failRandomCourses(){
+    }
+
+    public void storeStudents(){
+    }
 }
