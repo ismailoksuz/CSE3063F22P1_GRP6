@@ -23,7 +23,7 @@ public abstract class Person {
         userName = userName.replace('ğ', 'g');
         userName = userName.replace('ğ', 'g');
 
-        return userName + "@gmail.com";
+        return userName + "@marun.edu.tr";
     }
 
     public String generatePhoneNumber() {

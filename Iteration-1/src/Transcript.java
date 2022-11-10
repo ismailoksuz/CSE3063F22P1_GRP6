@@ -6,17 +6,17 @@ public class Transcript {
     private double cumulativeGpa;
     private double gpa;
     private int creditCompleted;
-    private  int creditTaken;
+    private int creditTaken;
     private HashMap<Course, String> completedCourses;
     private HashMap<Course, String> failedCourses;
     private ArrayList<Course> takenCoueses;
 
-
-    public Transcript(){
+    public Transcript() {
     }
 
-    public Transcript(double cumulativeGpa, double gpa, int creditCompleted, int creditTaken, HashMap<Course, String> completedCourses,
-                      HashMap<Course, String> failedCourses, ArrayList<Course> takenCoueses){
+    public Transcript(double cumulativeGpa, double gpa, int creditCompleted, int creditTaken,
+            HashMap<Course, String> completedCourses,
+            HashMap<Course, String> failedCourses, ArrayList<Course> takenCoueses) {
         this.cumulativeGpa = cumulativeGpa;
         this.gpa = gpa;
         this.creditCompleted = creditCompleted;
@@ -85,34 +85,34 @@ public class Transcript {
     // https://www.marmara.edu.tr/dosya/www/mevzuat/2021/mu_yonerge_basari_degerlendirme_2020_v204.02.2021.pdf?_t=1612473513
     //https://catalog.arizona.edu/policy/grade-point-average-gpa-calculation-or-averaging-grades
 
-    public double calculateGpa(){
+    public double calculateGpa() {
         double gradeMultiplication = 0;
         double totalCredit = 0;
         double studentGPA = 0;
 
-        for(Map.Entry <Course, String> set : getCompletedCourses().entrySet()){
+        for (Map.Entry<Course, String> set : getCompletedCourses().entrySet()) {
             totalCredit += set.getKey().getCourseCredit();
-            if (set.getValue() == "AA"){
+            if (set.getValue() == "AA") {
                 gradeMultiplication += set.getKey().getCourseCredit() * 4.0;
-            } else if(set.getValue() == "BA"){
+            } else if (set.getValue() == "BA") {
                 gradeMultiplication += set.getKey().getCourseCredit() * 3.5;
-            } else if(set.getValue() == "BB"){
+            } else if (set.getValue() == "BB") {
                 gradeMultiplication += set.getKey().getCourseCredit() * 3.0;
-            } else if(set.getValue() == "CB"){
+            } else if (set.getValue() == "CB") {
                 gradeMultiplication += set.getKey().getCourseCredit() * 2.5;
-            } else if(set.getValue() == "CC"){
+            } else if (set.getValue() == "CC") {
                 gradeMultiplication += set.getKey().getCourseCredit() * 2.0;
-            } else if(set.getValue() == "DC"){
+            } else if (set.getValue() == "DC") {
                 gradeMultiplication += set.getKey().getCourseCredit() * 1.5;
-            } else if(set.getValue() == "DD"){
+            } else if (set.getValue() == "DD") {
                 gradeMultiplication += set.getKey().getCourseCredit() * 1.0;
-            } else if(set.getValue() == "FD"){
+            } else if (set.getValue() == "FD") {
                 gradeMultiplication += set.getKey().getCourseCredit() * 0.5;
-            } else if(set.getValue() == "FF"){
+            } else if (set.getValue() == "FF") {
                 gradeMultiplication += set.getKey().getCourseCredit() * 0.0;
-            } else if(set.getValue() == "FG"){
+            } else if (set.getValue() == "FG") {
                 gradeMultiplication += set.getKey().getCourseCredit() * 0.0;
-            } else if(set.getValue() == "DZ"){
+            } else if (set.getValue() == "DZ") {
                 gradeMultiplication += set.getKey().getCourseCredit() * 0.0;
             }
         }
@@ -124,11 +124,11 @@ public class Transcript {
 
     }
 
-    public int calculateComplatedCredit(){
+    public int calculateComplatedCredit() {
         int complatedCredit = 0;
-        for(Map.Entry <Course, String> set : getCompletedCourses().entrySet()){
+        for (Map.Entry<Course, String> set : getCompletedCourses().entrySet()) {
             if (set.getValue() == "AA" || set.getValue() == "BA" || set.getValue() == "BB" || set.getValue() == "CB"
-                || set.getValue() == "CC" || set.getValue() == "DC" || set.getValue() == "DD"){
+                    || set.getValue() == "CC" || set.getValue() == "DC" || set.getValue() == "DD") {
                 complatedCredit = set.getKey().getCourseCredit();
             }
         }
@@ -137,13 +137,13 @@ public class Transcript {
         return complatedCredit;
     }
 
-    public int calculateTakeCredit(){
+    public int calculateTakeCredit() {
         int takenCredit = 0;
-        for(Map.Entry <Course, String> set : getCompletedCourses().entrySet()){
+        for (Map.Entry<Course, String> set : getCompletedCourses().entrySet()) {
             takenCredit += set.getKey().getCourseCredit();
         }
         setCreditTaken(takenCredit);
         return takenCredit;
     }
-    
+
 }
