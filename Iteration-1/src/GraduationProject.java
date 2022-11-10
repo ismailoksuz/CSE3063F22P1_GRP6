@@ -1,6 +1,9 @@
 public class GraduationProject extends MandatoryCourse {
     private String courseCode;  
     private String courseName;
+    public GraduationProject(){
+
+    }
     public boolean isEligibleToRequest(Transcript transcript){
         transcript.creditCompleted=creditCompleted;
         return (creditCompleted>=160) ? true : false;
