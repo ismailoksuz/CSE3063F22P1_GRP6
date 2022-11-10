@@ -1,25 +1,18 @@
 
 public class StudentId {
-	private int cseCode;
+	private final String cseCode = "1501";
 	private int year;
 	private int order;
+	private String id;
 
-	public StudentId(int cseCode, int year, int order) {
-		this.cseCode = cseCode;
+	public StudentId(int year, int order) {
 		this.year = year;
 		this.order = order;
+		this.id = createStudentId();
 	}
 
 	public String createStudentId() {
-		return Integer.toString(this.cseCode) + Integer.toString(this.year) + Integer.toString(this.order);
-	}
-
-	public int getCseCode() {
-		return cseCode;
-	}
-
-	public void setCseCode(int cseCode) {
-		this.cseCode = cseCode;
+		return this.cseCode + Integer.toString(this.year) + Integer.toString(this.order);
 	}
 
 	public int getYear() {
@@ -36,5 +29,9 @@ public class StudentId {
 
 	public void setOrder(int order) {
 		this.order = order;
+	}
+
+	public String toString() {
+		return id;
 	}
 }

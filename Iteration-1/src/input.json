@@ -1,0 +1,906 @@
+{
+  "PassProbability": 0.85,
+  "Advisors": 10,
+  "1stYearStudents": 75,
+  "2ndYearStudents": 75,
+  "3rdYearStudents": 75,
+  "4thYearStudents": 75,
+  "CurrentSemester": "fall",
+  "RegenerateStudents": true,
+  "MandatoryCourses": [
+      {
+        "courseCode": "ATA121",
+        "semester": 1,
+        "credits": 2,
+        "theoretical": 2,
+        "practical": 0,
+        "preRequisites": [""],
+        "quota": 100
+      },
+      {
+        "courseCode": "MBG1201",
+        "semester": 1,
+        "credits": 5,
+        "theoretical": 2,
+        "practical": 0,
+        "preRequisites": [""],
+        "quota": 100
+      },
+      {
+        "courseCode": "CSE1200",
+        "semester": 1,
+        "credits": 4,
+        "theoretical": 3,
+        "practical": 0,
+        "preRequisites": [""],
+        "quota": 100
+      },
+      {
+        "courseCode": "CSE1241",
+        "semester": 1,
+        "credits": 6,
+        "theoretical": 3,
+        "practical": 2,
+        "preRequisites": [""],
+        "quota": 100
+      },
+      {
+        "courseCode": "MATH1001",
+        "semester": 1,
+        "credits": 6,
+        "theoretical": 4,
+        "practical": 0,
+        "preRequisites": [""],
+        "quota": 100
+      },
+      {
+        "courseCode": "PHYS1101",
+        "semester": 1,
+        "credits": 4,
+        "theoretical": 3,
+        "practical": 0,
+        "preRequisites": [""],
+        "quota": 100
+      },
+      {
+        "courseCode": "PHYS1103",
+        "semester": 1,
+        "credits": 2,
+        "theoretical": 0,
+        "practical": 2,
+        "preRequisites": [""],
+        "quota": 100
+      },
+      {
+        "courseCode": "TRD121",
+        "semester": 1,
+        "credits": 2,
+        "theoretical": 2,
+        "practical": 0,
+        "preRequisites": [""],
+        "quota": 100
+      },
+      {
+        "courseCode": "ATA122",
+        "semester": 2,
+        "credits": 2,
+        "theoretical": 2,
+        "practical": 0,
+        "preRequisites": [""],
+        "quota": 100
+      },
+      {
+        "courseCode": "CSE1242",
+        "semester": 2,
+        "credits": 6,
+        "theoretical": 3,
+        "practical": 2,
+        "preRequisites": ["CSE1241"],
+        "quota": 100
+      },
+      {
+        "courseCode": "MATH1002",
+        "semester": 2,
+        "credits": 6,
+        "theoretical": 4,
+        "practical": 0,
+        "preRequisites": [""],
+        "quota": 100
+      },
+      {
+        "courseCode": "MATH2256",
+        "semester": 2,
+        "credits": 5,
+        "theoretical": 3,
+        "practical": 0,
+        "preRequisites": [""],
+        "quota": 100
+      },
+      {
+        "courseCode": "PHYS1102",
+        "semester": 2,
+        "credits": 4,
+        "theoretical": 3,
+        "practical": 0,
+        "preRequisites": [""],
+        "quota": 100
+      },
+      {
+        "courseCode": "PHYS1104",
+        "semester": 2,
+        "credits": 2,
+        "theoretical": 0,
+        "practical": 2,
+        "preRequisites": [""],
+        "quota": 100
+      },
+      {
+        "courseCode": "TRD122",
+        "semester": 2,
+        "credits": 2,
+        "theoretical": 2,
+        "practical": 0,
+        "preRequisites": [""],
+        "quota": 100
+      },
+      {
+        "courseCode": "CSE2023",
+        "semester": 3,
+        "credits": 6,
+        "theoretical": 3,
+        "practical": 0,
+        "preRequisites": [""],
+        "quota": 100
+      },
+      {
+        "courseCode": "CSE2225",
+        "semester": 3,
+        "credits": 7,
+        "theoretical": 3,
+        "practical": 2,
+        "preRequisites": ["CSE1242"],
+        "quota": 100
+      },
+    {
+      "courseCode": "ECON2004",
+      "semester": 3,
+      "credits": 4,
+      "theoretical": 2,
+      "practical": 0,
+      "preRequisites": [""],
+      "quota": 100
+    },
+    {
+      "courseCode": "EE2031",
+      "semester": 3,
+      "credits": 5,
+      "theoretical": 3,
+      "practical": 0,
+      "preRequisites": ["PHYS1102"],
+      "quota": 100
+    },
+    {
+      "courseCode": "MATH2055",
+      "semester": 3,
+      "credits": 4,
+      "theoretical": 3,
+      "practical": 0,
+      "preRequisites": [""],
+      "quota": 100
+    },
+    {
+      "courseCode": "MATH2059",
+      "semester": 3,
+      "credits": 4,
+      "theoretical": 3,
+      "practical": 0,
+      "preRequisites": ["MATH1001"],
+      "quota": 100
+    },
+    {
+      "courseCode": "CSE2246",
+      "semester": 4,
+      "credits": 6,
+      "theoretical": 3,
+      "practical": 2,
+      "preRequisites": ["CSE2025"],
+      "quota": 100
+    },
+    {
+      "courseCode": "CSE2138",
+      "semester": 4,
+      "credits": 7,
+      "theoretical": 3,
+      "practical": 2,
+      "preRequisites": [""],
+      "quota": 100
+    },
+    {
+      "courseCode": "CSE2260",
+      "semester": 4,
+      "credits": 4,
+      "theoretical": 3,
+      "practical": 2,
+      "preRequisites": ["CSE1242"],
+      "quota": 100
+    },
+    {
+      "courseCode": "EE2032",
+      "semester": 4,
+      "credits": 5,
+      "theoretical": 2,
+      "practical": 2,
+      "preRequisites": ["EE2031"],
+      "quota": 100
+    },
+    {
+      "courseCode": "STAT2253",
+      "semester": 4,
+      "credits": 5,
+      "theoretical": 3,
+      "practical": 0,
+      "preRequisites": [""],
+      "quota": 100
+    },
+    {
+      "courseCode": "CSE3000",
+      "semester": 4.5,
+      "credits": 10,
+      "theoretical": 0,
+      "practical": 0,
+      "preRequisites": [""],
+      "quota": 100
+    },
+    {
+      "courseCode": "CSE3215",
+      "semester": 5,
+      "credits": 6,
+      "theoretical": 3,
+      "practical": 2,
+      "preRequisites": [""],
+      "quota": 100
+    },
+    {
+      "courseCode": "CSE3033",
+      "semester": 5,
+      "credits": 7,
+      "theoretical": 3,
+      "practical": 2,
+      "preRequisites": ["CSE2225"],
+      "quota": 100
+    },
+    {
+      "courseCode": "CSE3055",
+      "semester": 5,
+      "credits": 7,
+      "theoretical": 3,
+      "practical": 2,
+      "preRequisites": ["CSE2225"],
+      "quota": 100
+    },
+    {
+      "courseCode": "CSE3063",
+      "semester": 5,
+      "credits": 5,
+      "theoretical": 3,
+      "practical": 0,
+      "preRequisites": ["CSE1242"],
+      "quota": 100
+    },
+    {
+      "courseCode": "IE3081",
+      "semester": 5,
+      "credits": 4,
+      "theoretical": 3,
+      "practical": 0,
+      "preRequisites": ["STAT2253"],
+      "quota": 100
+    },
+    {
+      "courseCode": "CSE3038",
+      "semester": 6,
+      "credits": 7,
+      "theoretical": 3,
+      "practical": 2,
+      "preRequisites": ["CSE2138", "CSE3215"],
+      "quota": 100
+    },
+    {
+      "courseCode": "CSE3044",
+      "semester": 6,
+      "credits": 7,
+      "theoretical": 3,
+      "practical": 2,
+      "preRequisites": ["CSE3055"],
+      "quota": 100
+    },
+    {
+      "courseCode": "CSE3048",
+      "semester": 6,
+      "credits": 5,
+      "theoretical": 3,
+      "practical": 0,
+      "preRequisites": ["MATH2055"],
+      "quota": 100
+    },
+    {
+      "courseCode": "CSE3264",
+      "semester": 6,
+      "credits": 5,
+      "theoretical": 3,
+      "practical": 0,
+      "preRequisites": ["CSE2023"],
+      "quota": 100
+    },
+    {
+      "courseCode": "IE3235",
+      "semester": 6,
+      "credits": 4,
+      "theoretical": 3,
+      "practical": 0,
+      "preRequisites": ["MATH2256"],
+      "quota": 100
+    },
+    {
+      "courseCode": "COM2202",
+      "semester": 6,
+      "credits": 2,
+      "theoretical": 2,
+      "practical": 0,
+      "preRequisites": [""],
+      "quota": 100
+    },
+    {
+      "courseCode": "CSE4000",
+      "semester": 6.5,
+      "credits": 10,
+      "theoretical": 0,
+      "practical": 0,
+      "preRequisites": [""],
+      "quota": 100
+    },
+    {
+      "courseCode": "CSE4074",
+      "semester": 7,
+      "credits": 5,
+      "theoretical": 3,
+      "practical": 0,
+      "preRequisites": [""],
+      "quota": 100
+    },
+    {
+      "courseCode": "CSE4219",
+      "semester": 7,
+      "credits": 6,
+      "theoretical": 3,
+      "practical": 2,
+      "preRequisites": ["CSE3038"],
+      "quota": 100
+    },
+    {
+      "courseCode": "ISG121",
+      "semester": 7,
+      "credits": 2,
+      "theoretical": 2,
+      "practical": 0,
+      "preRequisites": [""],
+      "quota": 100
+    },
+    {
+      "courseCode": "CSE4288",
+      "semester": 7,
+      "credits": 5,
+      "theoretical": 3,
+      "practical": 0,
+      "preRequisites": ["MATH2256", "STAT2253"],
+      "quota": 100
+    },
+    {
+      "courseCode": "ISG122",
+      "semester": 8,
+      "credits": 2,
+      "theoretical": 2,
+      "practical": 0,
+      "preRequisites": [""],
+      "quota": 100
+    }
+  ],
+
+  "FinalProjectRequiredCredits": 165,
+  "FinalProjectMandatoryCourses":
+  [
+    {
+      "courseCode": "CSE4297",
+      "semester": 7,
+      "credits": 5,
+      "theoretical": 0,
+      "practical": 2,
+      "preRequisites": [""],
+      "quota": 100
+    },
+    {
+      "courseCode": "CSE4298",
+      "semester": 8,
+      "credits": 5,
+      "theoretical": 0,
+      "practical": 2,
+      "preRequisites": ["CSE4297"],
+      "quota": 100
+    }
+  ],
+
+  "nonTechnicalSemesters": [2, 7, 8],
+  "nonTechnicalCredits": 3,
+  "nonTechnicalTheoretical": 2,
+  "nonTechnicalPractical": 0,
+  "nonTechnicalElectiveCourses":
+  [
+    {
+      "courseCode": "BUS1003",
+      "quota": 35
+    },
+    {
+      "courseCode": "BUS1004",
+      "quota": 35
+    },
+    {
+      "courseCode": "BUS2005",
+      "quota": 35
+    },
+    {
+      "courseCode": "CAS1001",
+      "quota": 35
+    },
+    {
+      "courseCode": "CAS1010",
+      "quota": 35
+    },
+    {
+      "courseCode": "CAS1061",
+      "quota": 35
+    },
+    {
+      "courseCode": "CAS2001",
+      "quota": 35
+    },
+    {
+      "courseCode": "CAS2002",
+      "quota": 35
+    },
+    {
+      "courseCode": "CAS2003",
+      "quota": 35
+    },
+    {
+      "courseCode": "CAS2004",
+      "quota": 35
+    },
+    {
+      "courseCode": "CAS2005",
+      "quota": 35
+    },
+    {
+      "courseCode": "CAS3001",
+      "quota": 35
+    },
+    {
+      "courseCode": "CAS3044",
+      "quota": 35
+    },
+    {
+      "courseCode": "COMM2060",
+      "quota": 35
+    },
+    {
+      "courseCode": "FNCE3003",
+      "quota": 35
+    },
+    {
+      "courseCode": "HR1013",
+      "quota": 35
+    },
+    {
+      "courseCode": "HR4001",
+      "quota": 35
+    },
+    {
+      "courseCode": "HSS3002",
+      "quota": 35
+    },
+    {
+      "courseCode": "IKT1054",
+      "quota": 35
+    },
+    {
+      "courseCode": "INF1001",
+      "quota": 35
+    },
+    {
+      "courseCode": "LAW2004",
+      "quota": 35
+    },
+    {
+      "courseCode": "MAN1001",
+      "quota": 35
+    },
+    {
+      "courseCode": "MGT1021",
+      "quota": 35
+    },
+    {
+      "courseCode": "MGT3082",
+      "quota": 35
+    },
+    {
+      "courseCode": "MRK3082",
+      "quota": 35
+    },
+    {
+      "courseCode": "MRK3084",
+      "quota": 35
+    },
+    {
+      "courseCode": "NTE1002",
+      "quota": 35
+    },
+    {
+      "courseCode": "NTE1003",
+      "quota": 35
+    },
+    {
+      "courseCode": "NTE1004",
+      "quota": 35
+    },
+    {
+      "courseCode": "NTE1006",
+      "quota": 35
+    },
+    {
+      "courseCode": "NTE1008",
+      "quota": 35
+    },
+    {
+      "courseCode": "NTE1010",
+      "quota": 35
+    },
+    {
+      "courseCode": "NTE1011",
+      "quota": 35
+    },
+    {
+      "courseCode": "NTE1012",
+      "quota": 35
+    },
+    {
+      "courseCode": "NTE1013",
+      "quota": 35
+    },
+    {
+      "courseCode": "NTE1014",
+      "quota": 35
+    },
+    {
+      "courseCode": "NTE1015",
+      "quota": 35
+    },
+    {
+      "courseCode": "NTE1016",
+      "quota": 35
+    },
+    {
+      "courseCode": "OB2040",
+      "quota": 35
+    },
+    {
+      "courseCode": "OB2041",
+      "quota": 35
+    },
+    {
+      "courseCode": "OB3043",
+      "quota": 35
+    },
+    {
+      "courseCode": "SOC3082",
+      "quota": 35
+    },
+    {
+      "courseCode": "YDA1001",
+      "quota": 35
+    },
+    {
+      "courseCode": "YDA1002",
+      "quota": 35
+    },
+    {
+      "courseCode": "YDA1003",
+      "quota": 35
+    },
+    {
+      "courseCode": "YDA2001",
+      "quota": 35
+    },
+    {
+      "courseCode": "YDF1001",
+      "quota": 35
+    },
+    {
+      "courseCode": "YDF1002",
+      "quota": 35
+    },
+    {
+      "courseCode": "YDI1004",
+      "quota": 35
+    },
+    {
+      "courseCode": "YDIS1001",
+      "quota": 35
+    },
+    {
+      "courseCode": "YDIS1002",
+      "quota": 35
+    }
+  ],
+
+  "technicalRequiredCredits": 155,
+  "technicalSemesters": [7, 8, 8, 8],
+  "technicalCredits": 5,
+  "technicalTheoretical": 3,
+  "technicalPractical": 0,
+  "technicalElectiveCourses":
+  [
+    {
+      "courseCode": "CSE4026",
+      "preRequisites": [""],
+      "quota": 40
+    },
+    {
+      "courseCode": "CSE4032",
+      "preRequisites": [""],
+      "quota": 40
+    },
+    {
+      "courseCode": "CSE4034",
+      "preRequisites": ["CSE3033"],
+      "quota": 40
+    },
+    {
+      "courseCode": "CSE4038",
+      "preRequisites": [""],
+      "quota": 40
+    },
+    {
+      "courseCode": "CSE4040",
+      "preRequisites": [""],
+      "quota": 40
+    },
+    {
+      "courseCode": "CSE4044",
+      "preRequisites": [""],
+      "quota": 40
+    },
+    {
+      "courseCode": "CSE4053",
+      "preRequisites": [""],
+      "quota": 40
+    },
+    {
+      "courseCode": "CSE4056",
+      "preRequisites": [""],
+      "quota": 40
+    },
+    {
+      "courseCode": "CSE4057",
+      "preRequisites": [""],
+      "quota": 40
+    },
+    {
+      "courseCode": "CSE4058",
+      "preRequisites": [""],
+      "quota": 40
+    },
+    {
+      "courseCode": "CSE4059",
+      "preRequisites": [""],
+      "quota": 40
+    },
+    {
+      "courseCode": "CSE4061",
+      "preRequisites": [""],
+      "quota": 40
+    },
+    {
+      "courseCode": "CSE4062",
+      "preRequisites": [""],
+      "quota": 40
+    },
+    {
+      "courseCode": "CSE4063",
+      "preRequisites": [""],
+      "quota": 40
+    },
+    {
+      "courseCode": "CSE4065",
+      "preRequisites": [""],
+      "quota": 40
+    },
+    {
+      "courseCode": "CSE4066",
+      "preRequisites": [""],
+      "quota": 40
+    },
+    {
+      "courseCode": "CSE4067",
+      "preRequisites": [""],
+      "quota": 40
+    },
+    {
+      "courseCode": "CSE4070",
+      "preRequisites": [""],
+      "quota": 40
+    },
+    {
+      "courseCode": "CSE4075",
+      "preRequisites": ["CSE4074"],
+      "quota": 40
+    },
+    {
+      "courseCode": "CSE4082",
+      "preRequisites": [""],
+      "quota": 40
+    },
+    {
+      "courseCode": "CSE4083",
+      "preRequisites": [""],
+      "quota": 40
+    },
+    {
+      "courseCode": "CSE4084",
+      "preRequisites": [""],
+      "quota": 40
+    },
+    {
+      "courseCode": "CSE4085",
+      "preRequisites": [""],
+      "quota": 40
+    },
+    {
+      "courseCode": "CSE4086",
+      "preRequisites": [""],
+      "quota": 40
+    },
+    {
+      "courseCode": "CSE4217",
+      "preRequisites": ["CSE3038"],
+      "quota": 40
+    },
+    {
+      "courseCode": "CSE4093",
+      "preRequisites": [""],
+      "quota": 40
+    },
+    {
+      "courseCode": "CSE4094",
+      "preRequisites": [""],
+      "quota": 40
+    },
+    {
+      "courseCode": "CSE4095",
+      "preRequisites": [""],
+      "quota": 40
+    },
+    {
+      "courseCode": "CSE4096",
+      "preRequisites": [""],
+      "quota": 40
+    }
+  ],
+
+  "facultyTechnicalSemesters": [8],
+  "facultyTechnicalCredits": 5,
+  "facultyTechnicalTheoretical": 3,
+  "facultyTechnicalPractical": 0,
+  "facultyTechnicalElectiveCourses":
+  [
+    {
+      "courseCode": "BIOE4072",
+      "quota": 42
+    },
+    {
+      "courseCode": "CHE4060",
+      "quota": 42
+    },
+    {
+      "courseCode": "CHE4068",
+      "quota": 42
+    },
+    {
+      "courseCode": "CHE4080",
+      "quota": 42
+    },
+    {
+      "courseCode": "CSE4044",
+      "quota": 42
+    },
+    {
+      "courseCode": "CSE4056",
+      "quota": 42
+    },
+    {
+      "courseCode": "EE4056",
+      "quota": 42
+    },
+    {
+      "courseCode": "EE4062",
+      "quota": 42
+    },
+    {
+      "courseCode": "ENVE4062",
+      "quota": 42
+    },
+    {
+      "courseCode": "ENVE4063",
+      "quota": 42
+    },
+    {
+      "courseCode": "IE4055",
+      "quota": 42
+    },
+    {
+      "courseCode": "IE4087",
+      "quota": 42
+    },
+    {
+      "courseCode": "ME3004",
+      "quota": 42
+    },
+    {
+      "courseCode": "ME3022",
+      "quota": 42
+    },
+    {
+      "courseCode": "ME4018",
+      "quota": 42
+    },
+    {
+      "courseCode": "ME4022",
+      "quota": 42
+    },
+    {
+      "courseCode": "ME4033",
+      "quota": 42
+    },
+    {
+      "courseCode": "ME4051",
+      "quota": 42
+    },
+    {
+      "courseCode": "MGT4076",
+      "quota": 42
+    },
+    {
+      "courseCode": "MGT4082",
+      "quota": 42
+    },
+    {
+      "courseCode": "MGT4084",
+      "quota": 42
+    },
+    {
+      "courseCode": "MGT4086",
+      "quota": 42
+    },
+    {
+      "courseCode": "MGT4088",
+      "quota": 42
+    },
+    {
+      "courseCode": "MSE4073",
+      "quota": 42
+    },
+    {
+      "courseCode": "MSE4074",
+      "quota": 42
+    }
+  ]
+}
+

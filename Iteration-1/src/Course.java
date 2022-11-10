@@ -2,27 +2,95 @@ import java.util.ArrayList;
 
 public class Course {
 	private String courseCode;
-	private String courseName;
 	private int courseCredit;
-	private String semester;
+	private int semester;
 	private int quota;
-	private ArrayList<Course> prerequisites;
-	private ArrayList<Student> students;
+	private ArrayList<Course> prerequisites = new ArrayList<Course>();
+	private ArrayList<Student> students = new ArrayList<Student>();
 	private Schedule courseSchedule;
-	private int studentsFailedPreq;
-	private int studentsQuotaProblem;
-	private int studentsFailedCredits;
-	private int studentsCollisionProblem;
+	private int minCredit = 0;
+	private int failedPreq = 0;
+	private int quotaProblem = 0;
+	private int failedCredits = 0;
+	private int collisionProblem = 0;
 
-	public Course(String courseCode, String courseName, int courseCredit, String semester, int quota,
+	public Course(String courseCode, int courseCredit, int semester, int quota,
 			Schedule courseSchedule) {
 
 		this.courseCode = courseCode;
-		this.courseName = courseName;
 		this.courseCredit = courseCredit;
 		this.semester = semester;
 		this.quota = quota;
 		this.courseSchedule = courseSchedule;
 
 	}
+
+	public void registerStudent(Student student) {
+		students.add(student);
+	}
+
+	public void addPrerequisite(Course course) {
+		prerequisites.add(course);
+	}
+
+	public int getStudentNumber() {
+		return students.size();
+	}
+
+	public int getCourseCredit() {
+		return this.courseCredit;
+	}
+
+	public void setCourseCredit(int courseCredit) {
+		this.courseCredit = courseCredit;
+	}
+
+	public int getQuota() {
+		return this.quota;
+	}
+
+	public void setQuota(int quota) {
+		this.quota = quota;
+	}
+
+	public int getFailedPreq() {
+		return this.failedPreq;
+	}
+
+	public void setFailedPreq(int failedPreq) {
+		this.failedPreq = failedPreq;
+	}
+
+	public int getQuotaProblem() {
+		return this.quotaProblem;
+	}
+
+	public void setQuotaProblem(int quotaProblem) {
+		this.quotaProblem = quotaProblem;
+	}
+
+	public int getFailedCredits() {
+		return this.failedCredits;
+	}
+
+	public void setFailedCredits(int failedCredits) {
+		this.failedCredits = failedCredits;
+	}
+
+	public int getCollisionProblem() {
+		return this.collisionProblem;
+	}
+
+	public void setCollisionProblem(int collisionProblem) {
+		this.collisionProblem = collisionProblem;
+	}
+
+	public int getMinCredit() {
+		return this.minCredit;
+	}
+
+	public void setMinCredit(int minCredit) {
+		this.minCredit = minCredit;
+	}
+
 }

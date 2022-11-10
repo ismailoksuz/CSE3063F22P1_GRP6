@@ -1,24 +1,26 @@
 import java.util.ArrayList;
 
-public class Student {
+public class Student extends Person {
     private StudentId studentId;
     private Transcript transcript;
     private Advisor advisor;
     private ArrayList<Course> requestedCourses;
-    private ArrayList<Course> takenCourses;
     private int registrationYear;
+    private int order;
     private int currentYear;
-    private int semester;
+    private int semesterNumber;
 
-    public Student() {
+    public Student(String firstName, String lastName) {
+        super(firstName, lastName);
+        this.transcript = new Transcript();
+        this.studentId = new StudentId(registrationYear, order);
     }
 
-    public void addCourse() {
+    public ArrayList<Course> sendRequest() {
+        return requestedCourses;
     }
 
-    public void dropCourse() {
-    }
-
-    public void sendRequest() {
+    public Transcript getTranscript() {
+        return this.transcript;
     }
 }
