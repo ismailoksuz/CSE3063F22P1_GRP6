@@ -1,4 +1,5 @@
 public class RegistrationSystem {
+
     private ArrayList<Student> students;
     private ArrayList<Course> courses;
     private int quota = 10;
@@ -8,6 +9,7 @@ public class RegistrationSystem {
 
     public RegistrationSystem() {
 
+    public RegistrationSystem(Student student, Course course) {
     }
 
     public void getCourses() {
@@ -16,4 +18,9 @@ public class RegistrationSystem {
 
     }
 
+    public void failRandomCourses() {
+    }
+
+    public void storeStudents() {
+    }
 }
