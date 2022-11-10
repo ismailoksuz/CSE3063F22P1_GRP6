@@ -15,13 +15,14 @@ public class Course {
 	private int collisionProblem = 0;
 
 	public Course(String courseCode, int courseCredit, int semester, int quota,
-			Schedule courseSchedule) {
+			ArrayList<Course> prerequisites/* ,
+											Schedule courseSchedule */) {
 
 		this.courseCode = courseCode;
 		this.courseCredit = courseCredit;
 		this.semester = semester;
 		this.quota = quota;
-		this.courseSchedule = courseSchedule;
+		//this.courseSchedule = courseSchedule;
 	}
 
 	public void registerStudent(Student student) {

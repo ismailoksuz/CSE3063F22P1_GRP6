@@ -1,15 +1,6 @@
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStream;
-
 public class App {
-    public static void main(String[] args) throws Exception {
 
-        /* JSONObject input = (JSONObject) new JSONParser().parse(new FileReader("input.json"));
-        JSONArray courseArray = (JSONArray) input.get("MandatoryCourses");
-        
-        Iterator<JSONObject> iterator = courseArray.iterator();
-        while (iterator.hasNext()) {
-        System.out.println(iterator.next()); */
+    public static void main(String[] args) throws Exception {
+        RegistrationSystem rs = new RegistrationSystem();
     }
 }

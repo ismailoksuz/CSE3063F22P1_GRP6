@@ -1,4 +1,13 @@
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Iterator;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 public class RegistrationSystem {
 
@@ -7,10 +16,51 @@ public class RegistrationSystem {
     private ArrayList<Advisor> advisors;
 
     public RegistrationSystem() {
+        try {
+            addMandatoryCourses();
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (ParseException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
 
-    public void addMandatoryCourses() {
-        //input.jsondan çek
+    public Course findCourse(String courseCode) {
+        for (Course c : courses) {
+            if (c.getCourseCode().equals(courseCode)) {
+                return c;
+            }
+        }
+        return null;
+    }
+
+    public void addMandatoryCourses() throws FileNotFoundException, IOException, ParseException {
+        //çalışmıyor
+        JSONParser parser = new JSONParser();
+        JSONObject input = (JSONObject) parser.parse(new FileReader("input.json"));
+        JSONArray inputCourses = (JSONArray) input.get("MandatoryCourses");
+
+        for (Object c : inputCourses) { //Read mandatory courses and initialize
+            JSONObject course = (JSONObject) c;
+            String courseCode = (String) course.get("courseCode");
+            int courseSemester = ((Number) course.get("semester")).intValue();
+            int credits = (int) (long) course.get("credits");
+            int quota = (int) (long) course.get("quota");
+            ArrayList<Course> preRequisiteCourses = new ArrayList<>();
+            JSONArray preRequisites = (JSONArray) course.get("preRequisites");
+            for (Object p : preRequisites) {
+                preRequisiteCourses.add(findCourse((String) p));
+            }
+
+            Course newCourse = new Course(courseCode, credits, courseSemester, quota, preRequisiteCourses);
+            courses.add(newCourse);
+        }
+
     }
 
     public void failRandomCourses() {
