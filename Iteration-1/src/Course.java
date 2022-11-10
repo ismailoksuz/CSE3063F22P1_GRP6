@@ -22,7 +22,6 @@ public class Course {
 		this.semester = semester;
 		this.quota = quota;
 		this.courseSchedule = courseSchedule;
-
 	}
 
 	public void registerStudent(Student student) {
@@ -91,6 +90,46 @@ public class Course {
 
 	public void setMinCredit(int minCredit) {
 		this.minCredit = minCredit;
+	}
+
+	public String getCourseCode() {
+		return this.courseCode;
+	}
+
+	public void setCourseCode(String courseCode) {
+		this.courseCode = courseCode;
+	}
+
+	public int getSemester() {
+		return this.semester;
+	}
+
+	public void setSemester(int semester) {
+		this.semester = semester;
+	}
+
+	public ArrayList<Course> getPrerequisites() {
+		return this.prerequisites;
+	}
+
+	public void setPrerequisites(ArrayList<Course> prerequisites) {
+		this.prerequisites = prerequisites;
+	}
+
+	public ArrayList<Student> getStudents() {
+		return this.students;
+	}
+
+	public void setStudents(ArrayList<Student> students) {
+		this.students = students;
+	}
+
+	public Schedule getCourseSchedule() {
+		return this.courseSchedule;
+	}
+
+	public void setCourseSchedule(Schedule courseSchedule) {
+		this.courseSchedule = courseSchedule;
 	}
 
 }

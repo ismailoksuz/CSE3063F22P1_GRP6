@@ -23,4 +23,65 @@ public class Student extends Person {
     public Transcript getTranscript() {
         return this.transcript;
     }
+
+    public StudentId getStudentId() {
+        return this.studentId;
+    }
+
+    public void setStudentId(StudentId studentId) {
+        this.studentId = studentId;
+    }
+
+    public void setTranscript(Transcript transcript) {
+        this.transcript = transcript;
+    }
+
+    public Advisor getAdvisor() {
+        return this.advisor;
+    }
+
+    public void setAdvisor(Advisor advisor) {
+        this.advisor = advisor;
+    }
+
+    public ArrayList<Course> getRequestedCourses() {
+        return this.requestedCourses;
+    }
+
+    public void setRequestedCourses(ArrayList<Course> requestedCourses) {
+        this.requestedCourses = requestedCourses;
+    }
+
+    public int getRegistrationYear() {
+        return this.registrationYear;
+    }
+
+    public void setRegistrationYear(int registrationYear) {
+        this.registrationYear = registrationYear;
+    }
+
+    public int getOrder() {
+        return this.order;
+    }
+
+    public void setOrder(int order) {
+        this.order = order;
+    }
+
+    public int getCurrentYear() {
+        return this.currentYear;
+    }
+
+    public void setCurrentYear(int currentYear) {
+        this.currentYear = currentYear;
+    }
+
+    public int getSemesterNumber() {
+        return this.semesterNumber;
+    }
+
+    public void setSemesterNumber(int semesterNumber) {
+        this.semesterNumber = semesterNumber;
+    }
+
 }
