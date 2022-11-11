@@ -10,7 +10,7 @@ public class Student extends Person {
     private int currentYear;
     private int semesterNumber;
 
-    public Student(String firstName, String lastName) {
+    public Student(String firstName, String lastName, int registrationYear, int order) {
         super(firstName, lastName);
         this.transcript = new Transcript();
         this.studentId = new StudentId(registrationYear, order);
