@@ -45,8 +45,6 @@ public abstract class Course {
 		System.out.println("Quota is full for " + this.courseCode + "(" + this.courseName + ")");
 		return false;
 	}
-	
-	
 
 	public String getCourseCode() {
 		return courseCode;
