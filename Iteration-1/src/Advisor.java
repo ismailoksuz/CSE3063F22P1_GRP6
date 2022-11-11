@@ -1,11 +1,12 @@
 import java.util.ArrayList;
 
-public class Advisor extends Person {
+public class Advisor extends Instructor {
 
-    private ArrayList<Student> students = new ArrayList<Student>();
+    private ArrayList<Student> students;
 
     public Advisor(String firstName, String lastName) {
         super(firstName, lastName);
+        this.students = new ArrayList<Student>();
     }
 
     public boolean addStudent(Student student) {
