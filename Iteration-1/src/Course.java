@@ -14,9 +14,8 @@ public class Course {
 	private int failedCredits = 0;
 	private int collisionProblem = 0;
 
-	public Course(String courseCode, int courseCredit, int semester, int quota,
-			ArrayList<Course> prerequisites/* ,
-											Schedule courseSchedule */) {
+	public Course(String courseCode, int courseCredit, int semester, int quota, ArrayList<Course> prerequisites,
+			Schedule courseSchedule) {
 
 		this.courseCode = courseCode;
 		this.courseCredit = courseCredit;
@@ -133,4 +132,7 @@ public class Course {
 		this.courseSchedule = courseSchedule;
 	}
 
+	public String toString() {
+		return getCourseCode() + " - " + getCourseCredit() + " - " + getSemester() + " - " + getQuota();
+	}
 }

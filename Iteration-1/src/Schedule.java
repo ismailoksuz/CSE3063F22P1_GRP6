@@ -1,23 +1,23 @@
 public class Schedule {
-    private Day courseDay;
+    private int courseDay;
     private String courseHour;
 
     public enum Day {
         MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY
     }
 
-    public Schedule(Day courseDay, String courseHour) {
+    public Schedule(int courseDay, String courseHour) {
         this.courseDay = courseDay;
         this.courseHour = courseHour;
     }
 
-    public Day getCourseDay() {
+    /* public Day getCourseDay() {
         return this.courseDay;
-    }
+    } */
 
-    public void setCourseDay(Day courseDay) {
+    /* public void setCourseDay(Day courseDay) {
         this.courseDay = courseDay;
-    }
+    } */
 
     public String getCourseHour() {
         return this.courseHour;

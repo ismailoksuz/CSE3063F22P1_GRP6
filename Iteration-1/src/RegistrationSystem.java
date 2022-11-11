@@ -29,10 +29,10 @@ public class RegistrationSystem {
 
     public void addMandatoryCourses() throws FileNotFoundException, IOException, ParseException {
         //çalışmıyor
-        JSONParser parser = new JSONParser();
+        /* JSONParser parser = new JSONParser();
         JSONObject input = (JSONObject) parser.parse(new FileReader("input.json"));
         JSONArray inputCourses = (JSONArray) input.get("MandatoryCourses");
-
+        
         for (Object c : inputCourses) { //Read mandatory courses and initialize
             JSONObject course = (JSONObject) c;
             String courseCode = (String) course.get("courseCode");
@@ -44,10 +44,10 @@ public class RegistrationSystem {
             for (Object p : preRequisites) {
                 preRequisiteCourses.add(findCourse((String) p));
             }
-
+        
             Course newCourse = new Course(courseCode, credits, courseSemester, quota, preRequisiteCourses);
             courses.add(newCourse);
-        }
+        } */
 
     }
 
