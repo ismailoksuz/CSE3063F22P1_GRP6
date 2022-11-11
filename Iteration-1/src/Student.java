@@ -12,6 +12,8 @@ public class Student extends Person {
 
     public Student(String firstName, String lastName, int registrationYear, int order) {
         super(firstName, lastName);
+        this.registrationYear = registrationYear;
+        this.order = order;
         this.transcript = new Transcript();
         this.studentId = new StudentId(registrationYear, order);
     }
@@ -84,4 +86,8 @@ public class Student extends Person {
         this.semesterNumber = semesterNumber;
     }
 
+    public String toString() {
+        return getFirstName() + " - " + getLastName() + " - " + getRegistrationYear() + " - " + getOrder() + " - "
+                + getStudentId().toString();
+    }
 }

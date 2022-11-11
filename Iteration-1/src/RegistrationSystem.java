@@ -2,7 +2,6 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Iterator;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -15,19 +14,8 @@ public class RegistrationSystem {
     private ArrayList<Course> courses;
     private ArrayList<Advisor> advisors;
 
-    public RegistrationSystem() {
-        try {
-            addMandatoryCourses();
-        } catch (FileNotFoundException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        } catch (ParseException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+    public RegistrationSystem() throws Exception {
+        createStudents();
     }
 
     public Course findCourse(String courseCode) {
@@ -61,6 +49,23 @@ public class RegistrationSystem {
             courses.add(newCourse);
         }
 
+    }
+
+    public void createStudents() throws Exception {
+        JSONParser parser = new JSONParser();
+        JSONObject input = (JSONObject) parser.parse(new FileReader("Iteration-1\\src\\students.json"));
+        JSONArray students = (JSONArray) input.get("students");
+
+        for (Object s : students) {
+            JSONObject student = (JSONObject) s;
+            String firstName = (String) student.get("firstName");
+            String lastName = (String) student.get("lastName");
+            int registrationYear = (int) (long) student.get("registrationYear");
+            int order = (int) (long) student.get("order");
+
+            Student newStudent = new Student(firstName, lastName, registrationYear, order);
+            System.out.println(newStudent.toString());
+        }
     }
 
     public void failRandomCourses() {

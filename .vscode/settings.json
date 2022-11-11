@@ -2,6 +2,9 @@
   "java.project.referencedLibraries": [
     "lib/**/*.jar",
     "Iteration-1/src/json-simple-1.1.jar",
-    "Iteration-1/src/json_simple-1.1.jar"
-  ]
+    "Iteration-1/src/json-simple-1.1.1.jar",
+    "json-simple-1.1.1.jar"
+  ],
+  "java.project.outputPath": "Iteration-1\\src",
+  "java.project.sourcePaths": ["Iteration-1/src"]
 }

@@ -14,14 +14,14 @@ public abstract class Person {
     public String generateEmail() {
         String userName = getFirstName() + getLastName();
         userName = userName.toLowerCase();
-        userName = userName.replace('ç', 'c');
+        /* userName = userName.replace('ç', 'c');
         userName = userName.replace('ğ', 'g');
         userName = userName.replace('ı', 'i');
         userName = userName.replace('ö', 'o');
         userName = userName.replace('ş', 's');
         userName = userName.replace('ü', 'u');
         userName = userName.replace('ğ', 'g');
-        userName = userName.replace('ğ', 'g');
+        userName = userName.replace('ğ', 'g'); */
 
         return userName + "@marun.edu.tr";
     }
