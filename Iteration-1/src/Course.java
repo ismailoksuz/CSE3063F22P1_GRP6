@@ -9,7 +9,7 @@ public abstract class Course {
 	private int section;
 	private ArrayList<Course> prerequisites;
 	private Instructor courseInstructor;
-	private ArrayList<Student> students;
+	private ArrayList<Student> studentsEnrolledCourse;
 	private Schedule courseSchedule;
 	private ArrayList<Student> studentsFailedPreq;
 	private ArrayList<Student> studentsFailedCredits;
@@ -28,13 +28,25 @@ public abstract class Course {
 		this.section = section;
 		this.prerequisites = prerequisites;
 		this.courseInstructor = courseInstructor;
+		this.studentsEnrolledCourse = new ArrayList<Student>();
 		this.courseSchedule = courseSchedule;
-		this.studentsFailedPreq = new ArrayList<Course>();
-		this.studentsFailedCredits = new ArrayList<Course>();
-		this.studentsQuotaProblem = new ArrayList<Course>();
-		this.studentsCollisionProblem = new ArrayList<Course>();
+		this.studentsFailedPreq = new ArrayList<Student>();
+		this.studentsFailedCredits = new ArrayList<Student>();
+		this.studentsQuotaProblem = new ArrayList<Student>();
+		this.studentsCollisionProblem = new ArrayList<Student>();
 
 	}
+	
+	public boolean checkQuotaForRegistration() {
+		System.out.println("Checking course quota for registration...");
+		if(this.studentsEnrolledCourse.size() < this.quota) {
+			return true;
+		}
+		System.out.println("Quota is full for " + this.courseCode + "(" + this.courseName + ")");
+		return false;
+	}
+	
+	
 
 	public String getCourseCode() {
 		return courseCode;
@@ -84,12 +96,12 @@ public abstract class Course {
 		this.section = section;
 	}
 
-	public ArrayList<Course> getPrequisties() {
-		return prequisties;
+	public ArrayList<Course> getPrerequisites() {
+		return prerequisites;
 	}
 
-	public void setPrequisties(ArrayList<Course> prequisties) {
-		this.prequisties = prequisties;
+	public void setPrerequisites(ArrayList<Course> prerequisites) {
+		this.prerequisites = prerequisites;
 	}
 
 	public Instructor getCourseInstructor() {
@@ -100,12 +112,12 @@ public abstract class Course {
 		this.courseInstructor = courseInstructor;
 	}
 
-	public ArrayList<Student> getStudents() {
-		return students;
+	public ArrayList<Student> getStudentsEnrolledCourse() {
+		return studentsEnrolledCourse;
 	}
 
-	public void setStudents(ArrayList<Student> students) {
-		this.students = students;
+	public void setStudentsEnrolledCourse(ArrayList<Student> studentsEnrolledCourse) {
+		this.studentsEnrolledCourse = studentsEnrolledCourse;
 	}
 
 	public Schedule getCourseSchedule() {
