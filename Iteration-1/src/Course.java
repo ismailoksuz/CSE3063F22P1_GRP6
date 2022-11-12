@@ -41,6 +41,17 @@ public class Course {
 		System.out.println("Quota is full for " + this.courseCode + "(" + this.courseName + ")");
 		return false;
 	}
+	
+	public boolean checkPrerequistiesOfStudentForRegistration(Student student) {
+		System.out.println("Checking prerequisties courses of " + student.getStudentId().toString() + " for registration...");
+		for(Course course : this.prerequisites) {
+			if(student.getTranscript().getFailedCourses().contains(course)) {
+				System.out.println("Student Id of" + student.getStudentId().toString() + " can not enroll " + this.getCourseCode() + " course.");
+				return false;
+			}
+		}	
+		return true;
+	}
 
 	public String getCourseCode() {
 		return courseCode;
