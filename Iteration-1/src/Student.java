@@ -87,7 +87,9 @@ public class Student extends Person {
     }
 
     public String toString() {
-        return getFirstName() + " - " + getLastName() + " - " + getRegistrationYear() + " - " + getOrder() + " - "
+        return "FirstName: " + getFirstName() + " LastName: " + getLastName() + " RegistrationYear: "
+                + getRegistrationYear() + " Order: "
+                + getOrder() + " StudentId: "
                 + getStudentId().toString();
     }
 }

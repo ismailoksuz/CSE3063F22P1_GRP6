@@ -21,7 +21,7 @@ public class Course {
 		this.courseCredit = courseCredit;
 		this.semester = semester;
 		this.quota = quota;
-		//this.courseSchedule = courseSchedule;
+		this.courseSchedule = courseSchedule;
 	}
 
 	public void registerStudent(Student student) {
@@ -133,6 +133,9 @@ public class Course {
 	}
 
 	public String toString() {
-		return getCourseCode() + " - " + getCourseCredit() + " - " + getSemester() + " - " + getQuota();
+		return "CourseCode: " + getCourseCode() + "  CourseCredit: " + getCourseCredit() + " Semester: "
+				+ getSemester() + " Quota: "
+				+ getQuota() + " Schedule: "
+				+ getCourseSchedule().toString();
 	}
 }

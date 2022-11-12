@@ -6,49 +6,41 @@ import java.util.ArrayList;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
 
 public class RegistrationSystem {
 
-    private ArrayList<Student> students;
-    private ArrayList<Course> courses;
-    private ArrayList<Advisor> advisors;
+    private ArrayList<Student> studentsList;
+    private ArrayList<Course> coursesList;
+    private ArrayList<Advisor> advisorsList;
 
     public RegistrationSystem() throws Exception {
+        studentsList = new ArrayList<Student>();
+        coursesList = new ArrayList<Course>();
+        advisorsList = new ArrayList<Advisor>();
         createStudents();
+        createCourses();
     }
 
-    public Course findCourse(String courseCode) {
-        for (Course c : courses) {
-            if (c.getCourseCode().equals(courseCode)) {
-                return c;
-            }
-        }
-        return null;
-    }
+    public void createCourses() throws Exception {
+        JSONParser parser = new JSONParser();
+        JSONObject input = (JSONObject) parser.parse(new FileReader("Iteration-1\\src\\courses.json"));
+        JSONArray inputCourses = (JSONArray) input.get("courses");
 
-    public void addMandatoryCourses() throws FileNotFoundException, IOException, ParseException {
-        //çalışmıyor
-        /* JSONParser parser = new JSONParser();
-        JSONObject input = (JSONObject) parser.parse(new FileReader("input.json"));
-        JSONArray inputCourses = (JSONArray) input.get("MandatoryCourses");
-        
-        for (Object c : inputCourses) { //Read mandatory courses and initialize
+        for (Object c : inputCourses) {
             JSONObject course = (JSONObject) c;
             String courseCode = (String) course.get("courseCode");
-            int courseSemester = ((Number) course.get("semester")).intValue();
+            int courseSemester = (int) (long) course.get("semester");
             int credits = (int) (long) course.get("credits");
             int quota = (int) (long) course.get("quota");
+            int courseDay = (int) (long) course.get("courseDay");
+            String courseHour = (String) course.get("courseHour");
             ArrayList<Course> preRequisiteCourses = new ArrayList<>();
-            JSONArray preRequisites = (JSONArray) course.get("preRequisites");
-            for (Object p : preRequisites) {
-                preRequisiteCourses.add(findCourse((String) p));
-            }
-        
-            Course newCourse = new Course(courseCode, credits, courseSemester, quota, preRequisiteCourses);
-            courses.add(newCourse);
-        } */
 
+            Course newCourse = new Course(courseCode, credits, courseSemester, quota, preRequisiteCourses,
+                    new Schedule(courseDay, courseHour));
+            System.out.println(newCourse.toString());
+            coursesList.add(newCourse);
+        }
     }
 
     public void createStudents() throws Exception {
@@ -65,6 +57,8 @@ public class RegistrationSystem {
 
             Student newStudent = new Student(firstName, lastName, registrationYear, order);
             System.out.println(newStudent.toString());
+            studentsList.add(newStudent);
+
         }
     }
 
@@ -74,27 +68,27 @@ public class RegistrationSystem {
     public void storeStudents() {
     }
 
-    public ArrayList<Student> getStudents() {
-        return this.students;
+    public ArrayList<Student> getStudentsList() {
+        return this.studentsList;
     }
 
-    public void setStudents(ArrayList<Student> students) {
-        this.students = students;
+    public void setStudentsList(ArrayList<Student> studentsList) {
+        this.studentsList = studentsList;
     }
 
-    public ArrayList<Course> getCourses() {
-        return this.courses;
+    public ArrayList<Course> getCoursesList() {
+        return this.coursesList;
     }
 
-    public void setCourses(ArrayList<Course> courses) {
-        this.courses = courses;
+    public void setCoursesList(ArrayList<Course> coursesList) {
+        this.coursesList = coursesList;
     }
 
-    public ArrayList<Advisor> getAdvisors() {
-        return this.advisors;
+    public ArrayList<Advisor> getAdvisorsList() {
+        return this.advisorsList;
     }
 
-    public void setAdvisors(ArrayList<Advisor> advisors) {
-        this.advisors = advisors;
+    public void setAdvisorsList(ArrayList<Advisor> advisorsList) {
+        this.advisorsList = advisorsList;
     }
 }
