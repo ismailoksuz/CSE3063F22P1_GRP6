@@ -11,11 +11,11 @@ public class Transcript {
     private ArrayList<Course> completedCourses;
     private ArrayList<Course> failedCourses;
 
-
     public Transcript() {
     }
 
     public Transcript(double gpa, int creditCompleted, int creditTaken, HashMap<Course, String> takenCouerses,
+
                       ArrayList<Course> completedCourses, ArrayList<Course> failedCourses){
         this.gpa = gpa;
         this.creditCompleted = creditCompleted;
@@ -171,4 +171,3 @@ public class Transcript {
         this.failedCourses = failedCourses;
     }
 }
-

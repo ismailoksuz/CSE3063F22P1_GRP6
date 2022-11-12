@@ -1,0 +1,34 @@
+{
+  "students": [
+    {
+      "firstName": "Arda",
+      "lastName": "Guler",
+      "registrationYear": 2019,
+      "order": 1
+    },
+    {
+      "firstName": "Arda",
+      "lastName": "Turan",
+      "registrationYear": 2019,
+      "order": 2
+    },
+    {
+      "firstName": "Yusuf",
+      "lastName": "Demir",
+      "registrationYear": 2019,
+      "order": 3
+    },
+    {
+      "firstName": "Ozan",
+      "lastName": "Kabak",
+      "registrationYear": 2019,
+      "order": 4
+    },
+    {
+      "firstName": "Emre",
+      "lastName": "Demir",
+      "registrationYear": 2019,
+      "order": 5
+    }
+  ]
+}

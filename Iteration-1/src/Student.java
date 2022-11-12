@@ -1,24 +1,95 @@
 import java.util.ArrayList;
 
-public class Student {
-    private StudentID studentID;
-    // private Transcript transcript;
-    // private Advisor advisor;
-    // private ArrayList<Course> requestedCourses;
-    // private ArrayList<Course> takenCourses;
+public class Student extends Person {
+    private StudentId studentId;
+    private Transcript transcript;
+    private Advisor advisor;
+    private ArrayList<Course> requestedCourses;
     private int registrationYear;
+    private int order;
     private int currentYear;
-    private int semester;
+    private int semesterNumber;
 
-    public Student() {
+    public Student(String firstName, String lastName, int registrationYear, int order) {
+        super(firstName, lastName);
+        this.registrationYear = registrationYear;
+        this.order = order;
+        this.transcript = new Transcript();
+        this.studentId = new StudentId(registrationYear, order);
     }
 
-    public void addCourse() {
+    public ArrayList<Course> sendRequest() {
+        return requestedCourses;
     }
 
-    public void dropCourse() {
+    public Transcript getTranscript() {
+        return this.transcript;
     }
 
-    public void sendRequest() {
+    public StudentId getStudentId() {
+        return this.studentId;
+    }
+
+    public void setStudentId(StudentId studentId) {
+        this.studentId = studentId;
+    }
+
+    public void setTranscript(Transcript transcript) {
+        this.transcript = transcript;
+    }
+
+    public Advisor getAdvisor() {
+        return this.advisor;
+    }
+
+    public void setAdvisor(Advisor advisor) {
+        this.advisor = advisor;
+    }
+
+    public ArrayList<Course> getRequestedCourses() {
+        return this.requestedCourses;
+    }
+
+    public void setRequestedCourses(ArrayList<Course> requestedCourses) {
+        this.requestedCourses = requestedCourses;
+    }
+
+    public int getRegistrationYear() {
+        return this.registrationYear;
+    }
+
+    public void setRegistrationYear(int registrationYear) {
+        this.registrationYear = registrationYear;
+    }
+
+    public int getOrder() {
+        return this.order;
+    }
+
+    public void setOrder(int order) {
+        this.order = order;
+    }
+
+    public int getCurrentYear() {
+        return this.currentYear;
+    }
+
+    public void setCurrentYear(int currentYear) {
+        this.currentYear = currentYear;
+    }
+
+    public int getSemesterNumber() {
+        return this.semesterNumber;
+    }
+
+    public void setSemesterNumber(int semesterNumber) {
+        this.semesterNumber = semesterNumber;
+    }
+
+    public String toString() {
+        return "FirstName: " + getFirstName() + " LastName: " + getLastName() + " RegistrationYear: "
+                + getRegistrationYear() + " Order: "
+                + getOrder() + " StudentId: "
+                + getStudentId().toString();
     }
 }

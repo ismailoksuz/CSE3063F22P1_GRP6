@@ -1,10 +1,10 @@
 import java.util.ArrayList;
 
-public abstract class Course {
+public class Course {
 	private String courseCode;
 	private String courseName;
 	private int courseCredit;
-	private String semester;
+	private int semester;
 	private int quota;
 	private int section;
 	private ArrayList<Course> prerequisites;
@@ -16,25 +16,30 @@ public abstract class Course {
 	private ArrayList<Student> studentsQuotaProblem;
 	private ArrayList<Student> studentsCollisionProblem;
 
-	public Course(String courseCode, String courseName, int courseCredit, String semester, int quota, int section,
-			ArrayList<Course> prerequisites, Instructor courseInstructor,
+	public Course(String courseCode, int courseCredit, int semester, int quota,
+			ArrayList<Course> prerequisites,
 			Schedule courseSchedule) {
 
 		this.courseCode = courseCode;
-		this.courseName = courseName;
 		this.courseCredit = courseCredit;
 		this.semester = semester;
 		this.quota = quota;
-		this.section = section;
 		this.prerequisites = prerequisites;
-		this.courseInstructor = courseInstructor;
-		this.studentsEnrolledCourse = new ArrayList<Student>();
 		this.courseSchedule = courseSchedule;
+		this.studentsEnrolledCourse = new ArrayList<Student>();
 		this.studentsFailedPreq = new ArrayList<Student>();
 		this.studentsFailedCredits = new ArrayList<Student>();
 		this.studentsQuotaProblem = new ArrayList<Student>();
 		this.studentsCollisionProblem = new ArrayList<Student>();
+	}
 
+	public boolean checkQuotaForRegistration() {
+		System.out.println("Checking course quota for registration...");
+		if (this.studentsEnrolledCourse.size() < this.quota) {
+			return true;
+		}
+		System.out.println("Quota is full for " + this.courseCode + "(" + this.courseName + ")");
+		return false;
 	}
 	
 	public boolean checkQuotaForRegistration() {
@@ -70,11 +75,11 @@ public abstract class Course {
 		this.courseCredit = courseCredit;
 	}
 
-	public String getSemester() {
+	public int getSemester() {
 		return semester;
 	}
 
-	public void setSemester(String semester) {
+	public void setSemester(int semester) {
 		this.semester = semester;
 	}
 
@@ -158,4 +163,10 @@ public abstract class Course {
 		this.studentsCollisionProblem = studentsCollisionProblem;
 	}
 
+	public String toString() {
+		return "CourseCode: " + getCourseCode() + "  CourseCredit: " + getCourseCredit() + " Semester: "
+				+ getSemester() + " Quota: "
+				+ getQuota() + " Schedule: "
+				+ getCourseSchedule().toString();
+	}
 }

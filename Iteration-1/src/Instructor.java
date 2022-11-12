@@ -45,7 +45,6 @@ public class Instructor extends Person {
         System.out.println("Instructor schedule set");
     }
 
-
     public void giveCourse(Course course) {
         this.addGivenCourse(course);
         //course.setInstructor(this);
