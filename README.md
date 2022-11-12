@@ -9,3 +9,6 @@ https://doodle.com/en/
 
 -Link of our discord server:
 https://discord.gg/fa8y4F65v9
+
+-The website that we use to draw diagrams:
+https://app.diagrams.net/
