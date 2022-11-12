@@ -1,31 +1,135 @@
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Transcript {
-    private int creditCompleted = 0;
-    private int creditTaken = 0;
-    private ArrayList<Course> takenCourses = new ArrayList<>();
-    private ArrayList<Course> completedCourses = new ArrayList<>();
-    private ArrayList<Course> failedCourses = new ArrayList<>();
+    private double cumulativeGpa;
+    private double gpa;
+    private int creditCompleted;
+    private int creditTaken;
+    private HashMap<Course, String> takenCouerses;
+    private ArrayList<Course> completedCourses;
+    private ArrayList<Course> failedCourses;
 
     public Transcript() {
     }
 
-    public void addCompletedCourse(Course course) {
-        completedCourses.add(course);
-        this.creditCompleted += course.getCourseCredit();
+    public Transcript(double gpa, int creditCompleted, int creditTaken, HashMap<Course, String> takenCouerses,
+            ArrayList<Course> completedCourses, ArrayList<Course> failedCourses) {
+        this.gpa = gpa;
+        this.creditCompleted = creditCompleted;
+        this.creditTaken = creditTaken;
+        this.takenCouerses = takenCouerses;
+        this.completedCourses = completedCourses;
+        this.failedCourses = failedCourses;
     }
 
-    public void addTakenCourse(Course course) {
-        takenCourses.add(course);
-        this.creditTaken += course.getCourseCredit();
+    // https://www.marmara.edu.tr/dosya/www/mevzuat/2021/mu_yonerge_basari_degerlendirme_2020_v204.02.2021.pdf?_t=1612473513
+    //https://catalog.arizona.edu/policy/grade-point-average-gpa-calculation-or-averaging-grades
+    public double calculateGpa() {
+        double gradeMultiplication = 0;
+        double totalCredit = 0;
+        double studentGpa = 0;
+
+        for (Map.Entry<Course, String> set : getTakenCouerses().entrySet()) {
+            totalCredit += set.getKey().getCourseCredit();
+            if (set.getValue() == "AA") {
+                gradeMultiplication += set.getKey().getCourseCredit() * 4.0;
+            } else if (set.getValue() == "BA") {
+                gradeMultiplication += set.getKey().getCourseCredit() * 3.5;
+            } else if (set.getValue() == "BB") {
+                gradeMultiplication += set.getKey().getCourseCredit() * 3.0;
+            } else if (set.getValue() == "CB") {
+                gradeMultiplication += set.getKey().getCourseCredit() * 2.5;
+            } else if (set.getValue() == "CC") {
+                gradeMultiplication += set.getKey().getCourseCredit() * 2.0;
+            } else if (set.getValue() == "DC") {
+                gradeMultiplication += set.getKey().getCourseCredit() * 1.5;
+            } else if (set.getValue() == "DD") {
+                gradeMultiplication += set.getKey().getCourseCredit() * 1.0;
+            } else if (set.getValue() == "FD") {
+                gradeMultiplication += set.getKey().getCourseCredit() * 0.5;
+            } else if (set.getValue() == "FF") {
+                gradeMultiplication += set.getKey().getCourseCredit() * 0.0;
+            } else if (set.getValue() == "FG") {
+                gradeMultiplication += set.getKey().getCourseCredit() * 0.0;
+            } else if (set.getValue() == "DZ") {
+                gradeMultiplication += set.getKey().getCourseCredit() * 0.0;
+            }
+        }
+        studentGpa = gradeMultiplication / totalCredit;
+
+        setGpa(studentGpa);
+        return studentGpa;
     }
 
-    public void addFailedCourse(Course course) {
-        failedCourses.add(course);
+    public int calculateComplateCredit() {
+        int complatedCredit = 0;
+        for (Map.Entry<Course, String> set : getTakenCouerses().entrySet()) {
+            if (set.getValue() == "AA" || set.getValue() == "BA" || set.getValue() == "BB" || set.getValue() == "CB"
+                    || set.getValue() == "CC" || set.getValue() == "DC" || set.getValue() == "DD") {
+                complatedCredit = set.getKey().getCourseCredit();
+            }
+        }
+        setCreditCompleted(complatedCredit);
+        return complatedCredit;
+    }
+
+    public int calculateTakenCredit() {
+        int takenCredit = 0;
+        for (Map.Entry<Course, String> set : getTakenCouerses().entrySet()) {
+            takenCredit += set.getKey().getCourseCredit();
+        }
+        setCreditTaken(takenCredit);
+        return takenCredit;
+    }
+
+    public void isCourseComplatedOrFailed() {
+        for (Map.Entry<Course, String> set : getTakenCouerses().entrySet()) {
+            if (set.getValue() == "AA" || set.getValue() == "BA" || set.getValue() == "BB" || set.getValue() == "CB"
+                    || set.getValue() == "CC" || set.getValue() == "DC" || set.getValue() == "DD") {
+                completedCourses.add(set.getKey());
+            } else {
+                failedCourses.add(set.getKey());
+            }
+        }
+    }
+
+    public boolean hasBeenPassedCourse(Course course) {
+        if (course == null) {
+            return true;
+        }
+        return getCompletedCourses().contains(course);
+    }
+
+    public boolean hasBeenPassedCourses(ArrayList<Course> courses) {
+        for (Course course : courses) {
+            if (!hasBeenPassedCourse(course)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    // GETTER & SETTER
+    public double getCumulativeGpa() {
+        return cumulativeGpa;
+    }
+
+    public void setCumulativeGpa(double cumulativeGpa) {
+        this.cumulativeGpa = cumulativeGpa;
+    }
+
+    public double getGpa() {
+        return gpa;
+    }
+
+    public void setGpa(double gpa) {
+        this.gpa = gpa;
     }
 
     public int getCreditCompleted() {
-        return this.creditCompleted;
+        return creditCompleted;
     }
 
     public void setCreditCompleted(int creditCompleted) {
@@ -33,10 +137,34 @@ public class Transcript {
     }
 
     public int getCreditTaken() {
-        return this.creditTaken;
+        return creditTaken;
     }
 
     public void setCreditTaken(int creditTaken) {
         this.creditTaken = creditTaken;
+    }
+
+    public HashMap<Course, String> getTakenCouerses() {
+        return takenCouerses;
+    }
+
+    public void setTakenCouerses(HashMap<Course, String> takenCouerses) {
+        this.takenCouerses = takenCouerses;
+    }
+
+    public ArrayList<Course> getCompletedCourses() {
+        return completedCourses;
+    }
+
+    public void setCompletedCourses(ArrayList<Course> completedCourses) {
+        this.completedCourses = completedCourses;
+    }
+
+    public ArrayList<Course> getFailedCourses() {
+        return failedCourses;
+    }
+
+    public void setFailedCourses(ArrayList<Course> failedCourses) {
+        this.failedCourses = failedCourses;
     }
 }
