@@ -6,3 +6,6 @@ https://emre-sarolu.monday.com/boards/3482502207
 
 -We set our appropriate meeting time via using Doodle.
 https://doodle.com/en/
+
+-Link of our discord server:
+https://discord.gg/fa8y4F65v9
