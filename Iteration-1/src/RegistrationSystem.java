@@ -14,18 +14,17 @@ public class RegistrationSystem {
     private ArrayList<Advisor> advisorsList;
 
     public RegistrationSystem() throws Exception {
-        studentsList = new ArrayList<Student>();
-        coursesList = new ArrayList<Course>();
-        advisorsList = new ArrayList<Advisor>();
-        createStudents();
-        createCourses();
+        Parser parser = new Parser();
+        studentsList = parser.parseStudents();
+        coursesList = parser.parseCourses();
+        advisorsList = parser.parseAdvisors();
     }
 
-    public void createCourses() throws Exception {
+    /* public void createCourses() throws Exception {
         JSONParser parser = new JSONParser();
         JSONObject input = (JSONObject) parser.parse(new FileReader("Iteration-1\\src\\courses.json"));
         JSONArray inputCourses = (JSONArray) input.get("courses");
-
+    
         for (Object c : inputCourses) {
             JSONObject course = (JSONObject) c;
             String courseCode = (String) course.get("courseCode");
@@ -35,32 +34,32 @@ public class RegistrationSystem {
             int courseDay = (int) (long) course.get("courseDay");
             String courseHour = (String) course.get("courseHour");
             ArrayList<Course> preRequisiteCourses = new ArrayList<>();
-
+    
             Course newCourse = new Course(courseCode, credits, courseSemester, quota, preRequisiteCourses,
                     new Schedule(courseDay, courseHour));
             System.out.println(newCourse.toString());
             coursesList.add(newCourse);
         }
     }
-
+    
     public void createStudents() throws Exception {
         JSONParser parser = new JSONParser();
         JSONObject input = (JSONObject) parser.parse(new FileReader("Iteration-1\\src\\students.json"));
         JSONArray students = (JSONArray) input.get("students");
-
+    
         for (Object s : students) {
             JSONObject student = (JSONObject) s;
             String firstName = (String) student.get("firstName");
             String lastName = (String) student.get("lastName");
             int registrationYear = (int) (long) student.get("registrationYear");
             int order = (int) (long) student.get("order");
-
+    
             Student newStudent = new Student(firstName, lastName, registrationYear, order);
             System.out.println(newStudent.toString());
             studentsList.add(newStudent);
-
+    
         }
-    }
+    } */
 
     public void failRandomCourses() {
     }

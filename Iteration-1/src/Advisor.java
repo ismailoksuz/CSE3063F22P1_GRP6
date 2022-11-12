@@ -1,42 +1,42 @@
 import java.util.ArrayList;
 
 public class Advisor extends Instructor {
-
     private ArrayList<Student> students;
 
     public Advisor(String firstName, String lastName) {
         super(firstName, lastName);
         this.students = new ArrayList<Student>();
+        System.out.println("Advisor created");
     }
 
-    public boolean addStudent(Student student) {
-        return students.add(student);
+    public Advisor(String firstName, String lastName, ArrayList<Course> givenCourses) {
+        super(firstName, lastName, givenCourses);
+        this.students = new ArrayList<Student>();
+        System.out.println("Advisor created");
     }
 
-    public void approveAllRequests(ArrayList<Student> students) {
-        for (Student i : students) {
-            this.approveRequest(i);
-        }
+    public ArrayList<Student> getStudents() {
+        return this.students;
     }
 
-    public void approveRequest(Student student) {
-        for (Course i : student.sendRequest()) {
-            this.checkCourses(student, i);
-        }
-        System.out.println("Request approved");
+    public void setStudents(ArrayList<Student> students) {
+        this.students = students;
+        System.out.println("Advisor students set");
     }
 
-    public void checkCourses(Student student, Course course) {
-        if (course.getStudentNumber() == course.getQuota()) {
-            course.setQuotaProblem(course.getQuotaProblem() + 1);
-        } else if (course.getMinCredit() > student.getTranscript().getCreditCompleted()) {
-            course.setFailedCredits(course.getFailedCredits() + 1);
-        }
-        // else if failed prereq
-        //else if collision
-        else {
-            course.registerStudent(student);
-            student.getTranscript().addTakenCourse(course);
-        }
+    public void addStudent(Student student) {
+        this.students.add(student);
+        System.out.println("Advisor student added");
+    }
+
+    public void removeStudent(Student student) {
+        this.students.remove(student);
+        System.out.println("Advisor student removed");
+    }
+
+    public void adviseStudent(Student student) {
+        this.addStudent(student);
+        //student.setAdvisor(this);
+        System.out.println("Advisor advised student");
     }
 }
