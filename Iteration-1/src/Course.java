@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Course {
+public abstract class Course {
 	private String courseCode;
 	private String courseName;
 	private int courseCredit;
