@@ -12,7 +12,10 @@ public class StudentId {
 	}
 
 	public String createStudentId() {
-		return this.cseCode + Integer.toString(this.year).substring(2) + Integer.toString(this.order);
+		return this.cseCode + Integer.toString(this.year).substring(2) + "0"
+				+ ((Integer.toString(this.order).length() == 2)
+						? (Integer.toString(this.order))
+						: ("0" + Integer.toString(this.order)));
 	}
 
 	public int getYear() {

@@ -2,13 +2,13 @@
   "students": [
     {
       "firstName": "Cenk",
-      "lastName": "Görkem",
+      "lastName": "Gorkem",
       "registrationYear": 2022,
       "order": 1
     },
     {
       "firstName": "Büşra",
-      "lastName": "Köksoy",
+      "lastName": "Koksoy",
       "registrationYear": 2022,
       "order": 2
     },
@@ -43,7 +43,7 @@
       "order": 7
     },
     {
-      "firstName": "Özden",
+      "firstName": "ozden",
       "lastName": "Karakuş",
       "registrationYear": 2022,
       "order": 8
@@ -127,7 +127,7 @@
       "order": 1
     },
     {
-      "firstName": "Özgür",
+      "firstName": "ozgür",
       "lastName": "Usul",
       "registrationYear": 2021,
       "order": 2
@@ -163,14 +163,14 @@
       "order": 7
     },
     {
-      "firstName": "Öztan",
+      "firstName": "oztan",
       "lastName": "Kaynak",
       "registrationYear": 2021,
       "order": 8
     },
     {
       "firstName": "Çetin",
-      "lastName": "Gölemez",
+      "lastName": "Golemez",
       "registrationYear": 2021,
       "order": 9
     },
@@ -200,7 +200,7 @@
     },
     {
       "firstName": "Nazan",
-      "lastName": "Açıkgöz",
+      "lastName": "Açıkgoz",
       "registrationYear": 2021,
       "order": 14
     },
@@ -217,7 +217,7 @@
       "order": 16
     },
     {
-      "firstName": "Gözde",
+      "firstName": "Gozde",
       "lastName": "Ekici",
       "registrationYear": 2021,
       "order": 17
@@ -314,7 +314,7 @@
     },
     {
       "firstName": "Fulya",
-      "lastName": "Özmen",
+      "lastName": "ozmen",
       "registrationYear": 2020,
       "order": 13
     },
@@ -343,8 +343,8 @@
       "order": 17
     },
     {
-      "firstName": "Gökhan",
-      "lastName": "Sönmez",
+      "firstName": "Gokhan",
+      "lastName": "Sonmez",
       "registrationYear": 2020,
       "order": 18
     },
@@ -458,7 +458,7 @@
     },
     {
       "firstName": "Seyfi",
-      "lastName": "Altunöz",
+      "lastName": "Altunoz",
       "registrationYear": 2019,
       "order": 17
     },
