@@ -41,15 +41,6 @@ public class Course {
 		System.out.println("Quota is full for " + this.courseCode + "(" + this.courseName + ")");
 		return false;
 	}
-	
-	public boolean checkQuotaForRegistration() {
-		System.out.println("Checking course quota for registration...");
-		if(this.studentsEnrolledCourse.size() < this.quota) {
-			return true;
-		}
-		System.out.println("Quota is full for " + this.courseCode + "(" + this.courseName + ")");
-		return false;
-	}
 
 	public String getCourseCode() {
 		return courseCode;
