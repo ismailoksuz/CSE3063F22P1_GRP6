@@ -1,23 +1,22 @@
 import java.util.ArrayList;
 
-public class Course {
+public class Course2 {
     private String courseCode;
     private String courseName;
     private int courseCredit;
     private int courseDay;
     private String courseHour;
 
-
     private int quato;
     private Instructor courseInstructor;
 
-
     private ArrayList<Student> students;
 
-    public Course(){
+    public Course2() {
     }
 
-    public Course(String courseName, String courseCode, int courseCredit, int courseDay, String courseHour, int quato){
+    public Course2(String courseName, String courseCode, int courseCredit, int courseDay, String courseHour,
+            int quato) {
         this.courseName = courseName;
         this.courseCode = courseCode;
         this.courseCredit = courseCredit;
@@ -42,9 +41,6 @@ public class Course {
     public void setCourseCode(String courseCode) {
         this.courseCode = courseCode;
     }
-
-
-
 
     public int getQuato() {
         return quato;
