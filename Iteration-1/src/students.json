@@ -2,24 +2,24 @@
   "students": [
     {
       "firstName": "Cenk",
-      "lastName": "Gorkem",
+      "lastName": "Görkem",
       "registrationYear": 2022,
       "order": 1
     },
     {
       "firstName": "Büşra",
-      "lastName": "Koksoy",
+      "lastName": "Köksoy",
       "registrationYear": 2022,
       "order": 2
     },
     {
-      "firstName": "Lara",
-      "lastName": "Demirhan",
+      "firstName": "Haluk",
+      "lastName": "Çetinoğlu",
       "registrationYear": 2022,
       "order": 3
     },
     {
-      "firstName": "Selim",
+      "firstName": "Sinan",
       "lastName": "Kaya",
       "registrationYear": 2022,
       "order": 4
@@ -37,13 +37,13 @@
       "order": 6
     },
     {
-      "firstName": "Suna",
-      "lastName": "Dikmen",
+      "firstName": "Siber",
+      "lastName": "Kekilli",
       "registrationYear": 2022,
       "order": 7
     },
     {
-      "firstName": "ozden",
+      "firstName": "Özden",
       "lastName": "Karakuş",
       "registrationYear": 2022,
       "order": 8
@@ -302,7 +302,7 @@
     },
     {
       "firstName": "Osman",
-      "lastName": "Bozkurt",
+      "lastName": "Gültekin",
       "registrationYear": 2020,
       "order": 11
     },
@@ -367,7 +367,7 @@
       "order": 1
     },
     {
-      "firstName": "Handan",
+      "firstName": "Polat",
       "lastName": "Alemdar",
       "registrationYear": 2019,
       "order": 2
