@@ -11,13 +11,27 @@ public class TechnicalElective extends ElectiveCourse {
         this.prequisites = prequisites;
     }
 
+    @Override
     public boolean isEligibleToRequest(Student student) {
+        /* if (semesterControl(student)) {
+            if (student.getTranscript().hasBeenPassedCourses(this.getPrequisites())) {
+                return true;
+            } else
+                return false;
+        } else {
+            this.setFailedPreq(this.getFailedPreq() + 1);
+            return false;
+        } */
         return semesterControl(student) && student.getTranscript().hasBeenPassedCourses(this.getPrequisites())
                 && checkRequiredCredit(student);
     }
 
     public boolean checkRequiredCredit(Student student) {
-        return student.getTranscript().getCreditCompleted() >= requiredCredits;
+        if (student.getTranscript().getCreditCompleted() >= requiredCredits) {
+            this.setFailedCredits(getFailedCredits() + 1);
+            return true;
+        } else
+            return false;
     }
 
     //GETTER & SETTER

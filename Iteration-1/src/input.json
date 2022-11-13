@@ -9,7 +9,7 @@
       "courseDay": 0,
       "courseHour": "09:00",
       "preRequisites": [""],
-      "quota": 22
+      "quota": 18
     },
     {
       "courseName": "Physics I",
@@ -19,7 +19,7 @@
       "courseDay": 1,
       "courseHour": "09:00",
       "preRequisites": [""],
-      "quota": 22
+      "quota": 18
     },
     {
       "courseName": "Calculus I",
@@ -345,24 +345,24 @@
   "graduationProject": [
     {
       "courseName": "Engineering Project I",
-      "courseCode": "CSE4297",
+      "courseCode": "CSE4197",
       "semester": 7,
       "credits": 5,
       "courseDay": 4,
       "courseHour": "09:00",
       "preRequisites": [""],
-      "requiredCredits": 165,
+      "requiredCredits": 140,
       "quota": 30
     },
     {
       "courseName": "Engineering Project II",
-      "courseCode": "CSE4298",
+      "courseCode": "CSE4198",
       "semester": 8,
       "credits": 5,
       "courseDay": 4,
       "courseHour": "11:00",
-      "preRequisites": ["CSE4297"],
-      "requiredCredits": 165,
+      "preRequisites": ["CSE4197"],
+      "requiredCredits": 140,
       "quota": 30
     }
   ],
@@ -397,7 +397,7 @@
       "courseDay": 2,
       "courseHour": "09:00",
       "preRequisites": [""],
-      "requiredCredits": 155,
+      "requiredCredits": 100,
       "quota": 20
     },
     {
@@ -408,7 +408,7 @@
       "courseDay": 3,
       "courseHour": "09:00",
       "preRequisites": [""],
-      "requiredCredits": 155,
+      "requiredCredits": 100,
       "quota": 20
     }
   ],

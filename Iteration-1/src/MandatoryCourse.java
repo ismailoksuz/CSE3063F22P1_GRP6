@@ -14,6 +14,20 @@ public class MandatoryCourse extends Course {
     }
 
     public boolean isEligibleToRequest(Student student) {
+        /* if (student.getSemester() == this.getSemester()) {
+            if (student.getTranscript().hasBeenPassedCourses(this.getPrequisites())) {
+                return true;
+            } else
+                return false;
+        } else {
+            this.setFailedPreq(this.getFailedPreq() + 1);
+            return false;
+        } */
+        return student.getSemester() == this.getSemester()
+                && student.getTranscript().hasBeenPassedCourses(this.getPrequisites());
+    }
+
+    public boolean isEligibleToBePreviouslyTaken(Student student) {
         return student.getSemester() > this.getSemester()
                 && student.getTranscript().hasBeenPassedCourses(this.getPrequisites());
     }

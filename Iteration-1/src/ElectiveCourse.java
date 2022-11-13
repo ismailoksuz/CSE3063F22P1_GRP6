@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class ElectiveCourse extends Course {
+public abstract class ElectiveCourse extends Course {
 
     private ArrayList<Integer> semesters;
 
@@ -11,17 +11,32 @@ public class ElectiveCourse extends Course {
     }
 
     public boolean semesterControl(Student student) {
-        for (int semester : this.getSemester()) {
-            return student.getSemester() == semester;
+        boolean isTrue = false;
+        for (int semester : this.getSemesters()) {
+            if (student.getSemester() == semester) {
+                isTrue = true;
+                break;
+            }
         }
-        return true;
+        return isTrue;
     }
 
-    public ArrayList<Integer> getSemester() {
+    public boolean semesterCheck(int semester) {
+        boolean isTrue = false;
+        for (int s : this.getSemesters()) {
+            if (s == semester) {
+                isTrue = true;
+                break;
+            }
+        }
+        return isTrue;
+    }
+
+    public ArrayList<Integer> getSemesters() {
         return semesters;
     }
 
-    public void setSemester(ArrayList<Integer> semesters) {
+    public void setSemesters(ArrayList<Integer> semesters) {
         this.semesters = semesters;
     }
 }

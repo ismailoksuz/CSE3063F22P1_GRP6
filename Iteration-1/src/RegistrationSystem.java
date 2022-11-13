@@ -106,12 +106,15 @@ public class RegistrationSystem {
             for (Object p : prequisites) {
                 prequisitesCourse.add(courseIsThereOrNot((String) p));
             }
-            ;
 
             JSONArray semesters = (JSONArray) course.get("semester");
+            ArrayList<Integer> semesterList = new ArrayList<Integer>();
+            for (Object s : semesters) {
+                semesterList.add((int) (long) s);
+            }
             TechnicalElective techElectiveCourse = new TechnicalElective(courseName, courseCode, courseCredit,
                     courseDay,
-                    courseHour, courseQuato, semesters, requiredCredit, prequisites);
+                    courseHour, courseQuato, semesterList, requiredCredit, prequisitesCourse);
 
             coursesList.add(techElectiveCourse);
             technicalElectives.add(techElectiveCourse);
@@ -171,7 +174,7 @@ public class RegistrationSystem {
             }
             ;
             GraduationProject graduationProject = new GraduationProject(courseName, courseCode, courseCredit, courseDay,
-                    courseHour, courseQuato, courseSemester, prequisites, requiredCredit);
+                    courseHour, courseQuato, courseSemester, prequisitesCourse, requiredCredit);
 
             coursesList.add(graduationProject);
             graduationCourses.add(graduationProject);
@@ -317,20 +320,104 @@ public class RegistrationSystem {
         String[] letterGrades = { "AA", "BA", "BB", "CB", "CC", "DC", "DD", "FD", "FF", "FG", "DZ" };
 
         for (MandatoryCourse mc : mandotoryCourses) {
-            if (mc.isEligibleToRequest(student)) {
-                student.getTranscript().getTakenCouerses().put(mc,
-                        letterGrades[new Random().nextInt(letterGrades.length)]);
-                student.getTranscript().isCourseComplatedOrFailed();
+            if (mc.isEligibleToBePreviouslyTaken(student)) {
+                String letter = letterGrades[new Random().nextInt(letterGrades.length - 3)];
+                student.getTranscript().getTakenCouerses().put(mc, letter);
+                student.getTranscript().isCourseComplatedOrFailed(mc, letter);
             }
         }
 
-        NonTechnicalElective nte = nonTechnicalElectives.get(new Random().nextInt(nonTechnicalElectives.size()));
-        if (nte.isEligibleToRequest(student)) {
-            System.out.println("******************");
-            student.getTranscript().getTakenCouerses().put(nte,
-                    letterGrades[new Random().nextInt(letterGrades.length)]);
-            student.getTranscript().isCourseComplatedOrFailed();
+        for (int i = 1; i < student.getSemester(); i++) {
+            NonTechnicalElective nte = nonTechnicalElectives.get(new Random().nextInt(nonTechnicalElectives.size()));
+            if (nte.semesterCheck(i)) {
+                String letter = letterGrades[new Random().nextInt(letterGrades.length - 3)];
+                student.getTranscript().getTakenCouerses().put(nte, letter);
+                student.getTranscript().isCourseComplatedOrFailed(nte, letter);
+            }
         }
+        student.getTranscript().calculateComplateCredit();
+    }
+
+    public void requestCoursesForAllStudents() {
+        for (Student s : studentList) {
+            for (Course c : coursesList) { //*******************güz kurslarıyla değiş******************
+                if (c.isEligibleToRequest(s)) {
+                    s.getRequestedCourses().add(c);
+                }
+            }
+            for (Course c : s.getTranscript().getFailedCourses()) {
+                s.getRequestedCourses().add(c);
+            }
+            for (GraduationProject gp : graduationCourses) {
+                if (s.getRequestedCourses().contains(gp)) {
+                    continue;
+                }
+                if (gp.isEligibleToRequest(s)) {
+                    s.getRequestedCourses().add(gp);
+                }
+            }
+            /****************************************************************** *******************************************************************/
+            /* 
+            if (s.getSemester() == 7) {
+                TechnicalElective te = technicalElectives.get(new Random().nextInt(technicalElectives.size()));
+                if (te.isEligibleToRequest(s)) {
+                    s.getRequestedCourses().add(te);
+                }
+            } else if (s.getSemester() == 8) {
+                TechnicalElective te2 = technicalElectives.get(new Random().nextInt(technicalElectives.size()));
+                int i = 0;
+            
+                while (i < 3) {
+                    if (s.getRequestedCourses().contains(te2)) {
+                        i++;
+                        continue;
+                    }
+                    if (te2.isEligibleToRequest(s)) {
+                        s.getRequestedCourses().add(te2);
+                    }
+                }
+            } */
+            int i = 0;
+            int limit = (s.getSemester() == 7) ? 1 : 3;
+            for (TechnicalElective te : technicalElectives) {
+                if (s.getRequestedCourses().contains(te)) {
+                    i++;
+                    continue;
+                }
+                if (limit == i) {
+                    break;
+                }
+                if (te.isEligibleToRequest(s)) {
+                    s.getRequestedCourses().add(te);
+                }
+            }
+            /****************************************************************************************************************** */
+            for (FacultyTechnicalElective fte : facultyTechnicalElectives) {
+                if (fte.isEligibleToRequest(s)) {
+                    s.getRequestedCourses().add(fte);
+                    break;
+                }
+            }
+            for (NonTechnicalElective nte : nonTechnicalElectives) {
+                if (s.getRequestedCourses().contains(nte)) {
+                    continue;
+                }
+                if (nte.isEligibleToRequest(s)) {
+                    s.getRequestedCourses().add(nte);
+                    break;
+                }
+            }
+        }
+    }
+
+    private void startRegistration() {
+        for (Student s : studentList) {
+            s.getAdvisor().completeRegistration(s);
+        }
+    }
+
+    private void createOutput() {
+
     }
 
     public void startSimulation() {
@@ -339,7 +426,8 @@ public class RegistrationSystem {
         readStudent();
         assignAdvisor(studentList);
         assignInstructor(coursesList);
-
+        requestCoursesForAllStudents();
+        startRegistration();
         /* for (Course o : mandotoryCourses) {
             System.out.println(o.getCourseName().toString());
             //System.out.println(o.getCourseHour().toString());
@@ -386,22 +474,49 @@ public class RegistrationSystem {
         System.out.println(studentList.size());
         System.out.println(advisorList.size()); */
 
-        for (Student s : studentList) {
+        /*  for (Student s : studentList) {
             System.out.printf("%s - %s ->", s.getStudentName(), s.getRegistrationYear());
             for (Map.Entry<Course, String> set : s.getTranscript().getTakenCouerses().entrySet()) {
                 System.out.print(set.getKey().getCourseName() + "-" + set.getValue() + " - ");
             }
             System.out.println("\n\n\n\n");
-        }
-        /* for (Course c : coursesList) {
-            System.out.printf("%s\n", c.getCourseName());
+        } */
+
+        for (Course c : coursesList) {
+            System.out.printf("%s - Collision:%d - Quota:%d - Credit:%d - Prereq:%d\n", c.getCourseName(),
+                    c.getCollisionProblem(),
+                    c.getQuotaProblem(),
+                    c.getFailedCredits(), c.getFailedPreq());
             for (Student s : c.getStudents()) {
                 System.out.println(s.getStudentName());
             }
-        
-            System.out.println("\n\n\n\n");
+
+            System.out.println("\n\n\n");
+        }
+
+        /* for (Student s : studentList) {
+            System.out.printf("%s - %d  ->>>", s.getStudentName(), s.getTranscript().getCreditCompleted());
+            for (Course c : s.getRequestedCourses()) {
+                System.out.print(c.getCourseName() + "---");
+            }
+            System.out.println("\n\n");
         } */
 
+        /* for (Student s : studentList) {
+            System.out.printf("%s - %s ->", s.getStudentName(), s.getRegistrationYear());
+            for (Course c : s.getTranscript().getFailedCourses()) {
+                System.out.print(c.getCourseName() + "--");
+            }
+            System.out.println("\n\n\n\n");
+        } */
+        /* System.out.println("\n\n\n\n");
+        for (Student s : studentList) {
+            System.out.printf("%s - %d  ->>>", s.getStudentName(), s.getTranscript().getCreditCompleted());
+            for (Course c : s.getTranscript().getEnrolledCourses()) {
+                System.out.print(c.getCourseName() + "---");
+            }
+            System.out.println("\n\n");
+        } */
     }
 
 }

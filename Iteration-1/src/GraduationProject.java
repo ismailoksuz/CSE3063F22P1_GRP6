@@ -18,7 +18,11 @@ public class GraduationProject extends MandatoryCourse {
     }
 
     public boolean checkRequiredCredit(Student student) {
-        return student.getTranscript().getCreditCompleted() >= requiredCredits;
+        if (student.getTranscript().getCreditCompleted() >= requiredCredits) {
+            this.setFailedCredits(getFailedCredits() + 1);
+            return true;
+        } else
+            return false;
     }
 
     // GETTER & SETTER

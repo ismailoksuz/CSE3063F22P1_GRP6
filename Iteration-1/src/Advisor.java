@@ -15,6 +15,40 @@ public class Advisor extends Instructor {
         System.out.println("Advisor created");
     }
 
+    public void completeRegistration(Student student) {
+        for (int i = 0; i < student.getRequestedCourses().size(); i++)
+            if (checkCollision(student, student.getRequestedCourses().get(i))
+                    && checkQuotaForRegistration(student.getRequestedCourses().get(i))) {
+                student.getTranscript().getEnrolledCourses().add(student.getRequestedCourses().get(i));
+                student.getRequestedCourses().get(i).getStudents().add(student);
+            }
+    }
+
+    public boolean checkCollision(Student student, Course course) {
+        boolean isTrue = true;
+        for (Course c : student.getTranscript().getEnrolledCourses()) {
+            if (course.getCourseSchedule().toString().equals(c.getCourseSchedule().toString())) {
+                course.setCollisionProblem(course.getCollisionProblem() + 1);
+                isTrue = false;
+                break;
+            }
+        }
+        return isTrue;
+    }
+
+    public boolean checkQuotaForRegistration(Course course) {
+        System.out.println("Checking course quota for registration...");
+        if (course.getStudents().size() < course.getQuato()) {
+            return true;
+        } else {
+            System.out.println("Quota is full for " + course.getCourseCode() + "(" + course.getCourseName() + ")");
+            course.setQuotaProblem(course.getQuotaProblem() + 1);
+            return false;
+        }
+        /* System.out.println(this.students.size() + "**********" + this.quota); */
+        /* return true; */
+    }
+
     public ArrayList<Student> getStudents() {
         return this.students;
     }

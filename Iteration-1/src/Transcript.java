@@ -10,6 +10,7 @@ public class Transcript {
     private HashMap<Course, String> takenCouerses;
     private ArrayList<Course> completedCourses;
     private ArrayList<Course> failedCourses;
+    private ArrayList<Course> enrolledCourses;
 
     public Transcript() {
         this.cumulativeGpa = 0;
@@ -19,6 +20,7 @@ public class Transcript {
         this.failedCourses = new ArrayList<Course>();
         this.completedCourses = new ArrayList<Course>();
         this.takenCouerses = new HashMap<Course, String>();
+        this.enrolledCourses = new ArrayList<Course>();
 
     }
 
@@ -72,13 +74,21 @@ public class Transcript {
         return studentGpa;
     }
 
-    public int calculateComplateCredit() {
+    /* public int calculateComplateCredit() {
         int complatedCredit = 0;
         for (Map.Entry<Course, String> set : getTakenCouerses().entrySet()) {
             if (set.getValue() == "AA" || set.getValue() == "BA" || set.getValue() == "BB" || set.getValue() == "CB"
                     || set.getValue() == "CC" || set.getValue() == "DC" || set.getValue() == "DD") {
-                complatedCredit = set.getKey().getCourseCredit();
+                complatedCredit += set.getKey().getCourseCredit();
             }
+        }
+        setCreditCompleted(complatedCredit);
+        return complatedCredit;
+    } */
+    public int calculateComplateCredit() {
+        int complatedCredit = 0;
+        for (Course c : getCompletedCourses()) {
+            complatedCredit += c.getCourseCredit();
         }
         setCreditCompleted(complatedCredit);
         return complatedCredit;
@@ -93,7 +103,7 @@ public class Transcript {
         return takenCredit;
     }
 
-    public void isCourseComplatedOrFailed() {
+    /*  public void isCourseComplatedOrFailed() {
         for (Map.Entry<Course, String> set : getTakenCouerses().entrySet()) {
             if (set.getValue() == "AA" || set.getValue() == "BA" || set.getValue() == "BB" || set.getValue() == "CB"
                     || set.getValue() == "CC" || set.getValue() == "DC" || set.getValue() == "DD") {
@@ -101,6 +111,14 @@ public class Transcript {
             } else {
                 failedCourses.add(set.getKey());
             }
+        }
+    } */
+    public void isCourseComplatedOrFailed(Course course, String letter) {
+        if (letter == "AA" || letter == "BA" || letter == "BB" || letter == "CB"
+                || letter == "CC" || letter == "DC" || letter == "DD") {
+            completedCourses.add(course);
+        } else {
+            failedCourses.add(course);
         }
     }
 
@@ -175,5 +193,13 @@ public class Transcript {
 
     public void setFailedCourses(ArrayList<Course> failedCourses) {
         this.failedCourses = failedCourses;
+    }
+
+    public ArrayList<Course> getEnrolledCourses() {
+        return this.enrolledCourses;
+    }
+
+    public void setEnrolledCourses(ArrayList<Course> enrolledCourses) {
+        this.enrolledCourses = enrolledCourses;
     }
 }

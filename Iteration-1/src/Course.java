@@ -5,11 +5,14 @@ public abstract class Course {
     private String courseName;
     private int courseCredit;
     private Schedule courseSchedule;
-    //private ArrayList<Course> prerequisite;
+    private int quotaProblem;
+    private int collisionProblem;
+    private int failedCredits;
+    private int failedPreq;
     /* private ArrayList<Student> studentsFailedPreq;
-    private ArrayList<Student> studentsFailedCredits;
-    private ArrayList<Student> studentsQuotaProblem;
-    private ArrayList<Student> studentsCollisionProblem; */
+    private ArrayList<Student> studentsFailedCredits;++
+    private ArrayList<Student> studentsQuotaProblem;++
+    private ArrayList<Student> studentsCollisionProblem;++ */
     private int quota;
     private Instructor courseInstructor;
     private ArrayList<Student> students;
@@ -21,20 +24,14 @@ public abstract class Course {
         this.courseSchedule = new Schedule(courseDay, courseHour);
         this.quota = quota;
         this.students = new ArrayList<Student>();
+        this.quotaProblem = 0;
+        this.collisionProblem = 0;
+        this.failedCredits = 0;
+        this.failedPreq = 0;
 
     }
 
-    public boolean checkQuotaForRegistration() {
-        System.out.println("Checking course quota for registration...");
-        if (this.students.size() < this.quota) {
-            System.out.println("true");
-            return true;
-        }
-        System.out.println("Quota is full for " + this.courseCode + "(" + this.courseName + ")");
-        return false;
-        /* System.out.println(this.students.size() + "**********" + this.quota); */
-        /* return true; */
-    }
+    public abstract boolean isEligibleToRequest(Student student);
 
     /* public boolean checkPrerequistiesOfStudentForRegistration(Student student) {
         System.out.println(
@@ -104,4 +101,37 @@ public abstract class Course {
     public void setCourseSchedule(Schedule courseSchedule) {
         this.courseSchedule = courseSchedule;
     }
+
+    public int getQuotaProblem() {
+        return this.quotaProblem;
+    }
+
+    public void setQuotaProblem(int quotaProblem) {
+        this.quotaProblem = quotaProblem;
+    }
+
+    public int getCollisionProblem() {
+        return this.collisionProblem;
+    }
+
+    public void setCollisionProblem(int collisionProblem) {
+        this.collisionProblem = collisionProblem;
+    }
+
+    public int getFailedCredits() {
+        return this.failedCredits;
+    }
+
+    public void setFailedCredits(int failedCredits) {
+        this.failedCredits = failedCredits;
+    }
+
+    public int getFailedPreq() {
+        return this.failedPreq;
+    }
+
+    public void setFailedPreq(int failedPreq) {
+        this.failedPreq = failedPreq;
+    }
+
 }

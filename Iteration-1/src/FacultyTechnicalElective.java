@@ -10,6 +10,7 @@ public class FacultyTechnicalElective extends ElectiveCourse {
                 this.prequisites = prequisites;
         }
 
+        @Override
         public boolean isEligibleToRequest(Student student) {
                 return semesterControl(student) && student.getTranscript().hasBeenPassedCourses(this.getPrequisites());
         }

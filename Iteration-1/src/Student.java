@@ -15,6 +15,7 @@ public class Student extends Person {
         super(firstName, lastName);
         this.registrationYear = registrationYear;
         this.order = order;
+        this.requestedCourses = new ArrayList<Course>();
         this.currentYear = Year.now().getValue();
         this.transcript = new Transcript();
         this.studentId = new StudentId(registrationYear, order);
