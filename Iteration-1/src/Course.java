@@ -1,163 +1,119 @@
 import java.util.ArrayList;
 
-public class Course {
-	private String courseCode;
-	private String courseName;
-	private int courseCredit;
-	private int semester;
-	private int quota;
-	private int section;
-	private ArrayList<Course> prerequisites;
-	private Instructor courseInstructor;
-	private ArrayList<Student> studentsEnrolledCourse;
-	private Schedule courseSchedule;
-	private ArrayList<Student> studentsFailedPreq;
-	private ArrayList<Student> studentsFailedCredits;
-	private ArrayList<Student> studentsQuotaProblem;
-	private ArrayList<Student> studentsCollisionProblem;
+public abstract class Course {
+    private String courseCode;
+    private String courseName;
+    private int courseCredit;
+    private int courseDay;
+    private String courseHour;
+    private ArrayList<Student> studentsEnrolledCourse;
+    private Schedule courseSchedule;
+    private ArrayList<Student> studentsFailedPreq;
+    private ArrayList<Student> studentsFailedCredits;
+    private ArrayList<Student> studentsQuotaProblem;
+    private ArrayList<Student> studentsCollisionProblem;
 
-	public Course(String courseCode, int courseCredit, int semester, int quota,
-			ArrayList<Course> prerequisites,
-			Schedule courseSchedule) {
+    private int quota;
+    private Instructor courseInstructor;
 
-		this.courseCode = courseCode;
-		this.courseCredit = courseCredit;
-		this.semester = semester;
-		this.quota = quota;
-		this.prerequisites = prerequisites;
-		this.courseSchedule = courseSchedule;
-		this.studentsEnrolledCourse = new ArrayList<Student>();
-		this.studentsFailedPreq = new ArrayList<Student>();
-		this.studentsFailedCredits = new ArrayList<Student>();
-		this.studentsQuotaProblem = new ArrayList<Student>();
-		this.studentsCollisionProblem = new ArrayList<Student>();
-	}
+    private ArrayList<Student> students;
 
-	public boolean checkQuotaForRegistration() {
-		System.out.println("Checking course quota for registration...");
-		if (this.studentsEnrolledCourse.size() < this.quota) {
-			return true;
-		}
-		System.out.println("Quota is full for " + this.courseCode + "(" + this.courseName + ")");
-		return false;
-	}
+    public Course() {
+    }
 
-	public String getCourseCode() {
-		return courseCode;
-	}
+    public Course(String courseName, String courseCode, int courseCredit, int courseDay, String courseHour, int quota) {
+        this.courseName = courseName;
+        this.courseCode = courseCode;
+        this.courseCredit = courseCredit;
+        this.courseDay = courseDay;
+        this.courseHour = courseHour;
+        this.quota = quota;
 
-	public void setCourseCode(String courseCode) {
-		this.courseCode = courseCode;
-	}
+    }
 
-	public String getCourseName() {
-		return courseName;
-	}
+    public boolean checkQuotaForRegistration() {
+        System.out.println("Checking course quota for registration...");
+        if (this.studentsEnrolledCourse.size() < this.quota) {
+            return true;
+        }
+        System.out.println("Quota is full for " + this.courseCode + "(" + this.courseName + ")");
+        return false;
+    }
 
-	public void setCourseName(String courseName) {
-		this.courseName = courseName;
-	}
+    /* public boolean checkPrerequistiesOfStudentForRegistration(Student student) {
+        System.out.println(
+                "Checking prerequisties courses of " + student.getStudentId().toString() + " for registration...");
+        for (Course course : this.prerequisites) {
+            if (student.getTranscript().getFailedCourses().contains(course)) {
+                System.out.println("Student Id of" + student.getStudentId().toString() + " can not enroll "
+                        + this.getCourseCode() + " course.");
+                return false;
+            }
+        }
+        return true;
+    } */
 
-	public int getCourseCredit() {
-		return courseCredit;
-	}
+    public String getCourseName() {
+        return courseName;
+    }
 
-	public void setCourseCredit(int courseCredit) {
-		this.courseCredit = courseCredit;
-	}
+    public void setCourseName(String courseName) {
+        this.courseName = courseName;
+    }
 
-	public int getSemester() {
-		return semester;
-	}
+    public String getCourseCode() {
+        return courseCode;
+    }
 
-	public void setSemester(int semester) {
-		this.semester = semester;
-	}
+    public void setCourseCode(String courseCode) {
+        this.courseCode = courseCode;
+    }
 
-	public int getQuota() {
-		return quota;
-	}
+    public int getQuato() {
+        return quota;
+    }
 
-	public void setQuota(int quota) {
-		this.quota = quota;
-	}
+    public void setQuato(int quota) {
+        this.quota = quota;
+    }
 
-	public int getSection() {
-		return section;
-	}
+    public Instructor getCourseInstructor() {
+        return courseInstructor;
+    }
 
-	public void setSection(int section) {
-		this.section = section;
-	}
+    public void setCourseInstructor(Instructor courseInstructor) {
+        this.courseInstructor = courseInstructor;
+    }
 
-	public ArrayList<Course> getPrerequisites() {
-		return prerequisites;
-	}
+    public ArrayList<Student> getStudents() {
+        return students;
+    }
 
-	public void setPrerequisites(ArrayList<Course> prerequisites) {
-		this.prerequisites = prerequisites;
-	}
+    public void setStudents(ArrayList<Student> students) {
+        this.students = students;
+    }
 
-	public Instructor getCourseInstructor() {
-		return courseInstructor;
-	}
+    public int getCourseCredit() {
+        return courseCredit;
+    }
 
-	public void setCourseInstructor(Instructor courseInstructor) {
-		this.courseInstructor = courseInstructor;
-	}
+    public void setCourseCredit(int courseCredit) {
+        this.courseCredit = courseCredit;
+    }
 
-	public ArrayList<Student> getStudentsEnrolledCourse() {
-		return studentsEnrolledCourse;
-	}
+    public int getCourseDay() {
+        return courseDay;
+    }
 
-	public void setStudentsEnrolledCourse(ArrayList<Student> studentsEnrolledCourse) {
-		this.studentsEnrolledCourse = studentsEnrolledCourse;
-	}
+    public void setCourseDay(int courseDay) {
+        this.courseDay = courseDay;
+    }
 
-	public Schedule getCourseSchedule() {
-		return courseSchedule;
-	}
+    public String getCourseHour() {
+        return courseHour;
+    }
 
-	public void setCourseSchedule(Schedule courseSchedule) {
-		this.courseSchedule = courseSchedule;
-	}
-
-	public ArrayList<Student> getStudentsFailedPreq() {
-		return studentsFailedPreq;
-	}
-
-	public void setStudentsFailedPreq(ArrayList<Student> studentsFailedPreq) {
-		this.studentsFailedPreq = studentsFailedPreq;
-	}
-
-	public ArrayList<Student> getStudentsFailedCredits() {
-		return studentsFailedCredits;
-	}
-
-	public void setStudentsFailedCredits(ArrayList<Student> studentsFailedCredits) {
-		this.studentsFailedCredits = studentsFailedCredits;
-	}
-
-	public ArrayList<Student> getStudentsQuotaProblem() {
-		return studentsQuotaProblem;
-	}
-
-	public void setStudentsQuotaProblem(ArrayList<Student> studentsQuotaProblem) {
-		this.studentsQuotaProblem = studentsQuotaProblem;
-	}
-
-	public ArrayList<Student> getStudentsCollisionProblem() {
-		return studentsCollisionProblem;
-	}
-
-	public void setStudentsCollisionProblem(ArrayList<Student> studentsCollisionProblem) {
-		this.studentsCollisionProblem = studentsCollisionProblem;
-	}
-
-	public String toString() {
-		return "CourseCode: " + getCourseCode() + "  CourseCredit: " + getCourseCredit() + " Semester: "
-				+ getSemester() + " Quota: "
-				+ getQuota() + " Schedule: "
-				+ getCourseSchedule().toString();
-	}
+    public void setCourseHour(String courseHour) {
+        this.courseHour = courseHour;
+    }
 }

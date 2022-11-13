@@ -22,6 +22,7 @@ public abstract class Person {
         userName = userName.replace('ü', 'u');
         userName = userName.replace('ğ', 'g');
         userName = userName.replace('ğ', 'g');
+        userName = userName.replaceAll("\\s", "");
 
         return userName + "@marun.edu.tr";
     }
