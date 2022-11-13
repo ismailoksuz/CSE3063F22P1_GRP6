@@ -5,6 +5,9 @@ import java.time.Month;
 import java.time.Year;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 import org.json.simple.JSONArray;
@@ -47,14 +50,14 @@ public class RegistrationSystem {
             int courseCredit = (int) (long) course.get("credits");
             int courseDay = (int) (long) course.get("courseDay");
             String courseHour = (String) course.get("courseHour");
-
             ArrayList<Course> prequisitesCourse = new ArrayList<>();
             JSONArray prequisites = (JSONArray) course.get("preRequisites");
             for (Object p : prequisites) {
                 prequisitesCourse.add(courseIsThereOrNot((String) p));
             }
+
             MandatoryCourse mandatoryCourse = new MandatoryCourse(courseName, courseCode, courseCredit, courseDay,
-                    courseHour, courseSemester, courseQuato, prequisitesCourse);
+                    courseHour, courseQuato, courseSemester, prequisitesCourse);
 
             coursesList.add(mandatoryCourse);
             mandotoryCourses.add(mandatoryCourse);
@@ -204,7 +207,33 @@ public class RegistrationSystem {
                     }
                 }
             }
+        }
+    }
 
+    private void assignInstructor(ArrayList<Course> courseList) {
+        ArrayList<Course> copyCourseList = new ArrayList<>();
+        for (Course a : courseList) {
+            copyCourseList.add(a);
+        }
+        if (copyCourseList.size() > 0) {
+
+            int count = 0;
+
+            while (advisorList.size() > count) {
+                if (copyCourseList.size() == 0) {
+                    break;
+                } else {
+                    System.out.println(copyCourseList.size());
+                    int randomNum = ThreadLocalRandom.current().nextInt(0, copyCourseList.size());
+                    advisorList.get(count).addGivenCourse(copyCourseList.get(randomNum));
+                    copyCourseList.get(randomNum).setCourseInstructor(advisorList.get(count));
+                    copyCourseList.remove(randomNum);
+                    count++;
+                    if (count == advisorList.size()) {
+                        count = 0;
+                    }
+                }
+            }
         }
     }
 
@@ -219,7 +248,7 @@ public class RegistrationSystem {
             Student newStudent = new Student(studentFirstName, studentLastName, studentRegistirationYear, studentOrder);
             studentList.add(newStudent);
             newStudent.setSemester(calculateSemester(newStudent));
-
+            createTranscript(newStudent);
         }
 
     }
@@ -275,58 +304,99 @@ public class RegistrationSystem {
             e.printStackTrace();
         }
     }
+    /* private void c */
+
+    private void createTranscript(Student student) {
+        String[] letterGrades = { "AA", "BA", "BB", "CB", "CC", "DC", "DD", "FD", "FF", "FG", "DZ" };
+
+        for (MandatoryCourse mc : mandotoryCourses) {
+            if (mc.isEligibleToRequest(student)) {
+                student.getTranscript().getTakenCouerses().put(mc,
+                        letterGrades[new Random().nextInt(letterGrades.length)]);
+                mc.getStudents().add(student);
+                student.getTranscript().isCourseComplatedOrFailed();
+            }
+        }
+
+        for (NonTechnicalElective nte : nonTechnicalElectives) {
+            if (nte.isEligibleToRequest(student)) {
+                student.getTranscript().getTakenCouerses().put(
+                        nonTechnicalElectives.get(new Random().nextInt(nonTechnicalElectives.size())),
+                        letterGrades[new Random().nextInt(letterGrades.length)]);
+                nte.getStudents().add(student);
+                student.getTranscript().isCourseComplatedOrFailed();
+            }
+        }
+    }
 
     public void startSimulation() {
         readAdvisors();
         readInput();
         readStudent();
         assignAdvisor(studentList);
+        assignInstructor(coursesList);
 
-        for (Course o : mandotoryCourses) {
+        /* for (Course o : mandotoryCourses) {
             System.out.println(o.getCourseName().toString());
             //System.out.println(o.getCourseHour().toString());
-
+        
         }
-
+        
         for (GraduationProject c : graduationCourses) {
             System.out.println(c.getCourseName());
-
+        
         }
-
+        
         for (TechnicalElective t : technicalElectives) {
             System.out.println(t.getCourseName());
             System.out.println(t.getSemester());
         }
-
+        
         for (FacultyTechnicalElective f : facultyTechnicalElectives) {
             System.out.println(f.getCourseName());
             //System.out.println(f.getSemester());
         }
-
+        
         for (NonTechnicalElective n : nonTechnicalElectives) {
             System.out.println(n.getCourseName());
-        }
-
+        } */
+        /*
         for (Student s : studentList) {
             System.out.printf("%s , %d yılında üniversiteye girdi, %d. Semester", s.getStudentName(),
                     s.getRegistrationYear(), s.getSemester());
             System.out.println();
         }
-
+        
         for (Advisor a : advisorList) {
             System.out.println(a.getFirstName());
             System.out.println(a.getEmail());
             System.out.println(a.getStudents());
-
+        
         }
-
+        
+        for (Course a : coursesList) {
+            System.out.println(a.getCourseName());
+            System.out.println(a.getCourseInstructor().getEmail());
+        }
+        
         System.out.println(studentList.size());
-        System.out.println(advisorList.size());
+        System.out.println(advisorList.size()); */
 
         for (Student s : studentList) {
-            System.out.printf("%s , Danışman: %s", s.getStudentName(), s.getAdvisor().getEmail());
-            System.out.println();
+            System.out.printf("%s - %s ->", s.getStudentName(), s.getRegistrationYear());
+            for (Map.Entry<Course, String> set : s.getTranscript().getTakenCouerses().entrySet()) {
+                System.out.print(set.getKey().getCourseName() + "-" + set.getValue() + " - ");
+            }
+            System.out.println("\n\n\n\n");
         }
+        /* for (Course c : coursesList) {
+            System.out.printf("%s\n", c.getCourseName());
+            for (Student s : c.getStudents()) {
+                System.out.println(s.getStudentName());
+            }
+        
+            System.out.println("\n\n\n\n");
+        } */
 
     }
 

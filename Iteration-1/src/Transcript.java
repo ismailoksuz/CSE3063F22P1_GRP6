@@ -18,6 +18,7 @@ public class Transcript {
         this.creditTaken = 0;
         this.failedCourses = new ArrayList<Course>();
         this.completedCourses = new ArrayList<Course>();
+        this.takenCouerses = new HashMap<Course, String>();
 
     }
 

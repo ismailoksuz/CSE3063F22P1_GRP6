@@ -14,7 +14,7 @@ public class MandatoryCourse extends Course {
     }
 
     public boolean isEligibleToRequest(Student student) {
-        return student.getSemester() >= this.getSemester()
+        return student.getSemester() > this.getSemester()
                 && student.getTranscript().hasBeenPassedCourses(this.getPrequisites());
     }
 

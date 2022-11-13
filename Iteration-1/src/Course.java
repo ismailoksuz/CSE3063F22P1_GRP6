@@ -4,20 +4,15 @@ public abstract class Course {
     private String courseCode;
     private String courseName;
     private int courseCredit;
-    private ArrayList<Student> studentsEnrolledCourse;
     private Schedule courseSchedule;
+    //private ArrayList<Course> prerequisite;
     /* private ArrayList<Student> studentsFailedPreq;
     private ArrayList<Student> studentsFailedCredits;
     private ArrayList<Student> studentsQuotaProblem;
     private ArrayList<Student> studentsCollisionProblem; */
-
     private int quota;
     private Instructor courseInstructor;
-
     private ArrayList<Student> students;
-
-    public Course() {
-    }
 
     public Course(String courseName, String courseCode, int courseCredit, int courseDay, String courseHour, int quota) {
         this.courseName = courseName;
@@ -25,16 +20,20 @@ public abstract class Course {
         this.courseCredit = courseCredit;
         this.courseSchedule = new Schedule(courseDay, courseHour);
         this.quota = quota;
+        this.students = new ArrayList<Student>();
 
     }
 
     public boolean checkQuotaForRegistration() {
         System.out.println("Checking course quota for registration...");
-        if (this.studentsEnrolledCourse.size() < this.quota) {
+        if (this.students.size() < this.quota) {
+            System.out.println("true");
             return true;
         }
         System.out.println("Quota is full for " + this.courseCode + "(" + this.courseName + ")");
         return false;
+        /* System.out.println(this.students.size() + "**********" + this.quota); */
+        /* return true; */
     }
 
     /* public boolean checkPrerequistiesOfStudentForRegistration(Student student) {
@@ -83,7 +82,7 @@ public abstract class Course {
     }
 
     public ArrayList<Student> getStudents() {
-        return students;
+        return this.students;
     }
 
     public void setStudents(ArrayList<Student> students) {
@@ -96,5 +95,13 @@ public abstract class Course {
 
     public void setCourseCredit(int courseCredit) {
         this.courseCredit = courseCredit;
+    }
+
+    public Schedule getCourseSchedule() {
+        return this.courseSchedule;
+    }
+
+    public void setCourseSchedule(Schedule courseSchedule) {
+        this.courseSchedule = courseSchedule;
     }
 }

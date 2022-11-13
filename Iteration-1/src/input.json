@@ -1,12 +1,5 @@
 {
-  "PassProbability": 0.85,
-  "Advisors": 10,
-  "1stYearStudents": 20,
-  "2ndYearStudents": 20,
-  "3rdYearStudents": 20,
-  "4thYearStudents": 20,
   "CurrentSemester": "fall",
-  "RegenerateStudents": true,
   "MandatoryCourses": [
     {
       "courseName": "Atatürk's Prin. & History I",
