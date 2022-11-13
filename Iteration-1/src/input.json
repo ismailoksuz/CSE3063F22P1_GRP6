@@ -371,7 +371,7 @@
     {
       "courseName": "Entrepreneurship and Innovation",
       "courseCode": "BUS1003",
-      "semester": [2, 7, 8],
+      "semester": [2, 8],
       "credits": 3,
       "courseDay": 3,
       "courseHour": "09:00",
@@ -380,7 +380,7 @@
     {
       "courseName": "Strategic Entrepreneurship",
       "courseCode": "BUS1004",
-      "semester": [2, 7, 8],
+      "semester": [2, 8],
       "credits": 3,
       "courseDay": 2,
       "courseHour": "09:00",

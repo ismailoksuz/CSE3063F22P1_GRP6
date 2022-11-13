@@ -11,7 +11,7 @@ public class ElectiveCourse extends Course {
     }
 
     public boolean semesterControl(Student student) {
-        for (int semester : semesters) {
+        for (int semester : this.getSemester()) {
             return student.getSemester() == semester;
         }
         return true;

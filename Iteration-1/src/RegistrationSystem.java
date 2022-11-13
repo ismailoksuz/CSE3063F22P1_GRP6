@@ -2,7 +2,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.Month;
-import java.time.Year;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -77,9 +76,13 @@ public class RegistrationSystem {
             int courseDay = (int) (long) course.get("courseDay");
             String courseHour = (String) course.get("coursHour");
             JSONArray semesters = (JSONArray) course.get("semester");
+            ArrayList<Integer> semesterList = new ArrayList<Integer>();
+            for (Object s : semesters) {
+                semesterList.add((int) (long) s);
+            }
 
             NonTechnicalElective nonTechnicalElective = new NonTechnicalElective(courseName, courseCode, courseCredit,
-                    courseDay, courseHour, courseQuato, semesters);
+                    courseDay, courseHour, courseQuato, semesterList);
             nonTechnicalElectives.add(nonTechnicalElective);
             coursesList.add(nonTechnicalElective);
 
@@ -128,6 +131,11 @@ public class RegistrationSystem {
             String courseHour = (String) course.get("courseHour");
 
             JSONArray semesters = (JSONArray) course.get("semester");
+            ArrayList<Integer> semesterList = new ArrayList<Integer>();
+            for (Object s : semesters) {
+                semesterList.add((int) (long) s);
+            }
+
             ArrayList<Course> prequisitesCourse = new ArrayList<>();
             JSONArray prequisites = (JSONArray) course.get("preRequisites");
             for (Object p : prequisites) {
@@ -136,7 +144,7 @@ public class RegistrationSystem {
             ;
 
             FacultyTechnicalElective facultyTechnicalElective = new FacultyTechnicalElective(courseName, courseCode,
-                    courseCredit, courseDay, courseHour, courseQuato, semesters, prequisitesCourse);
+                    courseCredit, courseDay, courseHour, courseQuato, semesterList, prequisitesCourse);
             facultyTechnicalElectives.add(facultyTechnicalElective);
             coursesList.add(facultyTechnicalElective);
 
@@ -304,7 +312,6 @@ public class RegistrationSystem {
             e.printStackTrace();
         }
     }
-    /* private void c */
 
     private void createTranscript(Student student) {
         String[] letterGrades = { "AA", "BA", "BB", "CB", "CC", "DC", "DD", "FD", "FF", "FG", "DZ" };
@@ -313,19 +320,16 @@ public class RegistrationSystem {
             if (mc.isEligibleToRequest(student)) {
                 student.getTranscript().getTakenCouerses().put(mc,
                         letterGrades[new Random().nextInt(letterGrades.length)]);
-                mc.getStudents().add(student);
                 student.getTranscript().isCourseComplatedOrFailed();
             }
         }
 
-        for (NonTechnicalElective nte : nonTechnicalElectives) {
-            if (nte.isEligibleToRequest(student)) {
-                student.getTranscript().getTakenCouerses().put(
-                        nonTechnicalElectives.get(new Random().nextInt(nonTechnicalElectives.size())),
-                        letterGrades[new Random().nextInt(letterGrades.length)]);
-                nte.getStudents().add(student);
-                student.getTranscript().isCourseComplatedOrFailed();
-            }
+        NonTechnicalElective nte = nonTechnicalElectives.get(new Random().nextInt(nonTechnicalElectives.size()));
+        if (nte.isEligibleToRequest(student)) {
+            System.out.println("******************");
+            student.getTranscript().getTakenCouerses().put(nte,
+                    letterGrades[new Random().nextInt(letterGrades.length)]);
+            student.getTranscript().isCourseComplatedOrFailed();
         }
     }
 
