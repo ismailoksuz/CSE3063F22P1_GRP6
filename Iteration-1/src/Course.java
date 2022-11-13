@@ -4,14 +4,12 @@ public abstract class Course {
     private String courseCode;
     private String courseName;
     private int courseCredit;
-    private int courseDay;
-    private String courseHour;
     private ArrayList<Student> studentsEnrolledCourse;
     private Schedule courseSchedule;
-    private ArrayList<Student> studentsFailedPreq;
+    /* private ArrayList<Student> studentsFailedPreq;
     private ArrayList<Student> studentsFailedCredits;
     private ArrayList<Student> studentsQuotaProblem;
-    private ArrayList<Student> studentsCollisionProblem;
+    private ArrayList<Student> studentsCollisionProblem; */
 
     private int quota;
     private Instructor courseInstructor;
@@ -25,8 +23,7 @@ public abstract class Course {
         this.courseName = courseName;
         this.courseCode = courseCode;
         this.courseCredit = courseCredit;
-        this.courseDay = courseDay;
-        this.courseHour = courseHour;
+        this.courseSchedule = new Schedule(courseDay, courseHour);
         this.quota = quota;
 
     }
@@ -99,21 +96,5 @@ public abstract class Course {
 
     public void setCourseCredit(int courseCredit) {
         this.courseCredit = courseCredit;
-    }
-
-    public int getCourseDay() {
-        return courseDay;
-    }
-
-    public void setCourseDay(int courseDay) {
-        this.courseDay = courseDay;
-    }
-
-    public String getCourseHour() {
-        return courseHour;
-    }
-
-    public void setCourseHour(String courseHour) {
-        this.courseHour = courseHour;
     }
 }
