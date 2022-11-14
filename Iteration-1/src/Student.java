@@ -1,3 +1,4 @@
+import java.time.Year;
 import java.util.ArrayList;
 
 public class Student extends Person {
@@ -8,18 +9,34 @@ public class Student extends Person {
     private int registrationYear;
     private int order;
     private int currentYear;
-    private int semesterNumber;
+    private int semester;
+    private ArrayList<String> studentOutput;
 
     public Student(String firstName, String lastName, int registrationYear, int order) {
         super(firstName, lastName);
         this.registrationYear = registrationYear;
         this.order = order;
+        this.requestedCourses = new ArrayList<Course>();
+        this.currentYear = Year.now().getValue();
         this.transcript = new Transcript();
         this.studentId = new StudentId(registrationYear, order);
+        this.studentOutput = new ArrayList<String>();
+    }
+
+    public ArrayList<String> getStudentOutput() {
+        return studentOutput;
+    }
+
+    public void setStudentOutput(ArrayList<String> studentOutput) {
+        this.studentOutput = studentOutput;
     }
 
     public ArrayList<Course> sendRequest() {
         return requestedCourses;
+    }
+
+    public String getStudentName() {
+        return getFirstName() + " " + getLastName();
     }
 
     public Transcript getTranscript() {
@@ -78,18 +95,13 @@ public class Student extends Person {
         this.currentYear = currentYear;
     }
 
-    public int getSemesterNumber() {
-        return this.semesterNumber;
+    public int getSemester() {
+        return this.semester;
     }
 
-    public void setSemesterNumber(int semesterNumber) {
-        this.semesterNumber = semesterNumber;
+    public void setSemester(int semester) {
+        this.semester = semester;
     }
 
-    public String toString() {
-        return "FirstName: " + getFirstName() + " LastName: " + getLastName() + " RegistrationYear: "
-                + getRegistrationYear() + " Order: "
-                + getOrder() + " StudentId: "
-                + getStudentId().toString();
-    }
+
 }
