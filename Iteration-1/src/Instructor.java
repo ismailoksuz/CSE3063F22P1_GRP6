@@ -1,53 +1,52 @@
 import java.util.ArrayList;
-import java.util.List;
 
-public class Instructor extends Person {
-    private List<Course> givenCourses;
-    private Schedule schedule;
+public class MandatoryCourse extends Course {
 
-    public Instructor(String firstName, String lastName) {
-        super(firstName, lastName);
-        this.givenCourses = new ArrayList<Course>();
-        System.out.println("Instructor created");
+    private int semester;
+    private ArrayList<Course> prerequisites;
+
+    public MandatoryCourse(String courseName, String courseCode, int courseCredit, int courseDay, String courseHour,
+            int quota, int semester, ArrayList<Course> prerequisites) {
+        super(courseName, courseCode, courseCredit, courseDay, courseHour, quota);
+
+        this.semester = semester;
+        this.prerequisites = prerequisites;
     }
 
-    public Instructor(String firstName, String lastName, List<Course> givenCourses) {
-        super(firstName, lastName);
-        this.givenCourses = givenCourses;
-        System.out.println("Instructor created");
+    public boolean isEligibleToRequest(Student student) {
+        /* if (student.getSemester() == this.getSemester()) {
+            if (student.getTranscript().hasBeenPassedCourses(this.getPrequisites())) {
+                return true;
+            } else
+                return false;
+        } else {
+            this.setFailedPreq(this.getFailedPreq() + 1);
+            return false;
+        } */
+        return student.getSemester() == this.getSemester()
+                && student.getTranscript().hasBeenPassedCourses(this.getPrequisites());
     }
 
-    public List<Course> getGivenCourses() {
-        return this.givenCourses;
+    public boolean isEligibleToBePreviouslyTaken(Student student) {
+        return student.getSemester() > this.getSemester()
+                && student.getTranscript().hasBeenPassedCourses(this.getPrequisites());
     }
 
-    public void setGivenCourses(List<Course> givenCourses) {
-        this.givenCourses = givenCourses;
-        System.out.println("Instructor given courses set");
+    // GETTER & SETTERPRE
+    public int getSemester() {
+        return semester;
     }
 
-    public void addGivenCourse(Course course) {
-        this.givenCourses.add(course);
-        System.out.println("Instructor given course added");
+    public void setSemester(int semester) {
+        this.semester = semester;
     }
 
-    public void removeGivenCourse(Course course) {
-        this.givenCourses.remove(course);
-        System.out.println("Instructor given course removed");
+    public ArrayList<Course> getPrequisites() {
+        return prerequisites;
     }
 
-    public Schedule getSchedule() {
-        return this.schedule;
+    public void setPrequisites(ArrayList<Course> prerequisites) {
+        this.prerequisites = prerequisites;
     }
 
-    public void setSchedule(Schedule schedule) {
-        this.schedule = schedule;
-        System.out.println("Instructor schedule set");
-    }
-
-    public void giveCourse(Course course) {
-        this.addGivenCourse(course);
-        //course.setInstructor(this);
-        System.out.println("Instructor gave course");
-    }
 }
