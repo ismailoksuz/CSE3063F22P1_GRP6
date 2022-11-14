@@ -1,174 +1,160 @@
 import java.util.ArrayList;
 
 public abstract class Course {
-	private String courseCode;
-	private String courseName;
-	private int courseCredit;
-	private int semester;
-	private int quota;
-	private int section;
-	private ArrayList<Course> prerequisites;
-	private Instructor courseInstructor;
-	private ArrayList<Student> studentsEnrolledCourse;
-	private Schedule courseSchedule;
-	private ArrayList<Student> studentsFailedPreq;
-	private ArrayList<Student> studentsFailedCredits;
-	private ArrayList<Student> studentsQuotaProblem;
-	private ArrayList<Student> studentsCollisionProblem;
+    private String courseCode;
+    private String courseName;
+    private int courseCredit;
+    private Schedule courseSchedule;
+    private int quota;
+    private Instructor courseInstructor;
+    private ArrayList<Student> students;
 
-	public Course(String courseCode, int courseCredit, int semester, int quota,
-			ArrayList<Course> prerequisites,
-			Schedule courseSchedule) {
+    private int quotaProblem;
+    private int collisionProblem;
+    private int failedCredits;
+    private int failedPreq;
+    private ArrayList<Student> studentsFailedPreq;
+    private ArrayList<Student> studentsFailedCredits;
+    private ArrayList<Student> studentsQuotaProblem;
+    private ArrayList<Student> studentsCollisionProblem;
 
-		this.courseCode = courseCode;
-		this.courseCredit = courseCredit;
-		this.semester = semester;
-		this.quota = quota;
-		this.prerequisites = prerequisites;
-		this.courseSchedule = courseSchedule;
-		this.studentsEnrolledCourse = new ArrayList<Student>();
-		this.studentsFailedPreq = new ArrayList<Student>();
-		this.studentsFailedCredits = new ArrayList<Student>();
-		this.studentsQuotaProblem = new ArrayList<Student>();
-		this.studentsCollisionProblem = new ArrayList<Student>();
-	}
+    public Course(String courseName, String courseCode, int courseCredit, int courseDay, String courseHour, int quota) {
+        this.courseName = courseName;
+        this.courseCode = courseCode;
+        this.courseCredit = courseCredit;
+        this.courseSchedule = new Schedule(courseDay, courseHour);
+        this.quota = quota;
+        this.students = new ArrayList<Student>();
+        this.quotaProblem = 0;
+        this.collisionProblem = 0;
+        this.failedCredits = 0;
+        this.failedPreq = 0;
+        this.studentsFailedPreq = new ArrayList<Student>();
+        this.studentsQuotaProblem = new ArrayList<Student>();
+        this.studentsCollisionProblem = new ArrayList<Student>();
+        this.studentsFailedCredits = new ArrayList<Student>();
 
-	public boolean checkQuotaForRegistration() {
-		System.out.println("Checking course quota for registration...");
-		if (this.studentsEnrolledCourse.size() < this.quota) {
-			return true;
-		}
-		System.out.println("Quota is full for " + this.courseCode + "(" + this.courseName + ")");
-		return false;
-	}
-	
-	public boolean checkPrerequistiesOfStudentForRegistration(Student student) {
-		System.out.println("Checking prerequisties courses of " + student.getStudentId().toString() + " for registration...");
-		for(Course course : this.prerequisites) {
-			if(student.getTranscript().getFailedCourses().contains(course)) {
-				System.out.println("Student Id of" + student.getStudentId().toString() + " can not enroll " + this.getCourseCode() + " course.");
-				return false;
-			}
-		}	
-		return true;
-	}
+    }
 
-	public String getCourseCode() {
-		return courseCode;
-	}
+    public abstract boolean isEligibleToRequest(Student student);
 
-	public void setCourseCode(String courseCode) {
-		this.courseCode = courseCode;
-	}
+    public String getCourseName() {
+        return courseName;
+    }
 
-	public String getCourseName() {
-		return courseName;
-	}
+    public void setCourseName(String courseName) {
+        this.courseName = courseName;
+    }
 
-	public void setCourseName(String courseName) {
-		this.courseName = courseName;
-	}
+    public String getCourseCode() {
+        return courseCode;
+    }
 
-	public int getCourseCredit() {
-		return courseCredit;
-	}
+    public void setCourseCode(String courseCode) {
+        this.courseCode = courseCode;
+    }
 
-	public void setCourseCredit(int courseCredit) {
-		this.courseCredit = courseCredit;
-	}
+    public int getQuato() {
+        return quota;
+    }
 
-	public int getSemester() {
-		return semester;
-	}
+    public void setQuato(int quota) {
+        this.quota = quota;
+    }
 
-	public void setSemester(int semester) {
-		this.semester = semester;
-	}
+    public Instructor getCourseInstructor() {
+        return courseInstructor;
+    }
 
-	public int getQuota() {
-		return quota;
-	}
+    public void setCourseInstructor(Instructor courseInstructor) {
+        this.courseInstructor = courseInstructor;
+    }
 
-	public void setQuota(int quota) {
-		this.quota = quota;
-	}
+    public ArrayList<Student> getStudents() {
+        return this.students;
+    }
 
-	public int getSection() {
-		return section;
-	}
+    public void setStudents(ArrayList<Student> students) {
+        this.students = students;
+    }
 
-	public void setSection(int section) {
-		this.section = section;
-	}
+    public int getCourseCredit() {
+        return courseCredit;
+    }
 
-	public ArrayList<Course> getPrerequisites() {
-		return prerequisites;
-	}
+    public void setCourseCredit(int courseCredit) {
+        this.courseCredit = courseCredit;
+    }
 
-	public void setPrerequisites(ArrayList<Course> prerequisites) {
-		this.prerequisites = prerequisites;
-	}
+    public Schedule getCourseSchedule() {
+        return this.courseSchedule;
+    }
 
-	public Instructor getCourseInstructor() {
-		return courseInstructor;
-	}
+    public void setCourseSchedule(Schedule courseSchedule) {
+        this.courseSchedule = courseSchedule;
+    }
 
-	public void setCourseInstructor(Instructor courseInstructor) {
-		this.courseInstructor = courseInstructor;
-	}
+    public int getQuotaProblem() {
+        return this.quotaProblem;
+    }
 
-	public ArrayList<Student> getStudentsEnrolledCourse() {
-		return studentsEnrolledCourse;
-	}
+    public void setQuotaProblem(int quotaProblem) {
+        this.quotaProblem = quotaProblem;
+    }
 
-	public void setStudentsEnrolledCourse(ArrayList<Student> studentsEnrolledCourse) {
-		this.studentsEnrolledCourse = studentsEnrolledCourse;
-	}
+    public int getCollisionProblem() {
+        return this.collisionProblem;
+    }
 
-	public Schedule getCourseSchedule() {
-		return courseSchedule;
-	}
+    public void setCollisionProblem(int collisionProblem) {
+        this.collisionProblem = collisionProblem;
+    }
 
-	public void setCourseSchedule(Schedule courseSchedule) {
-		this.courseSchedule = courseSchedule;
-	}
+    public int getFailedCredits() {
+        return this.failedCredits;
+    }
 
-	public ArrayList<Student> getStudentsFailedPreq() {
-		return studentsFailedPreq;
-	}
+    public void setFailedCredits(int failedCredits) {
+        this.failedCredits = failedCredits;
+    }
 
-	public void setStudentsFailedPreq(ArrayList<Student> studentsFailedPreq) {
-		this.studentsFailedPreq = studentsFailedPreq;
-	}
+    public int getFailedPreq() {
+        return this.failedPreq;
+    }
 
-	public ArrayList<Student> getStudentsFailedCredits() {
-		return studentsFailedCredits;
-	}
+    public void setFailedPreq(int failedPreq) {
+        this.failedPreq = failedPreq;
+    }
 
-	public void setStudentsFailedCredits(ArrayList<Student> studentsFailedCredits) {
-		this.studentsFailedCredits = studentsFailedCredits;
-	}
+    public ArrayList<Student> getStudentsFailedPreq() {
+        return studentsFailedPreq;
+    }
 
-	public ArrayList<Student> getStudentsQuotaProblem() {
-		return studentsQuotaProblem;
-	}
+    public void setStudentsFailedPreq(ArrayList<Student> studentsFailedPreq) {
+        this.studentsFailedPreq = studentsFailedPreq;
+    }
 
-	public void setStudentsQuotaProblem(ArrayList<Student> studentsQuotaProblem) {
-		this.studentsQuotaProblem = studentsQuotaProblem;
-	}
+    public ArrayList<Student> getStudentsFailedCredits() {
+        return studentsFailedCredits;
+    }
 
-	public ArrayList<Student> getStudentsCollisionProblem() {
-		return studentsCollisionProblem;
-	}
+    public void setStudentsFailedCredits(ArrayList<Student> studentsFailedCredits) {
+        this.studentsFailedCredits = studentsFailedCredits;
+    }
 
-	public void setStudentsCollisionProblem(ArrayList<Student> studentsCollisionProblem) {
-		this.studentsCollisionProblem = studentsCollisionProblem;
-	}
+    public ArrayList<Student> getStudentsQuotaProblem() {
+        return studentsQuotaProblem;
+    }
 
-	public String toString() {
-		return "CourseCode: " + getCourseCode() + "  CourseCredit: " + getCourseCredit() + " Semester: "
-				+ getSemester() + " Quota: "
-				+ getQuota() + " Schedule: "
-				+ getCourseSchedule().toString();
-	}
+    public void setStudentsQuotaProblem(ArrayList<Student> studentsQuotaProblem) {
+        this.studentsQuotaProblem = studentsQuotaProblem;
+    }
+
+    public ArrayList<Student> getStudentsCollisionProblem() {
+        return studentsCollisionProblem;
+    }
+
+    public void setStudentsCollisionProblem(ArrayList<Student> studentsCollisionProblem) {
+        this.studentsCollisionProblem = studentsCollisionProblem;
+    }
 }
