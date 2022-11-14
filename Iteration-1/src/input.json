@@ -29,7 +29,7 @@
       "courseDay": 2,
       "courseHour": "09:00",
       "preRequisites": [""],
-      "quota": 22
+      "quota": 20
     },
     {
       "courseName": "Computer Programming I",
@@ -39,7 +39,7 @@
       "courseDay": 3,
       "courseHour": "09:00",
       "preRequisites": [""],
-      "quota": 22
+      "quota": 20
     },
     {
       "courseName": "Basic Chemistry",
@@ -49,7 +49,7 @@
       "courseDay": 4,
       "courseHour": "09:00",
       "preRequisites": [""],
-      "quota": 22
+      "quota": 20
     },
     {
       "courseName": "Computer Programming II",
@@ -59,7 +59,7 @@
       "courseDay": 0,
       "courseHour": "09:00",
       "preRequisites": ["CSE1141"],
-      "quota": 22
+      "quota": 20
     },
     {
       "courseName": "Linear Algebra",
@@ -69,7 +69,7 @@
       "courseDay": 1,
       "courseHour": "09:00",
       "preRequisites": [""],
-      "quota": 22
+      "quota": 20
     },
     {
       "courseName": "Physics II",
@@ -79,7 +79,7 @@
       "courseDay": 2,
       "courseHour": "09:00",
       "preRequisites": [""],
-      "quota": 22
+      "quota": 20
     },
     {
       "courseName": "Turkish Language II",
@@ -89,7 +89,7 @@
       "courseDay": 3,
       "courseHour": "09:00",
       "preRequisites": [""],
-      "quota": 22
+      "quota": 20
     },
     {
       "courseName": "Physics Lab II",
@@ -99,7 +99,7 @@
       "courseDay": 4,
       "courseHour": "09:00",
       "preRequisites": [""],
-      "quota": 22
+      "quota": 20
     },
     {
       "courseName": "Data Structures",
@@ -109,7 +109,7 @@
       "courseDay": 0,
       "courseHour": "09:00",
       "preRequisites": ["CSE1142"],
-      "quota": 22
+      "quota": 20
     },
     {
       "courseName": "Differential Equations",
@@ -119,7 +119,7 @@
       "courseDay": 1,
       "courseHour": "09:00",
       "preRequisites": ["MATH101"],
-      "quota": 22
+      "quota": 20
     },
     {
       "courseName": "Discrete Comp. Structures",
@@ -129,7 +129,7 @@
       "courseDay": 2,
       "courseHour": "09:00",
       "preRequisites": [""],
-      "quota": 22
+      "quota": 20
     },
     {
       "courseName": "Electric Circuits",
@@ -139,7 +139,7 @@
       "courseDay": 3,
       "courseHour": "09:00",
       "preRequisites": ["PHYS1101"],
-      "quota": 22
+      "quota": 20
     },
     {
       "courseName": "Introduction to Economics",
@@ -149,7 +149,7 @@
       "courseDay": 4,
       "courseHour": "09:00",
       "preRequisites": [""],
-      "quota": 22
+      "quota": 20
     },
     {
       "courseName": "Analysis of Algorithms",
@@ -159,7 +159,7 @@
       "courseDay": 0,
       "courseHour": "09:00",
       "preRequisites": ["CSE2025"],
-      "quota": 22
+      "quota": 20
     },
     {
       "courseName": "Numerical Methods",
@@ -169,7 +169,7 @@
       "courseDay": 1,
       "courseHour": "09:00",
       "preRequisites": ["MATH1001"],
-      "quota": 22
+      "quota": 20
     },
     {
       "courseName": "Engineering Economy",
@@ -179,7 +179,7 @@
       "courseDay": 2,
       "courseHour": "09:00",
       "preRequisites": [""],
-      "quota": 22
+      "quota": 20
     },
     {
       "courseName": "System Programming",
@@ -189,7 +189,7 @@
       "courseDay": 3,
       "courseHour": "09:00",
       "preRequisites": [""],
-      "quota": 22
+      "quota": 20
     },
     {
       "courseName": "Int. to Prob. and Statistics",
@@ -199,7 +199,7 @@
       "courseDay": 4,
       "courseHour": "09:00",
       "preRequisites": [""],
-      "quota": 22
+      "quota": 20
     },
     {
       "courseName": "Database Systems",
@@ -209,7 +209,7 @@
       "courseDay": 0,
       "courseHour": "09:00",
       "preRequisites": ["CSE2025"],
-      "quota": 22
+      "quota": 20
     },
     {
       "courseName": "Operating Systems",
@@ -219,7 +219,7 @@
       "courseDay": 1,
       "courseHour": "09:00",
       "preRequisites": ["CSE2025"],
-      "quota": 22
+      "quota": 20
     },
     {
       "courseName": "Object-Oriented Sofware Desg.",
@@ -229,7 +229,7 @@
       "courseDay": 2,
       "courseHour": "09:00",
       "preRequisites": ["CSE1142"],
-      "quota": 22
+      "quota": 20
     },
     {
       "courseName": "Digital Logic Design",
@@ -239,7 +239,7 @@
       "courseDay": 3,
       "courseHour": "09:00",
       "preRequisites": [""],
-      "quota": 22
+      "quota": 20
     },
     {
       "courseName": "Modeling and Disc. Simulation",
@@ -249,7 +249,7 @@
       "courseDay": 4,
       "courseHour": "09:00",
       "preRequisites": ["STAT2053"],
-      "quota": 22
+      "quota": 20
     },
     {
       "courseName": "Int. to Signals and Systems",
@@ -259,7 +259,7 @@
       "courseDay": 0,
       "courseHour": "09:00",
       "preRequisites": ["MATH2055"],
-      "quota": 22
+      "quota": 20
     },
     {
       "courseName": "Software Engineering",
@@ -269,7 +269,7 @@
       "courseDay": 1,
       "courseHour": "09:00",
       "preRequisites": ["CSE3055"],
-      "quota": 22
+      "quota": 20
     },
     {
       "courseName": "Formal Lang. & Auto. Theory",
@@ -279,7 +279,7 @@
       "courseDay": 2,
       "courseHour": "09:00",
       "preRequisites": ["CSE2023"],
-      "quota": 22
+      "quota": 20
     },
     {
       "courseName": "Computer Organization",
@@ -289,7 +289,7 @@
       "courseDay": 3,
       "courseHour": "09:00",
       "preRequisites": ["CSE3015"],
-      "quota": 22
+      "quota": 20
     },
     {
       "courseName": "Operations Reasearch",
@@ -299,7 +299,7 @@
       "courseDay": 4,
       "courseHour": "09:00",
       "preRequisites": ["MATH2056"],
-      "quota": 22
+      "quota": 20
     },
     {
       "courseName": "Computer Networks",
@@ -309,7 +309,7 @@
       "courseDay": 0,
       "courseHour": "09:00",
       "preRequisites": [""],
-      "quota": 22
+      "quota": 20
     },
     {
       "courseName": "Microprocessors",
@@ -319,7 +319,7 @@
       "courseDay": 1,
       "courseHour": "09:00",
       "preRequisites": ["CSE3038"],
-      "quota": 22
+      "quota": 20
     },
     {
       "courseName": "Work Safety I",
@@ -329,7 +329,7 @@
       "courseDay": 2,
       "courseHour": "09:00",
       "preRequisites": [""],
-      "quota": 22
+      "quota": 20
     },
     {
       "courseName": "Work Safety II",
@@ -339,7 +339,7 @@
       "courseDay": 0,
       "courseHour": "09:00",
       "preRequisites": [""],
-      "quota": 22
+      "quota": 20
     }
   ],
   "graduationProject": [
@@ -351,7 +351,7 @@
       "courseDay": 4,
       "courseHour": "09:00",
       "preRequisites": [""],
-      "requiredCredits": 140,
+      "requiredCredits": 130,
       "quota": 30
     },
     {
@@ -362,7 +362,7 @@
       "courseDay": 4,
       "courseHour": "11:00",
       "preRequisites": ["CSE4197"],
-      "requiredCredits": 140,
+      "requiredCredits": 130,
       "quota": 30
     }
   ],
@@ -395,7 +395,7 @@
       "semester": [7, 8],
       "credits": 5,
       "courseDay": 2,
-      "courseHour": "09:00",
+      "courseHour": "11:00",
       "preRequisites": [""],
       "requiredCredits": 100,
       "quota": 20

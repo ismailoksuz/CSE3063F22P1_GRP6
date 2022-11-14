@@ -339,14 +339,29 @@ public class RegistrationSystem {
     }
 
     public void requestCoursesForAllStudents() {
+        ArrayList<MandatoryCourse> currentSemesterMandatoryCourses = new ArrayList<MandatoryCourse>();
+        for (MandatoryCourse c : mandotoryCourses) {
+            if (c.getSemester() % 2 != 0) {
+                currentSemesterMandatoryCourses.add(c);
+            }
+        }
         for (Student s : studentList) {
-            for (Course c : coursesList) { //*******************güz kurslarıyla değiş******************
+            for (MandatoryCourse mc : currentSemesterMandatoryCourses) {
+                if (mc.isEligibleToRequest(s)) {
+                    s.getRequestedCourses().add(mc);
+                }
+            }
+            /* for (Course c : s.getTranscript().getFailedCourses()) {
                 if (c.isEligibleToRequest(s)) {
                     s.getRequestedCourses().add(c);
                 }
-            }
+            } */
             for (Course c : s.getTranscript().getFailedCourses()) {
-                s.getRequestedCourses().add(c);
+                if (c instanceof MandatoryCourse) {
+                    if (((MandatoryCourse) c).getSemester() % 2 != 0) {
+                        s.getRequestedCourses().add(c);
+                    }
+                }
             }
             for (GraduationProject gp : graduationCourses) {
                 if (s.getRequestedCourses().contains(gp)) {
@@ -428,12 +443,12 @@ public class RegistrationSystem {
         assignInstructor(coursesList);
         requestCoursesForAllStudents();
         startRegistration();
-        /* for (Course o : mandotoryCourses) {
-            System.out.println(o.getCourseName().toString());
+        /* for (MandatoryCourse o : mandotoryCourses) {
+            System.out.println(o.getCourseName().toString() + " -- " + o.getSemester());
             //System.out.println(o.getCourseHour().toString());
         
-        }
-        
+        } */
+        /*
         for (GraduationProject c : graduationCourses) {
             System.out.println(c.getCourseName());
         
@@ -493,23 +508,24 @@ public class RegistrationSystem {
 
             System.out.println("\n\n\n");
         }
-
-        /* for (Student s : studentList) {
+        /* 
+        for (Student s : studentList) {
             System.out.printf("%s - %d  ->>>", s.getStudentName(), s.getTranscript().getCreditCompleted());
             for (Course c : s.getRequestedCourses()) {
                 System.out.print(c.getCourseName() + "---");
             }
             System.out.println("\n\n");
         } */
-
-        /* for (Student s : studentList) {
+        /* 
+        for (Student s : studentList) {
             System.out.printf("%s - %s ->", s.getStudentName(), s.getRegistrationYear());
             for (Course c : s.getTranscript().getFailedCourses()) {
                 System.out.print(c.getCourseName() + "--");
             }
             System.out.println("\n\n\n\n");
         } */
-        /* System.out.println("\n\n\n\n");
+        /* 
+        System.out.println("\n\n\n\n");
         for (Student s : studentList) {
             System.out.printf("%s - %d  ->>>", s.getStudentName(), s.getTranscript().getCreditCompleted());
             for (Course c : s.getTranscript().getEnrolledCourses()) {

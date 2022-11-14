@@ -5,17 +5,17 @@ public abstract class Course {
     private String courseName;
     private int courseCredit;
     private Schedule courseSchedule;
+    private int quota;
+    private Instructor courseInstructor;
+    private ArrayList<Student> students;
     private int quotaProblem;
     private int collisionProblem;
     private int failedCredits;
     private int failedPreq;
     /* private ArrayList<Student> studentsFailedPreq;
-    private ArrayList<Student> studentsFailedCredits;++
-    private ArrayList<Student> studentsQuotaProblem;++
-    private ArrayList<Student> studentsCollisionProblem;++ */
-    private int quota;
-    private Instructor courseInstructor;
-    private ArrayList<Student> students;
+    private ArrayList<Student> studentsFailedCredits;
+    private ArrayList<Student> studentsQuotaProblem;
+    private ArrayList<Student> studentsCollisionProblem; */
 
     public Course(String courseName, String courseCode, int courseCredit, int courseDay, String courseHour, int quota) {
         this.courseName = courseName;

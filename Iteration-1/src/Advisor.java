@@ -28,7 +28,7 @@ public class Advisor extends Instructor {
         boolean isTrue = true;
         for (Course c : student.getTranscript().getEnrolledCourses()) {
             if (course.getCourseSchedule().toString().equals(c.getCourseSchedule().toString())) {
-                course.setCollisionProblem(course.getCollisionProblem() + 1);
+                course.setCollisionProblem(course.getCollisionProblem() + 1);//******************************** */
                 isTrue = false;
                 break;
             }
@@ -42,7 +42,7 @@ public class Advisor extends Instructor {
             return true;
         } else {
             System.out.println("Quota is full for " + course.getCourseCode() + "(" + course.getCourseName() + ")");
-            course.setQuotaProblem(course.getQuotaProblem() + 1);
+            course.setQuotaProblem(course.getQuotaProblem() + 1);//******************************************** */
             return false;
         }
         /* System.out.println(this.students.size() + "**********" + this.quota); */
