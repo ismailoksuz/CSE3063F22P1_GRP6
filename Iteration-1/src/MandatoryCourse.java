@@ -6,15 +6,29 @@ public class MandatoryCourse extends Course {
     private ArrayList<Course> prerequisites;
 
     public MandatoryCourse(String courseName, String courseCode, int courseCredit, int courseDay, String courseHour,
-            int quota, int semester, ArrayList<Course> prequisites) {
+            int quota, int semester, ArrayList<Course> prerequisites) {
         super(courseName, courseCode, courseCredit, courseDay, courseHour, quota);
 
         this.semester = semester;
-        this.prequisites = prequisites;
+        this.prerequisites = prerequisites;
     }
 
     public boolean isEligibleToRequest(Student student) {
-        return student.getSemester() >= this.getSemester()
+        /* if (student.getSemester() == this.getSemester()) {
+            if (student.getTranscript().hasBeenPassedCourses(this.getPrequisites())) {
+                return true;
+            } else
+                return false;
+        } else {
+            this.setFailedPreq(this.getFailedPreq() + 1);
+            return false;
+        } */
+        return student.getSemester() == this.getSemester()
+                && student.getTranscript().hasBeenPassedCourses(this.getPrequisites());
+    }
+
+    public boolean isEligibleToBePreviouslyTaken(Student student) {
+        return student.getSemester() > this.getSemester()
                 && student.getTranscript().hasBeenPassedCourses(this.getPrequisites());
     }
 
@@ -31,8 +45,8 @@ public class MandatoryCourse extends Course {
         return prerequisites;
     }
 
-    public void setPrequisites(ArrayList<Course> prequisites) {
-        this.prerequisites = prequisites;
+    public void setPrequisites(ArrayList<Course> prerequisites) {
+        this.prerequisites = prerequisites;
     }
 
 }
