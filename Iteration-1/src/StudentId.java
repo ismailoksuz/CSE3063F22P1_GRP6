@@ -1,11 +1,12 @@
 
 public class StudentId {
-	private final String cseCode = "1501";
+	private String cseCode;
 	private int year;
 	private int order;
 	private String id;
 
 	public StudentId(int year, int order) {
+		this.cseCode = "1501";
 		this.year = year;
 		this.order = order;
 		this.id = createStudentId();
@@ -16,6 +17,10 @@ public class StudentId {
 				+ ((Integer.toString(this.order).length() == 2)
 						? (Integer.toString(this.order))
 						: ("0" + Integer.toString(this.order)));
+	}
+	
+	public String getCseCode(){
+		return cseCode;
 	}
 
 	public int getYear() {
