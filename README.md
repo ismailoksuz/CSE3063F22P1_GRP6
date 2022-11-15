@@ -32,9 +32,9 @@
 
 |Iteration|Status|
 |---|---|
-|Iteration 1 (Java)|Completed|
-|Iteration 2|To Do|
-|Iteration 3|To Do|
+|Iteration 1 (Java)|<img align="center" alt="Discord" src=/icons/completed.png height="40"/>|
+|Iteration 2|<img align="center" alt="Discord" src=/icons/soon.png height="40"/>|
+|Iteration 3|<img align="center" alt="Discord" src=/icons/soon.png height="40"/>|
 
 </div>
 <div align="center">
