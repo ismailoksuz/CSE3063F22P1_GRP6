@@ -30,11 +30,9 @@
 ### **Progression Status**
 
 
-|Iteration|Status|
-|---|---|
-|Iteration 1 (Java)|<img align="center" alt="Discord" src=/icons/completed.png height="40"/>|
-|Iteration 2|<img align="center" alt="Discord" src=/icons/soon.png height="40"/>|
-|Iteration 3|<img align="center" alt="Discord" src=/icons/soon.png height="40"/>|
+|Iteration 1 (Java)|Iteration 2|Iteration 3|
+|---|---|---|
+|<img align="center" src=/icons/completed.png height="60"/>|<img align="center" src=/icons/soon.png height="60"/>|<img align="center" src=/icons/soon.png height="60"/>|
 
 </div>
 <div align="center">
