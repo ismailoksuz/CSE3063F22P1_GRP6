@@ -24,7 +24,19 @@
 |150119059   |**Yunus KAYA**   |<a href="https://github.com/kayayunus37/">kayayunus37</a>|
 
 </div>
+<div align="center" >
+<br>
 
+### **Progression Status**
+
+
+|Iteration|Status|
+|---|---|
+|Iteration 1 (Java)|Completed|
+|Iteration 2|To Do|
+|Iteration 3|To Do|
+
+</div>
 <div align="center">
 <br>
 
