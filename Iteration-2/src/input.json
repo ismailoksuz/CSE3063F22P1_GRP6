@@ -1,0 +1,438 @@
+{
+  "CurrentSemester": "fall",
+  "MandatoryCourses": [
+    {
+      "courseName": "Atatürk's Prin. & History I",
+      "courseCode": "ATA121",
+      "semester": 1,
+      "credits": 2,
+      "courseDay": 0,
+      "courseHour": "09:00",
+      "preRequisites": [""],
+      "quota": 18
+    },
+    {
+      "courseName": "Physics I",
+      "courseCode": "PHYS1101",
+      "semester": 1,
+      "credits": 4,
+      "courseDay": 1,
+      "courseHour": "09:00",
+      "preRequisites": [""],
+      "quota": 18
+    },
+    {
+      "courseName": "Calculus I",
+      "courseCode": "MATH1001",
+      "semester": 1,
+      "credits": 6,
+      "courseDay": 2,
+      "courseHour": "09:00",
+      "preRequisites": [""],
+      "quota": 20
+    },
+    {
+      "courseName": "Computer Programming I",
+      "courseCode": "CSE1141",
+      "semester": 1,
+      "credits": 6,
+      "courseDay": 3,
+      "courseHour": "09:00",
+      "preRequisites": [""],
+      "quota": 20
+    },
+    {
+      "courseName": "Basic Chemistry",
+      "courseCode": "CHEM1007",
+      "semester": 1,
+      "credits": 6,
+      "courseDay": 4,
+      "courseHour": "09:00",
+      "preRequisites": [""],
+      "quota": 20
+    },
+    {
+      "courseName": "Computer Programming II",
+      "courseCode": "CSE1142",
+      "semester": 2,
+      "credits": 7,
+      "courseDay": 0,
+      "courseHour": "09:00",
+      "preRequisites": ["CSE1141"],
+      "quota": 20
+    },
+    {
+      "courseName": "Linear Algebra",
+      "courseCode": "MATH2056",
+      "semester": 2,
+      "credits": 4,
+      "courseDay": 1,
+      "courseHour": "09:00",
+      "preRequisites": [""],
+      "quota": 20
+    },
+    {
+      "courseName": "Physics II",
+      "courseCode": "PHYS1102",
+      "semester": 2,
+      "credits": 4,
+      "courseDay": 2,
+      "courseHour": "09:00",
+      "preRequisites": [""],
+      "quota": 20
+    },
+    {
+      "courseName": "Turkish Language II",
+      "courseCode": "TRD122",
+      "semester": 2,
+      "credits": 7,
+      "courseDay": 3,
+      "courseHour": "09:00",
+      "preRequisites": [""],
+      "quota": 20
+    },
+    {
+      "courseName": "Physics Lab II",
+      "courseCode": "PHYS1104",
+      "semester": 2,
+      "credits": 2,
+      "courseDay": 4,
+      "courseHour": "09:00",
+      "preRequisites": [""],
+      "quota": 20
+    },
+    {
+      "courseName": "Data Structures",
+      "courseCode": "CSE2225",
+      "semester": 3,
+      "credits": 8,
+      "courseDay": 0,
+      "courseHour": "09:00",
+      "preRequisites": ["CSE1142"],
+      "quota": 20
+    },
+    {
+      "courseName": "Differential Equations",
+      "courseCode": "MATH2055",
+      "semester": 3,
+      "credits": 4,
+      "courseDay": 1,
+      "courseHour": "09:00",
+      "preRequisites": ["MATH101"],
+      "quota": 20
+    },
+    {
+      "courseName": "Discrete Comp. Structures",
+      "courseCode": "CSE2023",
+      "semester": 3,
+      "credits": 6,
+      "courseDay": 2,
+      "courseHour": "09:00",
+      "preRequisites": [""],
+      "quota": 20
+    },
+    {
+      "courseName": "Electric Circuits",
+      "courseCode": "EE2031",
+      "semester": 3,
+      "credits": 5,
+      "courseDay": 3,
+      "courseHour": "09:00",
+      "preRequisites": ["PHYS1101"],
+      "quota": 20
+    },
+    {
+      "courseName": "Introduction to Economics",
+      "courseCode": "ECON2003",
+      "semester": 3,
+      "credits": 4,
+      "courseDay": 4,
+      "courseHour": "09:00",
+      "preRequisites": [""],
+      "quota": 20
+    },
+    {
+      "courseName": "Analysis of Algorithms",
+      "courseCode": "CSE2046",
+      "semester": 4,
+      "credits": 6,
+      "courseDay": 0,
+      "courseHour": "09:00",
+      "preRequisites": ["CSE2025"],
+      "quota": 20
+    },
+    {
+      "courseName": "Numerical Methods",
+      "courseCode": "MATH2059",
+      "semester": 4,
+      "credits": 4,
+      "courseDay": 1,
+      "courseHour": "09:00",
+      "preRequisites": ["MATH1001"],
+      "quota": 20
+    },
+    {
+      "courseName": "Engineering Economy",
+      "courseCode": "ECON2004",
+      "semester": 4,
+      "credits": 4,
+      "courseDay": 2,
+      "courseHour": "09:00",
+      "preRequisites": [""],
+      "quota": 20
+    },
+    {
+      "courseName": "System Programming",
+      "courseCode": "CSE2138",
+      "semester": 4,
+      "credits": 7,
+      "courseDay": 3,
+      "courseHour": "09:00",
+      "preRequisites": [""],
+      "quota": 20
+    },
+    {
+      "courseName": "Int. to Prob. and Statistics",
+      "courseCode": "STAT2053",
+      "semester": 4,
+      "credits": 4,
+      "courseDay": 4,
+      "courseHour": "09:00",
+      "preRequisites": [""],
+      "quota": 20
+    },
+    {
+      "courseName": "Database Systems",
+      "courseCode": "CSE3055",
+      "semester": 5,
+      "credits": 7,
+      "courseDay": 0,
+      "courseHour": "09:00",
+      "preRequisites": ["CSE2025"],
+      "quota": 20
+    },
+    {
+      "courseName": "Operating Systems",
+      "courseCode": "CSE3033",
+      "semester": 5,
+      "credits": 7,
+      "courseDay": 1,
+      "courseHour": "09:00",
+      "preRequisites": ["CSE2025"],
+      "quota": 20
+    },
+    {
+      "courseName": "Object-Oriented Sofware Desg.",
+      "courseCode": "CSE3063",
+      "semester": 5,
+      "credits": 5,
+      "courseDay": 2,
+      "courseHour": "09:00",
+      "preRequisites": ["CSE1142"],
+      "quota": 20
+    },
+    {
+      "courseName": "Digital Logic Design",
+      "courseCode": "CSE3015",
+      "semester": 5,
+      "credits": 7,
+      "courseDay": 3,
+      "courseHour": "09:00",
+      "preRequisites": [""],
+      "quota": 20
+    },
+    {
+      "courseName": "Modeling and Disc. Simulation",
+      "courseCode": "IE3081",
+      "semester": 5,
+      "credits": 4,
+      "courseDay": 4,
+      "courseHour": "09:00",
+      "preRequisites": ["STAT2053"],
+      "quota": 20
+    },
+    {
+      "courseName": "Int. to Signals and Systems",
+      "courseCode": "CSE3048",
+      "semester": 6,
+      "credits": 5,
+      "courseDay": 0,
+      "courseHour": "09:00",
+      "preRequisites": ["MATH2055"],
+      "quota": 20
+    },
+    {
+      "courseName": "Software Engineering",
+      "courseCode": "CSE3044",
+      "semester": 6,
+      "credits": 7,
+      "courseDay": 1,
+      "courseHour": "09:00",
+      "preRequisites": ["CSE3055"],
+      "quota": 20
+    },
+    {
+      "courseName": "Formal Lang. & Auto. Theory",
+      "courseCode": "CSE3064",
+      "semester": 6,
+      "credits": 6,
+      "courseDay": 2,
+      "courseHour": "09:00",
+      "preRequisites": ["CSE2023"],
+      "quota": 20
+    },
+    {
+      "courseName": "Computer Organization",
+      "courseCode": "CSE3038",
+      "semester": 6,
+      "credits": 7,
+      "courseDay": 3,
+      "courseHour": "09:00",
+      "preRequisites": ["CSE3015"],
+      "quota": 20
+    },
+    {
+      "courseName": "Operations Reasearch",
+      "courseCode": "IE3081",
+      "semester": 6,
+      "credits": 5,
+      "courseDay": 4,
+      "courseHour": "09:00",
+      "preRequisites": ["MATH2056"],
+      "quota": 20
+    },
+    {
+      "courseName": "Computer Networks",
+      "courseCode": "CSE4074",
+      "semester": 7,
+      "credits": 5,
+      "courseDay": 0,
+      "courseHour": "09:00",
+      "preRequisites": [""],
+      "quota": 20
+    },
+    {
+      "courseName": "Microprocessors",
+      "courseCode": "CSE4117",
+      "semester": 7,
+      "credits": 6,
+      "courseDay": 1,
+      "courseHour": "09:00",
+      "preRequisites": ["CSE3038"],
+      "quota": 20
+    },
+    {
+      "courseName": "Work Safety I",
+      "courseCode": "ISG121",
+      "semester": 7,
+      "credits": 2,
+      "courseDay": 2,
+      "courseHour": "09:00",
+      "preRequisites": [""],
+      "quota": 20
+    },
+    {
+      "courseName": "Work Safety II",
+      "courseCode": "ISG122",
+      "semester": 8,
+      "credits": 2,
+      "courseDay": 0,
+      "courseHour": "09:00",
+      "preRequisites": [""],
+      "quota": 20
+    }
+  ],
+  "graduationProject": [
+    {
+      "courseName": "Engineering Project I",
+      "courseCode": "CSE4197",
+      "semester": 7,
+      "credits": 5,
+      "courseDay": 4,
+      "courseHour": "09:00",
+      "preRequisites": [""],
+      "requiredCredits": 130,
+      "quota": 30
+    },
+    {
+      "courseName": "Engineering Project II",
+      "courseCode": "CSE4198",
+      "semester": 8,
+      "credits": 5,
+      "courseDay": 4,
+      "courseHour": "11:00",
+      "preRequisites": ["CSE4197"],
+      "requiredCredits": 130,
+      "quota": 30
+    }
+  ],
+
+  "nonTechnicalElectiveCourses": [
+    {
+      "courseName": "Entrepreneurship and Innovation",
+      "courseCode": "BUS1003",
+      "semester": [2, 8],
+      "credits": 3,
+      "courseDay": 3,
+      "courseHour": "09:00",
+      "quota": 15
+    },
+    {
+      "courseName": "Strategic Entrepreneurship",
+      "courseCode": "BUS1004",
+      "semester": [2, 8],
+      "credits": 3,
+      "courseDay": 2,
+      "courseHour": "09:00",
+      "quota": 15
+    }
+  ],
+
+  "technicalElectiveCourses": [
+    {
+      "courseName": "Introduction to Robotics and Control Theory",
+      "courseCode": "CSE4026",
+      "semester": [7, 8],
+      "credits": 5,
+      "courseDay": 2,
+      "courseHour": "11:00",
+      "preRequisites": [""],
+      "requiredCredits": 100,
+      "quota": 20
+    },
+    {
+      "courseName": "Introduction to Distributed Systems",
+      "courseCode": "CSE4032",
+      "semester": [7, 8],
+      "credits": 5,
+      "courseDay": 3,
+      "courseHour": "09:00",
+      "preRequisites": [""],
+      "requiredCredits": 100,
+      "quota": 20
+    }
+  ],
+
+  "facultyTechnicalElectiveCourses": [
+    {
+      "courseName": "Planning and Management of Research",
+      "courseCode": "BIOE4072",
+      "semester": [8],
+      "credits": 5,
+      "courseDay": 1,
+      "courseHour": "09:00",
+      "preRequisites": [""],
+      "quota": 15
+    },
+    {
+      "courseName": "Cost Management in Chemical Industries",
+      "courseCode": "CHE4060",
+      "semester": [8],
+      "credits": 5,
+      "courseDay": 0,
+      "courseHour": "11:00",
+      "preRequisites": [""],
+      "quota": 15
+    }
+  ]
+}
