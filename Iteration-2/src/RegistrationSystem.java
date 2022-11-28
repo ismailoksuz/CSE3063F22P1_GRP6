@@ -285,7 +285,7 @@ public class RegistrationSystem {
     public void readInput() {
         try {
             JSONParser parser = new JSONParser();
-            JSONObject input = (JSONObject) parser.parse(new FileReader("input.json"));
+            JSONObject input = (JSONObject) parser.parse(new FileReader("Iteration-2\\src\\input.json"));
 
             readMandotory(input);
             readGraduationProject(input);
@@ -300,7 +300,7 @@ public class RegistrationSystem {
     public void readStudent() {
         try {
             JSONParser parser = new JSONParser();
-            JSONObject student = (JSONObject) parser.parse(new FileReader("students.json"));
+            JSONObject student = (JSONObject) parser.parse(new FileReader("Iteration-2\\src\\students.json"));
             readStudentInput(student);
         } catch (IOException | ParseException e) {
             e.printStackTrace();
@@ -310,7 +310,7 @@ public class RegistrationSystem {
     public void readAdvisors() {
         try {
             JSONParser parser = new JSONParser();
-            JSONObject advisor = (JSONObject) parser.parse(new FileReader("advisor.json"));
+            JSONObject advisor = (JSONObject) parser.parse(new FileReader("Iteration-2\\src\\advisor.json"));
             readAdvisorInput(advisor);
         } catch (IOException | ParseException e) {
             e.printStackTrace();
