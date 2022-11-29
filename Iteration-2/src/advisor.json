@@ -1,6 +1,10 @@
 {
   "advisors": [
     {
+      "firstName": "Haluk Rahmi",
+      "lastName": "Topçuoğlu"
+    },
+    {
       "firstName": "Çiğdem",
       "lastName": "Eroğlu Erdem"
     },
@@ -23,6 +27,30 @@
     {
       "firstName": "Mustafa",
       "lastName": "Ağaoğlu"
-    }
+    },
+    {
+      "firstName": "Mehmet",
+      "lastName": "Baran"
+    },
+    {
+      "firstName": "Betül",
+      "lastName": "Demiröz Boz"
+    },
+    {
+      "firstName": "Fatma",
+      "lastName": "Corut Ergin"
+    },
+    {
+      "firstName": "Ömer",
+      "lastName": "Korçak"
+    },
+    {
+      "firstName": "Ali Haydar",
+      "lastName": "Özer"
+    },
+    {
+      "firstName": "Sanem",
+      "lastName": "Arslan"
+    }    
   ]
 }
