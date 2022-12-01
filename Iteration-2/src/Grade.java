@@ -9,11 +9,6 @@ public class Grade {
         this.courseGrade = courseGrade;
     }
 
-    
-    public boolean isPassed() {
-        return courseGrade >= 35;
-    }
-
     public String getLetterGrade(){
 	    Random random = new Random();
 	    boolean isAttend = (random.nextInt(10) == 0) ? false : true;
