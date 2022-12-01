@@ -9,7 +9,7 @@ public class Grade {
         this.courseGrade = courseGrade;
     }
 
-    public String getLetterGrade(int courseGrade){
+    public String getLetterGrade(){
 	    Random random = new Random();
 	    boolean isAttend = (random.nextInt(10) == 0) ? false : true;
 	    boolean isEnteredTheFinal = (random.nextInt(20) == 0) ? false : true;
