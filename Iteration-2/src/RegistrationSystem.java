@@ -333,7 +333,9 @@ public class RegistrationSystem {
         NonTechnicalElective nte = nonTechnicalElectives.get(new Random().nextInt(nonTechnicalElectives.size()));
         if (nte.semesterCheck(i)) {
             Random randomGrade =new Random();
-            int intRandomGrade = randomGrade.nextInt(100);
+            //int intRandomGrade = randomGrade.nextInt(100);
+            //Deneme grade'i
+            intRandomGrade = ((intRandomGrade>=90) ? (randomGrade.nextInt(100 - 85) + 85) : (intRandomGrade<30 ? randomGrade.nextInt(45) : intRandomGrade));
             Grade courseGrade= new Grade(nte, intRandomGrade);
             student.getTranscript().getTakenCouerses().put(nte, courseGrade.getLetterGrade());
             student.getTranscript().isCourseComplatedOrFailed(nte, courseGrade.getLetterGrade());
