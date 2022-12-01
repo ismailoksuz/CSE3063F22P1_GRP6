@@ -316,8 +316,32 @@ public class RegistrationSystem {
             e.printStackTrace();
         }
     }
-
+    //(Emre) Grade-RegSys connection
     public void createTranscript(Student student) {
+    
+        for (MandatoryCourse mc : mandotoryCourses) {
+            if (mc.isEligibleToBePreviouslyTaken(student)) {
+                Random randomGrade =new Random();
+                int intRandomGrade = randomGrade.nextInt(100);
+                Grade courseGrade= new Grade(mc, intRandomGrade);
+                student.getTranscript().getTakenCouerses().put(mc, courseGrade.getLetterGrade());
+                student.getTranscript().isCourseComplatedOrFailed(mc, courseGrade.getLetterGrade());
+            }
+        }
+
+    for (int i = 1; i < student.getSemester(); i++) {
+        NonTechnicalElective nte = nonTechnicalElectives.get(new Random().nextInt(nonTechnicalElectives.size()));
+        if (nte.semesterCheck(i)) {
+            Random randomGrade =new Random();
+            int intRandomGrade = randomGrade.nextInt(100);
+            Grade courseGrade= new Grade(nte, intRandomGrade);
+            student.getTranscript().getTakenCouerses().put(nte, courseGrade.getLetterGrade());
+            student.getTranscript().isCourseComplatedOrFailed(nte, courseGrade.getLetterGrade());
+        }
+    }
+        student.getTranscript().calculateComplateCredit();
+    }
+   /* public void createTranscript(Student student) {
         String[] letterGrades = { "AA", "BA", "BB", "CB", "CC", "DC", "DD", "FD", "FF", "FG", "DZ" };
 
         for (MandatoryCourse mc : mandotoryCourses) {
@@ -338,7 +362,7 @@ public class RegistrationSystem {
         }
         student.getTranscript().calculateComplateCredit();
     }
-
+    */
     public void requestCoursesForAllStudents() {
         ArrayList<MandatoryCourse> currentSemesterMandatoryCourses = new ArrayList<MandatoryCourse>();
         for (MandatoryCourse c : mandotoryCourses) {
