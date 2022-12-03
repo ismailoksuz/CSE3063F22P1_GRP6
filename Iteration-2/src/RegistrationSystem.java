@@ -26,6 +26,8 @@ public class RegistrationSystem {
     private ArrayList<TechnicalElective> technicalElectives = new ArrayList<>();
     private ArrayList<FacultyTechnicalElective> facultyTechnicalElectives = new ArrayList<>();
     private ArrayList<NonTechnicalElective> nonTechnicalElectives = new ArrayList<>();
+    private String currentSemester;
+
 
     public RegistrationSystem() {
         startSimulation();
@@ -294,10 +296,28 @@ public class RegistrationSystem {
 
     }
 
-    public void readCurrentSemester(JSONObject input) {
+    /*public void readCurrentSemester(JSONObject input) {
         this.currentSemester = (String) input.get("CurrentSemester");
+    }*/
+    /*The process of reading the current semester from the input.json file. */
+    public String readCurrentSemester(JSONObject input){
+        currentSemester = (String) input.get("CurrentSemester");
+        return currentSemester;
     }
 
+    public int calculateSemester(Student student) {
+
+       
+        /* Semester control is done with CurrentSemester information from input.json file*/
+        int calculatedSemester = 0;
+        if (currentSemester.equals("fall")) {
+            calculatedSemester = (2 * (student.getCurrentYear() - student.getRegistrationYear()) + 1);
+        } else if (currentSemester.equals("spring")) {
+            calculatedSemester = (2 * ((student.getCurrentYear()+1) - student.getRegistrationYear()));
+        }
+        return calculatedSemester;
+    }
+    /*
     public int calculateSemester(Student student) {
         int calculatedSemester = 0;
         if (getCurrentSemester().equals("fall")) {
@@ -307,7 +327,7 @@ public class RegistrationSystem {
         }
         return calculatedSemester;
     }
-    /* public int calculateSemester(Student student) {
+     public int calculateSemester(Student student) {
         ArrayList<String> monthListFirstSemester = new ArrayList<>(Arrays.asList("JANUARY", "FEBRUARY", "SEPTEMBER",
                 "OCTOBER", "NOVEMBER", "DECEMBER"));
         ArrayList<String> monthListSecondSemester = new ArrayList<>(Arrays.asList("MARCH", "APRIL", "MAY", "JUNE",
@@ -344,6 +364,7 @@ public class RegistrationSystem {
             readTE(input);
             readFTE(input);
             readCurrentSemester(input);
+
         } catch (IOException | ParseException e) {
             e.printStackTrace();
         }
@@ -395,7 +416,9 @@ public class RegistrationSystem {
                 student.getTranscript().isCourseComplatedOrFailed(nte, courseGrade.getLetterGrade());
             }
         }
-        student.getTranscript().calculateComplateCredit();
+        student.getTranscript().
+            
+            fComplateCredit();
     }
 
     /* public void createTranscript(Student student) {
@@ -423,14 +446,47 @@ public class RegistrationSystem {
     public void requestCoursesForAllStudents() {
         ArrayList<MandatoryCourse> currentSemesterMandatoryCourses = new ArrayList<MandatoryCourse>();
         for (MandatoryCourse c : mandotoryCourses) {
+            if (currentSemester.equals("fall")){
+                if (c.getSemester() % 2 != 0) {
+                    currentSemesterMandatoryCourses.add(c);
+                }
+            }else if(currentSemester.equals("spring")){
+                if (c.getSemester() % 2 == 0) {
+                    System.out.println(c.getCourseCode());
+                    currentSemesterMandatoryCourses.add(c);
+                }
+            }
+
+        }
+        /*for (MandatoryCourse c : mandotoryCourses) {
             if (c.getSemester() % 2 != 0) {
                 currentSemesterMandatoryCourses.add(c);
             }
-        }
+        }*/
         for (Student s : studentList) {
             for (MandatoryCourse mc : currentSemesterMandatoryCourses) {
                 if (mc.isEligibleToRequest(s)) {
                     s.getRequestedCourses().add(mc);
+                }
+            }
+            
+            /* Adding the failed courses to the getRequestedCourse Arraylist by checking the semester */
+            for (Course c : s.getTranscript().getFailedCourses()) {
+                if (c instanceof MandatoryCourse) {
+                    if(currentSemester.equals("fall")){
+                        if (((MandatoryCourse) c).getSemester() % 2 != 0) {
+                            if (s.getTranscript().getCompletedCourses().contains(c)){
+                                continue;
+                            }else {
+                                s.getRequestedCourses().add(c);
+                            }
+                        }
+                    }else if(currentSemester.equals("spring")){
+                        if (((MandatoryCourse) c).getSemester() % 2 == 0) {
+                            s.getRequestedCourses().add(c);
+                        }
+                    }
+
                 }
             }
             /* for (Course c : s.getTranscript().getFailedCourses()) {
@@ -438,13 +494,14 @@ public class RegistrationSystem {
                     s.getRequestedCourses().add(c);
                 }
             } */
+            /*
             for (Course c : s.getTranscript().getFailedCourses()) {
                 if (c instanceof MandatoryCourse) {
                     if (((MandatoryCourse) c).getSemester() % 2 != 0) {
                         s.getRequestedCourses().add(c);
                     }
                 }
-            }
+            } */
             for (GraduationProject gp : graduationCourses) {
                 if (s.getRequestedCourses().contains(gp)) {
                     continue;
