@@ -1,5 +1,5 @@
 {
-  "CurrentSemester": "fall",
+  "CurrentSemester": "spring",
   "MandatoryCourses": [
     {
       "courseName": "Atatürk's Prin. & History I",
@@ -446,7 +446,7 @@
       "quota": 30
     }
   ],
-
+  "NTESemesters": [2, 8],
   "nonTechnicalElectiveCourses": [
     {
       "courseName": "Entrepreneurship and Innovation",
@@ -494,7 +494,7 @@
       "quota": 15
     }
   ],
-
+  "TESemesters": [7, 8],
   "technicalElectiveCourses": [
     {
       "courseName": "Introduction to Robotics and Control Theory",
@@ -563,7 +563,7 @@
       "quota": 20
     }
   ],
-
+  "FTESemesters": [8],
   "facultyTechnicalElectiveCourses": [
     {
       "courseName": "Planning and Management of Research",
