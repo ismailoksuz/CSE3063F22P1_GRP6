@@ -444,6 +444,8 @@ public class RegistrationSystem {
     }
     */
     public void requestCoursesForAllStudents() {
+        /*Courses in the curriculum according to semester information, fall or spring are added to the
+        currentSemesterMandotaryCourse Arraylist */
         ArrayList<MandatoryCourse> currentSemesterMandatoryCourses = new ArrayList<MandatoryCourse>();
         for (MandatoryCourse c : mandotoryCourses) {
             if (currentSemester.equals("fall")){
