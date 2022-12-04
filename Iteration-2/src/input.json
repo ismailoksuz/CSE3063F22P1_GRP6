@@ -352,7 +352,7 @@
       "quota": 20
     },
     {
-      "courseName": "Operations Reasearch",
+      "courseName": "Operations Research",
       "courseCode": "IE3235",
       "semester": 6,
       "credits": 4,
@@ -508,8 +508,8 @@
       "quota": 20
     },
     {
-      "courseName": "Introduction to Distributed Systems",
-      "courseCode": "CSE4032",
+      "courseName": "Introduction to Cryptography",
+      "courseCode": "CSE4066",
       "semester": [7, 8],
       "credits": 5,
       "courseDay": 1,
@@ -519,12 +519,56 @@
       "quota": 20
     },
     {
-      "courseName": "Wireless & Mobile Networks",
-      "courseCode": "CSE4075",
+      "courseName": "Introduction to Blockchain Programming",
+      "courseCode": "CSE4067",
       "semester": [7, 8],
       "credits": 5,
       "courseDay": 2,
       "courseHour": "13:00",
+      "preRequisites": [""],
+      "requiredCredits": 100,
+      "quota": 20
+    },
+    {
+      "courseName": "Software Frameworks",
+      "courseCode": "CSE4070",
+      "semester": [7, 8],
+      "credits": 5,
+      "courseDay": 3,
+      "courseHour": "13:00",
+      "preRequisites": [""],
+      "requiredCredits": 100,
+      "quota": 20
+    },
+    {
+      "courseName": "Artificial Intelligence",
+      "courseCode": "CSE4082",
+      "semester": [7, 8],
+      "credits": 5,
+      "courseDay": 4,
+      "courseHour": "13:00",
+      "preRequisites": [""],
+      "requiredCredits": 100,
+      "quota": 20
+    },
+    {
+      "courseName": "Introduction to Distributed Systems",
+      "courseCode": "CSE4032",
+      "semester": [7, 8],
+      "credits": 5,
+      "courseDay": 0,
+      "courseHour": "15:00",
+      "preRequisites": [""],
+      "requiredCredits": 100,
+      "quota": 20
+    },
+    {
+      "courseName": "Wireless & Mobile Networks",
+      "courseCode": "CSE4075",
+      "semester": [7, 8],
+      "credits": 5,
+      "courseDay": 1,
+      "courseHour": "15:00",
       "preRequisites": ["CSE4074"],
       "requiredCredits": 100,
       "quota": 20
@@ -534,8 +578,8 @@
       "courseCode": "CSE4034",
       "semester": [7, 8],
       "credits": 5,
-      "courseDay": 3,
-      "courseHour": "13:00",
+      "courseDay": 2,
+      "courseHour": "15:00",
       "preRequisites": ["CSE3033"],
       "requiredCredits": 100,
       "quota": 20
@@ -545,8 +589,8 @@
       "courseCode": "CSE4061",
       "semester": [7, 8],
       "credits": 5,
-      "courseDay": 4,
-      "courseHour": "13:00",
+      "courseDay": 3,
+      "courseHour": "15:00",
       "preRequisites": ["CSE3264"],
       "requiredCredits": 100,
       "quota": 20
@@ -556,7 +600,7 @@
       "courseCode": "CSE4217",
       "semester": [7, 8],
       "credits": 5,
-      "courseDay": 0,
+      "courseDay": 4,
       "courseHour": "15:00",
       "preRequisites": ["CSE3038"],
       "requiredCredits": 100,
