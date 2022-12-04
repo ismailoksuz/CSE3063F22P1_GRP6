@@ -1,0 +1,484 @@
+{
+  "students": [
+    {
+      "firstName": "Cenk",
+      "lastName": "Görkem",
+      "registrationYear": 2022,
+      "order": 1
+    },
+    {
+      "firstName": "Büşra",
+      "lastName": "Köksoy",
+      "registrationYear": 2022,
+      "order": 2
+    },
+    {
+      "firstName": "Haluk",
+      "lastName": "Çetinoğlu",
+      "registrationYear": 2022,
+      "order": 3
+    },
+    {
+      "firstName": "Sinan",
+      "lastName": "Kaya",
+      "registrationYear": 2022,
+      "order": 4
+    },
+    {
+      "firstName": "Nezaket",
+      "lastName": "Harmankaya",
+      "registrationYear": 2022,
+      "order": 5
+    },
+    {
+      "firstName": "Fuat",
+      "lastName": "Çalışkanoğlu",
+      "registrationYear": 2022,
+      "order": 6
+    },
+    {
+      "firstName": "Siber",
+      "lastName": "Kekilli",
+      "registrationYear": 2022,
+      "order": 7
+    },
+    {
+      "firstName": "Özden",
+      "lastName": "Karakuş",
+      "registrationYear": 2022,
+      "order": 8
+    },
+    {
+      "firstName": "Arda",
+      "lastName": "Doruk",
+      "registrationYear": 2022,
+      "order": 9
+    },
+    {
+      "firstName": "İhsan Burak",
+      "lastName": "Temli",
+      "registrationYear": 2022,
+      "order": 10
+    },
+    {
+      "firstName": "Doruk",
+      "lastName": "Tülüce",
+      "registrationYear": 2022,
+      "order": 11
+    },
+    {
+      "firstName": "Ayşe Fulya",
+      "lastName": "Demir",
+      "registrationYear": 2022,
+      "order": 12
+    },
+    {
+      "firstName": "Dila",
+      "lastName": "Türkoğlu",
+      "registrationYear": 2022,
+      "order": 13
+    },
+    {
+      "firstName": "Elif Tuğçe",
+      "lastName": "Servet",
+      "registrationYear": 2022,
+      "order": 14
+    },
+    {
+      "firstName": "Sema",
+      "lastName": "İbrahimgil",
+      "registrationYear": 2022,
+      "order": 15
+    },
+    {
+      "firstName": "Mücahit",
+      "lastName": "Akova",
+      "registrationYear": 2022,
+      "order": 16
+    },
+    {
+      "firstName": "Tarkan",
+      "lastName": "Kurtel",
+      "registrationYear": 2022,
+      "order": 17
+    },
+    {
+      "firstName": "Hidayet",
+      "lastName": "Saray",
+      "registrationYear": 2022,
+      "order": 18
+    },
+    {
+      "firstName": "Mehmetcan",
+      "lastName": "Altın",
+      "registrationYear": 2022,
+      "order": 19
+    },
+    {
+      "firstName": "Ahmet",
+      "lastName": "Pirdoğan",
+      "registrationYear": 2022,
+      "order": 20
+    },
+    {
+      "firstName": "Mustafa Ulaş",
+      "lastName": "Uruç",
+      "registrationYear": 2021,
+      "order": 1
+    },
+    {
+      "firstName": "Özgür",
+      "lastName": "Usul",
+      "registrationYear": 2021,
+      "order": 2
+    },
+    {
+      "firstName": "Ali Saip",
+      "lastName": "Kulalı",
+      "registrationYear": 2021,
+      "order": 3
+    },
+    {
+      "firstName": "Çağrı",
+      "lastName": "Güral",
+      "registrationYear": 2021,
+      "order": 4
+    },
+    {
+      "firstName": "Tuğçe",
+      "lastName": "Suluova",
+      "registrationYear": 2021,
+      "order": 5
+    },
+    {
+      "firstName": "İnan",
+      "lastName": "Soluk",
+      "registrationYear": 2021,
+      "order": 6
+    },
+    {
+      "firstName": "Aleyna",
+      "lastName": "Erduran",
+      "registrationYear": 2021,
+      "order": 7
+    },
+    {
+      "firstName": "Öztan",
+      "lastName": "Kaynak",
+      "registrationYear": 2021,
+      "order": 8
+    },
+    {
+      "firstName": "Çetin",
+      "lastName": "Gölemez",
+      "registrationYear": 2021,
+      "order": 9
+    },
+    {
+      "firstName": "İsmail Evren",
+      "lastName": "Kızıltaş",
+      "registrationYear": 2021,
+      "order": 10
+    },
+    {
+      "firstName": "Yelda",
+      "lastName": "Karapıçak",
+      "registrationYear": 2021,
+      "order": 11
+    },
+    {
+      "firstName": "Dilek",
+      "lastName": "Tanışık",
+      "registrationYear": 2021,
+      "order": 12
+    },
+    {
+      "firstName": "Yasin",
+      "lastName": "Ayık",
+      "registrationYear": 2021,
+      "order": 13
+    },
+    {
+      "firstName": "Nazan",
+      "lastName": "Açıkgoz",
+      "registrationYear": 2021,
+      "order": 14
+    },
+    {
+      "firstName": "Yavuz",
+      "lastName": "Biri",
+      "registrationYear": 2021,
+      "order": 15
+    },
+    {
+      "firstName": "Eylül",
+      "lastName": "Teğin",
+      "registrationYear": 2021,
+      "order": 16
+    },
+    {
+      "firstName": "Gözde",
+      "lastName": "Ekici",
+      "registrationYear": 2021,
+      "order": 17
+    },
+    {
+      "firstName": "Elif",
+      "lastName": "Bek",
+      "registrationYear": 2021,
+      "order": 18
+    },
+    {
+      "firstName": "Serhat",
+      "lastName": "Karpuz",
+      "registrationYear": 2021,
+      "order": 19
+    },
+    {
+      "firstName": "Nevzat",
+      "lastName": "Elçin",
+      "registrationYear": 2021,
+      "order": 20
+    },
+    {
+      "firstName": "Gülce",
+      "lastName": "Kalelioğlu",
+      "registrationYear": 2020,
+      "order": 1
+    },
+    {
+      "firstName": "Furkan",
+      "lastName": "Kerem",
+      "registrationYear": 2020,
+      "order": 2
+    },
+    {
+      "firstName": "Çağdaş",
+      "lastName": "Kayan",
+      "registrationYear": 2020,
+      "order": 3
+    },
+    {
+      "firstName": "Zühre",
+      "lastName": "Loğoğlu",
+      "registrationYear": 2020,
+      "order": 4
+    },
+    {
+      "firstName": "Zeynep",
+      "lastName": "Nalbat",
+      "registrationYear": 2020,
+      "order": 5
+    },
+    {
+      "firstName": "Fethi",
+      "lastName": "Tanır",
+      "registrationYear": 2020,
+      "order": 6
+    },
+    {
+      "firstName": "Kaan",
+      "lastName": "Gülsoy",
+      "registrationYear": 2020,
+      "order": 7
+    },
+    {
+      "firstName": "Eyüp",
+      "lastName": "Akhun",
+      "registrationYear": 2020,
+      "order": 8
+    },
+    {
+      "firstName": "Bilge",
+      "lastName": "Doğuş",
+      "registrationYear": 2020,
+      "order": 9
+    },
+    {
+      "firstName": "Ateş",
+      "lastName": "Acıpınar",
+      "registrationYear": 2020,
+      "order": 10
+    },
+    {
+      "firstName": "Osman",
+      "lastName": "Gültekin",
+      "registrationYear": 2020,
+      "order": 11
+    },
+    {
+      "firstName": "Kerim",
+      "lastName": "Dinler",
+      "registrationYear": 2020,
+      "order": 12
+    },
+    {
+      "firstName": "Fulya",
+      "lastName": "Özmen",
+      "registrationYear": 2020,
+      "order": 13
+    },
+    {
+      "firstName": "Veysel",
+      "lastName": "Konur",
+      "registrationYear": 2020,
+      "order": 14
+    },
+    {
+      "firstName": "Erdinç",
+      "lastName": "Ayık",
+      "registrationYear": 2020,
+      "order": 15
+    },
+    {
+      "firstName": "Talha",
+      "lastName": "Eşici",
+      "registrationYear": 2020,
+      "order": 16
+    },
+    {
+      "firstName": "Aslıhan",
+      "lastName": "Teke",
+      "registrationYear": 2020,
+      "order": 17
+    },
+    {
+      "firstName": "Gokhan",
+      "lastName": "Sonmez",
+      "registrationYear": 2020,
+      "order": 18
+    },
+    {
+      "firstName": "Pınar",
+      "lastName": "Levent",
+      "registrationYear": 2020,
+      "order": 19
+    },
+    {
+      "firstName": "Mehtap",
+      "lastName": "Baltacı",
+      "registrationYear": 2020,
+      "order": 20
+    },
+    {
+      "firstName": "Yiğit Can",
+      "lastName": "Aydınlı",
+      "registrationYear": 2019,
+      "order": 1
+    },
+    {
+      "firstName": "Polat",
+      "lastName": "Alemdar",
+      "registrationYear": 2019,
+      "order": 2
+    },
+    {
+      "firstName": "Berkay",
+      "lastName": "Altınok",
+      "registrationYear": 2019,
+      "order": 3
+    },
+    {
+      "firstName": "Alican",
+      "lastName": "Ünal",
+      "registrationYear": 2019,
+      "order": 4
+    },
+    {
+      "firstName": "Tuğçe",
+      "lastName": "Çıbık",
+      "registrationYear": 2019,
+      "order": 5
+    },
+    {
+      "firstName": "İlkay",
+      "lastName": "Saltık",
+      "registrationYear": 2019,
+      "order": 6
+    },
+    {
+      "firstName": "Çetin",
+      "lastName": "Gazi",
+      "registrationYear": 2019,
+      "order": 7
+    },
+    {
+      "firstName": "Atılgan",
+      "lastName": "Dağ",
+      "registrationYear": 2019,
+      "order": 8
+    },
+    {
+      "firstName": "Zümrüt",
+      "lastName": "Boduroğlu",
+      "registrationYear": 2019,
+      "order": 9
+    },
+    {
+      "firstName": "Kemal",
+      "lastName": "Atasoy",
+      "registrationYear": 2019,
+      "order": 10
+    },
+    {
+      "firstName": "Irmak",
+      "lastName": "Sertkaya",
+      "registrationYear": 2019,
+      "order": 11
+    },
+    {
+      "firstName": "Can",
+      "lastName": "Zengin",
+      "registrationYear": 2019,
+      "order": 12
+    },
+    {
+      "firstName": "Nurdan",
+      "lastName": "Kahraman",
+      "registrationYear": 2019,
+      "order": 13
+    },
+    {
+      "firstName": "Cem",
+      "lastName": "Oğuzsoy",
+      "registrationYear": 2019,
+      "order": 14
+    },
+    {
+      "firstName": "Nail",
+      "lastName": "Baran",
+      "registrationYear": 2019,
+      "order": 15
+    },
+    {
+      "firstName": "Tamer",
+      "lastName": "Kocaoğlu",
+      "registrationYear": 2019,
+      "order": 16
+    },
+    {
+      "firstName": "Seyfi",
+      "lastName": "Altunoz",
+      "registrationYear": 2019,
+      "order": 17
+    },
+    {
+      "firstName": "Baran",
+      "lastName": "Işıkçı",
+      "registrationYear": 2019,
+      "order": 18
+    },
+    {
+      "firstName": "Ali Rıza",
+      "lastName": "Kayaoğlu",
+      "registrationYear": 2019,
+      "order": 19
+    },
+    {
+      "firstName": "Hasan",
+      "lastName": "Bozdağ",
+      "registrationYear": 2019,
+      "order": 20
+    }
+  ]
+}
