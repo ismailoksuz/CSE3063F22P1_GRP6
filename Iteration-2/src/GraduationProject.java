@@ -22,7 +22,6 @@ public class GraduationProject extends MandatoryCourse {
             return true;
         } else {
             this.setFailedCredits(getFailedCredits() + 1);
-            this.getStudentsFailedCredits().add(student);
             student.getStudentOutput().add("The advisor didn't approve graduation project " + this.getCourseCode() +
                     " because student completed credits < " + this.getRequiredCredits());
             return false;

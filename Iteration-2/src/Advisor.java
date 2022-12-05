@@ -17,8 +17,8 @@ public class Advisor extends Instructor {
 
     public void completeRegistration(Student student) {
         for (int i = 0; i < student.getRequestedCourses().size(); i++)
-            if (checkCollision(student, student.getRequestedCourses().get(i))
-                    && checkQuotaForRegistration(student.getRequestedCourses().get(i), student)) {
+            if (checkQuotaForRegistration(student.getRequestedCourses().get(i), student)
+                    && checkCollision(student, student.getRequestedCourses().get(i))) {
                 student.getTranscript().getEnrolledCourses().add(student.getRequestedCourses().get(i));
                 student.getRequestedCourses().get(i).getStudents().add(student);
             }
@@ -28,8 +28,7 @@ public class Advisor extends Instructor {
         boolean isTrue = true;
         for (Course c : student.getTranscript().getEnrolledCourses()) {
             if (course.getCourseSchedule().toString().equals(c.getCourseSchedule().toString())) {
-                course.setCollisionProblem(course.getCollisionProblem() + 1);//******************************** */
-                course.getStudentsCollisionProblem().add(student);
+                course.setCollisionProblem(course.getCollisionProblem() + 1);
                 student.getStudentOutput().add("Advisor didn't approve " + course.getCourseCode() +
                         " because of two hours collision with " + c.getCourseCode() + " in schedule");
                 isTrue = false;
@@ -45,8 +44,7 @@ public class Advisor extends Instructor {
             return true;
         } else {
             /*  System.out.println("Quota is full for " + course.getCourseCode() + "(" + course.getCourseName() + ")"); */
-            course.setQuotaProblem(course.getQuotaProblem() + 1);//******************************************** */
-            course.getStudentsQuotaProblem().add(student);
+            course.setQuotaProblem(course.getQuotaProblem() + 1);
             student.getStudentOutput().add("The student couldn't register for " + course.getCourseCode() +
                     " because of a quota problem");
             return false;

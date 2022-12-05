@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class Transcript {
@@ -19,7 +20,7 @@ public class Transcript {
         this.creditTaken = 0;
         this.failedCourses = new ArrayList<Course>();
         this.completedCourses = new ArrayList<Course>();
-        this.takenCouerses = new HashMap<Course, String>();
+        this.takenCouerses = new LinkedHashMap<Course, String>();
         this.enrolledCourses = new ArrayList<Course>();
 
     }
@@ -68,8 +69,7 @@ public class Transcript {
                 gradeMultiplication += set.getKey().getCourseCredit() * 0.0;
             }
         }
-        studentGpa = gradeMultiplication / totalCredit;
-
+        studentGpa = Math.round(gradeMultiplication / totalCredit * 100.0) / 100.0;
         setGpa(studentGpa);
         return studentGpa;
     }

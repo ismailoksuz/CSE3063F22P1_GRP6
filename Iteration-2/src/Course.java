@@ -13,10 +13,10 @@ public abstract class Course {
     private int collisionProblem;
     private int failedCredits;
     private int failedPreq;
-    private ArrayList<Student> studentsFailedPreq;
+    /* private ArrayList<Student> studentsFailedPreq;
     private ArrayList<Student> studentsFailedCredits;
     private ArrayList<Student> studentsQuotaProblem;
-    private ArrayList<Student> studentsCollisionProblem;
+    private ArrayList<Student> studentsCollisionProblem; */
 
     public Course(String courseName, String courseCode, int courseCredit, int courseDay, String courseHour, int quota) {
         this.courseName = courseName;
@@ -29,10 +29,10 @@ public abstract class Course {
         this.collisionProblem = 0;
         this.failedCredits = 0;
         this.failedPreq = 0;
-        this.studentsFailedPreq = new ArrayList<Student>();
+        /* this.studentsFailedPreq = new ArrayList<Student>();
         this.studentsQuotaProblem = new ArrayList<Student>();
         this.studentsCollisionProblem = new ArrayList<Student>();
-        this.studentsFailedCredits = new ArrayList<Student>();
+        this.studentsFailedCredits = new ArrayList<Student>(); */
 
     }
 
@@ -126,35 +126,35 @@ public abstract class Course {
         this.failedPreq = failedPreq;
     }
 
-    public ArrayList<Student> getStudentsFailedPreq() {
+    /* public ArrayList<Student> getStudentsFailedPreq() {
         return studentsFailedPreq;
     }
-
+    
     public void setStudentsFailedPreq(ArrayList<Student> studentsFailedPreq) {
         this.studentsFailedPreq = studentsFailedPreq;
     }
-
+    
     public ArrayList<Student> getStudentsFailedCredits() {
         return studentsFailedCredits;
     }
-
+    
     public void setStudentsFailedCredits(ArrayList<Student> studentsFailedCredits) {
         this.studentsFailedCredits = studentsFailedCredits;
     }
-
+    
     public ArrayList<Student> getStudentsQuotaProblem() {
         return studentsQuotaProblem;
     }
-
+    
     public void setStudentsQuotaProblem(ArrayList<Student> studentsQuotaProblem) {
         this.studentsQuotaProblem = studentsQuotaProblem;
     }
-
+    
     public ArrayList<Student> getStudentsCollisionProblem() {
         return studentsCollisionProblem;
     }
-
+    
     public void setStudentsCollisionProblem(ArrayList<Student> studentsCollisionProblem) {
         this.studentsCollisionProblem = studentsCollisionProblem;
-    }
+    } */
 }

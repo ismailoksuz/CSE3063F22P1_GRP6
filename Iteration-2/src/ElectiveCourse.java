@@ -23,8 +23,8 @@ public abstract class ElectiveCourse extends Course {
 
     public boolean semesterCheck(int semester) {
         boolean isTrue = false;
-        for (int s : this.getSemesters()) {
-            if (s == semester) {
+        for (Integer s : this.getSemesters()) {
+            if (s.intValue() == semester) {
                 isTrue = true;
                 break;
             }

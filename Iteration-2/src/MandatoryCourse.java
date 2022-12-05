@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class MandatoryCourse extends Course {
 
@@ -14,17 +15,20 @@ public class MandatoryCourse extends Course {
     }
 
     public boolean isEligibleToRequest(Student student) {
-        /* if (student.getSemester() == this.getSemester()) {
-            if (student.getTranscript().hasBeenPassedCourses(this.getPrequisites())) {
-                return true;
-            } else
+        if (student.getSemester() == this.getSemester()) {
+            if (!student.getTranscript().hasBeenPassedCourses(this.getPrequisites())) {
+                this.setFailedPreq(this.getFailedPreq() + 1);
+                student.getStudentOutput().add("The system didn't allow " + this.getCourseCode() +
+                        " because student failed prereq. " + this.getPrequisites().get(0).getCourseCode());
                 return false;
+            } else
+                return true;
         } else {
-            this.setFailedPreq(this.getFailedPreq() + 1);
             return false;
-        } */
-        return student.getSemester() == this.getSemester()
-                && student.getTranscript().hasBeenPassedCourses(this.getPrequisites());
+        }
+
+        /* return student.getSemester() == this.getSemester()
+                && student.getTranscript().hasBeenPassedCourses(this.getPrequisites()); */
     }
 
     public boolean isEligibleToBePreviouslyTaken(Student student) {

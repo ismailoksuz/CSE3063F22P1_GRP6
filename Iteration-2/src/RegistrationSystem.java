@@ -11,6 +11,7 @@ import java.time.LocalDate;
 import java.time.Month;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
@@ -104,6 +105,7 @@ public class RegistrationSystem {
     public void readTE(JSONObject input) {
         JSONArray inputNTECourses = (JSONArray) input.get("technicalElectiveCourses");
         JSONArray inputTESemesters = (JSONArray) input.get("TESemesters");
+        int requiredCredit = (int) (long) input.get("TERequiredCredits");
         for (Object c : inputNTECourses) {
             JSONObject course = (JSONObject) c;
             String courseName = (String) course.get("courseName");
@@ -112,7 +114,7 @@ public class RegistrationSystem {
             int courseCredit = (int) (long) course.get("credits");
             int courseDay = (int) (long) course.get("courseDay");
             String courseHour = (String) course.get("courseHour");
-            int requiredCredit = (int) (long) course.get("requiredCredits");
+            //int requiredCredit = (int) (long) course.get("requiredCredits");
 
             ArrayList<Course> prequisitesCourse = new ArrayList<>();
             JSONArray prequisites = (JSONArray) course.get("preRequisites");
@@ -418,30 +420,6 @@ public class RegistrationSystem {
             }
         }
         i = 1;
-        TechnicalElective te = technicalElectives.get(new Random().nextInt(technicalElectives.size()));
-        while (i < student.getSemester()) {
-            if (te.semesterCheck(i)) {
-                int teCount = 0;
-                if (i == 7) {
-                    while (teCount != 2) {
-                        while (student.getTranscript().getCompletedCourses().contains(te)
-                                || student.getTranscript().getFailedCourses().contains(te)) {
-                            te = technicalElectives.get(new Random().nextInt(technicalElectives.size()));
-                        }
-                        Random randomGrade = new Random();
-                        int intRandomGrade = randomGrade.nextInt(100);
-                        //Deneme grade'i
-                        intRandomGrade = ((intRandomGrade >= 90) ? (randomGrade.nextInt(100 - 85) + 85)
-                                : (intRandomGrade < 30 ? randomGrade.nextInt(45) : intRandomGrade));
-                        Grade courseGrade = new Grade(te, intRandomGrade);
-                        student.getTranscript().getTakenCouerses().put(te, courseGrade.getLetterGrade());
-                        student.getTranscript().isCourseComplatedOrFailed(te, courseGrade.getLetterGrade());
-                        teCount++;
-                    }
-                }
-            }
-            i++;
-        }
         for (i = 1; i < student.getSemester(); i++) {
             FacultyTechnicalElective fte = facultyTechnicalElectives
                     .get(new Random().nextInt(facultyTechnicalElectives.size()));
@@ -460,7 +438,49 @@ public class RegistrationSystem {
                 student.getTranscript().isCourseComplatedOrFailed(fte, courseGrade.getLetterGrade());
             }
         }
+        i = 1;
+        TechnicalElective te = technicalElectives.get(new Random().nextInt(technicalElectives.size()));
+        while (i < student.getSemester()) {
+            if (te.semesterCheck(i)) {
+                int teCount = 0;
+                if (i == 7) {
+                    while (teCount != 2) {
+                        while (student.getTranscript().getCompletedCourses().contains(te)
+                                || student.getTranscript().getFailedCourses().contains(te)
+                                || !student.getTranscript().hasBeenPassedCourses(te.getPrequisites())) {
+                            te = technicalElectives.get(new Random().nextInt(technicalElectives.size()));
+                        }
+                        Random randomGrade = new Random();
+                        int intRandomGrade = randomGrade.nextInt(100);
+                        //Deneme grade'i
+                        intRandomGrade = ((intRandomGrade >= 90) ? (randomGrade.nextInt(100 - 85) + 85)
+                                : (intRandomGrade < 30 ? randomGrade.nextInt(45) : intRandomGrade));
+                        Grade courseGrade = new Grade(te, intRandomGrade);
+                        student.getTranscript().getTakenCouerses().put(te, courseGrade.getLetterGrade());
+                        student.getTranscript().isCourseComplatedOrFailed(te, courseGrade.getLetterGrade());
+                        teCount++;
+                    }
+                }
+            }
+            i++;
+        }
         student.getTranscript().calculateComplateCredit();
+        for (GraduationProject gp : graduationCourses) {
+            if (gp.getSemester() < student.getSemester()
+                    && gp.getRequiredCredits() <= student.getTranscript().getCreditCompleted()) {
+                Random randomGrade = new Random();
+                int intRandomGrade = randomGrade.nextInt(100);
+                //Deneme grade'i
+                intRandomGrade = ((intRandomGrade >= 90) ? (randomGrade.nextInt(100 - 85) + 85)
+                        : (intRandomGrade < 30 ? randomGrade.nextInt(45) : intRandomGrade));
+                Grade courseGrade = new Grade(gp, intRandomGrade);
+                student.getTranscript().getTakenCouerses().put(gp, courseGrade.getLetterGrade());
+                student.getTranscript().isCourseComplatedOrFailed(gp, courseGrade.getLetterGrade());
+            }
+        }
+        student.getTranscript().calculateComplateCredit();
+        student.getTranscript().calculateGpa();
+
     }
     /* public void createTranscript(Student student) {
     
@@ -529,11 +549,7 @@ public class RegistrationSystem {
             }
 
         }
-        /*for (MandatoryCourse c : mandotoryCourses) {
-            if (c.getSemester() % 2 != 0) {
-                currentSemesterMandatoryCourses.add(c);
-            }
-        }*/
+
         for (Student s : studentList) {
             for (MandatoryCourse mc : currentSemesterMandatoryCourses) {
                 if (mc.isEligibleToRequest(s)) {
@@ -559,20 +575,11 @@ public class RegistrationSystem {
                     }
 
                 }
-            }
-            /* for (Course c : s.getTranscript().getFailedCourses()) {
-                if (c.isEligibleToRequest(s)) {
+                if (c instanceof ElectiveCourse) {
                     s.getRequestedCourses().add(c);
                 }
-            } */
-            /*
-            for (Course c : s.getTranscript().getFailedCourses()) {
-                if (c instanceof MandatoryCourse) {
-                    if (((MandatoryCourse) c).getSemester() % 2 != 0) {
-                        s.getRequestedCourses().add(c);
-                    }
-                }
-            } */
+            }
+
             for (GraduationProject gp : graduationCourses) {
                 if (s.getRequestedCourses().contains(gp)) {
                     continue;
@@ -581,42 +588,37 @@ public class RegistrationSystem {
                     s.getRequestedCourses().add(gp);
                 }
             }
-            /****************************************************************** *******************************************************************/
-            /* 
-            if (s.getSemester() == 7) {
+
+            int limit = (s.getSemester() == 7) ? 2 : ((s.getSemester() == 8) ? 3 : 0);
+            for (int i = 0; i < limit; i++) {
                 TechnicalElective te = technicalElectives.get(new Random().nextInt(technicalElectives.size()));
-                if (te.isEligibleToRequest(s)) {
-                    s.getRequestedCourses().add(te);
-                }
-            } else if (s.getSemester() == 8) {
-                TechnicalElective te2 = technicalElectives.get(new Random().nextInt(technicalElectives.size()));
-                int i = 0;
-            
-                while (i < 3) {
-                    if (s.getRequestedCourses().contains(te2)) {
-                        i++;
-                        continue;
-                    }
-                    if (te2.isEligibleToRequest(s)) {
-                        s.getRequestedCourses().add(te2);
-                    }
-                }
-            } */
-            int i = 0;
-            int limit = (s.getSemester() == 7) ? 1 : 3;
-            for (TechnicalElective te : technicalElectives) {
-                if (s.getRequestedCourses().contains(te)) {
-                    i++;
-                    continue;
-                }
-                if (limit == i) {
-                    break;
+                while (s.getTranscript().getCompletedCourses().contains(te)
+                        || s.getTranscript().getFailedCourses().contains(te)
+                        || s.getRequestedCourses().contains(te)) {
+                    te = technicalElectives.get(new Random().nextInt(technicalElectives.size()));
                 }
                 if (te.isEligibleToRequest(s)) {
                     s.getRequestedCourses().add(te);
                 }
             }
-            /****************************************************************************************************************** */
+
+            NonTechnicalElective nte = nonTechnicalElectives.get(new Random().nextInt(nonTechnicalElectives.size()));
+            while (s.getTranscript().getCompletedCourses().contains(nte)) {
+                nte = nonTechnicalElectives.get(new Random().nextInt(nonTechnicalElectives.size()));
+            }
+            if (nte.isEligibleToRequest(s)) {
+                s.getRequestedCourses().add(nte);
+            }
+
+            FacultyTechnicalElective fte = facultyTechnicalElectives
+                    .get(new Random().nextInt(facultyTechnicalElectives.size()));
+            while (s.getTranscript().getCompletedCourses().contains(fte)) {
+                fte = facultyTechnicalElectives.get(new Random().nextInt(facultyTechnicalElectives.size()));
+            }
+            if (fte.isEligibleToRequest(s)) {
+                s.getRequestedCourses().add(fte);
+            }
+            /* 
             for (FacultyTechnicalElective fte : facultyTechnicalElectives) {
                 if (fte.isEligibleToRequest(s)) {
                     s.getRequestedCourses().add(fte);
@@ -631,7 +633,7 @@ public class RegistrationSystem {
                     s.getRequestedCourses().add(nte);
                     break;
                 }
-            }
+            } */
         }
     }
 
@@ -642,23 +644,17 @@ public class RegistrationSystem {
     }
 
     public void createStudentOutput(Student student) {
-        JSONObject jsonObject = new JSONObject();
+        Map jsonObject = new LinkedHashMap();
         JSONArray jsonArray = new JSONArray();
+        //Add student info
         jsonObject.put("StudentName", student.toString());
         jsonObject.put("StudentId", student.getStudentId());
         jsonObject.put("SemesterNumber", student.getSemester());
         jsonObject.put("CompletedCredits", student.getTranscript().getCreditCompleted());
+        jsonObject.put("Gpa", student.getTranscript().getGpa());
         jsonObject.put("AdvisorName", student.getAdvisor().toString());
-        JSONArray jsonObjectRequestedCourses = new JSONArray();
 
-        for (Course course : student.getRequestedCourses()) {
-            JSONObject jsonObjectRequestedCouurse = new JSONObject();
-
-            jsonObjectRequestedCouurse.put("Course", course.getCourseName());
-            jsonObjectRequestedCourses.add(jsonObjectRequestedCouurse);
-        }
-        jsonObject.put("Requested Course", jsonObjectRequestedCourses);
-
+        //Add taken courses
         JSONArray jsonObjectPastCourses = new JSONArray();
         for (Map.Entry<Course, String> set : student.getTranscript().getTakenCouerses().entrySet()) {
             JSONObject jsonObjectTakenCourse = new JSONObject();
@@ -669,22 +665,32 @@ public class RegistrationSystem {
         }
         jsonObject.put("Taken Course", jsonObjectPastCourses);
 
+        //Add requested courses
+        JSONArray jsonObjectRequestedCourses = new JSONArray();
+        for (Course course : student.getRequestedCourses()) {
+            JSONObject jsonObjectRequestedCouurse = new JSONObject();
+            jsonObjectRequestedCouurse.put("Course", course.getCourseName());
+            jsonObjectRequestedCourses.add(jsonObjectRequestedCouurse);
+        }
+        jsonObject.put("Requested Course", jsonObjectRequestedCourses);
+
+        //Add enrolled courses
         JSONArray jsonObjectEnrolled = new JSONArray();
         for (Course course : student.getTranscript().getEnrolledCourses()) {
             JSONObject jsonObjectEnrolledCourse = new JSONObject();
-
             jsonObjectEnrolledCourse.put("Course", course.getCourseName());
             jsonObjectEnrolled.add(jsonObjectEnrolledCourse);
         }
         jsonObject.put("Enrolled Course", jsonObjectEnrolled);
 
+        //Add student output
         JSONArray jsonOutput = new JSONArray();
         for (String str : student.getStudentOutput()) {
-
             jsonOutput.add(str);
         }
         jsonObject.put("Output", jsonOutput);
 
+        JSONObject json = new JSONObject();
         try {
 
             new File("Output").mkdirs();
@@ -692,7 +698,7 @@ public class RegistrationSystem {
 
             FileWriter file = new FileWriter(
                     "Output\\Students\\" + (String) (student.getStudentId().toString()) + ".json");
-            file.write(jsonObject.toJSONString());
+            file.write(json.toJSONString(jsonObject));
 
             file.close();
         } catch (IOException e) {
@@ -700,11 +706,133 @@ public class RegistrationSystem {
             e.printStackTrace();
         }
     }
+    /* public void createStudentOutput(Student student) {
+        JSONObject jsonObject = new JSONObject();
+        JSONArray jsonArray = new JSONArray();
+        jsonObject.put("StudentName", student.toString());
+        jsonObject.put("StudentId", student.getStudentId());
+        jsonObject.put("SemesterNumber", student.getSemester());
+        jsonObject.put("CompletedCredits", student.getTranscript().getCreditCompleted());
+        jsonObject.put("AdvisorName", student.getAdvisor().toString());
+        JSONArray jsonObjectRequestedCourses = new JSONArray();
+    
+        for (Course course : student.getRequestedCourses()) {
+            JSONObject jsonObjectRequestedCouurse = new JSONObject();
+    
+            jsonObjectRequestedCouurse.put("Course", course.getCourseName());
+            jsonObjectRequestedCourses.add(jsonObjectRequestedCouurse);
+        }
+        jsonObject.put("Requested Course", jsonObjectRequestedCourses);
+    
+        JSONArray jsonObjectPastCourses = new JSONArray();
+        for (Map.Entry<Course, String> set : student.getTranscript().getTakenCouerses().entrySet()) {
+            JSONObject jsonObjectTakenCourse = new JSONObject();
+            jsonObjectTakenCourse.put("LetterGrade", set.getValue());
+            jsonObjectTakenCourse.put("CourseName", set.getKey().getCourseName());
+            jsonObjectTakenCourse.put("Course", set.getKey().getCourseCode());
+            jsonObjectPastCourses.add(jsonObjectTakenCourse);
+        }
+        jsonObject.put("Taken Course", jsonObjectPastCourses);
+    
+        JSONArray jsonObjectEnrolled = new JSONArray();
+        for (Course course : student.getTranscript().getEnrolledCourses()) {
+            JSONObject jsonObjectEnrolledCourse = new JSONObject();
+    
+            jsonObjectEnrolledCourse.put("Course", course.getCourseName());
+            jsonObjectEnrolled.add(jsonObjectEnrolledCourse);
+        }
+        jsonObject.put("Enrolled Course", jsonObjectEnrolled);
+    
+        JSONArray jsonOutput = new JSONArray();
+        for (String str : student.getStudentOutput()) {
+    
+            jsonOutput.add(str);
+        }
+        jsonObject.put("Output", jsonOutput);
+    
+        try {
+    
+            new File("Output").mkdirs();
+            new File("Output\\Students").mkdirs();
+    
+            FileWriter file = new FileWriter(
+                    "Output\\Students\\" + (String) (student.getStudentId().toString()) + ".json");
+            file.write(jsonObject.toJSONString());
+    
+            file.close();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    } */
 
     public void createDepartmentOutput() {
         // JSON FOR DEPERTMENT
-        JSONObject jsonDepertment = new JSONObject();
+        Map jsonDepertment = new LinkedHashMap();
 
+        for (Course course : coursesList) {
+            if (course instanceof MandatoryCourse) {
+                if (this.getCurrentSemester().equals("fall") && ((MandatoryCourse) course).getSemester() % 2 != 0) {
+                    JSONArray jsonArrayDepertment = new JSONArray();
+                    jsonArrayDepertment.add(course.getQuotaProblem() + " Students couldn't register for " +
+                            course.getCourseCode() + " due to the quota problems.");
+                    jsonArrayDepertment.add(course.getCollisionProblem() + " Students couldn't register for " +
+                            course.getCourseCode() + " due to the collision problems.");
+                    jsonArrayDepertment.add(course.getFailedPreq() + " Students couldn't register for " +
+                            course.getCourseCode() + " due to the failed prerequisite.");
+                    if (course instanceof GraduationProject) {
+                        jsonArrayDepertment.add(course.getFailedCredits() + " Students couldn't register for " +
+                                course.getCourseCode() + " due to the failed credit problems.");
+                    }
+                    jsonDepertment.put(course.getCourseName(), jsonArrayDepertment);
+
+                } else if (this.getCurrentSemester().equals("spring")
+                        && ((MandatoryCourse) course).getSemester() % 2 == 0) {
+                    JSONArray jsonArrayDepertment = new JSONArray();
+                    jsonArrayDepertment.add(course.getQuotaProblem() + " Students couldn't register for " +
+                            course.getCourseCode() + " due to the quota problems.");
+                    jsonArrayDepertment.add(course.getCollisionProblem() + " Students couldn't register for " +
+                            course.getCourseCode() + " due to the collision problems.");
+                    jsonArrayDepertment.add(course.getFailedPreq() + " Students couldn't register for " +
+                            course.getCourseCode() + " due to the failed prerequisite.");
+                    if (course instanceof GraduationProject) {
+                        jsonArrayDepertment.add(course.getFailedCredits() + " Students couldn't register for " +
+                                course.getCourseCode() + " due to the failed credit problems.");
+                    }
+                    jsonDepertment.put(course.getCourseName(), jsonArrayDepertment);
+                }
+            } else {
+
+                JSONArray jsonArrayDepertment = new JSONArray();
+                jsonArrayDepertment.add(course.getQuotaProblem() + " Students couldn't register for " +
+                        course.getCourseCode() + " due to the quota problems.");
+                jsonArrayDepertment.add(course.getCollisionProblem() + " Students couldn't register for " +
+                        course.getCourseCode() + " due to the collision problems.");
+                if (course instanceof TechnicalElective) {
+                    jsonArrayDepertment.add(course.getFailedCredits() + " Students couldn't register for " +
+                            course.getCourseCode() + " due to the failed credit problems.");
+                    jsonArrayDepertment.add(course.getFailedPreq() + " Students couldn't register for " +
+                            course.getCourseCode() + " due to the failed prerequisite.");
+                }
+                jsonDepertment.put(course.getCourseName(), jsonArrayDepertment);
+            }
+        }
+        JSONObject Depertment = new JSONObject();
+        try {
+            FileWriter file2 = new FileWriter(
+                    "Output\\" + "DEPARTMENT_OUTPUT_" + this.getCurrentSemester().toUpperCase() + ".json");
+
+            file2.write(Depertment.toJSONString(jsonDepertment));
+            file2.close();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+    /* public void createDepartmentOutput() {
+        // JSON FOR DEPERTMENT
+        JSONObject jsonDepertment = new JSONObject();
+    
         for (Course course : coursesList) {
             if (course instanceof MandatoryCourse) {
                 if (((MandatoryCourse) course).getSemester() % 2 != 0) {
@@ -720,7 +848,7 @@ public class RegistrationSystem {
                     jsonDepertment.put(course.getCourseName(), jsonArrayDepertment);
                 }
             } else {
-
+    
                 JSONArray jsonArrayDepertment = new JSONArray();
                 jsonArrayDepertment.add(course.getQuotaProblem() + " Students couldn't register for " +
                         course.getCourseCode() + " due to the quota problems.");
@@ -735,14 +863,14 @@ public class RegistrationSystem {
         }
         try {
             FileWriter file2 = new FileWriter("Output\\" + "DEPARTMENT_OUTPUT_FALL.json");
-
+    
             file2.write(jsonDepertment.toJSONString());
             file2.close();
         } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-    }
+    } */
 
     public void startSimulation() {
         readAdvisors();
@@ -752,8 +880,8 @@ public class RegistrationSystem {
         assignInstructor(coursesList);
         requestCoursesForAllStudents();
         startRegistration();
-        for (int i = 0; i <= 10; i++) {
-            createStudentOutput(studentList.get(new Random().nextInt(studentList.size())));
+        for (Student s : studentList) {
+            createStudentOutput(s);
         }
         createDepartmentOutput();
 
@@ -770,14 +898,14 @@ public class RegistrationSystem {
         */
         /* 
         for (TechnicalElective t : technicalElectives) {
-            System.out.println(t.getCourseName());
+            System.out.println(t.getCourseName() + " RequiredCredits: " + t.getRequiredCredits());
             for (int i : t.getSemesters()) {
                 System.out.print("Semesters: " + i + " ");
             }
             System.out.println("\n\n");
         
-        }
-        
+        } */
+        /*
         for (FacultyTechnicalElective f : facultyTechnicalElectives) {
             System.out.println(f.getCourseName());
             for (int i : f.getSemesters()) {
@@ -868,18 +996,30 @@ public class RegistrationSystem {
             System.out.print(c.getCourseName() + "---");
         }
         */
-        /* 
+
         for (Student s : studentList) {
-            System.out.println(s.getStudentName() + " Semester: " + s.getSemester());
-            for (Map.Entry<Course, String> set : s.getTranscript().getTakenCouerses()
-                    .entrySet()) {
-                System.out.println(set.getKey().getCourseName() + " --> " + set.getValue());
+            System.out.println(s.getStudentName() + " StudentId: " + s.getStudentId() + " Semester: " + s.getSemester()
+                    + " TotalCredits: "
+                    + s.getTranscript().getCreditCompleted());
+            //for (Map.Entry<Course, String> set : s.getTranscript().getTakenCouerses()
+            //        .entrySet()) {
+            //    System.out.println(set.getKey().getCourseName() + " --> " + set.getValue());
+            //}
+            System.out.println("------------COMPLETED COURSES------------------------------");
+            for (Course c : s.getTranscript().getCompletedCourses()) {
+                System.out.print(c.getCourseName() + " --- ");
             }
+            System.out.println("\n");
+            System.out.println("------------FAILED COURSES------------------------------");
+            for (Course c : s.getTranscript().getFailedCourses()) {
+                System.out.print(c.getCourseName() + " --- ");
+            }
+            System.out.println("\n");
             System.out.println("------------REQUESTED COURSES------------------------------");
             for (Course c : s.getRequestedCourses()) {
                 System.out.print(c.getCourseName() + " --- ");
             }
-            System.out.println("");
+            System.out.println("\n");
             System.out.println("-------------ENROLLED COURSES------------------------------");
             for (Course c : s.getTranscript().getEnrolledCourses()) {
                 System.out.print(c.getCourseName() + " --- ");
@@ -887,6 +1027,6 @@ public class RegistrationSystem {
             System.out.println("");
             System.out.println("-------------END-------------------------------------------");
             System.out.println("\n\n");
-        } */
+        }
     }
 }

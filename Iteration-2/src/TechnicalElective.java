@@ -13,25 +13,26 @@ public class TechnicalElective extends ElectiveCourse {
 
     @Override
     public boolean isEligibleToRequest(Student student) {
-        /* if (semesterControl(student)) {
-            if (student.getTranscript().hasBeenPassedCourses(this.getPrequisites())) {
-                return true;
-            } else
+        if (semesterControl(student)) {
+            if (!student.getTranscript().hasBeenPassedCourses(this.getPrequisites())) {
+                this.setFailedPreq(this.getFailedPreq() + 1);
+                student.getStudentOutput().add("The system didn't allow " + this.getCourseCode() +
+                        " because student failed prereq. " + this.getPrequisites().get(0).getCourseCode());
                 return false;
+            } else
+                return true;
         } else {
-            this.setFailedPreq(this.getFailedPreq() + 1);
             return false;
-        } */
-        return semesterControl(student) && student.getTranscript().hasBeenPassedCourses(this.getPrequisites())
-                && checkRequiredCredit(student);
+        }
+        /* return semesterControl(student) && student.getTranscript().hasBeenPassedCourses(this.getPrequisites())
+                && checkRequiredCredit(student); */
     }
 
     public boolean checkRequiredCredit(Student student) {
         if (student.getTranscript().getCreditCompleted() >= requiredCredits) {
             return true;
-        } else{
+        } else {
             this.setFailedCredits(getFailedCredits() + 1);
-            this.getStudentsFailedCredits().add(student);
             student.getStudentOutput().add("The advisor didn't approve TE" + this.getCourseCode() +
                     " because student completed credits < " + this.getRequiredCredits());
             return false;
