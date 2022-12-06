@@ -1,5 +1,5 @@
 {
-  "CurrentSemester": "fall",
+  "CurrentSemester": "spring",
   "MandatoryCourses": [
     {
       "courseName": "Atatürk's Prin. & History I",
@@ -9,7 +9,7 @@
       "courseDay": 0,
       "courseHour": "09:00",
       "preRequisites": [""],
-      "quota": 18
+      "quota": 50
     },
     {
       "courseName": "Introduction to Modern Biology",
@@ -19,7 +19,7 @@
       "courseDay": 1,
       "courseHour": "09:00",
       "preRequisites": [""],
-      "quota": 18
+      "quota": 50
     },
     {
       "courseName": "Introduction to Computer Engineering",
@@ -29,7 +29,7 @@
       "courseDay": 2,
       "courseHour": "09:00",
       "preRequisites": [""],
-      "quota": 18
+      "quota": 50
     },
     {
       "courseName": "Computer Programming I",
@@ -39,7 +39,7 @@
       "courseDay": 3,
       "courseHour": "09:00",
       "preRequisites": [""],
-      "quota": 20
+      "quota": 50
     },
     {
       "courseName": "Calculus I",
@@ -49,7 +49,7 @@
       "courseDay": 4,
       "courseHour": "09:00",
       "preRequisites": [""],
-      "quota": 20
+      "quota": 50
     },
     {
       "courseName": "Physics I",
@@ -59,7 +59,7 @@
       "courseDay": 0,
       "courseHour": "11:00",
       "preRequisites": [""],
-      "quota": 18
+      "quota": 50
     },
     {
       "courseName": "Physics Lab I",
@@ -69,7 +69,7 @@
       "courseDay": 1,
       "courseHour": "11:00",
       "preRequisites": [""],
-      "quota": 18
+      "quota": 50
     },
     {
       "courseName": "Turkish Language I",
@@ -79,7 +79,7 @@
       "courseDay": 2,
       "courseHour": "11:00",
       "preRequisites": [""],
-      "quota": 18
+      "quota": 50
     },
     {
       "courseName": "Atatürk's Prin. & History II",
@@ -89,7 +89,7 @@
       "courseDay": 0,
       "courseHour": "09:00",
       "preRequisites": [""],
-      "quota": 18
+      "quota": 50
     },
     {
       "courseName": "Computer Programming II",
@@ -99,7 +99,7 @@
       "courseDay": 1,
       "courseHour": "09:00",
       "preRequisites": ["CSE1241"],
-      "quota": 20
+      "quota": 50
     },
     {
       "courseName": "Calculus II",
@@ -109,7 +109,7 @@
       "courseDay": 2,
       "courseHour": "09:00",
       "preRequisites": [""],
-      "quota": 20
+      "quota": 50
     },
     {
       "courseName": "Linear Algebra",
@@ -119,7 +119,7 @@
       "courseDay": 3,
       "courseHour": "09:00",
       "preRequisites": [""],
-      "quota": 20
+      "quota": 50
     },
     {
       "courseName": "Physics II",
@@ -129,7 +129,7 @@
       "courseDay": 4,
       "courseHour": "09:00",
       "preRequisites": [""],
-      "quota": 20
+      "quota": 50
     },
     {
       "courseName": "Physics Lab II",
@@ -139,7 +139,7 @@
       "courseDay": 0,
       "courseHour": "11:00",
       "preRequisites": [""],
-      "quota": 20
+      "quota": 50
     },
     {
       "courseName": "Turkish Language II",
@@ -149,7 +149,7 @@
       "courseDay": 1,
       "courseHour": "11:00",
       "preRequisites": [""],
-      "quota": 20
+      "quota": 50
     },
     {
       "courseName": "Discrete Comp. Structures",

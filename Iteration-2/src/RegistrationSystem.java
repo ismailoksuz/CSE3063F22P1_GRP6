@@ -284,6 +284,47 @@ public class RegistrationSystem {
     }
 
     public void readStudentInput(JSONObject student) {
+        JSONArray inputNames = (JSONArray) student.get("names");
+        JSONArray inputSurnames = (JSONArray) student.get("surnames");
+        int studentNumberPerYear = (int) (long) student.get("studentNumberPerYear");
+        ArrayList<String> names = new ArrayList<String>();
+        ArrayList<String> surnames = new ArrayList<String>();
+        for (Object n : inputNames) {
+            names.add((String) n);
+        }
+        for (Object sn : inputSurnames) {
+            surnames.add((String) sn);
+        }
+        for (int i = 1; i <= studentNumberPerYear; i++) {
+            Student newStudent = new Student(names.get(new Random().nextInt(names.size())),
+                    surnames.get(new Random().nextInt(surnames.size())), 2022, i);
+            studentList.add(newStudent);
+            newStudent.setSemester(calculateSemester(newStudent));
+            createTranscript(newStudent);
+        }
+        for (int i = 1; i <= studentNumberPerYear; i++) {
+            Student newStudent = new Student(names.get(new Random().nextInt(names.size())),
+                    surnames.get(new Random().nextInt(surnames.size())), 2021, i);
+            studentList.add(newStudent);
+            newStudent.setSemester(calculateSemester(newStudent));
+            createTranscript(newStudent);
+        }
+        for (int i = 1; i <= studentNumberPerYear; i++) {
+            Student newStudent = new Student(names.get(new Random().nextInt(names.size())),
+                    surnames.get(new Random().nextInt(surnames.size())), 2020, i);
+            studentList.add(newStudent);
+            newStudent.setSemester(calculateSemester(newStudent));
+            createTranscript(newStudent);
+        }
+        for (int i = 1; i <= studentNumberPerYear; i++) {
+            Student newStudent = new Student(names.get(new Random().nextInt(names.size())),
+                    surnames.get(new Random().nextInt(surnames.size())), 2019, i);
+            studentList.add(newStudent);
+            newStudent.setSemester(calculateSemester(newStudent));
+            createTranscript(newStudent);
+        }
+    }
+    /* public void readStudentInput(JSONObject student) {
         JSONArray inputStudents = (JSONArray) student.get("students");
         for (Object s : inputStudents) {
             JSONObject students = (JSONObject) s;
@@ -296,8 +337,8 @@ public class RegistrationSystem {
             newStudent.setSemester(calculateSemester(newStudent));
             createTranscript(newStudent);
         }
-
-    }
+    
+    } */
 
     /*The process of reading the current semester from the input.json file. */
     public String readCurrentSemester(JSONObject input) {
@@ -923,7 +964,8 @@ public class RegistrationSystem {
         } */
         /* 
         for (Student s : studentList) {
-            System.out.printf("%s , %d yılında üniversiteye girdi, %d. Semester", s.getStudentName(),
+            System.out.printf("%s , %s , %d yılında üniversiteye girdi, %d. Semester", s.getStudentName(),
+                    s.getStudentId(),
                     s.getRegistrationYear(), s.getSemester());
             System.out.println();
         } */
