@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class GraduationProject extends MandatoryCourse {
+public class GraduationProject extends MandatoryCourse implements ICreditRequirement {
 
     private int requiredCredits;
 
@@ -17,6 +17,7 @@ public class GraduationProject extends MandatoryCourse {
 
     }
 
+    @Override
     public boolean checkRequiredCredit(Student student) {
         if (student.getTranscript().getCreditCompleted() >= requiredCredits) {
             return true;

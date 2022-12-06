@@ -14,6 +14,7 @@ public class MandatoryCourse extends Course {
         this.prerequisites = prerequisites;
     }
 
+    @Override
     public boolean isEligibleToRequest(Student student) {
         if (student.getSemester() == this.getSemester()) {
             if (!student.getTranscript().hasBeenPassedCourses(this.getPrequisites())) {
@@ -27,8 +28,6 @@ public class MandatoryCourse extends Course {
             return false;
         }
 
-        /* return student.getSemester() == this.getSemester()
-                && student.getTranscript().hasBeenPassedCourses(this.getPrequisites()); */
     }
 
     public boolean isEligibleToBePreviouslyTaken(Student student) {

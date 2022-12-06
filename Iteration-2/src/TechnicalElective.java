@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class TechnicalElective extends ElectiveCourse {
+public class TechnicalElective extends ElectiveCourse implements ICreditRequirement {
     private int requiredCredits;
     private ArrayList<Course> prequisites;
 
@@ -28,6 +28,7 @@ public class TechnicalElective extends ElectiveCourse {
                 && checkRequiredCredit(student); */
     }
 
+    @Override
     public boolean checkRequiredCredit(Student student) {
         if (student.getTranscript().getCreditCompleted() >= requiredCredits) {
             return true;

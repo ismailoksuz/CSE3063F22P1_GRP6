@@ -8,6 +8,7 @@ public class NonTechnicalElective extends ElectiveCourse {
 
     }
 
+    @Override
     public boolean isEligibleToRequest(Student student) {
         return semesterControl(student);
     }
