@@ -1,7 +1,9 @@
 import java.time.Year;
 import java.util.ArrayList;
+import org.apache.log4j.Logger;
 
 public class Student extends Person {
+    static Logger log = Logger.getLogger(Student.class);
     private StudentId studentId;
     private Transcript transcript;
     private Advisor advisor;
@@ -21,6 +23,8 @@ public class Student extends Person {
         this.transcript = new Transcript();
         this.studentId = new StudentId(registrationYear, order);
         this.studentOutput = new ArrayList<String>();
+        log.info("Student created =>  " + "Name: " + this.getStudentName() + " RegistrationYear: "
+                + this.getRegistrationYear() + " Order: " + this.getOrder());
     }
 
     public ArrayList<String> getStudentOutput() {
@@ -29,10 +33,7 @@ public class Student extends Person {
 
     public void setStudentOutput(ArrayList<String> studentOutput) {
         this.studentOutput = studentOutput;
-    }
-
-    public ArrayList<Course> sendRequest() {
-        return requestedCourses;
+        /* log.info(this.getStudentName() + ": student output changed."); */
     }
 
     public String getStudentName() {
@@ -49,10 +50,12 @@ public class Student extends Person {
 
     public void setStudentId(StudentId studentId) {
         this.studentId = studentId;
+        /* log.info(this.getStudentName() + ": student id changed."); */
     }
 
     public void setTranscript(Transcript transcript) {
         this.transcript = transcript;
+        /* log.info(this.getStudentName() + ": student transcript changed."); */
     }
 
     public Advisor getAdvisor() {
@@ -61,6 +64,7 @@ public class Student extends Person {
 
     public void setAdvisor(Advisor advisor) {
         this.advisor = advisor;
+        /* log.info(this.getStudentName() + ": student advisor changed."); */
     }
 
     public ArrayList<Course> getRequestedCourses() {
@@ -69,6 +73,7 @@ public class Student extends Person {
 
     public void setRequestedCourses(ArrayList<Course> requestedCourses) {
         this.requestedCourses = requestedCourses;
+        log.info(this.getStudentName() + ": student requested courses changed.");
     }
 
     public int getRegistrationYear() {
@@ -77,6 +82,7 @@ public class Student extends Person {
 
     public void setRegistrationYear(int registrationYear) {
         this.registrationYear = registrationYear;
+        /* log.info(this.getStudentName() + ": student registration year changed."); */
     }
 
     public int getOrder() {
@@ -85,6 +91,7 @@ public class Student extends Person {
 
     public void setOrder(int order) {
         this.order = order;
+        /* log.info(this.getStudentName() + ": student registration order changed."); */
     }
 
     public int getCurrentYear() {
@@ -93,6 +100,7 @@ public class Student extends Person {
 
     public void setCurrentYear(int currentYear) {
         this.currentYear = currentYear;
+        /* log.info(this.getStudentName() + ": student current year changed."); */
     }
 
     public int getSemester() {
@@ -101,7 +109,6 @@ public class Student extends Person {
 
     public void setSemester(int semester) {
         this.semester = semester;
+        log.info(this.getStudentName() + ": student semester changed.");
     }
-
-
 }
