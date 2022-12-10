@@ -1,4 +1,7 @@
+import org.apache.log4j.Logger;
+
 public class Schedule {
+    static Logger log = Logger.getLogger(Schedule.class);
     private int courseDay;
     private String courseHour;
 
@@ -9,6 +12,7 @@ public class Schedule {
     public Schedule(int courseDay, String courseHour) {
         this.courseDay = courseDay;
         this.courseHour = courseHour;
+        log.info("Course schedule created.");
     }
 
     public Day getCourseDay() {
@@ -17,6 +21,7 @@ public class Schedule {
 
     public void setCourseDay(int courseDay) {
         this.courseDay = courseDay;
+        /* log.info("Course day changed."); */
     }
 
     public String getCourseHour() {
@@ -25,6 +30,7 @@ public class Schedule {
 
     public void setCourseHour(String courseHour) {
         this.courseHour = courseHour;
+        /* log.info("Course hour changed."); */
     }
 
     public String toString() {
