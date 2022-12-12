@@ -1,5 +1,5 @@
 {
-  "CurrentSemester": "spring",
+  "CurrentSemester": "fall",
   "MandatoryCourses": [
     {
       "courseName": "Atatürk's Prin. & History I",
@@ -84,7 +84,7 @@
     {
       "courseName": "Atatürk's Prin. & History II",
       "courseCode": "ATA122",
-      "semester": 1,
+      "semester": 2,
       "credits": 2,
       "courseDay": 0,
       "courseHour": "09:00",
