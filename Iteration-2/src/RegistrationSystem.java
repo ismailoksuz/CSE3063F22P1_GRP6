@@ -493,7 +493,7 @@ public class RegistrationSystem {
                 int intRandomGrade = randomGrade.nextInt(100);
                 //Deneme grade'i
                 intRandomGrade = ((intRandomGrade >= 90) ? (randomGrade.nextInt(100 - 85) + 85)
-                        : (intRandomGrade < 30 ? randomGrade.nextInt(45) : intRandomGrade));
+                        : (intRandomGrade < 30 ? randomGrade.nextInt(89) : intRandomGrade));
                 Grade courseGrade = new Grade(fte, intRandomGrade);
                 student.getTranscript().getTakenCouerses().put(fte, courseGrade);
                 student.getTranscript().isCourseComplatedOrFailed(fte, courseGrade.getLetter());
