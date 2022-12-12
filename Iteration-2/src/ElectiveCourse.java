@@ -42,12 +42,8 @@ public abstract class ElectiveCourse extends Course {
         return isTrue;
     }
 
+    // GETTER & SETTER
     public ArrayList<Integer> getSemesters() {
         return semesters;
-    }
-
-    public void setSemesters(ArrayList<Integer> semesters) {
-        this.semesters = semesters;
-        /* log.info(this.getCourseName() + ": Course semesters changed."); */
     }
 }

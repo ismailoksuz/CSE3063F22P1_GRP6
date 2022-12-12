@@ -65,23 +65,11 @@ public class TechnicalElective extends ElectiveCourse implements ICreditRequirem
     }
 
     //GETTER & SETTER
-
     public int getRequiredCredits() {
         return requiredCredits;
     }
 
-    public void setRequiredCredits(int requiredCredits) {
-        this.requiredCredits = requiredCredits;
-        /* log.info(this.getCourseName() + ": Course required credits changed." + "(" + "New: " + this.getRequiredCredits()
-                + ")"); */
-    }
-
     public ArrayList<Course> getPrequisites() {
         return prequisites;
-    }
-
-    public void setPrequisites(ArrayList<Course> prequisites) {
-        this.prequisites = prequisites;
-        /* log.info(this.getCourseName() + ": Course prerequisite changed."); */
     }
 }

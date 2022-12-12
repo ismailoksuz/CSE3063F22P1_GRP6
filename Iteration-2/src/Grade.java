@@ -5,33 +5,35 @@ public class Grade {
 	static Logger log = Logger.getLogger(Grade.class);
 	private Course course;
 	private int courseGrade;
+	private String letter;
 
 	public Grade(Course course, int courseGrade) {
 		this.course = course;
 		this.courseGrade = courseGrade;
+		this.letter = getLetterGrade();
 		/* log.info("Grade created."); */
 	}
 
 	public String getLetterGrade() {
 		String letterGrade = "";
 		Random random = new Random();
-		if (courseGrade > 100 || courseGrade < 0) {
+		if (this.courseGrade > 100 || this.courseGrade < 0) {
 			System.exit(1);
-		} else if (courseGrade >= 90) {
+		} else if (this.courseGrade >= 90) {
 			letterGrade = "AA";
-		} else if (courseGrade >= 85) {
+		} else if (this.courseGrade >= 85) {
 			letterGrade = "BA";
-		} else if (courseGrade >= 75) {
+		} else if (this.courseGrade >= 75) {
 			letterGrade = "BB";
-		} else if (courseGrade >= 65) {
+		} else if (this.courseGrade >= 65) {
 			letterGrade = "CB";
-		} else if (courseGrade >= 55) {
+		} else if (this.courseGrade >= 55) {
 			letterGrade = "CC";
-		} else if (courseGrade >= 45) {
+		} else if (this.courseGrade >= 45) {
 			letterGrade = "DC";
-		} else if (courseGrade >= 35) {
+		} else if (this.courseGrade >= 35) {
 			letterGrade = "DD";
-		} else if (courseGrade >= 30) {
+		} else if (this.courseGrade >= 30) {
 			letterGrade = "FD";
 		} else {
 			boolean isAttend = (random.nextInt(7) == 0) ? false : true;
@@ -43,16 +45,12 @@ public class Grade {
 
 	}
 
-	public int getCourseGrade() {
-		return courseGrade;
-	}
-
+	// GETTER & SETTER
 	public Course getCourse() {
-		return course;
+		return this.course;
 	}
 
-	public void setCourse(Course course) {
-		this.course = course;
-		/* log.info("Grade's course changed."); */
+	public String getLetter() {
+		return this.letter;
 	}
 }

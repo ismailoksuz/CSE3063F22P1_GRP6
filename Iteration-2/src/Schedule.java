@@ -15,25 +15,21 @@ public class Schedule {
         log.info("Course schedule created.");
     }
 
-    public Day getCourseDay() {
-        return Day.values()[this.courseDay];
+    public boolean isCollision(Schedule scheduleOther) {
+        return this.toString().equals(scheduleOther.toString());
     }
 
-    public void setCourseDay(int courseDay) {
-        this.courseDay = courseDay;
-        /* log.info("Course day changed."); */
+    // GETTER & SETTER
+    public Day getCourseDay() {
+        return Day.values()[this.courseDay];
     }
 
     public String getCourseHour() {
         return this.courseHour;
     }
 
-    public void setCourseHour(String courseHour) {
-        this.courseHour = courseHour;
-        /* log.info("Course hour changed."); */
-    }
-
+    @Override
     public String toString() {
-        return "Day: " + getCourseDay() + " Hour: " + getCourseHour();
+        return "Day: " + this.getCourseDay() + " Hour: " + this.getCourseHour();
     }
 }

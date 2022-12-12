@@ -40,40 +40,21 @@ public abstract class Person {
         return phone;
     }
 
+    // GETTER & SETTER
     public String getFirstName() {
         return this.firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-        /* log.info(this.toString() + ": Person first name changed."); */
     }
 
     public String getLastName() {
         return this.lastName;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-        /* log.info(this.toString() + ": Person last name changed."); */
-    }
-
     public String getEmail() {
         return this.email;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-        /* log.info(this.toString() + ": Person email changed."); */
-    }
-
     public String getPhoneNumber() {
         return this.phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-        /* log.info(this.toString() + ": Person phone number changed."); */
     }
 
     @Override

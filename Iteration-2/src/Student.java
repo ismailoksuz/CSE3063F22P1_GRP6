@@ -27,6 +27,7 @@ public class Student extends Person {
                 + this.getRegistrationYear() + " Order: " + this.getOrder());
     }
 
+    // GETTER & SETTER
     public ArrayList<String> getStudentOutput() {
         return studentOutput;
     }
@@ -48,16 +49,6 @@ public class Student extends Person {
         return this.studentId;
     }
 
-    public void setStudentId(StudentId studentId) {
-        this.studentId = studentId;
-        /* log.info(this.getStudentName() + ": student id changed."); */
-    }
-
-    public void setTranscript(Transcript transcript) {
-        this.transcript = transcript;
-        /* log.info(this.getStudentName() + ": student transcript changed."); */
-    }
-
     public Advisor getAdvisor() {
         return this.advisor;
     }
@@ -71,36 +62,16 @@ public class Student extends Person {
         return this.requestedCourses;
     }
 
-    public void setRequestedCourses(ArrayList<Course> requestedCourses) {
-        this.requestedCourses = requestedCourses;
-        log.info(this.getStudentName() + ": student requested courses changed.");
-    }
-
     public int getRegistrationYear() {
         return this.registrationYear;
-    }
-
-    public void setRegistrationYear(int registrationYear) {
-        this.registrationYear = registrationYear;
-        /* log.info(this.getStudentName() + ": student registration year changed."); */
     }
 
     public int getOrder() {
         return this.order;
     }
 
-    public void setOrder(int order) {
-        this.order = order;
-        /* log.info(this.getStudentName() + ": student registration order changed."); */
-    }
-
     public int getCurrentYear() {
         return this.currentYear;
-    }
-
-    public void setCurrentYear(int currentYear) {
-        this.currentYear = currentYear;
-        /* log.info(this.getStudentName() + ": student current year changed."); */
     }
 
     public int getSemester() {

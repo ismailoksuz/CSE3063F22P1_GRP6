@@ -9,22 +9,12 @@ public class Instructor extends Person {
         super(firstName, lastName);
         this.givenCourses = new ArrayList<Course>();
         log.info(this.toString() + " named instructor created.");
-
     }
 
     public Instructor(String firstName, String lastName, ArrayList<Course> givenCourses) {
         super(firstName, lastName);
         this.givenCourses = givenCourses;
         log.info(this.toString() + " named instructor created.");
-    }
-
-    public ArrayList<Course> getGivenCourses() {
-        return this.givenCourses;
-    }
-
-    public void setGivenCourses(ArrayList<Course> givenCourses) {
-        this.givenCourses = givenCourses;
-        /* log.info(this.toString() + ": instructor's course list changed."); */
     }
 
     public void addGivenCourse(Course course) {

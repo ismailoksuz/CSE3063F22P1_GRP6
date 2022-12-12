@@ -32,7 +32,7 @@ public class Advisor extends Instructor {
     public boolean checkCollision(Student student, Course course) {
         boolean isTrue = true;
         for (Course c : student.getTranscript().getEnrolledCourses()) {
-            if (course.getCourseSchedule().toString().equals(c.getCourseSchedule().toString())) {
+            if (course.getCourseSchedule().isCollision(c.getCourseSchedule())) {
                 course.setCollisionProblem(course.getCollisionProblem() + 1);
                 student.getStudentOutput().add("Advisor didn't approve " + course.getCourseCode() +
                         " because of two hours collision with " + c.getCourseCode() + " in schedule");
@@ -61,6 +61,7 @@ public class Advisor extends Instructor {
         }
     }
 
+    // GETTER & SETTER
     public ArrayList<Student> getStudents() {
         return this.students;
     }

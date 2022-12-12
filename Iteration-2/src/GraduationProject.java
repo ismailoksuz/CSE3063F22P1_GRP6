@@ -47,10 +47,4 @@ public class GraduationProject extends MandatoryCourse implements ICreditRequire
     public int getRequiredCredits() {
         return requiredCredits;
     }
-
-    public void setRequiredCredits(int requiredCredits) {
-        this.requiredCredits = requiredCredits;
-        /* log.info(this.getCourseName() + ": Course required credits changed." + "(" + "New: " + this.getRequiredCredits()
-                + ")"); */
-    }
 }

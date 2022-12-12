@@ -57,23 +57,12 @@ public class MandatoryCourse extends Course {
                 && student.getTranscript().hasBeenPassedCourses(this.getPrequisites());
     }
 
-    // GETTER & SETTERPRE
+    // GETTER & SETTER
     public int getSemester() {
         return semester;
     }
 
-    public void setSemester(int semester) {
-        this.semester = semester;
-        /* log.info(this.getCourseName() + ": Course semesters changed." + "(" + "New: " + this.getSemester()
-                + ")"); */
-    }
-
     public ArrayList<Course> getPrequisites() {
         return prerequisites;
-    }
-
-    public void setPrequisites(ArrayList<Course> prerequisites) {
-        this.prerequisites = prerequisites;
-        /* log.info(this.getCourseName() + ": Course prerequisite changed."); */
     }
 }

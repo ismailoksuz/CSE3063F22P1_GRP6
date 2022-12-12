@@ -27,13 +27,7 @@ public class FacultyTechnicalElective extends ElectiveCourse {
         }
 
         //GETTER & SETTER
-
         public ArrayList<Course> getPrequisites() {
                 return prequisites;
-        }
-
-        public void setPrequisites(ArrayList<Course> prequisites) {
-                this.prequisites = prequisites;
-                /* log.info(this.getCourseName() + ": Course prerequisite changed."); */
         }
 }

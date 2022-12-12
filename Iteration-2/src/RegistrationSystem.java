@@ -274,7 +274,6 @@ public class RegistrationSystem {
                 if (copyCourseList.size() == 0) {
                     break;
                 } else {
-                    /* System.out.println(copyCourseList.size()); */
                     int randomNum = ThreadLocalRandom.current().nextInt(0, copyCourseList.size());
                     advisorList.get(count).addGivenCourse(copyCourseList.get(randomNum));
                     copyCourseList.get(randomNum).setCourseInstructor(advisorList.get(count));
@@ -425,8 +424,8 @@ public class RegistrationSystem {
                 Random randomGrade = new Random();
                 int intRandomGrade = randomGrade.nextInt(100);
                 Grade courseGrade = new Grade(c, intRandomGrade);
-                s.getTranscript().getTakenCouerses().put(c, courseGrade.getLetterGrade());
-                s.getTranscript().isCourseComplatedOrFailed(c, courseGrade.getLetterGrade());
+                s.getTranscript().getTakenCouerses().put(c, courseGrade);
+                s.getTranscript().isCourseComplatedOrFailed(c, courseGrade.getLetter());
                 s.getTranscript().calculateComplateCredit();
                 s.getTranscript().calculateGpa();
             }
@@ -451,8 +450,8 @@ public class RegistrationSystem {
                 Random randomGrade = new Random();
                 int intRandomGrade = randomGrade.nextInt(100);
                 Grade courseGrade = new Grade(mc, intRandomGrade);
-                student.getTranscript().getTakenCouerses().put(mc, courseGrade.getLetterGrade());
-                student.getTranscript().isCourseComplatedOrFailed(mc, courseGrade.getLetterGrade());
+                student.getTranscript().getTakenCouerses().put(mc, courseGrade);
+                student.getTranscript().isCourseComplatedOrFailed(mc, courseGrade.getLetter());
                 /* log.info(student.getStudentName() + ": Student took " + mc.getCourseName() + "with a grade of "
                         + courseGrade.getLetterGrade() + "."); */
             }
@@ -473,8 +472,8 @@ public class RegistrationSystem {
                 intRandomGrade = ((intRandomGrade >= 90) ? (randomGrade.nextInt(100 - 85) + 85)
                         : (intRandomGrade < 30 ? randomGrade.nextInt(45) : intRandomGrade));
                 Grade courseGrade = new Grade(nte, intRandomGrade);
-                student.getTranscript().getTakenCouerses().put(nte, courseGrade.getLetterGrade());
-                student.getTranscript().isCourseComplatedOrFailed(nte, courseGrade.getLetterGrade());
+                student.getTranscript().getTakenCouerses().put(nte, courseGrade);
+                student.getTranscript().isCourseComplatedOrFailed(nte, courseGrade.getLetter());
                 /* log.info(student.getStudentName() + ": Student took " + nte.getCourseName() + "with a grade of "
                         + courseGrade.getLetterGrade() + "."); */
             }
@@ -496,8 +495,8 @@ public class RegistrationSystem {
                 intRandomGrade = ((intRandomGrade >= 90) ? (randomGrade.nextInt(100 - 85) + 85)
                         : (intRandomGrade < 30 ? randomGrade.nextInt(45) : intRandomGrade));
                 Grade courseGrade = new Grade(fte, intRandomGrade);
-                student.getTranscript().getTakenCouerses().put(fte, courseGrade.getLetterGrade());
-                student.getTranscript().isCourseComplatedOrFailed(fte, courseGrade.getLetterGrade());
+                student.getTranscript().getTakenCouerses().put(fte, courseGrade);
+                student.getTranscript().isCourseComplatedOrFailed(fte, courseGrade.getLetter());
                 /* log.info(student.getStudentName() + ": Student took " + fte.getCourseName() + "with a grade of "
                         + courseGrade.getLetterGrade() + "."); */
             }
@@ -524,8 +523,8 @@ public class RegistrationSystem {
                         intRandomGrade = ((intRandomGrade >= 90) ? (randomGrade.nextInt(100 - 85) + 85)
                                 : (intRandomGrade < 30 ? randomGrade.nextInt(45) : intRandomGrade));
                         Grade courseGrade = new Grade(te, intRandomGrade);
-                        student.getTranscript().getTakenCouerses().put(te, courseGrade.getLetterGrade());
-                        student.getTranscript().isCourseComplatedOrFailed(te, courseGrade.getLetterGrade());
+                        student.getTranscript().getTakenCouerses().put(te, courseGrade);
+                        student.getTranscript().isCourseComplatedOrFailed(te, courseGrade.getLetter());
                         /* log.info(student.getStudentName() + ": Student took " + te.getCourseName() + "with a grade of "
                                 + courseGrade.getLetterGrade() + "."); */
                         teCount++;
@@ -546,8 +545,8 @@ public class RegistrationSystem {
                 intRandomGrade = ((intRandomGrade >= 90) ? (randomGrade.nextInt(100 - 85) + 85)
                         : (intRandomGrade < 30 ? randomGrade.nextInt(45) : intRandomGrade));
                 Grade courseGrade = new Grade(gp, intRandomGrade);
-                student.getTranscript().getTakenCouerses().put(gp, courseGrade.getLetterGrade());
-                student.getTranscript().isCourseComplatedOrFailed(gp, courseGrade.getLetterGrade());
+                student.getTranscript().getTakenCouerses().put(gp, courseGrade);
+                student.getTranscript().isCourseComplatedOrFailed(gp, courseGrade.getLetter());
                 /* log.info(student.getStudentName() + ": Student took " + gp.getCourseName() + "with a grade of "
                         + courseGrade.getLetterGrade() + "."); */
             }
@@ -575,7 +574,6 @@ public class RegistrationSystem {
                     currentSemesterMandatoryCourses.add(c);
                 }
             }
-
         }
 
         for (Student s : studentList) {
@@ -610,8 +608,8 @@ public class RegistrationSystem {
                                     + " in spring semester."); */
                         }
                     }
-
                 }
+
                 if (c instanceof ElectiveCourse) {
                     s.getRequestedCourses().add(c);
                     /* log.info(s.getStudentName() + ": Student requested failed elective course "
@@ -697,9 +695,9 @@ public class RegistrationSystem {
 
         //Add taken courses
         JSONArray jsonObjectPastCourses = new JSONArray();
-        for (Map.Entry<Course, String> set : student.getTranscript().getTakenCouerses().entrySet()) {
+        for (Map.Entry<Course, Grade> set : student.getTranscript().getTakenCouerses().entrySet()) {
             JSONObject jsonObjectTakenCourse = new JSONObject();
-            jsonObjectTakenCourse.put("LetterGrade", set.getValue());
+            jsonObjectTakenCourse.put("LetterGrade", set.getValue().getLetter());
             jsonObjectTakenCourse.put("CourseName", set.getKey().getCourseName());
             jsonObjectTakenCourse.put("Course", set.getKey().getCourseCode());
             jsonObjectPastCourses.add(jsonObjectTakenCourse);

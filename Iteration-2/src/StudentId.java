@@ -16,34 +16,26 @@ public class StudentId {
 	}
 
 	public String createStudentId() {
-		return this.cseCode + Integer.toString(this.year).substring(2) + "0"
-				+ ((Integer.toString(this.order).length() == 2)
-						? (Integer.toString(this.order))
-						: ("0" + Integer.toString(this.order)));
+		return this.getCseCode() + Integer.toString(this.getYear()).substring(2) + "0"
+				+ ((Integer.toString(this.getOrder()).length() == 2)
+						? (Integer.toString(this.getOrder()))
+						: ("0" + Integer.toString(this.getOrder())));
 	}
 
+	// GETTER & SETTER
 	public String getCseCode() {
 		return cseCode;
 	}
 
 	public int getYear() {
-		return year;
-	}
-
-	public void setYear(int year) {
-		this.year = year;
-		/* log.info("Registration year for student ID changed."); */
+		return this.year;
 	}
 
 	public int getOrder() {
-		return order;
+		return this.order;
 	}
 
-	public void setOrder(int order) {
-		this.order = order;
-		/* log.info("Registration order for student ID changed."); */
-	}
-
+	@Override
 	public String toString() {
 		return id;
 	}
