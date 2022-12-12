@@ -1,53 +1,39 @@
 import java.util.ArrayList;
-import java.util.List;
+import org.apache.log4j.Logger;
 
 public class Instructor extends Person {
-    private List<Course> givenCourses;
-    private Schedule schedule;
+    static Logger log = Logger.getLogger(Instructor.class);
+    private ArrayList<Course> givenCourses;
 
     public Instructor(String firstName, String lastName) {
         super(firstName, lastName);
         this.givenCourses = new ArrayList<Course>();
-        /* System.out.println("Instructor created"); */
+        log.info(this.toString() + " named instructor created.");
+
     }
 
-    public Instructor(String firstName, String lastName, List<Course> givenCourses) {
+    public Instructor(String firstName, String lastName, ArrayList<Course> givenCourses) {
         super(firstName, lastName);
         this.givenCourses = givenCourses;
-        /* System.out.println("Instructor created"); */
+        log.info(this.toString() + " named instructor created.");
     }
 
-    public List<Course> getGivenCourses() {
+    public ArrayList<Course> getGivenCourses() {
         return this.givenCourses;
     }
 
-    public void setGivenCourses(List<Course> givenCourses) {
+    public void setGivenCourses(ArrayList<Course> givenCourses) {
         this.givenCourses = givenCourses;
-        /* System.out.println("Instructor given courses set"); */
+        /* log.info(this.toString() + ": instructor's course list changed."); */
     }
 
     public void addGivenCourse(Course course) {
         this.givenCourses.add(course);
-        /* System.out.println("Instructor given course added"); */
+        log.info(this.toString() + ": instructor now gives " + course.getCourseName());
     }
 
     public void removeGivenCourse(Course course) {
         this.givenCourses.remove(course);
-        /* System.out.println("Instructor given course removed"); */
-    }
-
-    public Schedule getSchedule() {
-        return this.schedule;
-    }
-
-    public void setSchedule(Schedule schedule) {
-        this.schedule = schedule;
-        /* System.out.println("Instructor schedule set"); */
-    }
-
-    public void giveCourse(Course course) {
-        this.addGivenCourse(course);
-        //course.setInstructor(this);
-        /* System.out.println("Instructor gave course"); */
+        /* log.info(this.toString() + ": instructor no longer gives " + course.getCourseName()); */
     }
 }
