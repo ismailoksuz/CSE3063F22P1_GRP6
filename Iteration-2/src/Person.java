@@ -1,4 +1,7 @@
+import org.apache.log4j.Logger;
+
 public abstract class Person {
+    static Logger log = Logger.getLogger(Person.class);
     private String firstName;
     private String lastName;
     private String email;
@@ -9,6 +12,7 @@ public abstract class Person {
         this.lastName = lastName;
         this.email = generateEmail();
         this.phoneNumber = generatePhoneNumber();
+        log.info(this.toString() + " named person created.");
     }
 
     public String generateEmail() {
@@ -23,7 +27,7 @@ public abstract class Person {
         userName = userName.replace('ğ', 'g');
         userName = userName.replace('ğ', 'g');
         userName = userName.replaceAll("\\s", "");
-
+        /* log.info(this.toString() + ": email created."); */
         return userName + "@marun.edu.tr";
     }
 
@@ -32,6 +36,7 @@ public abstract class Person {
         for (int i = 0; i < 9; i++) {
             phone += (int) (Math.random() * 10);
         }
+        /* log.info(this.toString() + ": phone number created."); */
         return phone;
     }
 
@@ -41,6 +46,7 @@ public abstract class Person {
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
+        /* log.info(this.toString() + ": Person first name changed."); */
     }
 
     public String getLastName() {
@@ -49,6 +55,7 @@ public abstract class Person {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+        /* log.info(this.toString() + ": Person last name changed."); */
     }
 
     public String getEmail() {
@@ -57,6 +64,7 @@ public abstract class Person {
 
     public void setEmail(String email) {
         this.email = email;
+        /* log.info(this.toString() + ": Person email changed."); */
     }
 
     public String getPhoneNumber() {
@@ -65,11 +73,11 @@ public abstract class Person {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+        /* log.info(this.toString() + ": Person phone number changed."); */
     }
 
     @Override
     public String toString() {
-
-        return firstName + " " + lastName;
+        return this.getFirstName() + " " + this.getLastName();
     }
 }
