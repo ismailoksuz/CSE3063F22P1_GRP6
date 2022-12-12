@@ -1,0 +1,5 @@
+-Input.json dosyası tamamlandı.
+-Advisor.json dosyası tamamlandı.
+-Gradeler ağırlıklı olarak random oluşturuldu.
+-Letter grade ataması tamamlandı (DZ ve FG dahil).
+-09.12.2022'de toplantı yapılması planlandı.

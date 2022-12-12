@@ -1,7 +1,9 @@
 import java.time.Year;
 import java.util.ArrayList;
+import org.apache.log4j.Logger;
 
 public class Student extends Person {
+    static Logger log = Logger.getLogger(Student.class);
     private StudentId studentId;
     private Transcript transcript;
     private Advisor advisor;
@@ -21,18 +23,18 @@ public class Student extends Person {
         this.transcript = new Transcript();
         this.studentId = new StudentId(registrationYear, order);
         this.studentOutput = new ArrayList<String>();
+        log.info("Student created =>  " + "Name: " + this.getStudentName() + " RegistrationYear: "
+                + this.getRegistrationYear() + " Order: " + this.getOrder());
     }
 
+    // GETTER & SETTER
     public ArrayList<String> getStudentOutput() {
         return studentOutput;
     }
 
     public void setStudentOutput(ArrayList<String> studentOutput) {
         this.studentOutput = studentOutput;
-    }
-
-    public ArrayList<Course> sendRequest() {
-        return requestedCourses;
+        /* log.info(this.getStudentName() + ": student output changed."); */
     }
 
     public String getStudentName() {
@@ -47,52 +49,29 @@ public class Student extends Person {
         return this.studentId;
     }
 
-    public void setStudentId(StudentId studentId) {
-        this.studentId = studentId;
-    }
-
-    public void setTranscript(Transcript transcript) {
-        this.transcript = transcript;
-    }
-
     public Advisor getAdvisor() {
         return this.advisor;
     }
 
     public void setAdvisor(Advisor advisor) {
         this.advisor = advisor;
+        /* log.info(this.getStudentName() + ": student advisor changed."); */
     }
 
     public ArrayList<Course> getRequestedCourses() {
         return this.requestedCourses;
     }
 
-    public void setRequestedCourses(ArrayList<Course> requestedCourses) {
-        this.requestedCourses = requestedCourses;
-    }
-
     public int getRegistrationYear() {
         return this.registrationYear;
-    }
-
-    public void setRegistrationYear(int registrationYear) {
-        this.registrationYear = registrationYear;
     }
 
     public int getOrder() {
         return this.order;
     }
 
-    public void setOrder(int order) {
-        this.order = order;
-    }
-
     public int getCurrentYear() {
         return this.currentYear;
-    }
-
-    public void setCurrentYear(int currentYear) {
-        this.currentYear = currentYear;
     }
 
     public int getSemester() {
@@ -101,7 +80,6 @@ public class Student extends Person {
 
     public void setSemester(int semester) {
         this.semester = semester;
+        log.info(this.getStudentName() + ": student semester changed.");
     }
-
-
 }

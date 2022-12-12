@@ -1,4 +1,7 @@
+import org.apache.log4j.Logger;
+
 public abstract class Person {
+    static Logger log = Logger.getLogger(Person.class);
     private String firstName;
     private String lastName;
     private String email;
@@ -9,6 +12,7 @@ public abstract class Person {
         this.lastName = lastName;
         this.email = generateEmail();
         this.phoneNumber = generatePhoneNumber();
+        log.info(this.toString() + " named person created.");
     }
 
     public String generateEmail() {
@@ -23,7 +27,7 @@ public abstract class Person {
         userName = userName.replace('ğ', 'g');
         userName = userName.replace('ğ', 'g');
         userName = userName.replaceAll("\\s", "");
-
+        /* log.info(this.toString() + ": email created."); */
         return userName + "@marun.edu.tr";
     }
 
@@ -32,44 +36,29 @@ public abstract class Person {
         for (int i = 0; i < 9; i++) {
             phone += (int) (Math.random() * 10);
         }
+        /* log.info(this.toString() + ": phone number created."); */
         return phone;
     }
 
+    // GETTER & SETTER
     public String getFirstName() {
         return this.firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
     }
 
     public String getLastName() {
         return this.lastName;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
     public String getEmail() {
         return this.email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public String getPhoneNumber() {
         return this.phoneNumber;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
     @Override
     public String toString() {
-
-        return firstName + " " + lastName;
+        return this.getFirstName() + " " + this.getLastName();
     }
 }

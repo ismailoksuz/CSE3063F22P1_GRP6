@@ -1,6 +1,8 @@
 import java.util.ArrayList;
+import org.apache.log4j.Logger;
 
 public abstract class Course {
+    static Logger log = Logger.getLogger(Course.class);
     private String courseCode;
     private String courseName;
     private int courseCredit;
@@ -8,15 +10,10 @@ public abstract class Course {
     private int quota;
     private Instructor courseInstructor;
     private ArrayList<Student> students;
-
     private int quotaProblem;
     private int collisionProblem;
     private int failedCredits;
     private int failedPreq;
-    private ArrayList<Student> studentsFailedPreq;
-    private ArrayList<Student> studentsFailedCredits;
-    private ArrayList<Student> studentsQuotaProblem;
-    private ArrayList<Student> studentsCollisionProblem;
 
     public Course(String courseName, String courseCode, int courseCredit, int courseDay, String courseHour, int quota) {
         this.courseName = courseName;
@@ -29,37 +26,22 @@ public abstract class Course {
         this.collisionProblem = 0;
         this.failedCredits = 0;
         this.failedPreq = 0;
-        this.studentsFailedPreq = new ArrayList<Student>();
-        this.studentsQuotaProblem = new ArrayList<Student>();
-        this.studentsCollisionProblem = new ArrayList<Student>();
-        this.studentsFailedCredits = new ArrayList<Student>();
-
+        log.info(this.getCourseName() + " (" + this.getCourseCode() + ")" + " named course created.");
     }
 
     public abstract boolean isEligibleToRequest(Student student);
 
+    // GETTER & SETTER
     public String getCourseName() {
         return courseName;
-    }
-
-    public void setCourseName(String courseName) {
-        this.courseName = courseName;
     }
 
     public String getCourseCode() {
         return courseCode;
     }
 
-    public void setCourseCode(String courseCode) {
-        this.courseCode = courseCode;
-    }
-
     public int getQuato() {
         return quota;
-    }
-
-    public void setQuato(int quota) {
-        this.quota = quota;
     }
 
     public Instructor getCourseInstructor() {
@@ -68,30 +50,22 @@ public abstract class Course {
 
     public void setCourseInstructor(Instructor courseInstructor) {
         this.courseInstructor = courseInstructor;
+        /*
+         * log.info(this.getCourseName() + " now has a instructor: " +
+         * this.getCourseInstructor());
+         */
     }
 
     public ArrayList<Student> getStudents() {
         return this.students;
     }
 
-    public void setStudents(ArrayList<Student> students) {
-        this.students = students;
-    }
-
     public int getCourseCredit() {
         return courseCredit;
     }
 
-    public void setCourseCredit(int courseCredit) {
-        this.courseCredit = courseCredit;
-    }
-
     public Schedule getCourseSchedule() {
         return this.courseSchedule;
-    }
-
-    public void setCourseSchedule(Schedule courseSchedule) {
-        this.courseSchedule = courseSchedule;
     }
 
     public int getQuotaProblem() {
@@ -100,6 +74,8 @@ public abstract class Course {
 
     public void setQuotaProblem(int quotaProblem) {
         this.quotaProblem = quotaProblem;
+        log.info(this.getCourseName() + ": Number of quota problem changed." + "(" + "New: " + this.getQuotaProblem()
+                + ")");
     }
 
     public int getCollisionProblem() {
@@ -108,6 +84,10 @@ public abstract class Course {
 
     public void setCollisionProblem(int collisionProblem) {
         this.collisionProblem = collisionProblem;
+        log.info(
+                this.getCourseName() + ": Number of collision problem changed." + "(" + "New: "
+                        + this.getCollisionProblem()
+                        + ")");
     }
 
     public int getFailedCredits() {
@@ -116,6 +96,8 @@ public abstract class Course {
 
     public void setFailedCredits(int failedCredits) {
         this.failedCredits = failedCredits;
+        log.info(this.getCourseName() + ": Number of failed credits changed." + "(" + "New: " + this.getFailedCredits()
+                + ")");
     }
 
     public int getFailedPreq() {
@@ -124,37 +106,8 @@ public abstract class Course {
 
     public void setFailedPreq(int failedPreq) {
         this.failedPreq = failedPreq;
-    }
-
-    public ArrayList<Student> getStudentsFailedPreq() {
-        return studentsFailedPreq;
-    }
-
-    public void setStudentsFailedPreq(ArrayList<Student> studentsFailedPreq) {
-        this.studentsFailedPreq = studentsFailedPreq;
-    }
-
-    public ArrayList<Student> getStudentsFailedCredits() {
-        return studentsFailedCredits;
-    }
-
-    public void setStudentsFailedCredits(ArrayList<Student> studentsFailedCredits) {
-        this.studentsFailedCredits = studentsFailedCredits;
-    }
-
-    public ArrayList<Student> getStudentsQuotaProblem() {
-        return studentsQuotaProblem;
-    }
-
-    public void setStudentsQuotaProblem(ArrayList<Student> studentsQuotaProblem) {
-        this.studentsQuotaProblem = studentsQuotaProblem;
-    }
-
-    public ArrayList<Student> getStudentsCollisionProblem() {
-        return studentsCollisionProblem;
-    }
-
-    public void setStudentsCollisionProblem(ArrayList<Student> studentsCollisionProblem) {
-        this.studentsCollisionProblem = studentsCollisionProblem;
+        log.info(this.getCourseName() + ": Number of failed prerequisite changed." + "(" + "New: "
+                + this.getFailedPreq()
+                + ")");
     }
 }

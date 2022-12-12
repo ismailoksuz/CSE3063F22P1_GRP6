@@ -1,0 +1,6 @@
+-Summer practice oluşturmaktan vazgeçtik.
+-Koddaki gereksiz commentleri ve getter setterlari sildik.
+-DCD kodun güncel haline göre uyarlandı.
+-Unit testler hazırlanmaya devam etti.
+-Trelloda summer practice görevi kaldırıldı.
+-13.12.2022'de toplantı yapılması planlandı.

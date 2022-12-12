@@ -1,4 +1,7 @@
+import org.apache.log4j.Logger;
+
 public class Schedule {
+    static Logger log = Logger.getLogger(Schedule.class);
     private int courseDay;
     private String courseHour;
 
@@ -9,25 +12,24 @@ public class Schedule {
     public Schedule(int courseDay, String courseHour) {
         this.courseDay = courseDay;
         this.courseHour = courseHour;
+        log.info("Course schedule created.");
     }
 
+    public boolean isCollision(Schedule scheduleOther) {
+        return this.toString().equals(scheduleOther.toString());
+    }
+
+    // GETTER & SETTER
     public Day getCourseDay() {
         return Day.values()[this.courseDay];
-    }
-
-    public void setCourseDay(int courseDay) {
-        this.courseDay = courseDay;
     }
 
     public String getCourseHour() {
         return this.courseHour;
     }
 
-    public void setCourseHour(String courseHour) {
-        this.courseHour = courseHour;
-    }
-
+    @Override
     public String toString() {
-        return "Day: " + getCourseDay() + " Hour: " + getCourseHour();
+        return "Day: " + this.getCourseDay() + " Hour: " + this.getCourseHour();
     }
 }
