@@ -1,5 +1,7 @@
+import org.apache.log4j.Logger;
 
 public class StudentId {
+	static Logger log = Logger.getLogger(StudentId.class);
 	private String cseCode;
 	private int year;
 	private int order;
@@ -10,6 +12,7 @@ public class StudentId {
 		this.year = year;
 		this.order = order;
 		this.id = createStudentId();
+		log.info("Student ID created.");
 	}
 
 	public String createStudentId() {
@@ -18,8 +21,8 @@ public class StudentId {
 						? (Integer.toString(this.order))
 						: ("0" + Integer.toString(this.order)));
 	}
-	
-	public String getCseCode(){
+
+	public String getCseCode() {
 		return cseCode;
 	}
 
@@ -29,6 +32,7 @@ public class StudentId {
 
 	public void setYear(int year) {
 		this.year = year;
+		/* log.info("Registration year for student ID changed."); */
 	}
 
 	public int getOrder() {
@@ -37,6 +41,7 @@ public class StudentId {
 
 	public void setOrder(int order) {
 		this.order = order;
+		/* log.info("Registration order for student ID changed."); */
 	}
 
 	public String toString() {
