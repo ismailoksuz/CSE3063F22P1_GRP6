@@ -1,6 +1,8 @@
 import java.util.ArrayList;
+import org.apache.log4j.Logger;
 
 public class FacultyTechnicalElective extends ElectiveCourse {
+        static Logger log = Logger.getLogger(FacultyTechnicalElective.class);
         private ArrayList<Course> prequisites;
 
         public FacultyTechnicalElective(String courseName, String courseCode, int courseCredit, int courseDay,
@@ -8,10 +10,19 @@ public class FacultyTechnicalElective extends ElectiveCourse {
                         ArrayList<Course> prequisites) {
                 super(courseName, courseCode, courseCredit, courseDay, courseHour, quato, semesters);
                 this.prequisites = prequisites;
+                log.info(this.getCourseName() + " (" + this.getCourseCode() + ")"
+                                + " named faculty technical elective course created.");
         }
 
         @Override
         public boolean isEligibleToRequest(Student student) {
+                /* log.info(student.getStudentName() + " can "
+                                + ((semesterControl(student)
+                                                && student.getTranscript().hasBeenPassedCourses(this.getPrequisites()))
+                                                                ? ""
+                                                                : "not")
+                                + "enroll this course: "
+                                + this.getCourseName()); */
                 return semesterControl(student) && student.getTranscript().hasBeenPassedCourses(this.getPrequisites());
         }
 
@@ -23,5 +34,6 @@ public class FacultyTechnicalElective extends ElectiveCourse {
 
         public void setPrequisites(ArrayList<Course> prequisites) {
                 this.prequisites = prequisites;
+                /* log.info(this.getCourseName() + ": Course prerequisite changed."); */
         }
 }
