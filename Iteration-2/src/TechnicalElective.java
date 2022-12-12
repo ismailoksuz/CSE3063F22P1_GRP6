@@ -1,6 +1,8 @@
 import java.util.ArrayList;
+import org.apache.log4j.Logger;
 
 public class TechnicalElective extends ElectiveCourse implements ICreditRequirement {
+    static Logger log = Logger.getLogger(TechnicalElective.class);
     private int requiredCredits;
     private ArrayList<Course> prequisites;
 
@@ -9,6 +11,8 @@ public class TechnicalElective extends ElectiveCourse implements ICreditRequirem
         super(courseName, courseCode, courseCredit, courseDay, courseHour, quato, semester);
         this.requiredCredits = requiredCredits;
         this.prequisites = prequisites;
+        log.info(this.getCourseName() + " (" + this.getCourseCode() + ")"
+                + " named technical elective course created.");
     }
 
     @Override
@@ -18,28 +22,46 @@ public class TechnicalElective extends ElectiveCourse implements ICreditRequirem
                 this.setFailedPreq(this.getFailedPreq() + 1);
                 student.getStudentOutput().add("The system didn't allow " + this.getCourseCode() +
                         " because student failed prereq. " + this.getPrequisites().get(0).getCourseCode());
+                log.info(
+                        "Student couldn't pass prerequisite course(s). " + student.getStudentName() + " cannot enroll "
+                                + this.getCourseName()
+                                + ".");
                 return false;
-            } else
+            } else {
+                /* log.info(
+                        "Student passed prerequisite course(s) successfully. " + student.getStudentName()
+                                + " can enroll "
+                                + this.getCourseName()
+                                + "."); */
                 return true;
+            }
         } else {
+            log.info(
+                    "Student is not eligible to take this course this semester. " + student.getStudentName()
+                            + " cannot enroll "
+                            + this.getCourseName()
+                            + ".");
             return false;
         }
-        /* return semesterControl(student) && student.getTranscript().hasBeenPassedCourses(this.getPrequisites())
-                && checkRequiredCredit(student); */
     }
 
     @Override
     public boolean checkRequiredCredit(Student student) {
         if (student.getTranscript().getCreditCompleted() >= requiredCredits) {
+            /* log.info(
+                    "Student has enough credits. " + student.getStudentName() + " can take " + this.getCourseName()
+                            + "."); */
             return true;
         } else {
             this.setFailedCredits(getFailedCredits() + 1);
             student.getStudentOutput().add("The advisor didn't approve TE" + this.getCourseCode() +
                     " because student completed credits < " + this.getRequiredCredits());
+            log.info(
+                    "Student has not enough credits. " + student.getStudentName() + " cannot take "
+                            + this.getCourseName()
+                            + ".");
             return false;
-
         }
-
     }
 
     //GETTER & SETTER
@@ -50,6 +72,8 @@ public class TechnicalElective extends ElectiveCourse implements ICreditRequirem
 
     public void setRequiredCredits(int requiredCredits) {
         this.requiredCredits = requiredCredits;
+        /* log.info(this.getCourseName() + ": Course required credits changed." + "(" + "New: " + this.getRequiredCredits()
+                + ")"); */
     }
 
     public ArrayList<Course> getPrequisites() {
@@ -58,5 +82,6 @@ public class TechnicalElective extends ElectiveCourse implements ICreditRequirem
 
     public void setPrequisites(ArrayList<Course> prequisites) {
         this.prequisites = prequisites;
+        /* log.info(this.getCourseName() + ": Course prerequisite changed."); */
     }
 }
