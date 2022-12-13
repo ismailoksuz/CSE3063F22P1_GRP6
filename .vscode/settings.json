@@ -1,14 +1,9 @@
 {
-  "java.project.referencedLibraries": {
-    "include": [
-      "lib/**/*.jar",
-      "Iteration-2/src/json-simple-1.1.jar",
-      "Iteration-2/src/**/*.jar"
-    ],
-    "exclude": [
-      "lib/hamcrest-core-1.3.jar"
-    ]
-  },
+  "java.project.referencedLibraries": [
+    "lib/**/*.jar",
+    "Iteration-2/src/json-simple-1.1.jar",
+    "Iteration-2/src/**/*.jar"
+  ],
   "java.project.outputPath": "Iteration-2\\src",
   "java.project.sourcePaths": [
     "Iteration-2/src"

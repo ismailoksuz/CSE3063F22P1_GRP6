@@ -1,0 +1,50 @@
+{
+  "StudentName" : "Serhat Altınok",
+  "StudentId" : {
+    "cseCode" : "1501",
+    "year" : 2022,
+    "order" : 44
+  },
+  "StudentEmail" : "serhataltinok@marun.edu.tr",
+  "StudentPhoneNumber" : "05607000102",
+  "SemesterNumber" : 1,
+  "CompletedCredits" : 0,
+  "Gpa" : 0.0,
+  "AdvisorName" : "Betül Demiröz Boz",
+  "Taken Course" : [ ],
+  "Requested Course" : [ {
+    "Course" : "Atatürk's Prin. & History I"
+  }, {
+    "Course" : "Introduction to Modern Biology"
+  }, {
+    "Course" : "Introduction to Computer Engineering"
+  }, {
+    "Course" : "Computer Programming I"
+  }, {
+    "Course" : "Calculus I"
+  }, {
+    "Course" : "Physics I"
+  }, {
+    "Course" : "Physics Lab I"
+  }, {
+    "Course" : "Turkish Language I"
+  } ],
+  "Enrolled Course" : [ {
+    "Course" : "Atatürk's Prin. & History I"
+  }, {
+    "Course" : "Introduction to Modern Biology"
+  }, {
+    "Course" : "Introduction to Computer Engineering"
+  }, {
+    "Course" : "Computer Programming I"
+  }, {
+    "Course" : "Calculus I"
+  }, {
+    "Course" : "Physics I"
+  }, {
+    "Course" : "Physics Lab I"
+  }, {
+    "Course" : "Turkish Language I"
+  } ],
+  "Output" : [ ]
+}
