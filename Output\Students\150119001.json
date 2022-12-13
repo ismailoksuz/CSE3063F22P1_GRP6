@@ -1,0 +1,142 @@
+{
+  "StudentName" : "Aslıhan Tanır",
+  "StudentId" : {
+    "cseCode" : "1501",
+    "year" : 2019,
+    "order" : 1
+  },
+  "StudentEmail" : "aslihantanir@marun.edu.tr",
+  "StudentPhoneNumber" : "05223544444",
+  "SemesterNumber" : 7,
+  "CompletedCredits" : 60,
+  "Gpa" : 1.18,
+  "AdvisorName" : "Murat Can Ganiz",
+  "Taken Course" : [ {
+    "CourseName" : "Atatürk's Prin. & History I",
+    "LetterGrade" : "CB",
+    "Course" : "ATA121"
+  }, {
+    "CourseName" : "Introduction to Modern Biology",
+    "LetterGrade" : "CB",
+    "Course" : "MBG1201"
+  }, {
+    "CourseName" : "Introduction to Computer Engineering",
+    "LetterGrade" : "AA",
+    "Course" : "CSE1200"
+  }, {
+    "CourseName" : "Computer Programming I",
+    "LetterGrade" : "FF",
+    "Course" : "CSE1241"
+  }, {
+    "CourseName" : "Calculus I",
+    "LetterGrade" : "DD",
+    "Course" : "MATH1001"
+  }, {
+    "CourseName" : "Physics I",
+    "LetterGrade" : "FF",
+    "Course" : "PHYS1101"
+  }, {
+    "CourseName" : "Physics Lab I",
+    "LetterGrade" : "DD",
+    "Course" : "PHYS1103"
+  }, {
+    "CourseName" : "Turkish Language I",
+    "LetterGrade" : "DD",
+    "Course" : "TRD121"
+  }, {
+    "CourseName" : "Atatürk's Prin. & History II",
+    "LetterGrade" : "DD",
+    "Course" : "ATA122"
+  }, {
+    "CourseName" : "Calculus II",
+    "LetterGrade" : "DC",
+    "Course" : "MATH1002"
+  }, {
+    "CourseName" : "Linear Algebra",
+    "LetterGrade" : "AA",
+    "Course" : "MATH2256"
+  }, {
+    "CourseName" : "Physics II",
+    "LetterGrade" : "FD",
+    "Course" : "PHYS1102"
+  }, {
+    "CourseName" : "Physics Lab II",
+    "LetterGrade" : "FF",
+    "Course" : "PHYS1104"
+  }, {
+    "CourseName" : "Turkish Language II",
+    "LetterGrade" : "CC",
+    "Course" : "TRD122"
+  }, {
+    "CourseName" : "Discrete Comp. Structures",
+    "LetterGrade" : "FG",
+    "Course" : "CSE2023"
+  }, {
+    "CourseName" : "Engineering Economy",
+    "LetterGrade" : "FF",
+    "Course" : "ECON2004"
+  }, {
+    "CourseName" : "Differential Equations",
+    "LetterGrade" : "CC",
+    "Course" : "MATH2055"
+  }, {
+    "CourseName" : "Numerical Methods",
+    "LetterGrade" : "DC",
+    "Course" : "MATH2059"
+  }, {
+    "CourseName" : "System Programming",
+    "LetterGrade" : "CB",
+    "Course" : "CSE2138"
+  }, {
+    "CourseName" : "Prob. and Stat. for Computer Engineering",
+    "LetterGrade" : "FF",
+    "Course" : "STAT2253"
+  }, {
+    "CourseName" : "Digital Logic Design",
+    "LetterGrade" : "CC",
+    "Course" : "CSE3215"
+  }, {
+    "CourseName" : "Computer Organization",
+    "LetterGrade" : "FF",
+    "Course" : "CSE3038"
+  }, {
+    "CourseName" : "Int. to Signals and Systems",
+    "LetterGrade" : "FF",
+    "Course" : "CSE3048"
+  }, {
+    "CourseName" : "Operations Research",
+    "LetterGrade" : "FG",
+    "Course" : "IE3235"
+  }, {
+    "CourseName" : "Technical Comm. and Entrepreneurship",
+    "LetterGrade" : "FF",
+    "Course" : "COM2202"
+  }, {
+    "CourseName" : "Strategic Entrepreneurship",
+    "LetterGrade" : "DC",
+    "Course" : "BUS1004"
+  } ],
+  "Requested Course" : [ {
+    "Course" : "Computer Networks"
+  }, {
+    "Course" : "Work Safety I"
+  }, {
+    "Course" : "Computer Programming I"
+  }, {
+    "Course" : "Physics I"
+  }, {
+    "Course" : "Discrete Comp. Structures"
+  }, {
+    "Course" : "Engineering Economy"
+  } ],
+  "Enrolled Course" : [ {
+    "Course" : "Computer Networks"
+  }, {
+    "Course" : "Work Safety I"
+  }, {
+    "Course" : "Computer Programming I"
+  }, {
+    "Course" : "Physics I"
+  } ],
+  "Output" : [ "The system didn't allow CSE4219 because student failed prereq. CSE3038", "The system didn't allow CSE4288 because student failed prereq. STAT2253", "The advisor didn't approve graduation project CSE4297 because student completed credits < 100", "The advisor didn't approve TECSE4067 because student completed credits < 70", "The advisor didn't approve TECSE4067 because student completed credits < 70", "Advisor didn't approve CSE2023 because of two hours collision with CSE4074 in schedule", "Advisor didn't approve ECON2004 because of two hours collision with ISG121 in schedule" ]
+}

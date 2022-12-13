@@ -2,8 +2,11 @@
   "java.project.referencedLibraries": [
     "lib/**/*.jar",
     "Iteration-2/src/json-simple-1.1.jar",
-    "Iteration-2/src/json-simple-1.1.1.jar"
+    "Iteration-2/src/**/*.jar"
   ],
   "java.project.outputPath": "Iteration-2\\src",
-  "java.project.sourcePaths": ["Iteration-2/src"]
+  "java.project.sourcePaths": [
+    "Iteration-2/src"
+  ],
+  "java.debug.settings.onBuildFailureProceed": true
 }

@@ -1,0 +1,102 @@
+{
+  "StudentName" : "Nevzat Akhun",
+  "StudentId" : {
+    "cseCode" : "1501",
+    "year" : 2021,
+    "order" : 33
+  },
+  "StudentEmail" : "nevzatakhun@marun.edu.tr",
+  "StudentPhoneNumber" : "05465499932",
+  "SemesterNumber" : 3,
+  "CompletedCredits" : 47,
+  "Gpa" : 1.92,
+  "AdvisorName" : "Ömer Korçak",
+  "Taken Course" : [ {
+    "CourseName" : "Atatürk's Prin. & History I",
+    "LetterGrade" : "DD",
+    "Course" : "ATA121"
+  }, {
+    "CourseName" : "Introduction to Modern Biology",
+    "LetterGrade" : "DD",
+    "Course" : "MBG1201"
+  }, {
+    "CourseName" : "Introduction to Computer Engineering",
+    "LetterGrade" : "AA",
+    "Course" : "CSE1200"
+  }, {
+    "CourseName" : "Computer Programming I",
+    "LetterGrade" : "DD",
+    "Course" : "CSE1241"
+  }, {
+    "CourseName" : "Calculus I",
+    "LetterGrade" : "BB",
+    "Course" : "MATH1001"
+  }, {
+    "CourseName" : "Physics I",
+    "LetterGrade" : "BB",
+    "Course" : "PHYS1101"
+  }, {
+    "CourseName" : "Physics Lab I",
+    "LetterGrade" : "BB",
+    "Course" : "PHYS1103"
+  }, {
+    "CourseName" : "Turkish Language I",
+    "LetterGrade" : "AA",
+    "Course" : "TRD121"
+  }, {
+    "CourseName" : "Atatürk's Prin. & History II",
+    "LetterGrade" : "FF",
+    "Course" : "ATA122"
+  }, {
+    "CourseName" : "Computer Programming II",
+    "LetterGrade" : "FF",
+    "Course" : "CSE1242"
+  }, {
+    "CourseName" : "Calculus II",
+    "LetterGrade" : "FD",
+    "Course" : "MATH1002"
+  }, {
+    "CourseName" : "Linear Algebra",
+    "LetterGrade" : "DD",
+    "Course" : "MATH2256"
+  }, {
+    "CourseName" : "Physics II",
+    "LetterGrade" : "AA",
+    "Course" : "PHYS1102"
+  }, {
+    "CourseName" : "Physics Lab II",
+    "LetterGrade" : "AA",
+    "Course" : "PHYS1104"
+  }, {
+    "CourseName" : "Turkish Language II",
+    "LetterGrade" : "BB",
+    "Course" : "TRD122"
+  }, {
+    "CourseName" : "Spanish for Beginners",
+    "LetterGrade" : "CC",
+    "Course" : "YDIS1001"
+  } ],
+  "Requested Course" : [ {
+    "Course" : "Discrete Comp. Structures"
+  }, {
+    "Course" : "Engineering Economy"
+  }, {
+    "Course" : "Electric Circuits"
+  }, {
+    "Course" : "Differential Equations"
+  }, {
+    "Course" : "Numerical Methods"
+  } ],
+  "Enrolled Course" : [ {
+    "Course" : "Discrete Comp. Structures"
+  }, {
+    "Course" : "Engineering Economy"
+  }, {
+    "Course" : "Electric Circuits"
+  }, {
+    "Course" : "Differential Equations"
+  }, {
+    "Course" : "Numerical Methods"
+  } ],
+  "Output" : [ "The system didn't allow CSE2225 because student failed prereq. CSE1242" ]
+}

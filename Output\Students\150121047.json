@@ -1,0 +1,104 @@
+{
+  "StudentName" : "Erdinç Ekici",
+  "StudentId" : {
+    "cseCode" : "1501",
+    "year" : 2021,
+    "order" : 47
+  },
+  "StudentEmail" : "erdincekici@marun.edu.tr",
+  "StudentPhoneNumber" : "05149535798",
+  "SemesterNumber" : 3,
+  "CompletedCredits" : 28,
+  "Gpa" : 1.14,
+  "AdvisorName" : "Ali Fuat Alkaya",
+  "Taken Course" : [ {
+    "CourseName" : "Atatürk's Prin. & History I",
+    "LetterGrade" : "FF",
+    "Course" : "ATA121"
+  }, {
+    "CourseName" : "Introduction to Modern Biology",
+    "LetterGrade" : "CC",
+    "Course" : "MBG1201"
+  }, {
+    "CourseName" : "Introduction to Computer Engineering",
+    "LetterGrade" : "DD",
+    "Course" : "CSE1200"
+  }, {
+    "CourseName" : "Computer Programming I",
+    "LetterGrade" : "FF",
+    "Course" : "CSE1241"
+  }, {
+    "CourseName" : "Calculus I",
+    "LetterGrade" : "BB",
+    "Course" : "MATH1001"
+  }, {
+    "CourseName" : "Physics I",
+    "LetterGrade" : "CC",
+    "Course" : "PHYS1101"
+  }, {
+    "CourseName" : "Physics Lab I",
+    "LetterGrade" : "AA",
+    "Course" : "PHYS1103"
+  }, {
+    "CourseName" : "Turkish Language I",
+    "LetterGrade" : "FF",
+    "Course" : "TRD121"
+  }, {
+    "CourseName" : "Atatürk's Prin. & History II",
+    "LetterGrade" : "DD",
+    "Course" : "ATA122"
+  }, {
+    "CourseName" : "Calculus II",
+    "LetterGrade" : "FF",
+    "Course" : "MATH1002"
+  }, {
+    "CourseName" : "Linear Algebra",
+    "LetterGrade" : "FF",
+    "Course" : "MATH2256"
+  }, {
+    "CourseName" : "Physics II",
+    "LetterGrade" : "FF",
+    "Course" : "PHYS1102"
+  }, {
+    "CourseName" : "Physics Lab II",
+    "LetterGrade" : "FF",
+    "Course" : "PHYS1104"
+  }, {
+    "CourseName" : "Turkish Language II",
+    "LetterGrade" : "DD",
+    "Course" : "TRD122"
+  }, {
+    "CourseName" : "German for Beginners",
+    "LetterGrade" : "BA",
+    "Course" : "YDA1001"
+  } ],
+  "Requested Course" : [ {
+    "Course" : "Discrete Comp. Structures"
+  }, {
+    "Course" : "Engineering Economy"
+  }, {
+    "Course" : "Differential Equations"
+  }, {
+    "Course" : "Numerical Methods"
+  }, {
+    "Course" : "Atatürk's Prin. & History I"
+  }, {
+    "Course" : "Computer Programming I"
+  }, {
+    "Course" : "Turkish Language I"
+  } ],
+  "Enrolled Course" : [ {
+    "Course" : "Discrete Comp. Structures"
+  }, {
+    "Course" : "Engineering Economy"
+  }, {
+    "Course" : "Differential Equations"
+  }, {
+    "Course" : "Numerical Methods"
+  }, {
+    "Course" : "Computer Programming I"
+  }, {
+    "Course" : "Turkish Language I"
+  } ],
+  "Output" : [ "The system didn't allow CSE2225 because student failed prereq. CSE1242", "The system didn't allow EE2031 because student failed prereq. PHYS1102", "Advisor didn't approve ATA121 because of two hours collision with CSE2023 in schedule" ]
+}

@@ -1,0 +1,142 @@
+{
+  "StudentName" : "Çetin Zengin",
+  "StudentId" : {
+    "cseCode" : "1501",
+    "year" : 2020,
+    "order" : 19
+  },
+  "StudentEmail" : "cetinzengin@marun.edu.tr",
+  "StudentPhoneNumber" : "05130010182",
+  "SemesterNumber" : 5,
+  "CompletedCredits" : 87,
+  "Gpa" : 2.02,
+  "AdvisorName" : "Borahan Tümer",
+  "Taken Course" : [ {
+    "CourseName" : "Atatürk's Prin. & History I",
+    "LetterGrade" : "FD",
+    "Course" : "ATA121"
+  }, {
+    "CourseName" : "Introduction to Modern Biology",
+    "LetterGrade" : "FG",
+    "Course" : "MBG1201"
+  }, {
+    "CourseName" : "Introduction to Computer Engineering",
+    "LetterGrade" : "AA",
+    "Course" : "CSE1200"
+  }, {
+    "CourseName" : "Computer Programming I",
+    "LetterGrade" : "CC",
+    "Course" : "CSE1241"
+  }, {
+    "CourseName" : "Calculus I",
+    "LetterGrade" : "CB",
+    "Course" : "MATH1001"
+  }, {
+    "CourseName" : "Physics I",
+    "LetterGrade" : "DC",
+    "Course" : "PHYS1101"
+  }, {
+    "CourseName" : "Physics Lab I",
+    "LetterGrade" : "AA",
+    "Course" : "PHYS1103"
+  }, {
+    "CourseName" : "Turkish Language I",
+    "LetterGrade" : "CC",
+    "Course" : "TRD121"
+  }, {
+    "CourseName" : "Atatürk's Prin. & History II",
+    "LetterGrade" : "DZ",
+    "Course" : "ATA122"
+  }, {
+    "CourseName" : "Computer Programming II",
+    "LetterGrade" : "CC",
+    "Course" : "CSE1242"
+  }, {
+    "CourseName" : "Calculus II",
+    "LetterGrade" : "FF",
+    "Course" : "MATH1002"
+  }, {
+    "CourseName" : "Linear Algebra",
+    "LetterGrade" : "FF",
+    "Course" : "MATH2256"
+  }, {
+    "CourseName" : "Physics II",
+    "LetterGrade" : "CC",
+    "Course" : "PHYS1102"
+  }, {
+    "CourseName" : "Physics Lab II",
+    "LetterGrade" : "CB",
+    "Course" : "PHYS1104"
+  }, {
+    "CourseName" : "Turkish Language II",
+    "LetterGrade" : "DC",
+    "Course" : "TRD122"
+  }, {
+    "CourseName" : "Discrete Comp. Structures",
+    "LetterGrade" : "BB",
+    "Course" : "CSE2023"
+  }, {
+    "CourseName" : "Data Structures",
+    "LetterGrade" : "FD",
+    "Course" : "CSE2225"
+  }, {
+    "CourseName" : "Engineering Economy",
+    "LetterGrade" : "CC",
+    "Course" : "ECON2004"
+  }, {
+    "CourseName" : "Electric Circuits",
+    "LetterGrade" : "DD",
+    "Course" : "EE2031"
+  }, {
+    "CourseName" : "Differential Equations",
+    "LetterGrade" : "BB",
+    "Course" : "MATH2055"
+  }, {
+    "CourseName" : "Numerical Methods",
+    "LetterGrade" : "AA",
+    "Course" : "MATH2059"
+  }, {
+    "CourseName" : "System Programming",
+    "LetterGrade" : "BB",
+    "Course" : "CSE2138"
+  }, {
+    "CourseName" : "Principles of Programming Languages",
+    "LetterGrade" : "BA",
+    "Course" : "CSE2260"
+  }, {
+    "CourseName" : "Electronics",
+    "LetterGrade" : "CB",
+    "Course" : "EE2032"
+  }, {
+    "CourseName" : "Prob. and Stat. for Computer Engineering",
+    "LetterGrade" : "AA",
+    "Course" : "STAT2253"
+  }, {
+    "CourseName" : "Entrepreneurship and Innovation",
+    "LetterGrade" : "DD",
+    "Course" : "BUS1003"
+  } ],
+  "Requested Course" : [ {
+    "Course" : "Digital Logic Design"
+  }, {
+    "Course" : "Object-Oriented Sofware Design"
+  }, {
+    "Course" : "Modeling and Discrete Simulation"
+  }, {
+    "Course" : "Atatürk's Prin. & History I"
+  }, {
+    "Course" : "Introduction to Modern Biology"
+  }, {
+    "Course" : "Data Structures"
+  } ],
+  "Enrolled Course" : [ {
+    "Course" : "Digital Logic Design"
+  }, {
+    "Course" : "Object-Oriented Sofware Design"
+  }, {
+    "Course" : "Modeling and Discrete Simulation"
+  }, {
+    "Course" : "Introduction to Modern Biology"
+  } ],
+  "Output" : [ "The system didn't allow CSE3033 because student failed prereq. CSE2225", "The system didn't allow CSE3055 because student failed prereq. CSE2225", "Advisor didn't approve ATA121 because of two hours collision with CSE3215 in schedule", "Advisor didn't approve CSE2225 because of two hours collision with MBG1201 in schedule" ]
+}

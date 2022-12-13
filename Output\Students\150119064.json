@@ -1,0 +1,164 @@
+{
+  "StudentName" : "Zühre Boduroğlu",
+  "StudentId" : {
+    "cseCode" : "1501",
+    "year" : 2019,
+    "order" : 64
+  },
+  "StudentEmail" : "zuhreboduroglu@marun.edu.tr",
+  "StudentPhoneNumber" : "05383074646",
+  "SemesterNumber" : 7,
+  "CompletedCredits" : 57,
+  "Gpa" : 1.37,
+  "AdvisorName" : "Betül Demiröz Boz",
+  "Taken Course" : [ {
+    "CourseName" : "Atatürk's Prin. & History I",
+    "LetterGrade" : "DD",
+    "Course" : "ATA121"
+  }, {
+    "CourseName" : "Introduction to Modern Biology",
+    "LetterGrade" : "AA",
+    "Course" : "MBG1201"
+  }, {
+    "CourseName" : "Introduction to Computer Engineering",
+    "LetterGrade" : "FD",
+    "Course" : "CSE1200"
+  }, {
+    "CourseName" : "Computer Programming I",
+    "LetterGrade" : "AA",
+    "Course" : "CSE1241"
+  }, {
+    "CourseName" : "Calculus I",
+    "LetterGrade" : "CB",
+    "Course" : "MATH1001"
+  }, {
+    "CourseName" : "Physics I",
+    "LetterGrade" : "FF",
+    "Course" : "PHYS1101"
+  }, {
+    "CourseName" : "Physics Lab I",
+    "LetterGrade" : "DD",
+    "Course" : "PHYS1103"
+  }, {
+    "CourseName" : "Turkish Language I",
+    "LetterGrade" : "FF",
+    "Course" : "TRD121"
+  }, {
+    "CourseName" : "Atatürk's Prin. & History II",
+    "LetterGrade" : "FF",
+    "Course" : "ATA122"
+  }, {
+    "CourseName" : "Computer Programming II",
+    "LetterGrade" : "FD",
+    "Course" : "CSE1242"
+  }, {
+    "CourseName" : "Calculus II",
+    "LetterGrade" : "FF",
+    "Course" : "MATH1002"
+  }, {
+    "CourseName" : "Linear Algebra",
+    "LetterGrade" : "AA",
+    "Course" : "MATH2256"
+  }, {
+    "CourseName" : "Physics II",
+    "LetterGrade" : "DD",
+    "Course" : "PHYS1102"
+  }, {
+    "CourseName" : "Physics Lab II",
+    "LetterGrade" : "DD",
+    "Course" : "PHYS1104"
+  }, {
+    "CourseName" : "Turkish Language II",
+    "LetterGrade" : "DZ",
+    "Course" : "TRD122"
+  }, {
+    "CourseName" : "Discrete Comp. Structures",
+    "LetterGrade" : "FF",
+    "Course" : "CSE2023"
+  }, {
+    "CourseName" : "Engineering Economy",
+    "LetterGrade" : "CB",
+    "Course" : "ECON2004"
+  }, {
+    "CourseName" : "Electric Circuits",
+    "LetterGrade" : "BA",
+    "Course" : "EE2031"
+  }, {
+    "CourseName" : "Differential Equations",
+    "LetterGrade" : "FD",
+    "Course" : "MATH2055"
+  }, {
+    "CourseName" : "Numerical Methods",
+    "LetterGrade" : "FF",
+    "Course" : "MATH2059"
+  }, {
+    "CourseName" : "System Programming",
+    "LetterGrade" : "FF",
+    "Course" : "CSE2138"
+  }, {
+    "CourseName" : "Electronics",
+    "LetterGrade" : "FF",
+    "Course" : "EE2032"
+  }, {
+    "CourseName" : "Prob. and Stat. for Computer Engineering",
+    "LetterGrade" : "CB",
+    "Course" : "STAT2253"
+  }, {
+    "CourseName" : "Digital Logic Design",
+    "LetterGrade" : "CC",
+    "Course" : "CSE3215"
+  }, {
+    "CourseName" : "Modeling and Discrete Simulation",
+    "LetterGrade" : "FF",
+    "Course" : "IE3081"
+  }, {
+    "CourseName" : "Operations Research",
+    "LetterGrade" : "FD",
+    "Course" : "IE3235"
+  }, {
+    "CourseName" : "Technical Comm. and Entrepreneurship",
+    "LetterGrade" : "BA",
+    "Course" : "COM2202"
+  }, {
+    "CourseName" : "Entrepreneurship and Innovation",
+    "LetterGrade" : "DD",
+    "Course" : "BUS1003"
+  } ],
+  "Requested Course" : [ {
+    "Course" : "Computer Networks"
+  }, {
+    "Course" : "Work Safety I"
+  }, {
+    "Course" : "Introduction to Machine Learning"
+  }, {
+    "Course" : "Introduction to Computer Engineering"
+  }, {
+    "Course" : "Physics I"
+  }, {
+    "Course" : "Turkish Language I"
+  }, {
+    "Course" : "Discrete Comp. Structures"
+  }, {
+    "Course" : "Differential Equations"
+  }, {
+    "Course" : "Numerical Methods"
+  }, {
+    "Course" : "Modeling and Discrete Simulation"
+  } ],
+  "Enrolled Course" : [ {
+    "Course" : "Computer Networks"
+  }, {
+    "Course" : "Work Safety I"
+  }, {
+    "Course" : "Introduction to Machine Learning"
+  }, {
+    "Course" : "Physics I"
+  }, {
+    "Course" : "Turkish Language I"
+  }, {
+    "Course" : "Differential Equations"
+  }, {
+    "Course" : "Numerical Methods"
+  } ],
+  "Output" : [ "The system didn't allow CSE4219 because student failed prereq. CSE3038", "The advisor didn't approve graduation project CSE4297 because student completed credits < 100", "The advisor didn't approve TECSE4026 because student completed credits < 70", "The advisor didn't approve TECSE4070 because student completed credits < 70", "Advisor didn't approve CSE1200 because of two hours collision with ISG121 in schedule", "Advisor didn't approve CSE2023 because of two hours collision with CSE4074 in schedule", "Advisor didn't approve IE3081 because of two hours collision with MATH2055 in schedule" ]
+}

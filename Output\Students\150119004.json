@@ -1,0 +1,150 @@
+{
+  "StudentName" : "Haluk Tülüce",
+  "StudentId" : {
+    "cseCode" : "1501",
+    "year" : 2019,
+    "order" : 4
+  },
+  "StudentEmail" : "haluktuluce@marun.edu.tr",
+  "StudentPhoneNumber" : "05247002173",
+  "SemesterNumber" : 7,
+  "CompletedCredits" : 52,
+  "Gpa" : 1.2,
+  "AdvisorName" : "Ali Haydar Özer",
+  "Taken Course" : [ {
+    "CourseName" : "Atatürk's Prin. & History I",
+    "LetterGrade" : "FF",
+    "Course" : "ATA121"
+  }, {
+    "CourseName" : "Introduction to Modern Biology",
+    "LetterGrade" : "BB",
+    "Course" : "MBG1201"
+  }, {
+    "CourseName" : "Introduction to Computer Engineering",
+    "LetterGrade" : "DD",
+    "Course" : "CSE1200"
+  }, {
+    "CourseName" : "Computer Programming I",
+    "LetterGrade" : "CC",
+    "Course" : "CSE1241"
+  }, {
+    "CourseName" : "Calculus I",
+    "LetterGrade" : "FF",
+    "Course" : "MATH1001"
+  }, {
+    "CourseName" : "Physics I",
+    "LetterGrade" : "BA",
+    "Course" : "PHYS1101"
+  }, {
+    "CourseName" : "Physics Lab I",
+    "LetterGrade" : "AA",
+    "Course" : "PHYS1103"
+  }, {
+    "CourseName" : "Turkish Language I",
+    "LetterGrade" : "AA",
+    "Course" : "TRD121"
+  }, {
+    "CourseName" : "Atatürk's Prin. & History II",
+    "LetterGrade" : "CC",
+    "Course" : "ATA122"
+  }, {
+    "CourseName" : "Computer Programming II",
+    "LetterGrade" : "DD",
+    "Course" : "CSE1242"
+  }, {
+    "CourseName" : "Calculus II",
+    "LetterGrade" : "BB",
+    "Course" : "MATH1002"
+  }, {
+    "CourseName" : "Linear Algebra",
+    "LetterGrade" : "FF",
+    "Course" : "MATH2256"
+  }, {
+    "CourseName" : "Physics II",
+    "LetterGrade" : "DZ",
+    "Course" : "PHYS1102"
+  }, {
+    "CourseName" : "Physics Lab II",
+    "LetterGrade" : "FD",
+    "Course" : "PHYS1104"
+  }, {
+    "CourseName" : "Turkish Language II",
+    "LetterGrade" : "FF",
+    "Course" : "TRD122"
+  }, {
+    "CourseName" : "Discrete Comp. Structures",
+    "LetterGrade" : "FF",
+    "Course" : "CSE2023"
+  }, {
+    "CourseName" : "Data Structures",
+    "LetterGrade" : "FF",
+    "Course" : "CSE2225"
+  }, {
+    "CourseName" : "Engineering Economy",
+    "LetterGrade" : "CC",
+    "Course" : "ECON2004"
+  }, {
+    "CourseName" : "Differential Equations",
+    "LetterGrade" : "FG",
+    "Course" : "MATH2055"
+  }, {
+    "CourseName" : "System Programming",
+    "LetterGrade" : "FG",
+    "Course" : "CSE2138"
+  }, {
+    "CourseName" : "Principles of Programming Languages",
+    "LetterGrade" : "AA",
+    "Course" : "CSE2260"
+  }, {
+    "CourseName" : "Prob. and Stat. for Computer Engineering",
+    "LetterGrade" : "FD",
+    "Course" : "STAT2253"
+  }, {
+    "CourseName" : "Digital Logic Design",
+    "LetterGrade" : "DZ",
+    "Course" : "CSE3215"
+  }, {
+    "CourseName" : "Object-Oriented Sofware Design",
+    "LetterGrade" : "CC",
+    "Course" : "CSE3063"
+  }, {
+    "CourseName" : "Technical Comm. and Entrepreneurship",
+    "LetterGrade" : "FF",
+    "Course" : "COM2202"
+  }, {
+    "CourseName" : "German for Beginners",
+    "LetterGrade" : "FD",
+    "Course" : "YDA1001"
+  } ],
+  "Requested Course" : [ {
+    "Course" : "Computer Networks"
+  }, {
+    "Course" : "Work Safety I"
+  }, {
+    "Course" : "Atatürk's Prin. & History I"
+  }, {
+    "Course" : "Calculus I"
+  }, {
+    "Course" : "Discrete Comp. Structures"
+  }, {
+    "Course" : "Data Structures"
+  }, {
+    "Course" : "Differential Equations"
+  }, {
+    "Course" : "Digital Logic Design"
+  }, {
+    "Course" : "German for Beginners"
+  } ],
+  "Enrolled Course" : [ {
+    "Course" : "Computer Networks"
+  }, {
+    "Course" : "Work Safety I"
+  }, {
+    "Course" : "Calculus I"
+  }, {
+    "Course" : "Data Structures"
+  }, {
+    "Course" : "German for Beginners"
+  } ],
+  "Output" : [ "The system didn't allow CSE4219 because student failed prereq. CSE3038", "The system didn't allow CSE4288 because student failed prereq. STAT2253", "The advisor didn't approve graduation project CSE4297 because student completed credits < 100", "The advisor didn't approve TECSE4026 because student completed credits < 70", "The advisor didn't approve TECSE4066 because student completed credits < 70", "Advisor didn't approve ATA121 because of two hours collision with CSE4074 in schedule", "Advisor didn't approve CSE2023 because of two hours collision with CSE4074 in schedule", "Advisor didn't approve MATH2055 because of two hours collision with MATH1001 in schedule", "Advisor didn't approve CSE3215 because of two hours collision with CSE4074 in schedule" ]
+}

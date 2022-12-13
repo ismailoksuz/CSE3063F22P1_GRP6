@@ -1,0 +1,132 @@
+{
+  "StudentName" : "Irmak Teke",
+  "StudentId" : {
+    "cseCode" : "1501",
+    "year" : 2020,
+    "order" : 54
+  },
+  "StudentEmail" : "irmakteke@marun.edu.tr",
+  "StudentPhoneNumber" : "05442208158",
+  "SemesterNumber" : 5,
+  "CompletedCredits" : 63,
+  "Gpa" : 1.52,
+  "AdvisorName" : "Mehmet Baran",
+  "Taken Course" : [ {
+    "CourseName" : "Atatürk's Prin. & History I",
+    "LetterGrade" : "FD",
+    "Course" : "ATA121"
+  }, {
+    "CourseName" : "Introduction to Modern Biology",
+    "LetterGrade" : "BB",
+    "Course" : "MBG1201"
+  }, {
+    "CourseName" : "Introduction to Computer Engineering",
+    "LetterGrade" : "AA",
+    "Course" : "CSE1200"
+  }, {
+    "CourseName" : "Computer Programming I",
+    "LetterGrade" : "DZ",
+    "Course" : "CSE1241"
+  }, {
+    "CourseName" : "Calculus I",
+    "LetterGrade" : "BB",
+    "Course" : "MATH1001"
+  }, {
+    "CourseName" : "Physics I",
+    "LetterGrade" : "CB",
+    "Course" : "PHYS1101"
+  }, {
+    "CourseName" : "Physics Lab I",
+    "LetterGrade" : "CB",
+    "Course" : "PHYS1103"
+  }, {
+    "CourseName" : "Turkish Language I",
+    "LetterGrade" : "BB",
+    "Course" : "TRD121"
+  }, {
+    "CourseName" : "Atatürk's Prin. & History II",
+    "LetterGrade" : "DC",
+    "Course" : "ATA122"
+  }, {
+    "CourseName" : "Calculus II",
+    "LetterGrade" : "FF",
+    "Course" : "MATH1002"
+  }, {
+    "CourseName" : "Linear Algebra",
+    "LetterGrade" : "DD",
+    "Course" : "MATH2256"
+  }, {
+    "CourseName" : "Physics II",
+    "LetterGrade" : "DD",
+    "Course" : "PHYS1102"
+  }, {
+    "CourseName" : "Physics Lab II",
+    "LetterGrade" : "AA",
+    "Course" : "PHYS1104"
+  }, {
+    "CourseName" : "Turkish Language II",
+    "LetterGrade" : "FD",
+    "Course" : "TRD122"
+  }, {
+    "CourseName" : "Discrete Comp. Structures",
+    "LetterGrade" : "DD",
+    "Course" : "CSE2023"
+  }, {
+    "CourseName" : "Engineering Economy",
+    "LetterGrade" : "FF",
+    "Course" : "ECON2004"
+  }, {
+    "CourseName" : "Electric Circuits",
+    "LetterGrade" : "DD",
+    "Course" : "EE2031"
+  }, {
+    "CourseName" : "Differential Equations",
+    "LetterGrade" : "BA",
+    "Course" : "MATH2055"
+  }, {
+    "CourseName" : "Numerical Methods",
+    "LetterGrade" : "FF",
+    "Course" : "MATH2059"
+  }, {
+    "CourseName" : "System Programming",
+    "LetterGrade" : "DD",
+    "Course" : "CSE2138"
+  }, {
+    "CourseName" : "Electronics",
+    "LetterGrade" : "AA",
+    "Course" : "EE2032"
+  }, {
+    "CourseName" : "Prob. and Stat. for Computer Engineering",
+    "LetterGrade" : "DZ",
+    "Course" : "STAT2253"
+  }, {
+    "CourseName" : "Strategic Entrepreneurship",
+    "LetterGrade" : "FF",
+    "Course" : "BUS1004"
+  } ],
+  "Requested Course" : [ {
+    "Course" : "Digital Logic Design"
+  }, {
+    "Course" : "Atatürk's Prin. & History I"
+  }, {
+    "Course" : "Computer Programming I"
+  }, {
+    "Course" : "Engineering Economy"
+  }, {
+    "Course" : "Numerical Methods"
+  }, {
+    "Course" : "Strategic Entrepreneurship"
+  } ],
+  "Enrolled Course" : [ {
+    "Course" : "Digital Logic Design"
+  }, {
+    "Course" : "Computer Programming I"
+  }, {
+    "Course" : "Engineering Economy"
+  }, {
+    "Course" : "Numerical Methods"
+  }, {
+    "Course" : "Strategic Entrepreneurship"
+  } ],
+  "Output" : [ "The system didn't allow CSE3033 because student failed prereq. CSE2225", "The system didn't allow CSE3055 because student failed prereq. CSE2225", "The system didn't allow CSE3063 because student failed prereq. CSE1242", "The system didn't allow IE3081 because student failed prereq. STAT2253", "Advisor didn't approve ATA121 because of two hours collision with CSE3215 in schedule" ]
+}

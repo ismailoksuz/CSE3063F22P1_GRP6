@@ -1,0 +1,158 @@
+{
+  "StudentName" : "Tuğçe Kulalı",
+  "StudentId" : {
+    "cseCode" : "1501",
+    "year" : 2020,
+    "order" : 36
+  },
+  "StudentEmail" : "tugcekulali@marun.edu.tr",
+  "StudentPhoneNumber" : "05805578628",
+  "SemesterNumber" : 5,
+  "CompletedCredits" : 98,
+  "Gpa" : 1.78,
+  "AdvisorName" : "Borahan Tümer",
+  "Taken Course" : [ {
+    "CourseName" : "Atatürk's Prin. & History I",
+    "LetterGrade" : "AA",
+    "Course" : "ATA121"
+  }, {
+    "CourseName" : "Introduction to Modern Biology",
+    "LetterGrade" : "BB",
+    "Course" : "MBG1201"
+  }, {
+    "CourseName" : "Introduction to Computer Engineering",
+    "LetterGrade" : "AA",
+    "Course" : "CSE1200"
+  }, {
+    "CourseName" : "Computer Programming I",
+    "LetterGrade" : "CB",
+    "Course" : "CSE1241"
+  }, {
+    "CourseName" : "Calculus I",
+    "LetterGrade" : "DD",
+    "Course" : "MATH1001"
+  }, {
+    "CourseName" : "Physics I",
+    "LetterGrade" : "DD",
+    "Course" : "PHYS1101"
+  }, {
+    "CourseName" : "Physics Lab I",
+    "LetterGrade" : "FF",
+    "Course" : "PHYS1103"
+  }, {
+    "CourseName" : "Turkish Language I",
+    "LetterGrade" : "DZ",
+    "Course" : "TRD121"
+  }, {
+    "CourseName" : "Atatürk's Prin. & History II",
+    "LetterGrade" : "FF",
+    "Course" : "ATA122"
+  }, {
+    "CourseName" : "Computer Programming II",
+    "LetterGrade" : "DD",
+    "Course" : "CSE1242"
+  }, {
+    "CourseName" : "Calculus II",
+    "LetterGrade" : "AA",
+    "Course" : "MATH1002"
+  }, {
+    "CourseName" : "Linear Algebra",
+    "LetterGrade" : "FF",
+    "Course" : "MATH2256"
+  }, {
+    "CourseName" : "Physics II",
+    "LetterGrade" : "CC",
+    "Course" : "PHYS1102"
+  }, {
+    "CourseName" : "Physics Lab II",
+    "LetterGrade" : "FF",
+    "Course" : "PHYS1104"
+  }, {
+    "CourseName" : "Turkish Language II",
+    "LetterGrade" : "CB",
+    "Course" : "TRD122"
+  }, {
+    "CourseName" : "Discrete Comp. Structures",
+    "LetterGrade" : "DC",
+    "Course" : "CSE2023"
+  }, {
+    "CourseName" : "Data Structures",
+    "LetterGrade" : "DD",
+    "Course" : "CSE2225"
+  }, {
+    "CourseName" : "Engineering Economy",
+    "LetterGrade" : "BB",
+    "Course" : "ECON2004"
+  }, {
+    "CourseName" : "Electric Circuits",
+    "LetterGrade" : "CC",
+    "Course" : "EE2031"
+  }, {
+    "CourseName" : "Differential Equations",
+    "LetterGrade" : "AA",
+    "Course" : "MATH2055"
+  }, {
+    "CourseName" : "Numerical Methods",
+    "LetterGrade" : "DC",
+    "Course" : "MATH2059"
+  }, {
+    "CourseName" : "Analysis of Algorithms",
+    "LetterGrade" : "BB",
+    "Course" : "CSE2246"
+  }, {
+    "CourseName" : "System Programming",
+    "LetterGrade" : "DC",
+    "Course" : "CSE2138"
+  }, {
+    "CourseName" : "Principles of Programming Languages",
+    "LetterGrade" : "FF",
+    "Course" : "CSE2260"
+  }, {
+    "CourseName" : "Electronics",
+    "LetterGrade" : "DC",
+    "Course" : "EE2032"
+  }, {
+    "CourseName" : "Prob. and Stat. for Computer Engineering",
+    "LetterGrade" : "CC",
+    "Course" : "STAT2253"
+  }, {
+    "CourseName" : "Strategic Entrepreneurship",
+    "LetterGrade" : "FF",
+    "Course" : "BUS1004"
+  } ],
+  "Requested Course" : [ {
+    "Course" : "Digital Logic Design"
+  }, {
+    "Course" : "Operating Systems"
+  }, {
+    "Course" : "Database Systems"
+  }, {
+    "Course" : "Object-Oriented Sofware Design"
+  }, {
+    "Course" : "Modeling and Discrete Simulation"
+  }, {
+    "Course" : "Physics Lab I"
+  }, {
+    "Course" : "Turkish Language I"
+  }, {
+    "Course" : "Strategic Entrepreneurship"
+  } ],
+  "Enrolled Course" : [ {
+    "Course" : "Digital Logic Design"
+  }, {
+    "Course" : "Operating Systems"
+  }, {
+    "Course" : "Database Systems"
+  }, {
+    "Course" : "Object-Oriented Sofware Design"
+  }, {
+    "Course" : "Modeling and Discrete Simulation"
+  }, {
+    "Course" : "Physics Lab I"
+  }, {
+    "Course" : "Turkish Language I"
+  }, {
+    "Course" : "Strategic Entrepreneurship"
+  } ],
+  "Output" : [ ]
+}

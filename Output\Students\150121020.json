@@ -1,0 +1,112 @@
+{
+  "StudentName" : "Mehmetcan Altınok",
+  "StudentId" : {
+    "cseCode" : "1501",
+    "year" : 2021,
+    "order" : 20
+  },
+  "StudentEmail" : "mehmetcanaltinok@marun.edu.tr",
+  "StudentPhoneNumber" : "05808809442",
+  "SemesterNumber" : 3,
+  "CompletedCredits" : 37,
+  "Gpa" : 1.41,
+  "AdvisorName" : "Ömer Korçak",
+  "Taken Course" : [ {
+    "CourseName" : "Atatürk's Prin. & History I",
+    "LetterGrade" : "CB",
+    "Course" : "ATA121"
+  }, {
+    "CourseName" : "Introduction to Modern Biology",
+    "LetterGrade" : "FF",
+    "Course" : "MBG1201"
+  }, {
+    "CourseName" : "Introduction to Computer Engineering",
+    "LetterGrade" : "CB",
+    "Course" : "CSE1200"
+  }, {
+    "CourseName" : "Computer Programming I",
+    "LetterGrade" : "CC",
+    "Course" : "CSE1241"
+  }, {
+    "CourseName" : "Calculus I",
+    "LetterGrade" : "AA",
+    "Course" : "MATH1001"
+  }, {
+    "CourseName" : "Physics I",
+    "LetterGrade" : "BA",
+    "Course" : "PHYS1101"
+  }, {
+    "CourseName" : "Physics Lab I",
+    "LetterGrade" : "FF",
+    "Course" : "PHYS1103"
+  }, {
+    "CourseName" : "Turkish Language I",
+    "LetterGrade" : "FF",
+    "Course" : "TRD121"
+  }, {
+    "CourseName" : "Atatürk's Prin. & History II",
+    "LetterGrade" : "DD",
+    "Course" : "ATA122"
+  }, {
+    "CourseName" : "Computer Programming II",
+    "LetterGrade" : "DD",
+    "Course" : "CSE1242"
+  }, {
+    "CourseName" : "Calculus II",
+    "LetterGrade" : "FF",
+    "Course" : "MATH1002"
+  }, {
+    "CourseName" : "Linear Algebra",
+    "LetterGrade" : "FF",
+    "Course" : "MATH2256"
+  }, {
+    "CourseName" : "Physics II",
+    "LetterGrade" : "FF",
+    "Course" : "PHYS1102"
+  }, {
+    "CourseName" : "Physics Lab II",
+    "LetterGrade" : "CC",
+    "Course" : "PHYS1104"
+  }, {
+    "CourseName" : "Turkish Language II",
+    "LetterGrade" : "DC",
+    "Course" : "TRD122"
+  }, {
+    "CourseName" : "French for Beginners",
+    "LetterGrade" : "CC",
+    "Course" : "YDF1001"
+  } ],
+  "Requested Course" : [ {
+    "Course" : "Discrete Comp. Structures"
+  }, {
+    "Course" : "Data Structures"
+  }, {
+    "Course" : "Engineering Economy"
+  }, {
+    "Course" : "Differential Equations"
+  }, {
+    "Course" : "Numerical Methods"
+  }, {
+    "Course" : "Introduction to Modern Biology"
+  }, {
+    "Course" : "Physics Lab I"
+  }, {
+    "Course" : "Turkish Language I"
+  } ],
+  "Enrolled Course" : [ {
+    "Course" : "Discrete Comp. Structures"
+  }, {
+    "Course" : "Data Structures"
+  }, {
+    "Course" : "Engineering Economy"
+  }, {
+    "Course" : "Differential Equations"
+  }, {
+    "Course" : "Numerical Methods"
+  }, {
+    "Course" : "Physics Lab I"
+  }, {
+    "Course" : "Turkish Language I"
+  } ],
+  "Output" : [ "The system didn't allow EE2031 because student failed prereq. PHYS1102", "Advisor didn't approve MBG1201 because of two hours collision with CSE2225 in schedule" ]
+}

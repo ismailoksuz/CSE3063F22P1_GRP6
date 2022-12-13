@@ -1,0 +1,170 @@
+{
+  "StudentName" : "Bilge Tanışık",
+  "StudentId" : {
+    "cseCode" : "1501",
+    "year" : 2019,
+    "order" : 59
+  },
+  "StudentEmail" : "bilgetanisik@marun.edu.tr",
+  "StudentPhoneNumber" : "05386414734",
+  "SemesterNumber" : 7,
+  "CompletedCredits" : 73,
+  "Gpa" : 1.64,
+  "AdvisorName" : "Mehmet Baran",
+  "Taken Course" : [ {
+    "CourseName" : "Atatürk's Prin. & History I",
+    "LetterGrade" : "FF",
+    "Course" : "ATA121"
+  }, {
+    "CourseName" : "Introduction to Modern Biology",
+    "LetterGrade" : "FF",
+    "Course" : "MBG1201"
+  }, {
+    "CourseName" : "Introduction to Computer Engineering",
+    "LetterGrade" : "AA",
+    "Course" : "CSE1200"
+  }, {
+    "CourseName" : "Computer Programming I",
+    "LetterGrade" : "BB",
+    "Course" : "CSE1241"
+  }, {
+    "CourseName" : "Calculus I",
+    "LetterGrade" : "AA",
+    "Course" : "MATH1001"
+  }, {
+    "CourseName" : "Physics I",
+    "LetterGrade" : "AA",
+    "Course" : "PHYS1101"
+  }, {
+    "CourseName" : "Physics Lab I",
+    "LetterGrade" : "DZ",
+    "Course" : "PHYS1103"
+  }, {
+    "CourseName" : "Turkish Language I",
+    "LetterGrade" : "FF",
+    "Course" : "TRD121"
+  }, {
+    "CourseName" : "Atatürk's Prin. & History II",
+    "LetterGrade" : "CC",
+    "Course" : "ATA122"
+  }, {
+    "CourseName" : "Computer Programming II",
+    "LetterGrade" : "FF",
+    "Course" : "CSE1242"
+  }, {
+    "CourseName" : "Calculus II",
+    "LetterGrade" : "FF",
+    "Course" : "MATH1002"
+  }, {
+    "CourseName" : "Linear Algebra",
+    "LetterGrade" : "DZ",
+    "Course" : "MATH2256"
+  }, {
+    "CourseName" : "Physics II",
+    "LetterGrade" : "CC",
+    "Course" : "PHYS1102"
+  }, {
+    "CourseName" : "Physics Lab II",
+    "LetterGrade" : "FF",
+    "Course" : "PHYS1104"
+  }, {
+    "CourseName" : "Turkish Language II",
+    "LetterGrade" : "CB",
+    "Course" : "TRD122"
+  }, {
+    "CourseName" : "Discrete Comp. Structures",
+    "LetterGrade" : "CB",
+    "Course" : "CSE2023"
+  }, {
+    "CourseName" : "Engineering Economy",
+    "LetterGrade" : "FD",
+    "Course" : "ECON2004"
+  }, {
+    "CourseName" : "Electric Circuits",
+    "LetterGrade" : "CC",
+    "Course" : "EE2031"
+  }, {
+    "CourseName" : "Differential Equations",
+    "LetterGrade" : "BA",
+    "Course" : "MATH2055"
+  }, {
+    "CourseName" : "Numerical Methods",
+    "LetterGrade" : "FG",
+    "Course" : "MATH2059"
+  }, {
+    "CourseName" : "System Programming",
+    "LetterGrade" : "DZ",
+    "Course" : "CSE2138"
+  }, {
+    "CourseName" : "Electronics",
+    "LetterGrade" : "FG",
+    "Course" : "EE2032"
+  }, {
+    "CourseName" : "Prob. and Stat. for Computer Engineering",
+    "LetterGrade" : "CB",
+    "Course" : "STAT2253"
+  }, {
+    "CourseName" : "Digital Logic Design",
+    "LetterGrade" : "CC",
+    "Course" : "CSE3215"
+  }, {
+    "CourseName" : "Modeling and Discrete Simulation",
+    "LetterGrade" : "DD",
+    "Course" : "IE3081"
+  }, {
+    "CourseName" : "Int. to Signals and Systems",
+    "LetterGrade" : "BB",
+    "Course" : "CSE3048"
+  }, {
+    "CourseName" : "Formal Lang. & Auto. Theory",
+    "LetterGrade" : "BA",
+    "Course" : "CSE3264"
+  }, {
+    "CourseName" : "Technical Comm. and Entrepreneurship",
+    "LetterGrade" : "DC",
+    "Course" : "COM2202"
+  }, {
+    "CourseName" : "Strategic Entrepreneurship",
+    "LetterGrade" : "CC",
+    "Course" : "BUS1004"
+  } ],
+  "Requested Course" : [ {
+    "Course" : "Computer Networks"
+  }, {
+    "Course" : "Work Safety I"
+  }, {
+    "Course" : "Introduction to Machine Learning"
+  }, {
+    "Course" : "Atatürk's Prin. & History I"
+  }, {
+    "Course" : "Introduction to Modern Biology"
+  }, {
+    "Course" : "Physics Lab I"
+  }, {
+    "Course" : "Turkish Language I"
+  }, {
+    "Course" : "Engineering Economy"
+  }, {
+    "Course" : "Numerical Methods"
+  }, {
+    "Course" : "Introduction to Blockchain Programming"
+  } ],
+  "Enrolled Course" : [ {
+    "Course" : "Computer Networks"
+  }, {
+    "Course" : "Work Safety I"
+  }, {
+    "Course" : "Introduction to Machine Learning"
+  }, {
+    "Course" : "Introduction to Modern Biology"
+  }, {
+    "Course" : "Physics Lab I"
+  }, {
+    "Course" : "Turkish Language I"
+  }, {
+    "Course" : "Numerical Methods"
+  }, {
+    "Course" : "Introduction to Blockchain Programming"
+  } ],
+  "Output" : [ "The system didn't allow CSE4219 because student failed prereq. CSE3038", "The advisor didn't approve graduation project CSE4297 because student completed credits < 100", "The system didn't allow CSE4217 because student failed prereq. CSE3038", "Advisor didn't approve ATA121 because of two hours collision with CSE4074 in schedule", "Advisor didn't approve ECON2004 because of two hours collision with ISG121 in schedule" ]
+}

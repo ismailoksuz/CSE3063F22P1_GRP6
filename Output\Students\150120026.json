@@ -1,0 +1,120 @@
+{
+  "StudentName" : "Bilge Baran",
+  "StudentId" : {
+    "cseCode" : "1501",
+    "year" : 2020,
+    "order" : 26
+  },
+  "StudentEmail" : "bilgebaran@marun.edu.tr",
+  "StudentPhoneNumber" : "05717021632",
+  "SemesterNumber" : 5,
+  "CompletedCredits" : 70,
+  "Gpa" : 1.93,
+  "AdvisorName" : "Çiğdem Eroğlu Erdem",
+  "Taken Course" : [ {
+    "CourseName" : "Atatürk's Prin. & History I",
+    "LetterGrade" : "FF",
+    "Course" : "ATA121"
+  }, {
+    "CourseName" : "Introduction to Modern Biology",
+    "LetterGrade" : "DC",
+    "Course" : "MBG1201"
+  }, {
+    "CourseName" : "Introduction to Computer Engineering",
+    "LetterGrade" : "BB",
+    "Course" : "CSE1200"
+  }, {
+    "CourseName" : "Computer Programming I",
+    "LetterGrade" : "BB",
+    "Course" : "CSE1241"
+  }, {
+    "CourseName" : "Calculus I",
+    "LetterGrade" : "DC",
+    "Course" : "MATH1001"
+  }, {
+    "CourseName" : "Physics I",
+    "LetterGrade" : "CC",
+    "Course" : "PHYS1101"
+  }, {
+    "CourseName" : "Physics Lab I",
+    "LetterGrade" : "BA",
+    "Course" : "PHYS1103"
+  }, {
+    "CourseName" : "Turkish Language I",
+    "LetterGrade" : "FD",
+    "Course" : "TRD121"
+  }, {
+    "CourseName" : "Atatürk's Prin. & History II",
+    "LetterGrade" : "CB",
+    "Course" : "ATA122"
+  }, {
+    "CourseName" : "Computer Programming II",
+    "LetterGrade" : "FF",
+    "Course" : "CSE1242"
+  }, {
+    "CourseName" : "Calculus II",
+    "LetterGrade" : "CB",
+    "Course" : "MATH1002"
+  }, {
+    "CourseName" : "Linear Algebra",
+    "LetterGrade" : "AA",
+    "Course" : "MATH2256"
+  }, {
+    "CourseName" : "Physics II",
+    "LetterGrade" : "FF",
+    "Course" : "PHYS1102"
+  }, {
+    "CourseName" : "Physics Lab II",
+    "LetterGrade" : "BB",
+    "Course" : "PHYS1104"
+  }, {
+    "CourseName" : "Turkish Language II",
+    "LetterGrade" : "BB",
+    "Course" : "TRD122"
+  }, {
+    "CourseName" : "Discrete Comp. Structures",
+    "LetterGrade" : "CB",
+    "Course" : "CSE2023"
+  }, {
+    "CourseName" : "Engineering Economy",
+    "LetterGrade" : "DC",
+    "Course" : "ECON2004"
+  }, {
+    "CourseName" : "Differential Equations",
+    "LetterGrade" : "DC",
+    "Course" : "MATH2055"
+  }, {
+    "CourseName" : "Numerical Methods",
+    "LetterGrade" : "DD",
+    "Course" : "MATH2059"
+  }, {
+    "CourseName" : "System Programming",
+    "LetterGrade" : "FF",
+    "Course" : "CSE2138"
+  }, {
+    "CourseName" : "Prob. and Stat. for Computer Engineering",
+    "LetterGrade" : "AA",
+    "Course" : "STAT2253"
+  }, {
+    "CourseName" : "Spanish for Beginners",
+    "LetterGrade" : "BA",
+    "Course" : "YDIS1001"
+  } ],
+  "Requested Course" : [ {
+    "Course" : "Digital Logic Design"
+  }, {
+    "Course" : "Modeling and Discrete Simulation"
+  }, {
+    "Course" : "Atatürk's Prin. & History I"
+  }, {
+    "Course" : "Turkish Language I"
+  } ],
+  "Enrolled Course" : [ {
+    "Course" : "Digital Logic Design"
+  }, {
+    "Course" : "Modeling and Discrete Simulation"
+  }, {
+    "Course" : "Turkish Language I"
+  } ],
+  "Output" : [ "The system didn't allow CSE3033 because student failed prereq. CSE2225", "The system didn't allow CSE3055 because student failed prereq. CSE2225", "The system didn't allow CSE3063 because student failed prereq. CSE1242", "Advisor didn't approve ATA121 because of two hours collision with CSE3215 in schedule" ]
+}

@@ -1,0 +1,156 @@
+{
+  "StudentName" : "Hidayet Elçin",
+  "StudentId" : {
+    "cseCode" : "1501",
+    "year" : 2020,
+    "order" : 44
+  },
+  "StudentEmail" : "hidayetelcin@marun.edu.tr",
+  "StudentPhoneNumber" : "05475283347",
+  "SemesterNumber" : 5,
+  "CompletedCredits" : 79,
+  "Gpa" : 1.73,
+  "AdvisorName" : "Mustafa Ağaoğlu",
+  "Taken Course" : [ {
+    "CourseName" : "Atatürk's Prin. & History I",
+    "LetterGrade" : "CB",
+    "Course" : "ATA121"
+  }, {
+    "CourseName" : "Introduction to Modern Biology",
+    "LetterGrade" : "FF",
+    "Course" : "MBG1201"
+  }, {
+    "CourseName" : "Introduction to Computer Engineering",
+    "LetterGrade" : "BA",
+    "Course" : "CSE1200"
+  }, {
+    "CourseName" : "Computer Programming I",
+    "LetterGrade" : "DD",
+    "Course" : "CSE1241"
+  }, {
+    "CourseName" : "Calculus I",
+    "LetterGrade" : "BA",
+    "Course" : "MATH1001"
+  }, {
+    "CourseName" : "Physics I",
+    "LetterGrade" : "BB",
+    "Course" : "PHYS1101"
+  }, {
+    "CourseName" : "Physics Lab I",
+    "LetterGrade" : "DD",
+    "Course" : "PHYS1103"
+  }, {
+    "CourseName" : "Turkish Language I",
+    "LetterGrade" : "FG",
+    "Course" : "TRD121"
+  }, {
+    "CourseName" : "Atatürk's Prin. & History II",
+    "LetterGrade" : "DZ",
+    "Course" : "ATA122"
+  }, {
+    "CourseName" : "Computer Programming II",
+    "LetterGrade" : "AA",
+    "Course" : "CSE1242"
+  }, {
+    "CourseName" : "Calculus II",
+    "LetterGrade" : "CB",
+    "Course" : "MATH1002"
+  }, {
+    "CourseName" : "Linear Algebra",
+    "LetterGrade" : "FF",
+    "Course" : "MATH2256"
+  }, {
+    "CourseName" : "Physics II",
+    "LetterGrade" : "DC",
+    "Course" : "PHYS1102"
+  }, {
+    "CourseName" : "Physics Lab II",
+    "LetterGrade" : "FF",
+    "Course" : "PHYS1104"
+  }, {
+    "CourseName" : "Turkish Language II",
+    "LetterGrade" : "BA",
+    "Course" : "TRD122"
+  }, {
+    "CourseName" : "Discrete Comp. Structures",
+    "LetterGrade" : "DD",
+    "Course" : "CSE2023"
+  }, {
+    "CourseName" : "Data Structures",
+    "LetterGrade" : "AA",
+    "Course" : "CSE2225"
+  }, {
+    "CourseName" : "Engineering Economy",
+    "LetterGrade" : "BA",
+    "Course" : "ECON2004"
+  }, {
+    "CourseName" : "Electric Circuits",
+    "LetterGrade" : "DC",
+    "Course" : "EE2031"
+  }, {
+    "CourseName" : "Differential Equations",
+    "LetterGrade" : "DC",
+    "Course" : "MATH2055"
+  }, {
+    "CourseName" : "Numerical Methods",
+    "LetterGrade" : "FF",
+    "Course" : "MATH2059"
+  }, {
+    "CourseName" : "Analysis of Algorithms",
+    "LetterGrade" : "FD",
+    "Course" : "CSE2246"
+  }, {
+    "CourseName" : "System Programming",
+    "LetterGrade" : "FG",
+    "Course" : "CSE2138"
+  }, {
+    "CourseName" : "Principles of Programming Languages",
+    "LetterGrade" : "BA",
+    "Course" : "CSE2260"
+  }, {
+    "CourseName" : "Electronics",
+    "LetterGrade" : "CC",
+    "Course" : "EE2032"
+  }, {
+    "CourseName" : "Prob. and Stat. for Computer Engineering",
+    "LetterGrade" : "DZ",
+    "Course" : "STAT2253"
+  }, {
+    "CourseName" : "Strategic Entrepreneurship",
+    "LetterGrade" : "FF",
+    "Course" : "BUS1004"
+  } ],
+  "Requested Course" : [ {
+    "Course" : "Digital Logic Design"
+  }, {
+    "Course" : "Operating Systems"
+  }, {
+    "Course" : "Database Systems"
+  }, {
+    "Course" : "Object-Oriented Sofware Design"
+  }, {
+    "Course" : "Introduction to Modern Biology"
+  }, {
+    "Course" : "Turkish Language I"
+  }, {
+    "Course" : "Numerical Methods"
+  }, {
+    "Course" : "Strategic Entrepreneurship"
+  } ],
+  "Enrolled Course" : [ {
+    "Course" : "Digital Logic Design"
+  }, {
+    "Course" : "Operating Systems"
+  }, {
+    "Course" : "Database Systems"
+  }, {
+    "Course" : "Object-Oriented Sofware Design"
+  }, {
+    "Course" : "Turkish Language I"
+  }, {
+    "Course" : "Numerical Methods"
+  }, {
+    "Course" : "Strategic Entrepreneurship"
+  } ],
+  "Output" : [ "The system didn't allow IE3081 because student failed prereq. STAT2253", "Advisor didn't approve MBG1201 because of two hours collision with CSE3033 in schedule" ]
+}

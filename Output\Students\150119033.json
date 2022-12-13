@@ -1,0 +1,184 @@
+{
+  "StudentName" : "Yavuz Ayık",
+  "StudentId" : {
+    "cseCode" : "1501",
+    "year" : 2019,
+    "order" : 33
+  },
+  "StudentEmail" : "yavuzayik@marun.edu.tr",
+  "StudentPhoneNumber" : "05056796864",
+  "SemesterNumber" : 7,
+  "CompletedCredits" : 99,
+  "Gpa" : 1.71,
+  "AdvisorName" : "Çiğdem Eroğlu Erdem",
+  "Taken Course" : [ {
+    "CourseName" : "Atatürk's Prin. & History I",
+    "LetterGrade" : "FF",
+    "Course" : "ATA121"
+  }, {
+    "CourseName" : "Introduction to Modern Biology",
+    "LetterGrade" : "DC",
+    "Course" : "MBG1201"
+  }, {
+    "CourseName" : "Introduction to Computer Engineering",
+    "LetterGrade" : "CC",
+    "Course" : "CSE1200"
+  }, {
+    "CourseName" : "Computer Programming I",
+    "LetterGrade" : "AA",
+    "Course" : "CSE1241"
+  }, {
+    "CourseName" : "Calculus I",
+    "LetterGrade" : "BB",
+    "Course" : "MATH1001"
+  }, {
+    "CourseName" : "Physics I",
+    "LetterGrade" : "CC",
+    "Course" : "PHYS1101"
+  }, {
+    "CourseName" : "Physics Lab I",
+    "LetterGrade" : "FF",
+    "Course" : "PHYS1103"
+  }, {
+    "CourseName" : "Turkish Language I",
+    "LetterGrade" : "FF",
+    "Course" : "TRD121"
+  }, {
+    "CourseName" : "Atatürk's Prin. & History II",
+    "LetterGrade" : "CB",
+    "Course" : "ATA122"
+  }, {
+    "CourseName" : "Computer Programming II",
+    "LetterGrade" : "CB",
+    "Course" : "CSE1242"
+  }, {
+    "CourseName" : "Calculus II",
+    "LetterGrade" : "DZ",
+    "Course" : "MATH1002"
+  }, {
+    "CourseName" : "Linear Algebra",
+    "LetterGrade" : "FF",
+    "Course" : "MATH2256"
+  }, {
+    "CourseName" : "Physics II",
+    "LetterGrade" : "AA",
+    "Course" : "PHYS1102"
+  }, {
+    "CourseName" : "Physics Lab II",
+    "LetterGrade" : "CC",
+    "Course" : "PHYS1104"
+  }, {
+    "CourseName" : "Turkish Language II",
+    "LetterGrade" : "DZ",
+    "Course" : "TRD122"
+  }, {
+    "CourseName" : "Discrete Comp. Structures",
+    "LetterGrade" : "FF",
+    "Course" : "CSE2023"
+  }, {
+    "CourseName" : "Data Structures",
+    "LetterGrade" : "BB",
+    "Course" : "CSE2225"
+  }, {
+    "CourseName" : "Engineering Economy",
+    "LetterGrade" : "BA",
+    "Course" : "ECON2004"
+  }, {
+    "CourseName" : "Electric Circuits",
+    "LetterGrade" : "DC",
+    "Course" : "EE2031"
+  }, {
+    "CourseName" : "Differential Equations",
+    "LetterGrade" : "BA",
+    "Course" : "MATH2055"
+  }, {
+    "CourseName" : "Numerical Methods",
+    "LetterGrade" : "AA",
+    "Course" : "MATH2059"
+  }, {
+    "CourseName" : "Analysis of Algorithms",
+    "LetterGrade" : "DC",
+    "Course" : "CSE2246"
+  }, {
+    "CourseName" : "System Programming",
+    "LetterGrade" : "DZ",
+    "Course" : "CSE2138"
+  }, {
+    "CourseName" : "Principles of Programming Languages",
+    "LetterGrade" : "FF",
+    "Course" : "CSE2260"
+  }, {
+    "CourseName" : "Electronics",
+    "LetterGrade" : "CC",
+    "Course" : "EE2032"
+  }, {
+    "CourseName" : "Prob. and Stat. for Computer Engineering",
+    "LetterGrade" : "DZ",
+    "Course" : "STAT2253"
+  }, {
+    "CourseName" : "Digital Logic Design",
+    "LetterGrade" : "BB",
+    "Course" : "CSE3215"
+  }, {
+    "CourseName" : "Operating Systems",
+    "LetterGrade" : "BB",
+    "Course" : "CSE3033"
+  }, {
+    "CourseName" : "Database Systems",
+    "LetterGrade" : "FF",
+    "Course" : "CSE3055"
+  }, {
+    "CourseName" : "Object-Oriented Sofware Design",
+    "LetterGrade" : "BB",
+    "Course" : "CSE3063"
+  }, {
+    "CourseName" : "Int. to Signals and Systems",
+    "LetterGrade" : "DD",
+    "Course" : "CSE3048"
+  }, {
+    "CourseName" : "Technical Comm. and Entrepreneurship",
+    "LetterGrade" : "DD",
+    "Course" : "COM2202"
+  }, {
+    "CourseName" : "German for Beginners",
+    "LetterGrade" : "FD",
+    "Course" : "YDA1001"
+  } ],
+  "Requested Course" : [ {
+    "Course" : "Computer Networks"
+  }, {
+    "Course" : "Work Safety I"
+  }, {
+    "Course" : "Atatürk's Prin. & History I"
+  }, {
+    "Course" : "Physics Lab I"
+  }, {
+    "Course" : "Turkish Language I"
+  }, {
+    "Course" : "Discrete Comp. Structures"
+  }, {
+    "Course" : "Database Systems"
+  }, {
+    "Course" : "German for Beginners"
+  }, {
+    "Course" : "Artificial Intelligence"
+  }, {
+    "Course" : "Introduction to Cryptography"
+  } ],
+  "Enrolled Course" : [ {
+    "Course" : "Computer Networks"
+  }, {
+    "Course" : "Work Safety I"
+  }, {
+    "Course" : "Physics Lab I"
+  }, {
+    "Course" : "Turkish Language I"
+  }, {
+    "Course" : "German for Beginners"
+  }, {
+    "Course" : "Artificial Intelligence"
+  }, {
+    "Course" : "Introduction to Cryptography"
+  } ],
+  "Output" : [ "The system didn't allow CSE4219 because student failed prereq. CSE3038", "The system didn't allow CSE4288 because student failed prereq. STAT2253", "The advisor didn't approve graduation project CSE4297 because student completed credits < 100", "Advisor didn't approve ATA121 because of two hours collision with CSE4074 in schedule", "Advisor didn't approve CSE2023 because of two hours collision with CSE4074 in schedule", "Advisor didn't approve CSE3055 because of two hours collision with ISG121 in schedule" ]
+}

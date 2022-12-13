@@ -1,0 +1,160 @@
+{
+  "StudentName" : "Atılgan Servet",
+  "StudentId" : {
+    "cseCode" : "1501",
+    "year" : 2019,
+    "order" : 27
+  },
+  "StudentEmail" : "atilganservet@marun.edu.tr",
+  "StudentPhoneNumber" : "05925802203",
+  "SemesterNumber" : 7,
+  "CompletedCredits" : 92,
+  "Gpa" : 2.07,
+  "AdvisorName" : "Müjdat Soytürk",
+  "Taken Course" : [ {
+    "CourseName" : "Atatürk's Prin. & History I",
+    "LetterGrade" : "BA",
+    "Course" : "ATA121"
+  }, {
+    "CourseName" : "Introduction to Modern Biology",
+    "LetterGrade" : "FF",
+    "Course" : "MBG1201"
+  }, {
+    "CourseName" : "Introduction to Computer Engineering",
+    "LetterGrade" : "FD",
+    "Course" : "CSE1200"
+  }, {
+    "CourseName" : "Computer Programming I",
+    "LetterGrade" : "FF",
+    "Course" : "CSE1241"
+  }, {
+    "CourseName" : "Calculus I",
+    "LetterGrade" : "AA",
+    "Course" : "MATH1001"
+  }, {
+    "CourseName" : "Physics I",
+    "LetterGrade" : "BA",
+    "Course" : "PHYS1101"
+  }, {
+    "CourseName" : "Physics Lab I",
+    "LetterGrade" : "BA",
+    "Course" : "PHYS1103"
+  }, {
+    "CourseName" : "Turkish Language I",
+    "LetterGrade" : "FD",
+    "Course" : "TRD121"
+  }, {
+    "CourseName" : "Atatürk's Prin. & History II",
+    "LetterGrade" : "BB",
+    "Course" : "ATA122"
+  }, {
+    "CourseName" : "Calculus II",
+    "LetterGrade" : "CC",
+    "Course" : "MATH1002"
+  }, {
+    "CourseName" : "Linear Algebra",
+    "LetterGrade" : "BA",
+    "Course" : "MATH2256"
+  }, {
+    "CourseName" : "Physics II",
+    "LetterGrade" : "CB",
+    "Course" : "PHYS1102"
+  }, {
+    "CourseName" : "Physics Lab II",
+    "LetterGrade" : "CB",
+    "Course" : "PHYS1104"
+  }, {
+    "CourseName" : "Turkish Language II",
+    "LetterGrade" : "CB",
+    "Course" : "TRD122"
+  }, {
+    "CourseName" : "Discrete Comp. Structures",
+    "LetterGrade" : "BB",
+    "Course" : "CSE2023"
+  }, {
+    "CourseName" : "Engineering Economy",
+    "LetterGrade" : "DD",
+    "Course" : "ECON2004"
+  }, {
+    "CourseName" : "Electric Circuits",
+    "LetterGrade" : "FF",
+    "Course" : "EE2031"
+  }, {
+    "CourseName" : "Differential Equations",
+    "LetterGrade" : "DC",
+    "Course" : "MATH2055"
+  }, {
+    "CourseName" : "Numerical Methods",
+    "LetterGrade" : "CB",
+    "Course" : "MATH2059"
+  }, {
+    "CourseName" : "System Programming",
+    "LetterGrade" : "BB",
+    "Course" : "CSE2138"
+  }, {
+    "CourseName" : "Prob. and Stat. for Computer Engineering",
+    "LetterGrade" : "FF",
+    "Course" : "STAT2253"
+  }, {
+    "CourseName" : "Digital Logic Design",
+    "LetterGrade" : "CB",
+    "Course" : "CSE3215"
+  }, {
+    "CourseName" : "Computer Organization",
+    "LetterGrade" : "DD",
+    "Course" : "CSE3038"
+  }, {
+    "CourseName" : "Int. to Signals and Systems",
+    "LetterGrade" : "CB",
+    "Course" : "CSE3048"
+  }, {
+    "CourseName" : "Formal Lang. & Auto. Theory",
+    "LetterGrade" : "AA",
+    "Course" : "CSE3264"
+  }, {
+    "CourseName" : "Operations Research",
+    "LetterGrade" : "CC",
+    "Course" : "IE3235"
+  }, {
+    "CourseName" : "Technical Comm. and Entrepreneurship",
+    "LetterGrade" : "CB",
+    "Course" : "COM2202"
+  }, {
+    "CourseName" : "German for Beginners",
+    "LetterGrade" : "BB",
+    "Course" : "YDA1001"
+  } ],
+  "Requested Course" : [ {
+    "Course" : "Computer Networks"
+  }, {
+    "Course" : "Principles of Embedded Systems Design"
+  }, {
+    "Course" : "Work Safety I"
+  }, {
+    "Course" : "Introduction to Modern Biology"
+  }, {
+    "Course" : "Introduction to Computer Engineering"
+  }, {
+    "Course" : "Computer Programming I"
+  }, {
+    "Course" : "Turkish Language I"
+  }, {
+    "Course" : "Electric Circuits"
+  }, {
+    "Course" : "Compiler Design"
+  } ],
+  "Enrolled Course" : [ {
+    "Course" : "Computer Networks"
+  }, {
+    "Course" : "Principles of Embedded Systems Design"
+  }, {
+    "Course" : "Work Safety I"
+  }, {
+    "Course" : "Computer Programming I"
+  }, {
+    "Course" : "Turkish Language I"
+  }, {
+    "Course" : "Compiler Design"
+  } ],
+  "Output" : [ "The system didn't allow CSE4288 because student failed prereq. STAT2253", "The advisor didn't approve graduation project CSE4297 because student completed credits < 100", "The system didn't allow CSE4034 because student failed prereq. CSE3033", "Advisor didn't approve MBG1201 because of two hours collision with CSE4219 in schedule", "Advisor didn't approve CSE1200 because of two hours collision with ISG121 in schedule", "Advisor didn't approve EE2031 because of two hours collision with CSE1241 in schedule" ]
+}

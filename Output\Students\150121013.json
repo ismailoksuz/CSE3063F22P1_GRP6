@@ -1,0 +1,114 @@
+{
+  "StudentName" : "Kaan Bek",
+  "StudentId" : {
+    "cseCode" : "1501",
+    "year" : 2021,
+    "order" : 13
+  },
+  "StudentEmail" : "kaanbek@marun.edu.tr",
+  "StudentPhoneNumber" : "05448406988",
+  "SemesterNumber" : 3,
+  "CompletedCredits" : 45,
+  "Gpa" : 1.97,
+  "AdvisorName" : "Ali Fuat Alkaya",
+  "Taken Course" : [ {
+    "CourseName" : "Atatürk's Prin. & History I",
+    "LetterGrade" : "FF",
+    "Course" : "ATA121"
+  }, {
+    "CourseName" : "Introduction to Modern Biology",
+    "LetterGrade" : "FF",
+    "Course" : "MBG1201"
+  }, {
+    "CourseName" : "Introduction to Computer Engineering",
+    "LetterGrade" : "AA",
+    "Course" : "CSE1200"
+  }, {
+    "CourseName" : "Computer Programming I",
+    "LetterGrade" : "CB",
+    "Course" : "CSE1241"
+  }, {
+    "CourseName" : "Calculus I",
+    "LetterGrade" : "AA",
+    "Course" : "MATH1001"
+  }, {
+    "CourseName" : "Physics I",
+    "LetterGrade" : "CC",
+    "Course" : "PHYS1101"
+  }, {
+    "CourseName" : "Physics Lab I",
+    "LetterGrade" : "FF",
+    "Course" : "PHYS1103"
+  }, {
+    "CourseName" : "Turkish Language I",
+    "LetterGrade" : "DD",
+    "Course" : "TRD121"
+  }, {
+    "CourseName" : "Atatürk's Prin. & History II",
+    "LetterGrade" : "BB",
+    "Course" : "ATA122"
+  }, {
+    "CourseName" : "Computer Programming II",
+    "LetterGrade" : "CB",
+    "Course" : "CSE1242"
+  }, {
+    "CourseName" : "Calculus II",
+    "LetterGrade" : "BB",
+    "Course" : "MATH1002"
+  }, {
+    "CourseName" : "Linear Algebra",
+    "LetterGrade" : "DZ",
+    "Course" : "MATH2256"
+  }, {
+    "CourseName" : "Physics II",
+    "LetterGrade" : "CC",
+    "Course" : "PHYS1102"
+  }, {
+    "CourseName" : "Physics Lab II",
+    "LetterGrade" : "CB",
+    "Course" : "PHYS1104"
+  }, {
+    "CourseName" : "Turkish Language II",
+    "LetterGrade" : "FF",
+    "Course" : "TRD122"
+  }, {
+    "CourseName" : "German for Beginners",
+    "LetterGrade" : "DD",
+    "Course" : "YDA1001"
+  } ],
+  "Requested Course" : [ {
+    "Course" : "Discrete Comp. Structures"
+  }, {
+    "Course" : "Data Structures"
+  }, {
+    "Course" : "Engineering Economy"
+  }, {
+    "Course" : "Electric Circuits"
+  }, {
+    "Course" : "Differential Equations"
+  }, {
+    "Course" : "Numerical Methods"
+  }, {
+    "Course" : "Atatürk's Prin. & History I"
+  }, {
+    "Course" : "Introduction to Modern Biology"
+  }, {
+    "Course" : "Physics Lab I"
+  } ],
+  "Enrolled Course" : [ {
+    "Course" : "Discrete Comp. Structures"
+  }, {
+    "Course" : "Data Structures"
+  }, {
+    "Course" : "Engineering Economy"
+  }, {
+    "Course" : "Electric Circuits"
+  }, {
+    "Course" : "Differential Equations"
+  }, {
+    "Course" : "Numerical Methods"
+  }, {
+    "Course" : "Physics Lab I"
+  } ],
+  "Output" : [ "Advisor didn't approve ATA121 because of two hours collision with CSE2023 in schedule", "Advisor didn't approve MBG1201 because of two hours collision with CSE2225 in schedule" ]
+}

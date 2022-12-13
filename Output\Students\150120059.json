@@ -1,0 +1,152 @@
+{
+  "StudentName" : "Çetin Karakuş",
+  "StudentId" : {
+    "cseCode" : "1501",
+    "year" : 2020,
+    "order" : 59
+  },
+  "StudentEmail" : "cetinkarakus@marun.edu.tr",
+  "StudentPhoneNumber" : "05649330137",
+  "SemesterNumber" : 5,
+  "CompletedCredits" : 94,
+  "Gpa" : 2.02,
+  "AdvisorName" : "Mustafa Ağaoğlu",
+  "Taken Course" : [ {
+    "CourseName" : "Atatürk's Prin. & History I",
+    "LetterGrade" : "AA",
+    "Course" : "ATA121"
+  }, {
+    "CourseName" : "Introduction to Modern Biology",
+    "LetterGrade" : "FD",
+    "Course" : "MBG1201"
+  }, {
+    "CourseName" : "Introduction to Computer Engineering",
+    "LetterGrade" : "FF",
+    "Course" : "CSE1200"
+  }, {
+    "CourseName" : "Computer Programming I",
+    "LetterGrade" : "AA",
+    "Course" : "CSE1241"
+  }, {
+    "CourseName" : "Calculus I",
+    "LetterGrade" : "BA",
+    "Course" : "MATH1001"
+  }, {
+    "CourseName" : "Physics I",
+    "LetterGrade" : "AA",
+    "Course" : "PHYS1101"
+  }, {
+    "CourseName" : "Physics Lab I",
+    "LetterGrade" : "BA",
+    "Course" : "PHYS1103"
+  }, {
+    "CourseName" : "Turkish Language I",
+    "LetterGrade" : "AA",
+    "Course" : "TRD121"
+  }, {
+    "CourseName" : "Atatürk's Prin. & History II",
+    "LetterGrade" : "DZ",
+    "Course" : "ATA122"
+  }, {
+    "CourseName" : "Computer Programming II",
+    "LetterGrade" : "CB",
+    "Course" : "CSE1242"
+  }, {
+    "CourseName" : "Calculus II",
+    "LetterGrade" : "DD",
+    "Course" : "MATH1002"
+  }, {
+    "CourseName" : "Linear Algebra",
+    "LetterGrade" : "AA",
+    "Course" : "MATH2256"
+  }, {
+    "CourseName" : "Physics II",
+    "LetterGrade" : "AA",
+    "Course" : "PHYS1102"
+  }, {
+    "CourseName" : "Physics Lab II",
+    "LetterGrade" : "AA",
+    "Course" : "PHYS1104"
+  }, {
+    "CourseName" : "Turkish Language II",
+    "LetterGrade" : "CC",
+    "Course" : "TRD122"
+  }, {
+    "CourseName" : "Discrete Comp. Structures",
+    "LetterGrade" : "DZ",
+    "Course" : "CSE2023"
+  }, {
+    "CourseName" : "Data Structures",
+    "LetterGrade" : "DC",
+    "Course" : "CSE2225"
+  }, {
+    "CourseName" : "Engineering Economy",
+    "LetterGrade" : "CB",
+    "Course" : "ECON2004"
+  }, {
+    "CourseName" : "Electric Circuits",
+    "LetterGrade" : "CB",
+    "Course" : "EE2031"
+  }, {
+    "CourseName" : "Differential Equations",
+    "LetterGrade" : "DD",
+    "Course" : "MATH2055"
+  }, {
+    "CourseName" : "Numerical Methods",
+    "LetterGrade" : "FF",
+    "Course" : "MATH2059"
+  }, {
+    "CourseName" : "Analysis of Algorithms",
+    "LetterGrade" : "DC",
+    "Course" : "CSE2246"
+  }, {
+    "CourseName" : "System Programming",
+    "LetterGrade" : "DD",
+    "Course" : "CSE2138"
+  }, {
+    "CourseName" : "Principles of Programming Languages",
+    "LetterGrade" : "BB",
+    "Course" : "CSE2260"
+  }, {
+    "CourseName" : "Electronics",
+    "LetterGrade" : "CC",
+    "Course" : "EE2032"
+  }, {
+    "CourseName" : "Prob. and Stat. for Computer Engineering",
+    "LetterGrade" : "FD",
+    "Course" : "STAT2253"
+  }, {
+    "CourseName" : "Spanish for Beginners",
+    "LetterGrade" : "DD",
+    "Course" : "YDIS1001"
+  } ],
+  "Requested Course" : [ {
+    "Course" : "Digital Logic Design"
+  }, {
+    "Course" : "Operating Systems"
+  }, {
+    "Course" : "Database Systems"
+  }, {
+    "Course" : "Object-Oriented Sofware Design"
+  }, {
+    "Course" : "Introduction to Modern Biology"
+  }, {
+    "Course" : "Introduction to Computer Engineering"
+  }, {
+    "Course" : "Discrete Comp. Structures"
+  }, {
+    "Course" : "Numerical Methods"
+  } ],
+  "Enrolled Course" : [ {
+    "Course" : "Digital Logic Design"
+  }, {
+    "Course" : "Operating Systems"
+  }, {
+    "Course" : "Database Systems"
+  }, {
+    "Course" : "Object-Oriented Sofware Design"
+  }, {
+    "Course" : "Numerical Methods"
+  } ],
+  "Output" : [ "The system didn't allow IE3081 because student failed prereq. STAT2253", "Advisor didn't approve MBG1201 because of two hours collision with CSE3033 in schedule", "Advisor didn't approve CSE1200 because of two hours collision with CSE3055 in schedule", "Advisor didn't approve CSE2023 because of two hours collision with CSE3215 in schedule" ]
+}

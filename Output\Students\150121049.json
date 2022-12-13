@@ -1,0 +1,110 @@
+{
+  "StudentName" : "Erdinç Bek",
+  "StudentId" : {
+    "cseCode" : "1501",
+    "year" : 2021,
+    "order" : 49
+  },
+  "StudentEmail" : "erdincbek@marun.edu.tr",
+  "StudentPhoneNumber" : "05544649497",
+  "SemesterNumber" : 3,
+  "CompletedCredits" : 27,
+  "Gpa" : 1.25,
+  "AdvisorName" : "Betül Demiröz Boz",
+  "Taken Course" : [ {
+    "CourseName" : "Atatürk's Prin. & History I",
+    "LetterGrade" : "CB",
+    "Course" : "ATA121"
+  }, {
+    "CourseName" : "Introduction to Modern Biology",
+    "LetterGrade" : "DZ",
+    "Course" : "MBG1201"
+  }, {
+    "CourseName" : "Introduction to Computer Engineering",
+    "LetterGrade" : "CB",
+    "Course" : "CSE1200"
+  }, {
+    "CourseName" : "Computer Programming I",
+    "LetterGrade" : "FD",
+    "Course" : "CSE1241"
+  }, {
+    "CourseName" : "Calculus I",
+    "LetterGrade" : "FG",
+    "Course" : "MATH1001"
+  }, {
+    "CourseName" : "Physics I",
+    "LetterGrade" : "BB",
+    "Course" : "PHYS1101"
+  }, {
+    "CourseName" : "Physics Lab I",
+    "LetterGrade" : "FG",
+    "Course" : "PHYS1103"
+  }, {
+    "CourseName" : "Turkish Language I",
+    "LetterGrade" : "DD",
+    "Course" : "TRD121"
+  }, {
+    "CourseName" : "Atatürk's Prin. & History II",
+    "LetterGrade" : "DZ",
+    "Course" : "ATA122"
+  }, {
+    "CourseName" : "Calculus II",
+    "LetterGrade" : "CB",
+    "Course" : "MATH1002"
+  }, {
+    "CourseName" : "Linear Algebra",
+    "LetterGrade" : "DC",
+    "Course" : "MATH2256"
+  }, {
+    "CourseName" : "Physics II",
+    "LetterGrade" : "BA",
+    "Course" : "PHYS1102"
+  }, {
+    "CourseName" : "Physics Lab II",
+    "LetterGrade" : "FF",
+    "Course" : "PHYS1104"
+  }, {
+    "CourseName" : "Turkish Language II",
+    "LetterGrade" : "DZ",
+    "Course" : "TRD122"
+  }, {
+    "CourseName" : "Strategic Entrepreneurship",
+    "LetterGrade" : "DZ",
+    "Course" : "BUS1004"
+  } ],
+  "Requested Course" : [ {
+    "Course" : "Discrete Comp. Structures"
+  }, {
+    "Course" : "Engineering Economy"
+  }, {
+    "Course" : "Electric Circuits"
+  }, {
+    "Course" : "Differential Equations"
+  }, {
+    "Course" : "Introduction to Modern Biology"
+  }, {
+    "Course" : "Computer Programming I"
+  }, {
+    "Course" : "Calculus I"
+  }, {
+    "Course" : "Physics Lab I"
+  }, {
+    "Course" : "Strategic Entrepreneurship"
+  } ],
+  "Enrolled Course" : [ {
+    "Course" : "Discrete Comp. Structures"
+  }, {
+    "Course" : "Engineering Economy"
+  }, {
+    "Course" : "Electric Circuits"
+  }, {
+    "Course" : "Differential Equations"
+  }, {
+    "Course" : "Introduction to Modern Biology"
+  }, {
+    "Course" : "Physics Lab I"
+  }, {
+    "Course" : "Strategic Entrepreneurship"
+  } ],
+  "Output" : [ "The system didn't allow CSE2225 because student failed prereq. CSE1242", "The system didn't allow MATH2059 because student failed prereq. MATH1001", "Advisor didn't approve CSE1241 because of two hours collision with EE2031 in schedule", "Advisor didn't approve MATH1001 because of two hours collision with MATH2055 in schedule" ]
+}

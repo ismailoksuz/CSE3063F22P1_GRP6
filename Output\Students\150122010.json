@@ -1,0 +1,50 @@
+{
+  "StudentName" : "Çetin Usul",
+  "StudentId" : {
+    "cseCode" : "1501",
+    "year" : 2022,
+    "order" : 10
+  },
+  "StudentEmail" : "cetinusul@marun.edu.tr",
+  "StudentPhoneNumber" : "05609281183",
+  "SemesterNumber" : 1,
+  "CompletedCredits" : 0,
+  "Gpa" : 0.0,
+  "AdvisorName" : "Ali Fuat Alkaya",
+  "Taken Course" : [ ],
+  "Requested Course" : [ {
+    "Course" : "Atatürk's Prin. & History I"
+  }, {
+    "Course" : "Introduction to Modern Biology"
+  }, {
+    "Course" : "Introduction to Computer Engineering"
+  }, {
+    "Course" : "Computer Programming I"
+  }, {
+    "Course" : "Calculus I"
+  }, {
+    "Course" : "Physics I"
+  }, {
+    "Course" : "Physics Lab I"
+  }, {
+    "Course" : "Turkish Language I"
+  } ],
+  "Enrolled Course" : [ {
+    "Course" : "Atatürk's Prin. & History I"
+  }, {
+    "Course" : "Introduction to Modern Biology"
+  }, {
+    "Course" : "Introduction to Computer Engineering"
+  }, {
+    "Course" : "Computer Programming I"
+  }, {
+    "Course" : "Calculus I"
+  }, {
+    "Course" : "Physics I"
+  }, {
+    "Course" : "Physics Lab I"
+  }, {
+    "Course" : "Turkish Language I"
+  } ],
+  "Output" : [ ]
+}

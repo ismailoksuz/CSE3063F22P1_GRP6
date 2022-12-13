@@ -1,0 +1,196 @@
+{
+  "StudentName" : "Fuat Tanır",
+  "StudentId" : {
+    "cseCode" : "1501",
+    "year" : 2019,
+    "order" : 56
+  },
+  "StudentEmail" : "fuattanir@marun.edu.tr",
+  "StudentPhoneNumber" : "05371947002",
+  "SemesterNumber" : 7,
+  "CompletedCredits" : 117,
+  "Gpa" : 1.83,
+  "AdvisorName" : "Mehmet Baran",
+  "Taken Course" : [ {
+    "CourseName" : "Atatürk's Prin. & History I",
+    "LetterGrade" : "CC",
+    "Course" : "ATA121"
+  }, {
+    "CourseName" : "Introduction to Modern Biology",
+    "LetterGrade" : "AA",
+    "Course" : "MBG1201"
+  }, {
+    "CourseName" : "Introduction to Computer Engineering",
+    "LetterGrade" : "BB",
+    "Course" : "CSE1200"
+  }, {
+    "CourseName" : "Computer Programming I",
+    "LetterGrade" : "DD",
+    "Course" : "CSE1241"
+  }, {
+    "CourseName" : "Calculus I",
+    "LetterGrade" : "CB",
+    "Course" : "MATH1001"
+  }, {
+    "CourseName" : "Physics I",
+    "LetterGrade" : "FF",
+    "Course" : "PHYS1101"
+  }, {
+    "CourseName" : "Physics Lab I",
+    "LetterGrade" : "CC",
+    "Course" : "PHYS1103"
+  }, {
+    "CourseName" : "Turkish Language I",
+    "LetterGrade" : "CB",
+    "Course" : "TRD121"
+  }, {
+    "CourseName" : "Atatürk's Prin. & History II",
+    "LetterGrade" : "DD",
+    "Course" : "ATA122"
+  }, {
+    "CourseName" : "Computer Programming II",
+    "LetterGrade" : "DD",
+    "Course" : "CSE1242"
+  }, {
+    "CourseName" : "Calculus II",
+    "LetterGrade" : "FF",
+    "Course" : "MATH1002"
+  }, {
+    "CourseName" : "Linear Algebra",
+    "LetterGrade" : "FD",
+    "Course" : "MATH2256"
+  }, {
+    "CourseName" : "Physics II",
+    "LetterGrade" : "AA",
+    "Course" : "PHYS1102"
+  }, {
+    "CourseName" : "Physics Lab II",
+    "LetterGrade" : "FF",
+    "Course" : "PHYS1104"
+  }, {
+    "CourseName" : "Turkish Language II",
+    "LetterGrade" : "BB",
+    "Course" : "TRD122"
+  }, {
+    "CourseName" : "Discrete Comp. Structures",
+    "LetterGrade" : "AA",
+    "Course" : "CSE2023"
+  }, {
+    "CourseName" : "Data Structures",
+    "LetterGrade" : "BA",
+    "Course" : "CSE2225"
+  }, {
+    "CourseName" : "Engineering Economy",
+    "LetterGrade" : "FF",
+    "Course" : "ECON2004"
+  }, {
+    "CourseName" : "Electric Circuits",
+    "LetterGrade" : "AA",
+    "Course" : "EE2031"
+  }, {
+    "CourseName" : "Differential Equations",
+    "LetterGrade" : "AA",
+    "Course" : "MATH2055"
+  }, {
+    "CourseName" : "Numerical Methods",
+    "LetterGrade" : "DD",
+    "Course" : "MATH2059"
+  }, {
+    "CourseName" : "Analysis of Algorithms",
+    "LetterGrade" : "FF",
+    "Course" : "CSE2246"
+  }, {
+    "CourseName" : "System Programming",
+    "LetterGrade" : "DC",
+    "Course" : "CSE2138"
+  }, {
+    "CourseName" : "Principles of Programming Languages",
+    "LetterGrade" : "CC",
+    "Course" : "CSE2260"
+  }, {
+    "CourseName" : "Electronics",
+    "LetterGrade" : "CB",
+    "Course" : "EE2032"
+  }, {
+    "CourseName" : "Prob. and Stat. for Computer Engineering",
+    "LetterGrade" : "CB",
+    "Course" : "STAT2253"
+  }, {
+    "CourseName" : "Digital Logic Design",
+    "LetterGrade" : "AA",
+    "Course" : "CSE3215"
+  }, {
+    "CourseName" : "Operating Systems",
+    "LetterGrade" : "BB",
+    "Course" : "CSE3033"
+  }, {
+    "CourseName" : "Database Systems",
+    "LetterGrade" : "FF",
+    "Course" : "CSE3055"
+  }, {
+    "CourseName" : "Object-Oriented Sofware Design",
+    "LetterGrade" : "FF",
+    "Course" : "CSE3063"
+  }, {
+    "CourseName" : "Modeling and Discrete Simulation",
+    "LetterGrade" : "CB",
+    "Course" : "IE3081"
+  }, {
+    "CourseName" : "Computer Organization",
+    "LetterGrade" : "FG",
+    "Course" : "CSE3038"
+  }, {
+    "CourseName" : "Int. to Signals and Systems",
+    "LetterGrade" : "DZ",
+    "Course" : "CSE3048"
+  }, {
+    "CourseName" : "Formal Lang. & Auto. Theory",
+    "LetterGrade" : "DC",
+    "Course" : "CSE3264"
+  }, {
+    "CourseName" : "Technical Comm. and Entrepreneurship",
+    "LetterGrade" : "CB",
+    "Course" : "COM2202"
+  }, {
+    "CourseName" : "Spanish for Beginners",
+    "LetterGrade" : "CC",
+    "Course" : "YDIS1001"
+  } ],
+  "Requested Course" : [ {
+    "Course" : "Computer Networks"
+  }, {
+    "Course" : "Work Safety I"
+  }, {
+    "Course" : "Introduction to Machine Learning"
+  }, {
+    "Course" : "Physics I"
+  }, {
+    "Course" : "Engineering Economy"
+  }, {
+    "Course" : "Database Systems"
+  }, {
+    "Course" : "Object-Oriented Sofware Design"
+  }, {
+    "Course" : "Engineering Project I"
+  }, {
+    "Course" : "Compiler Design"
+  }, {
+    "Course" : "Introduction to Distributed Systems"
+  } ],
+  "Enrolled Course" : [ {
+    "Course" : "Computer Networks"
+  }, {
+    "Course" : "Work Safety I"
+  }, {
+    "Course" : "Introduction to Machine Learning"
+  }, {
+    "Course" : "Physics I"
+  }, {
+    "Course" : "Engineering Project I"
+  }, {
+    "Course" : "Compiler Design"
+  }, {
+    "Course" : "Introduction to Distributed Systems"
+  } ],
+  "Output" : [ "The system didn't allow CSE4219 because student failed prereq. CSE3038", "Advisor didn't approve ECON2004 because of two hours collision with ISG121 in schedule", "Advisor didn't approve CSE3055 because of two hours collision with ISG121 in schedule", "Advisor didn't approve CSE3063 because of two hours collision with CSE4288 in schedule" ]
+}
