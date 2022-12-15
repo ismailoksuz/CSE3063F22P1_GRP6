@@ -1,0 +1,12 @@
+# ignore all logs
+*.log
+
+# ignore the folder named Output\Students and the files in it
+
+Output\Students
+
+# ignore the folder named Output and the files in it
+
+Output
+
+Iteration-2\\src
