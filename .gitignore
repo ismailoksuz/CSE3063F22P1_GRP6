@@ -11,4 +11,6 @@ Output
 
 Iteration-2\\src
 
-**/.vscode/
+# ignore the folder .vscode and the files in it 
+
+.vscode
