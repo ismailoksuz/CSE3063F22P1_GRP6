@@ -1,7 +1,7 @@
 import org.apache.log4j.Logger;
 
 public class StudentId {
-	private Logger log = Logger.getLogger(StudentId.class);
+	Logger log = Logger.getLogger(StudentId.class);
 	private String cseCode;
 	private int year;
 	private int order;

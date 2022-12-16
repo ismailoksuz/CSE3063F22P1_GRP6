@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import org.apache.log4j.Logger;
 
 public class TechnicalElective extends ElectiveCourse implements ICreditRequirement {
-    private Logger log = Logger.getLogger(TechnicalElective.class);
+    Logger log = Logger.getLogger(TechnicalElective.class);
     private int requiredCredits;
     private ArrayList<Course> prequisites;
 

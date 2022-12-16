@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import org.apache.log4j.Logger;
 
 public class Student extends Person {
-    private Logger log = Logger.getLogger(Student.class);
+    Logger log = Logger.getLogger(Student.class);
     private StudentId studentId;
     private Transcript transcript;
     private Advisor advisor;

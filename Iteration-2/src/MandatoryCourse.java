@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import org.apache.log4j.Logger;
 
 public class MandatoryCourse extends Course {
-    private Logger log = Logger.getLogger(MandatoryCourse.class);
+    Logger log = Logger.getLogger(MandatoryCourse.class);
     private int semester;
     private ArrayList<Course> prerequisites;
 

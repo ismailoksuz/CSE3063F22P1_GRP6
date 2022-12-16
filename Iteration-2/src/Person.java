@@ -1,7 +1,7 @@
 import org.apache.log4j.Logger;
 
 public abstract class Person {
-    private Logger log = Logger.getLogger(Person.class);
+    Logger log = Logger.getLogger(Person.class);
     private String firstName;
     private String lastName;
     private String email;

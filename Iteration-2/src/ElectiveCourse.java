@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import org.apache.log4j.Logger;
 
 public abstract class ElectiveCourse extends Course {
-    private Logger log = Logger.getLogger(ElectiveCourse.class);
+    Logger log = Logger.getLogger(ElectiveCourse.class);
     private ArrayList<Integer> semesters;
 
     public ElectiveCourse(String courseName, String courseCode, int courseCredit, int courseDay, String courseHour,

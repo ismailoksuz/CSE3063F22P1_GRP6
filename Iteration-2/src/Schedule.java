@@ -1,7 +1,7 @@
 import org.apache.log4j.Logger;
 
 public class Schedule {
-    private Logger log = Logger.getLogger(Schedule.class);
+    Logger log = Logger.getLogger(Schedule.class);
     private int courseDay;
     private String courseHour;
 
