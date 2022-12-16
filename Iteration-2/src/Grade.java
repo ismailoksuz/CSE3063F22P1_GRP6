@@ -2,7 +2,7 @@ import java.util.*;
 import org.apache.log4j.Logger;
 
 public class Grade {
-	static Logger log = Logger.getLogger(Grade.class);
+	private Logger log = Logger.getLogger(Grade.class);
 	private Course course;
 	private int courseGrade;
 	private String letter;
@@ -11,7 +11,7 @@ public class Grade {
 		this.course = course;
 		this.courseGrade = courseGrade;
 		this.letter = getLetterGrade();
-		/* log.info("Grade created."); */
+		log.info("Grade created.");
 	}
 
 	public String getLetterGrade() {

@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import org.apache.log4j.Logger;
 
 public abstract class Course {
-    static Logger log = Logger.getLogger(Course.class);
+    private Logger log = Logger.getLogger(Course.class);
     private String courseCode;
     private String courseName;
     private int courseCredit;

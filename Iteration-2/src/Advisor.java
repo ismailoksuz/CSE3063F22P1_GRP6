@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import org.apache.log4j.Logger;
 
 public class Advisor extends Instructor {
-    static Logger log = Logger.getLogger(Advisor.class);
+    private Logger log = Logger.getLogger(Advisor.class);
     private ArrayList<Student> students;
 
     public Advisor(String firstName, String lastName) {

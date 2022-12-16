@@ -1,7 +1,7 @@
 import org.apache.log4j.Logger;
 
 public abstract class Person {
-    static Logger log = Logger.getLogger(Person.class);
+    private Logger log = Logger.getLogger(Person.class);
     private String firstName;
     private String lastName;
     private String email;
@@ -17,6 +17,7 @@ public abstract class Person {
 
     public String generateEmail() {
         String userName = getFirstName() + getLastName();
+        userName = userName.replaceAll("\\s", "");
         userName = userName.toLowerCase();
         userName = userName.replace('ç', 'c');
         userName = userName.replace('ğ', 'g');
@@ -24,9 +25,6 @@ public abstract class Person {
         userName = userName.replace('ö', 'o');
         userName = userName.replace('ş', 's');
         userName = userName.replace('ü', 'u');
-        userName = userName.replace('ğ', 'g');
-        userName = userName.replace('ğ', 'g');
-        userName = userName.replaceAll("\\s", "");
         /* log.info(this.toString() + ": email created."); */
         return userName + "@marun.edu.tr";
     }

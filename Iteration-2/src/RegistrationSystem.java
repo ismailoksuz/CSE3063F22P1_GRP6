@@ -18,7 +18,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
 public class RegistrationSystem {
-    static Logger log = Logger.getLogger(RegistrationSystem.class);
+    private Logger log = Logger.getLogger(RegistrationSystem.class);
     private String currentSemester;
     private ArrayList<Advisor> advisorList = new ArrayList<>();
     private ArrayList<Student> studentList = new ArrayList<>();
@@ -383,6 +383,7 @@ public class RegistrationSystem {
         } catch (IOException | ParseException e) {
             log.error("input.json file couldn't readed.");
             e.printStackTrace();
+            System.exit(1);
         }
     }
 
@@ -395,6 +396,7 @@ public class RegistrationSystem {
         } catch (IOException | ParseException e) {
             log.error("students.json file couldn't readed.");
             e.printStackTrace();
+            System.exit(2);
         }
     }
 
@@ -407,6 +409,7 @@ public class RegistrationSystem {
         } catch (IOException | ParseException e) {
             log.error("advisor.json file couldn't readed.");
             e.printStackTrace();
+            System.exit(3);
         }
     }
 
@@ -685,7 +688,7 @@ public class RegistrationSystem {
         LinkedHashMap<String, Object> jsonObject = new LinkedHashMap<String, Object>();
         //Add student info
         jsonObject.put("StudentName", student.toString());
-        jsonObject.put("StudentId", student.getStudentId());
+        jsonObject.put("StudentId", student.getStudentId().toString());
         jsonObject.put("StudentEmail", student.getEmail());
         jsonObject.put("StudentPhoneNumber", student.getPhoneNumber());
         jsonObject.put("SemesterNumber", student.getSemester());
