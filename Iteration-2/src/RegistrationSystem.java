@@ -18,7 +18,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
 public class RegistrationSystem {
-    Logger log = Logger.getLogger(RegistrationSystem.class);
+    private Logger log = Logger.getLogger(RegistrationSystem.class);
     private String currentSemester;
     private ArrayList<Advisor> advisorList = new ArrayList<>();
     private ArrayList<Student> studentList = new ArrayList<>();

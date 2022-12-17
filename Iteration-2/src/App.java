@@ -2,7 +2,7 @@ import java.util.Scanner;
 import org.apache.log4j.Logger;
 
 public class App {
-    static Logger log = Logger.getLogger(App.class);
+    private static Logger log = Logger.getLogger(App.class);
 
     public static void main(String[] args) throws Exception {
         RegistrationSystem rs = new RegistrationSystem();

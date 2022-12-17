@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import org.apache.log4j.Logger;
 
 public class GraduationProject extends MandatoryCourse implements ICreditRequirement {
-    Logger log = Logger.getLogger(GraduationProject.class);
+    private Logger log = Logger.getLogger(GraduationProject.class);
     private int requiredCredits;
 
     public GraduationProject(String courseName, String courseCode, int courseCredit, int courseDay, String courseHour,

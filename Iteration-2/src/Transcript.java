@@ -5,7 +5,7 @@ import java.util.Map;
 import org.apache.log4j.Logger;
 
 public class Transcript {
-    Logger log = Logger.getLogger(Transcript.class);
+    private Logger log = Logger.getLogger(Transcript.class);
     private double gpa;
     private int creditCompleted;
     private HashMap<Course, Grade> takenCouerses;

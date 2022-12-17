@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import org.apache.log4j.Logger;
 
 public class NonTechnicalElective extends ElectiveCourse {
-        Logger log = Logger.getLogger(NonTechnicalElective.class);
+        private Logger log = Logger.getLogger(NonTechnicalElective.class);
 
         public NonTechnicalElective(String courseName, String courseCode, int courseCredit, int courseDay,
                         String courseHour, int quato, ArrayList<Integer> semesters) {
