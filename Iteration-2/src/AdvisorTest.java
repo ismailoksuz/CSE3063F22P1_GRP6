@@ -5,8 +5,8 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 public class AdvisorTest {
-    Advisor advisor = new Advisor("Advisor", "Test");
-    Student student = new Student("Student", "Test", 2020, 1);
+    private Advisor advisor = new Advisor("Advisor", "Test");
+    private Student student = new Student("Student", "Test", 2020, 1);
     @Test
     public void testAddStudent() {
         advisor.addStudent(student);
