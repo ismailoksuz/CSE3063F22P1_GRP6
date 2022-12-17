@@ -6,7 +6,8 @@ import java.util.HashMap;
 import org.junit.Test;
 
 public class TranscriptTest {
-    Transcript transcript = new Transcript();
+    private Transcript transcript = new Transcript();
+
     @Test
     public void testCalculateComplateCredit() {
         ArrayList<Course> mandatoryCourses = new ArrayList<Course>();
@@ -18,11 +19,13 @@ public class TranscriptTest {
 
     @Test
     public void testCalculateGpa() {
-        HashMap<Course,Grade> mandatoryCourses = new HashMap<Course,Grade>();
-        mandatoryCourses.put(new MandatoryCourse("Math", "MATH101", 3, 1, "08:00-09:00", 30, 1, null), new Grade(new MandatoryCourse("Math", "MATH101", 3, 1, "08:00-09:00", 30, 1, null), 100));
+        HashMap<Course, Grade> mandatoryCourses = new HashMap<Course, Grade>();
+        mandatoryCourses.put(new MandatoryCourse("Math", "MATH101", 3, 1, "08:00-09:00", 30, 1, null),
+                new Grade(new MandatoryCourse("Math", "MATH101", 3, 1, "08:00-09:00", 30, 1, null), 100));
         transcript.getTakenCouerses().putAll(mandatoryCourses);
         assertEquals(4.0, transcript.calculateGpa(), 0.0);
     }
+
     @Test
     public void testHasBeenPassedCourse() {
         ArrayList<Course> mandatoryCourses = new ArrayList<Course>();
@@ -46,7 +49,7 @@ public class TranscriptTest {
     @Test
     public void testIsCourseComplatedOrFailed() {
         MandatoryCourse mandatoryCourse1 = new MandatoryCourse("Math", "MATH101", 3, 1, "08:00-09:00", 30, 1, null);
-        transcript.isCourseComplatedOrFailed(mandatoryCourse1,"AA");
+        transcript.isCourseComplatedOrFailed(mandatoryCourse1, "AA");
         assertEquals(true, (transcript.getCompletedCourses().size() == 1));
     }
 }
