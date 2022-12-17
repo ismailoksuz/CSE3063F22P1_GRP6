@@ -26,4 +26,8 @@ public class Instructor extends Person {
         this.givenCourses.remove(course);
         /* log.info(this.toString() + ": instructor no longer gives " + course.getCourseName()); */
     }
+
+    public ArrayList<Course> getGivenCourses() {
+        return this.givenCourses;
+    }
 }
