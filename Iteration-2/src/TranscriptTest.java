@@ -22,7 +22,7 @@ public class TranscriptTest {
         HashMap<Course, Grade> mandatoryCourses = new HashMap<Course, Grade>();
         mandatoryCourses.put(new MandatoryCourse("Math", "MATH101", 3, 1, "08:00-09:00", 30, 1, null),
                 new Grade(new MandatoryCourse("Math", "MATH101", 3, 1, "08:00-09:00", 30, 1, null), 100));
-        transcript.getTakenCourses().putAll(mandatoryCourses);
+        transcript.getTakenCouerses().putAll(mandatoryCourses);
         assertEquals(4.0, transcript.calculateGpa(), 0.0);
     }
 
