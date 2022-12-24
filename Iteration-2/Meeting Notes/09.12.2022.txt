@@ -1,0 +1,5 @@
+-Log4j tamamlandı.
+-Grade classı tamamlandı.
+-10.12.2022'de toplantı yapılması planlandı.
+
+
