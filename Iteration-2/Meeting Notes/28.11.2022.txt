@@ -1,0 +1,4 @@
+-İterasyon 2 için genel bir planlama yapıldı.
+-Monday.com süresi dolduğu için Trello'da yeni bir kanban board açıldı.
+-Eklenecek özellikler ve yapılacak geliştirmeler kararlaştırıldı.
+-Trello üzerinden görev dağılımı yapıldı.
