@@ -1,0 +1,4 @@
+-Kanban board üzerinden classların tamamlandığı belirtildi
+-UML Class diagramı tamamlandı. 
+-Kanban board da Java class Implementation bölümü açıldı.
+-09.11.2022'de diğer toplantı yapılacağı planlandı.

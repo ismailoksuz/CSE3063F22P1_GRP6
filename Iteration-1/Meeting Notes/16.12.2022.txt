@@ -1,0 +1,5 @@
+-DSD tamamlandı.
+-DCD tamamlandı.
+-RAD tamamlandı.
+-Unit Testler tamamlandı.
+-Creation Dependencies'e yarın teslim saatinden önce discord üzerinden bakılması kararlaştırıldı.

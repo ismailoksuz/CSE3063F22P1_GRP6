@@ -1,0 +1,3 @@
+-Classlar birleştirildi.
+-Java Kodu düzenlenip yazılmaya devam etti.
+-11.11.2022'de toplantı yapılması planlandı.

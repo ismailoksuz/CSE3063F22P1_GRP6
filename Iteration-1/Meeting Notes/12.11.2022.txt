@@ -1,0 +1,2 @@
+-Pair programming yapılarak java kodu yazılmaya devam etti.
+-13.11.2022'de toplantı yapılması planlandı.

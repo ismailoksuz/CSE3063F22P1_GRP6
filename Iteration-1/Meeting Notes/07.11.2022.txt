@@ -1,0 +1,7 @@
+-UML Class diagramı çizilmeye devam etti.
+-Diagramın classlarının hepsi tamamlanmadığı için, classlara metod ve attribute eklemek için bölüşme kararı alındı.
+-Kanban board üzerinden bölüşüldü.
+-08.11.2022'de diğer toplantı yapılacağı planlandı.
+
+
+-UML Class diagramı düzenlendi.

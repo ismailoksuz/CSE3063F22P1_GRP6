@@ -1,0 +1,4 @@
+-Java kodu tamamlandı.
+-UML Diagramı Revize Edildi.
+-DSD Tamamlandı.
+-14.11.2022'de toplantı yapılması planlandı.
