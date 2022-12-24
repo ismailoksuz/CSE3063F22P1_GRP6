@@ -1,4 +1,0 @@
--RAD Tamamlandı.
--Evaluation Metric için excel dosyası oluşturuldu.
--Proje Dökümanları İterasyon 1 için tamamlandı.
--Github'da projenin son hali güncellendi.
