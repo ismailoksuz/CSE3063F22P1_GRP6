@@ -4,7 +4,7 @@ class ElectiveCourse(Course):
     def __init__(self, course_name: str, course_code: str, course_credit: int, course_day: int, course_hour: str,
                  quato: int, semesters: List[int]):
         super().__init__(course_name, course_code, course_credit, course_day, course_hour, quato)
-        self.semesters = semesters
+        self.__semesters = semesters
 
     def semester_control(self, student):
         is_true = False
