@@ -1,0 +1,4 @@
+-İterasyon 3 için genel bir planlama yapıldı.
+-Trello'da yeni bir kanban board açıldı.
+-Trello üzerinden görev dağılımı yapıldı.
+-26.12.2022'ye kadar herkesin ilk etapta aldığı görevleri bitirmesi kararlaştırıldı.
