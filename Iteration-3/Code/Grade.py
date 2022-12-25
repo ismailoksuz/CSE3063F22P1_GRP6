@@ -32,8 +32,8 @@ class Grade:
         elif self.__courseGrade >= 30:
             letterGrade = "FD"
         else:
-            isAttend = (random_number.randint(0, 6) == 0)
-            isEnteredTheFinal = (random_number.randint(0, 6) == 0)
+            isAttend = (random_number.randint(0, 6) == 0)  #edit this part
+            isEnteredTheFinal = (random_number.randint(0, 6) == 0) #edit this part
             letterGrade = "FF" if isAttend and isEnteredTheFinal else "FG" if isAttend else "DZ"
         return letterGrade
 
