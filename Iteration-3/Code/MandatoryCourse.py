@@ -2,9 +2,9 @@
 from typing import List
 
 class MandatoryCourse(Course):
-    def __init__(self, course_name: str, course_code: str, course_credit: int, course_day: int, course_hour: str,
+    def __init__(self, courseName: str, courseCode: str, courseCredit: int, courseDay: int, courseHour: str,
                  quota: int, semester: int, prerequisites: List[Course]):
-        super().__init__(course_name, course_code, course_credit, course_day, course_hour, quota)
+        super().__init__(courseName, courseCode, courseCredit, courseDay, courseHour, quota)
         self.__semester = semester
         self.__prerequisites = prerequisites
     
