@@ -8,23 +8,24 @@ class MandatoryCourse(Course):
         self.__semester = semester
         self.__prerequisites = prerequisites
     
-    def is_eligible_to_request(self, student):
-        if student.get_semester() == self.get_semester():
-            if (not student.get_transcript().has_been_passed_courses(self.get_prequisites())):
-                self.set_failed_preq(self.get_failed_preq() + 1)
-                student.get_student_output().add(f"The system didn't allow {self.get_course_code()} because student failed prereq. {self.get_prequisites()[0].get_course_code()}")
+    def isEligibleToRequest(self, student):
+        if (student.getSemester() == self.getSemester()):
+            if (not student.getTranscript().hasBeenPassedCourses(self.getPrequisites())):
+                self.setFailedPreq(self.getFailedPreq() + 1)
+                student.getStudentOutput().add("The system didn't allow " + self.getCourseCode() + 
+                "because student failed prereq." + self.getPrequisites()[0].getCourseCode())
                 return False
             else:
                 return True
         else:
             return False
 
-    def is_eligible_to_be_previously_taken(self, student):
-        return student.get_semester() > self.get_semester() and student.get_transcript().has_been_passed_courses(self.get_prequisites())
+    def isEligibleToBePreviouslyTaken(self, student):
+        return student.getSemester() > self.getSemester() and student.getTranscript().hasBeenPassedCourses(self.getPrequisites())
 
     # GETTERS AND SETTERS
-    def get_semester(self) -> int:
+    def getSemester(self) -> int:
         return self.semester
 
-    def get_prequisites(self) -> List[Course]:
+    def getPrequisites(self) -> List[Course]:
         return self.prerequisites
