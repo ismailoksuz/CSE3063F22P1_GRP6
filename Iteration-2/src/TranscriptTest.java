@@ -9,12 +9,12 @@ public class TranscriptTest {
     private Transcript transcript = new Transcript();
 
     @Test
-    public void testCalculateComplateCredit() {
+    public void testCalculateCompleteCredit() {
         ArrayList<Course> mandatoryCourses = new ArrayList<Course>();
         mandatoryCourses.add(new MandatoryCourse("Math", "MATH101", 3, 1, "08:00-09:00", 30, 1, null));
         mandatoryCourses.add(new MandatoryCourse("English", "ENG101", 3, 1, "08:00-09:00", 30, 1, null));
         transcript.getCompletedCourses().addAll(mandatoryCourses);
-        assertEquals(6, transcript.calculateComplateCredit());
+        assertEquals(6, transcript.calculateCompleteCredit());
     }
 
     @Test
@@ -47,9 +47,9 @@ public class TranscriptTest {
     }
 
     @Test
-    public void testIsCourseComplatedOrFailed() {
+    public void testIsCourseCompletedOrFailed() {
         MandatoryCourse mandatoryCourse1 = new MandatoryCourse("Math", "MATH101", 3, 1, "08:00-09:00", 30, 1, null);
-        transcript.isCourseComplatedOrFailed(mandatoryCourse1, "AA");
+        transcript.isCourseCompletedOrFailed(mandatoryCourse1, "AA");
         assertEquals(true, (transcript.getCompletedCourses().size() == 1));
     }
 }

@@ -74,24 +74,24 @@ public class Transcript {
         return studentGpa;
     }
 
-    /* public int calculateComplateCredit() {
-        int complatedCredit = 0;
+    /* public int calculateCompleteCredit() {
+        int completedCredit = 0;
         for (Map.Entry<Course, String> set : getTakenCouerses().entrySet()) {
             if (set.getValue() == "AA" || set.getValue() == "BA" || set.getValue() == "BB" || set.getValue() == "CB"
                     || set.getValue() == "CC" || set.getValue() == "DC" || set.getValue() == "DD") {
-                complatedCredit += set.getKey().getCourseCredit();
+                completedCredit += set.getKey().getCourseCredit();
             }
         }
-        setCreditCompleted(complatedCredit);
-        return complatedCredit;
+        setCreditCompleted(completedCredit);
+        return completedCredit;
     } */
-    public int calculateComplateCredit() {
-        int complatedCredit = 0;
+    public int calculateCompleteCredit() {
+        int completedCredit = 0;
         for (Course c : getCompletedCourses()) {
-            complatedCredit += c.getCourseCredit();
+            completedCredit += c.getCourseCredit();
         }
-        setCreditCompleted(complatedCredit);
-        return complatedCredit;
+        setCreditCompleted(completedCredit);
+        return completedCredit;
     }
 
     public int calculateTakenCredit() {
@@ -103,7 +103,7 @@ public class Transcript {
         return takenCredit;
     }
 
-    /*  public void isCourseComplatedOrFailed() {
+    /*  public void isCourseCompletedOrFailed() {
         for (Map.Entry<Course, String> set : getTakenCouerses().entrySet()) {
             if (set.getValue() == "AA" || set.getValue() == "BA" || set.getValue() == "BB" || set.getValue() == "CB"
                     || set.getValue() == "CC" || set.getValue() == "DC" || set.getValue() == "DD") {
@@ -113,7 +113,7 @@ public class Transcript {
             }
         }
     } */
-    public void isCourseComplatedOrFailed(Course course, String letter) {
+    public void isCourseCompletedOrFailed(Course course, String letter) {
         if (letter == "AA" || letter == "BA" || letter == "BB" || letter == "CB"
                 || letter == "CC" || letter == "DC" || letter == "DD") {
             completedCourses.add(course);

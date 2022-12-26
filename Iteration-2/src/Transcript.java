@@ -74,17 +74,17 @@ public class Transcript {
         return studentGpa;
     }
 
-    public int calculateComplateCredit() {
-        int complatedCredit = 0;
+    public int calculateCompleteCredit() {
+        int completedCredit = 0;
         for (Course c : getCompletedCourses()) {
-            complatedCredit += c.getCourseCredit();
+            completedCredit += c.getCourseCredit();
         }
-        setCreditCompleted(complatedCredit);
+        setCreditCompleted(completedCredit);
         /* log.info("Credit calculated with completed courses."); */
-        return complatedCredit;
+        return completedCredit;
     }
 
-    public void isCourseComplatedOrFailed(Course course, String letter) {
+    public void isCourseCompletedOrFailed(Course course, String letter) {
         if (letter == "AA" || letter == "BA" || letter == "BB" || letter == "CB"
                 || letter == "CC" || letter == "DC" || letter == "DD") {
             completedCourses.add(course);

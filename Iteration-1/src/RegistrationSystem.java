@@ -324,7 +324,7 @@ public class RegistrationSystem {
             if (mc.isEligibleToBePreviouslyTaken(student)) {
                 String letter = letterGrades[new Random().nextInt(letterGrades.length - 3)];
                 student.getTranscript().getTakenCouerses().put(mc, letter);
-                student.getTranscript().isCourseComplatedOrFailed(mc, letter);
+                student.getTranscript().isCourseCompletedOrFailed(mc, letter);
             }
         }
 
@@ -333,10 +333,10 @@ public class RegistrationSystem {
             if (nte.semesterCheck(i)) {
                 String letter = letterGrades[new Random().nextInt(letterGrades.length - 3)];
                 student.getTranscript().getTakenCouerses().put(nte, letter);
-                student.getTranscript().isCourseComplatedOrFailed(nte, letter);
+                student.getTranscript().isCourseCompletedOrFailed(nte, letter);
             }
         }
-        student.getTranscript().calculateComplateCredit();
+        student.getTranscript().calculateCompleteCredit();
     }
 
     public void requestCoursesForAllStudents() {

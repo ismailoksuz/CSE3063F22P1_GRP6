@@ -428,8 +428,8 @@ public class RegistrationSystem {
                 int intRandomGrade = randomGrade.nextInt(100);
                 Grade courseGrade = new Grade(c, intRandomGrade);
                 s.getTranscript().getTakenCourses().put(c, courseGrade);
-                s.getTranscript().isCourseComplatedOrFailed(c, courseGrade.getLetter());
-                s.getTranscript().calculateComplateCredit();
+                s.getTranscript().isCourseCompletedOrFailed(c, courseGrade.getLetter());
+                s.getTranscript().calculateCompleteCredit();
                 s.getTranscript().calculateGpa();
             }
             s.setSemester(s.getSemester() + 1);
@@ -454,7 +454,7 @@ public class RegistrationSystem {
                 int intRandomGrade = randomGrade.nextInt(100);
                 Grade courseGrade = new Grade(mc, intRandomGrade);
                 student.getTranscript().getTakenCourses().put(mc, courseGrade);
-                student.getTranscript().isCourseComplatedOrFailed(mc, courseGrade.getLetter());
+                student.getTranscript().isCourseCompletedOrFailed(mc, courseGrade.getLetter());
                 /* log.info(student.getStudentName() + ": Student took " + mc.getCourseName() + "with a grade of "
                         + courseGrade.getLetterGrade() + "."); */
             }
@@ -476,7 +476,7 @@ public class RegistrationSystem {
                         : (intRandomGrade < 30 ? randomGrade.nextInt(45) : intRandomGrade));
                 Grade courseGrade = new Grade(nte, intRandomGrade);
                 student.getTranscript().getTakenCourses().put(nte, courseGrade);
-                student.getTranscript().isCourseComplatedOrFailed(nte, courseGrade.getLetter());
+                student.getTranscript().isCourseCompletedOrFailed(nte, courseGrade.getLetter());
                 /* log.info(student.getStudentName() + ": Student took " + nte.getCourseName() + "with a grade of "
                         + courseGrade.getLetterGrade() + "."); */
             }
@@ -499,7 +499,7 @@ public class RegistrationSystem {
                         : (intRandomGrade < 30 ? randomGrade.nextInt(89) : intRandomGrade));
                 Grade courseGrade = new Grade(fte, intRandomGrade);
                 student.getTranscript().getTakenCourses().put(fte, courseGrade);
-                student.getTranscript().isCourseComplatedOrFailed(fte, courseGrade.getLetter());
+                student.getTranscript().isCourseCompletedOrFailed(fte, courseGrade.getLetter());
                 /* log.info(student.getStudentName() + ": Student took " + fte.getCourseName() + "with a grade of "
                         + courseGrade.getLetterGrade() + "."); */
             }
@@ -508,7 +508,7 @@ public class RegistrationSystem {
                 student.getStudentName()
                         + ": Student took all faculty technical elective courses for his past semesters."); */
         i = 1;
-        student.getTranscript().calculateComplateCredit();
+        student.getTranscript().calculateCompleteCredit();
         TechnicalElective te = technicalElectives.get(new Random().nextInt(technicalElectives.size()));
         while (i < student.getSemester()) {
             if (te.semesterCheck(i) && te.checkRequiredCredit(student)) {
@@ -527,7 +527,7 @@ public class RegistrationSystem {
                                 : (intRandomGrade < 30 ? randomGrade.nextInt(45) : intRandomGrade));
                         Grade courseGrade = new Grade(te, intRandomGrade);
                         student.getTranscript().getTakenCourses().put(te, courseGrade);
-                        student.getTranscript().isCourseComplatedOrFailed(te, courseGrade.getLetter());
+                        student.getTranscript().isCourseCompletedOrFailed(te, courseGrade.getLetter());
                         /* log.info(student.getStudentName() + ": Student took " + te.getCourseName() + "with a grade of "
                                 + courseGrade.getLetterGrade() + "."); */
                         teCount++;
@@ -538,7 +538,7 @@ public class RegistrationSystem {
                     student.getStudentName() + ": Student took all technical elective courses for his past semesters."); */
             i++;
         }
-        student.getTranscript().calculateComplateCredit();
+        student.getTranscript().calculateCompleteCredit();
         for (GraduationProject gp : graduationCourses) {
             if (gp.getSemester() < student.getSemester()
                     && gp.checkRequiredCredit(student)) {
@@ -549,7 +549,7 @@ public class RegistrationSystem {
                         : (intRandomGrade < 30 ? randomGrade.nextInt(45) : intRandomGrade));
                 Grade courseGrade = new Grade(gp, intRandomGrade);
                 student.getTranscript().getTakenCourses().put(gp, courseGrade);
-                student.getTranscript().isCourseComplatedOrFailed(gp, courseGrade.getLetter());
+                student.getTranscript().isCourseCompletedOrFailed(gp, courseGrade.getLetter());
                 /* log.info(student.getStudentName() + ": Student took " + gp.getCourseName() + "with a grade of "
                         + courseGrade.getLetterGrade() + "."); */
             }
@@ -558,7 +558,7 @@ public class RegistrationSystem {
                 student.getStudentName() + ": Student took all graduation projects for his past semesters."); */
         log.info(
                 student.getStudentName() + ": Student took all courses for his/her past semesters.");
-        student.getTranscript().calculateComplateCredit();
+        student.getTranscript().calculateCompleteCredit();
         student.getTranscript().calculateGpa();
     }
 
