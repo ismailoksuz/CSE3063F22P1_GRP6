@@ -159,6 +159,7 @@ class RegistrationSystem:
     #         self.__advisorList.append(newAdvisor)
     #         print(newAdvisor.getAdvisorName() + ": Advisor is readed from advisor.json.") # will be log
 
+    # Done
     def assignAdvisor(self): # parameter type ??
         copyStudentList = []
         for student in Student.allStudent:
@@ -179,7 +180,7 @@ class RegistrationSystem:
                     if count == len(Advisor.allAdvisors):
                         count = 0
         print("All students are assigned a advisor.") # will be log
-
+    # Done
     def assignInstructor(self): # parameter type ??
         copyCourseList = []
         for course in Course.allCourses:
@@ -263,42 +264,42 @@ class RegistrationSystem:
     def setCurrentSemester(self, currentSemester: str):
         self.__currentSemester = currentSemester
 
-    def readInput(self):
-        try:
-            with open("input.json", encoding="utf-8") as input:
-                input_jsonToDict = json.load(input)
-                self.readMandatory(input_jsonToDict)
-                self.readGraduationProject(input_jsonToDict)
-                self.readNTE(input_jsonToDict)
-                self.readTE(input_jsonToDict)
-                self.readFTE(input_jsonToDict)
-                self.readCurrentSemester(input_jsonToDict)
-                print("input.json file successfully readed.") # will be log
+    # def readInput(self):
+    #     try:
+    #         with open("input.json", encoding="utf-8") as input:
+    #             input_jsonToDict = json.load(input)
+    #             self.readMandatory(input_jsonToDict)
+    #             self.readGraduationProject(input_jsonToDict)
+    #             self.readNTE(input_jsonToDict)
+    #             self.readTE(input_jsonToDict)
+    #             self.readFTE(input_jsonToDict)
+    #             self.readCurrentSemester(input_jsonToDict)
+    #             print("input.json file successfully readed.") # will be log
+    #
+    #     except IOError:
+    #         print("input.json file couldn't readed.") # will be log
+    #         exit(1)
 
-        except IOError:
-            print("input.json file couldn't readed.") # will be log
-            exit(1)
-
-    def readStudent(self):
-        try:
-            with open("students.json", encoding="utf-8") as student:
-                student_jsonToDict = json.load(student)
-                self.readStudentInput(student_jsonToDict)
-                print("students.json file successfully readed.") # will be log
-        except IOError:
-            print("students.json file couldn't readed.") # will be log
-            exit(2)
-
-    def readAdvisors(self):
-        try:
-            with open("advisor.json", encoding="utf-8") as advisor:
-                advisor_jsonToDict = json.load(advisor)
-                self.readAdvisorInput(advisor_jsonToDict)
-                print("advisor.json file successfully readed.") # will be log
-
-        except IOError:
-            print("advisor.json file couldn't readed.")  # will be log
-            exit(3)
+    # def readStudent(self):
+    #     try:
+    #         with open("students.json", encoding="utf-8") as student:
+    #             student_jsonToDict = json.load(student)
+    #             self.readStudentInput(student_jsonToDict)
+    #             print("students.json file successfully readed.") # will be log
+    #     except IOError:
+    #         print("students.json file couldn't readed.") # will be log
+    #         exit(2)
+    #
+    # def readAdvisors(self):
+    #     try:
+    #         with open("advisor.json", encoding="utf-8") as advisor:
+    #             advisor_jsonToDict = json.load(advisor)
+    #             self.readAdvisorInput(advisor_jsonToDict)
+    #             print("advisor.json file successfully readed.") # will be log
+    #
+    #     except IOError:
+    #         print("advisor.json file couldn't readed.")  # will be log
+    #         exit(3)
 
     def simulateSpringAfterFall(self):
         self.setCurrentSemester("spring")
