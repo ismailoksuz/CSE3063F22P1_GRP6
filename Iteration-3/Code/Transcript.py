@@ -46,6 +46,26 @@ class Transcript:
         self.__gpa = studentGpa
         return studentGpa
 
+    def calculateCompleteCredit(self):
+        completedCredit = 0
+        for course in self.__completedCourses:
+            completedCredit += course.getCourseCredit()
+        self.__creditCompleted = completedCredit
+        return completedCredit
         
+    def isCourseCompletedOrFailed(self, course, letter):
+        if letter == "AA" or letter == "BA" or letter == "BB" or letter == "CB" or letter == "CC" or letter == "DC" or letter == "DD":
+            self.__completedCourses.append(course)
+        else:
+            self.__failedCourses.append(course)
 
+    def hasBeenPassedCourse(self, course):
+        if course == None:
+            return True
+        return course in self.__completedCourses
 
+    def hasBeenPassedCourses(self, courses):
+        for course in courses:
+            if not self.hasBeenPassedCourse(course):
+                return False
+        return True
