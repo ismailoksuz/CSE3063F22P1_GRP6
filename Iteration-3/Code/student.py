@@ -19,7 +19,7 @@ class Student(Person):
         self.__transcript = Transcript(self)
         self.__studentId = StudentId(registrationYear, order)
         self.__studentOutput = []
-        self.__advisor: Advisor
+        self.__advisor = Advisor
 
         # Act. to execute
         Student.allStudent.append(self)
@@ -70,6 +70,3 @@ class Student(Person):
     def getStudentName(self):
         return self.getFirstName() + " " + self.getLastName()
 
-    @property
-    def advisor(self):
-        return self.__advisor

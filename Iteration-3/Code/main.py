@@ -33,9 +33,9 @@ Student.read_from_json()
 #         count += 1
 # print(count)
 def assignAdvisor():  # parameter type ??
-    copyStudentList = Student.allStudent
-    # for student in studentList:
-    #     copyStudentList.append(student)
+    copyStudentList = []
+    for student in Student.allStudent:
+         copyStudentList.append(student)
     if len(copyStudentList) > 0:
         count = 0
         while len(Advisor.allAdvisors) > count:
@@ -44,7 +44,7 @@ def assignAdvisor():  # parameter type ??
             else:
                 randomNum = random.randint(0, len(copyStudentList) - 1)
                 Advisor.allAdvisors[count].addStudent(copyStudentList[randomNum])
-                copyStudentList[randomNum].setAdvisor(Advisor.allAdvisors[count])
+                copyStudentList[randomNum].advisor = (Advisor.allAdvisors[count])
                 print("Student " + copyStudentList[randomNum].getStudentName() + " is assigned advisor "
                       + Advisor.allAdvisors[count].getAdvisorName() + ".")  # will be log
                 del copyStudentList[randomNum]
@@ -55,11 +55,39 @@ def assignAdvisor():  # parameter type ??
 
 assignAdvisor()
 
+
+def assignInstructor():  # parameter type ??
+    copyCourseList = []
+    for course in Course.allCourses:
+        copyCourseList.append(course)
+    if len(copyCourseList) > 0:
+        count = 0
+        while len(Course.allCourses) > count:
+            if len(copyCourseList) == 0:
+                break
+            else:
+                randomNum = random.randint(0, len(copyCourseList) - 1)
+                Advisor.allAdvisors[count].addGivenCourse(copyCourseList[randomNum])
+                copyCourseList[randomNum].setCourseInstructor(Advisor.allAdvisors[count])
+                print("Course " + copyCourseList[randomNum].getCourseName() + " is assigned instructor "
+                      + Advisor.allAdvisors[count].getAdvisorName() + ".")  # will be log
+                del copyCourseList[randomNum]
+                count += 1
+                if count == len(Advisor.allAdvisors):
+                    count = 0
+    print("All courses are assigned a instructor.")  # will be log
+
 # for i in Advisor.allAdvisors:
 #     print(i.getStudents())
 
 for i in Student.allStudent:
-    print((i.advisor()))
+    print(i.advisor.getAdvisorName())
+assignInstructor()
+for i in Course.allCourses:
+    print(i.getCourseName())
+    print(i.getCourseInstructor())
+
+
 
 
 

@@ -160,9 +160,9 @@ class RegistrationSystem:
     #         print(newAdvisor.getAdvisorName() + ": Advisor is readed from advisor.json.") # will be log
 
     def assignAdvisor(self): # parameter type ??
-        copyStudentList = Student.allStudent
-        # for student in studentList:
-        #     copyStudentList.append(student)
+        copyStudentList = []
+        for student in Student.allStudent:
+            copyStudentList.append(student)
         if len(copyStudentList) > 0:
             count = 0
             while len(Advisor.allAdvisors) > count:
@@ -180,67 +180,67 @@ class RegistrationSystem:
                         count = 0
         print("All students are assigned a advisor.") # will be log
 
-    def assignInstructor(self, courseList): # parameter type ??
+    def assignInstructor(self): # parameter type ??
         copyCourseList = []
-        for course in courseList:
+        for course in Course.allCourses:
             copyCourseList.append(course)
         if len(copyCourseList) > 0:
             count = 0
-            while len(self.__advisorList) > count:
+            while len(Course.allCourses) > count:
                 if len(copyCourseList) == 0:
                     break
                 else:
                     randomNum = random.randint(0, len(copyCourseList) - 1)
-                    self.__advisorList[count].addGivenCourse(copyCourseList[randomNum])
-                    copyCourseList[randomNum].setCourseInstructor(self.__advisorList[count])
+                    Advisor.allAdvisors[count].addGivenCourse(copyCourseList[randomNum])
+                    copyCourseList[randomNum].setCourseInstructor(Advisor.allAdvisors[count])
                     print("Course " + copyCourseList[randomNum].getCourseName() + " is assigned instructor "
-                            + self.__advisorList[count].getAdvisorName() + ".") # will be log
+                            + Advisor.allAdvisors[count].getAdvisorName() + ".") # will be log
                     del copyCourseList[randomNum]
                     count += 1
-                    if count == len(self.__advisorList):
+                    if count == len(Advisor.allAdvisors):
                         count = 0
         print("All courses are assigned a instructor.") # will be log
 
-    def readStudentInput(self, student: dict):
-        inputNames = student["names"]
-        inputSurnames = student["surnames"]
-        studentNumberPerYear = student["studentNumberPerYear"]
-        names = []
-        surnames = []
-        for n in inputNames:
-            names.append(str(n))
-        for sn in inputSurnames:
-            surnames.append(str(sn))
-
-        for i in range(1, studentNumberPerYear + 1):
-            newStudent = Student(names[random.randint(0, len(names) - 1)], surnames[random.randint(0, len(surnames) - 1)], 2022, i)
-            self.__studentList.append(newStudent)
-            newStudent.setSemester(self.calculateSemester(newStudent))
-            self.createTranscript(student)
-
-        print("First year students are readed successfully.") #will be log
-
-        for i in range(1, studentNumberPerYear + 1):
-            newStudent = Student(names[random.randint(0, len(names) - 1)], surnames[random.randint(0, len(surnames) - 1)], 2021, i)
-            self.__studentList.append(newStudent)
-            newStudent.setSemester(self.calculateSemester(newStudent))
-            self.createTranscript(student)
-        print("Second year students are readed successfully.") # will be log
-
-        for i in range(1, studentNumberPerYear + 1):
-            newStudent = Student(names[random.randint(0, len(names) - 1)], surnames[random.randint(0, len(surnames) - 1)], 2020, i)
-            self.__studentList.append(newStudent)
-            newStudent.setSemester(self.calculateSemester(newStudent))
-            self.createTranscript(student)
-        print("Third year students are readed successfully.") # will be log
-
-        for i in range(1, studentNumberPerYear + 1):
-            newStudent = Student(names[random.randint(0, len(names) - 1)], surnames[random.randint(0, len(surnames) - 1)], 2019, i)
-            self.__studentList.append(newStudent)
-            newStudent.setSemester(self.calculateSemester(newStudent))
-            self.createTranscript(student)
-        print("Fourth year students are readed successfully.") # will be log
-        print("All students are readed from students.json.") # will be log
+    # def readStudentInput(self, student: dict):
+    #     inputNames = student["names"]
+    #     inputSurnames = student["surnames"]
+    #     studentNumberPerYear = student["studentNumberPerYear"]
+    #     names = []
+    #     surnames = []
+    #     for n in inputNames:
+    #         names.append(str(n))
+    #     for sn in inputSurnames:
+    #         surnames.append(str(sn))
+    #
+    #     for i in range(1, studentNumberPerYear + 1):
+    #         newStudent = Student(names[random.randint(0, len(names) - 1)], surnames[random.randint(0, len(surnames) - 1)], 2022, i)
+    #         self.__studentList.append(newStudent)
+    #         newStudent.setSemester(self.calculateSemester(newStudent))
+    #         self.createTranscript(student)
+    #
+    #     print("First year students are readed successfully.") #will be log
+    #
+    #     for i in range(1, studentNumberPerYear + 1):
+    #         newStudent = Student(names[random.randint(0, len(names) - 1)], surnames[random.randint(0, len(surnames) - 1)], 2021, i)
+    #         self.__studentList.append(newStudent)
+    #         newStudent.setSemester(self.calculateSemester(newStudent))
+    #         self.createTranscript(student)
+    #     print("Second year students are readed successfully.") # will be log
+    #
+    #     for i in range(1, studentNumberPerYear + 1):
+    #         newStudent = Student(names[random.randint(0, len(names) - 1)], surnames[random.randint(0, len(surnames) - 1)], 2020, i)
+    #         self.__studentList.append(newStudent)
+    #         newStudent.setSemester(self.calculateSemester(newStudent))
+    #         self.createTranscript(student)
+    #     print("Third year students are readed successfully.") # will be log
+    #
+    #     for i in range(1, studentNumberPerYear + 1):
+    #         newStudent = Student(names[random.randint(0, len(names) - 1)], surnames[random.randint(0, len(surnames) - 1)], 2019, i)
+    #         self.__studentList.append(newStudent)
+    #         newStudent.setSemester(self.calculateSemester(newStudent))
+    #         self.createTranscript(student)
+    #     print("Fourth year students are readed successfully.") # will be log
+    #     print("All students are readed from students.json.") # will be log
 
     def readCurrentSemester(self, input: dict):
         self.__currentSemester = input["CurrentSemester"]
