@@ -2,8 +2,8 @@ from typing import List
 
 class FacultyTechnicalElective(ElectiveCourse):
     def __init__(self, courseName: str, courseCode: str, courseCredit: int, courseDay: int,
-                 courseHour: str, quato: int, semesters: List[int], prequisites: List[Course]):
-        super().__init__(courseName, courseCode, courseCredit, courseDay, courseHour, quato, semesters)
+                 courseHour: str, quota: int, semesters: List[int], prequisites: List[Course]):
+        super().__init__(courseName, courseCode, courseCredit, courseDay, courseHour, quota, semesters)
         self.__prequisites = prequisites
 
     def isEligibleToRequest(self, student: Student) -> bool:
