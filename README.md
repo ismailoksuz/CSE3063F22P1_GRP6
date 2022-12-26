@@ -44,7 +44,7 @@
 <a href="https://docs.google.com/" target="blank"><img align="center" alt="Google Docs" src=/icons/google-docs.png height="70"/></a>
 <a href="https://app.diagrams.net//" target="blank"><img align="center" alt="Draw IO" src=/icons/diagram.png height="70"/></a>
 <a href="https://doodle.com/en//" target="blank"><img align="center" alt="Doodle" src=/icons/meeting.png height="70"/></a>
-<a href="https://trello.com/b/DQnHgJpr/kanban-template" target="blank"><img align="center" alt="Kanban Board" src=/icons/trello.png height="70"/></a>
+<a href="https://trello.com/b/Bx3LmrmP/cse3063f22p1grp6iteration-3" target="blank"><img align="center" alt="Kanban Board" src=/icons/trello.png height="70"/></a>
 </h1>
 
 
