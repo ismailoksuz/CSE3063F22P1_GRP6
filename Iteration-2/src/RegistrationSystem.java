@@ -427,7 +427,7 @@ public class RegistrationSystem {
                 Random randomGrade = new Random();
                 int intRandomGrade = randomGrade.nextInt(100);
                 Grade courseGrade = new Grade(c, intRandomGrade);
-                s.getTranscript().getTakenCouerses().put(c, courseGrade);
+                s.getTranscript().getTakenCourses().put(c, courseGrade);
                 s.getTranscript().isCourseComplatedOrFailed(c, courseGrade.getLetter());
                 s.getTranscript().calculateComplateCredit();
                 s.getTranscript().calculateGpa();
@@ -453,7 +453,7 @@ public class RegistrationSystem {
                 Random randomGrade = new Random();
                 int intRandomGrade = randomGrade.nextInt(100);
                 Grade courseGrade = new Grade(mc, intRandomGrade);
-                student.getTranscript().getTakenCouerses().put(mc, courseGrade);
+                student.getTranscript().getTakenCourses().put(mc, courseGrade);
                 student.getTranscript().isCourseComplatedOrFailed(mc, courseGrade.getLetter());
                 /* log.info(student.getStudentName() + ": Student took " + mc.getCourseName() + "with a grade of "
                         + courseGrade.getLetterGrade() + "."); */
@@ -475,7 +475,7 @@ public class RegistrationSystem {
                 intRandomGrade = ((intRandomGrade >= 90) ? (randomGrade.nextInt(100 - 85) + 85)
                         : (intRandomGrade < 30 ? randomGrade.nextInt(45) : intRandomGrade));
                 Grade courseGrade = new Grade(nte, intRandomGrade);
-                student.getTranscript().getTakenCouerses().put(nte, courseGrade);
+                student.getTranscript().getTakenCourses().put(nte, courseGrade);
                 student.getTranscript().isCourseComplatedOrFailed(nte, courseGrade.getLetter());
                 /* log.info(student.getStudentName() + ": Student took " + nte.getCourseName() + "with a grade of "
                         + courseGrade.getLetterGrade() + "."); */
@@ -498,7 +498,7 @@ public class RegistrationSystem {
                 intRandomGrade = ((intRandomGrade >= 90) ? (randomGrade.nextInt(100 - 85) + 85)
                         : (intRandomGrade < 30 ? randomGrade.nextInt(89) : intRandomGrade));
                 Grade courseGrade = new Grade(fte, intRandomGrade);
-                student.getTranscript().getTakenCouerses().put(fte, courseGrade);
+                student.getTranscript().getTakenCourses().put(fte, courseGrade);
                 student.getTranscript().isCourseComplatedOrFailed(fte, courseGrade.getLetter());
                 /* log.info(student.getStudentName() + ": Student took " + fte.getCourseName() + "with a grade of "
                         + courseGrade.getLetterGrade() + "."); */
@@ -526,7 +526,7 @@ public class RegistrationSystem {
                         intRandomGrade = ((intRandomGrade >= 90) ? (randomGrade.nextInt(100 - 85) + 85)
                                 : (intRandomGrade < 30 ? randomGrade.nextInt(45) : intRandomGrade));
                         Grade courseGrade = new Grade(te, intRandomGrade);
-                        student.getTranscript().getTakenCouerses().put(te, courseGrade);
+                        student.getTranscript().getTakenCourses().put(te, courseGrade);
                         student.getTranscript().isCourseComplatedOrFailed(te, courseGrade.getLetter());
                         /* log.info(student.getStudentName() + ": Student took " + te.getCourseName() + "with a grade of "
                                 + courseGrade.getLetterGrade() + "."); */
@@ -548,7 +548,7 @@ public class RegistrationSystem {
                 intRandomGrade = ((intRandomGrade >= 90) ? (randomGrade.nextInt(100 - 85) + 85)
                         : (intRandomGrade < 30 ? randomGrade.nextInt(45) : intRandomGrade));
                 Grade courseGrade = new Grade(gp, intRandomGrade);
-                student.getTranscript().getTakenCouerses().put(gp, courseGrade);
+                student.getTranscript().getTakenCourses().put(gp, courseGrade);
                 student.getTranscript().isCourseComplatedOrFailed(gp, courseGrade.getLetter());
                 /* log.info(student.getStudentName() + ": Student took " + gp.getCourseName() + "with a grade of "
                         + courseGrade.getLetterGrade() + "."); */
@@ -698,7 +698,7 @@ public class RegistrationSystem {
 
         //Add taken courses
         JSONArray jsonObjectPastCourses = new JSONArray();
-        for (Map.Entry<Course, Grade> set : student.getTranscript().getTakenCouerses().entrySet()) {
+        for (Map.Entry<Course, Grade> set : student.getTranscript().getTakenCourses().entrySet()) {
             JSONObject jsonObjectTakenCourse = new JSONObject();
             jsonObjectTakenCourse.put("LetterGrade", set.getValue().getLetter());
             jsonObjectTakenCourse.put("CourseName", set.getKey().getCourseName());
@@ -909,7 +909,7 @@ public class RegistrationSystem {
 
         /* for (Student s : studentList) {
             System.out.printf("%s - %s ->", s.getStudentName(), s.getRegistrationYear());
-            for (Map.Entry<Course, String> set : s.getTranscript().getTakenCouerses().entrySet()) {
+            for (Map.Entry<Course, String> set : s.getTranscript().getTakenCourses().entrySet()) {
                 System.out.print(set.getKey().getCourseName() + "-" + set.getValue() + " - ");
             }
             System.out.println("\n\n\n\n");
@@ -951,7 +951,7 @@ public class RegistrationSystem {
             }
             System.out.println("\n\n");
         } */
-        /* for (Map.Entry<Course, String> set : studentList.get(studentList.size() - 1).getTranscript().getTakenCouerses()
+        /* for (Map.Entry<Course, String> set : studentList.get(studentList.size() - 1).getTranscript().getTakenCourses()
                 .entrySet()) {
             System.out.println(set.getKey().getCourseName() + " " + set.getValue());
         }
@@ -965,7 +965,7 @@ public class RegistrationSystem {
             System.out.println(s.getStudentName() + " StudentId: " + s.getStudentId() + " Semester: " + s.getSemester()
                     + " TotalCredits: "
                     + s.getTranscript().getCreditCompleted());
-            //for (Map.Entry<Course, String> set : s.getTranscript().getTakenCouerses()
+            //for (Map.Entry<Course, String> set : s.getTranscript().getTakenCourses()
             //        .entrySet()) {
             //    System.out.println(set.getKey().getCourseName() + " --> " + set.getValue());
             //}
