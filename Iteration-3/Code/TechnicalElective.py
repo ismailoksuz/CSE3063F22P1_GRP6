@@ -1,8 +1,8 @@
 from typing import List
 
 class TechnicalElective(ElectiveCourse, ICreditRequirement):
-    def __init__(self, courseName: str, courseCode: str, courseCredit: int, courseDay: int, courseHour: str, quato: int, semester: List[int], requiredCredits: int, prequisites: List[Course]):
-        super().__init__(courseName, courseCode, courseCredit, courseDay, courseHour, quato, semester)
+    def __init__(self, courseName: str, courseCode: str, courseCredit: int, courseDay: int, courseHour: str, quota: int, semester: List[int], requiredCredits: int, prequisites: List[Course]):
+        super().__init__(courseName, courseCode, courseCredit, courseDay, courseHour, quota, semester)
         self.__requiredCredits = requiredCredits
         self.__prequisites = prequisites
 
