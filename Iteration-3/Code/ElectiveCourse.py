@@ -1,27 +1,27 @@
 from typing import List
 
 class ElectiveCourse(Course):
-    def __init__(self, course_name: str, course_code: str, course_credit: int, course_day: int, course_hour: str,
+    def __init__(self, courseName: str, courseCode: str, courseCredit: int, courseDay: int, courseHour: str,
                  quota: int, semesters: List[int]):
-        super().__init__(course_name, course_code, course_credit, course_day, course_hour, quota)
+        super().__init__(courseName, courseCode, courseCredit, courseDay, courseHour, quota)
         self.__semesters = semesters
 
     def semesterControl(self, student):
-        is_true = False
-        for semester in self.get_semesters():
-            if student.get_semester() == semester:
-                is_true = True
+        isTrue = False
+        for semester in self.getSemesters():
+            if student.getSemester() == semester:
+                isTrue = True
                 break
-        return is_true
+        return isTrue
 
     def semesterCheck(self, semester: int) -> bool:
-        is_true = False
-        for s in self.get_semesters():
+        isTrue = False
+        for s in self.getSemesters():
             if s == semester:
-                is_true = True
+                isTrue = True
                 break
-        return is_true
+        return isTrue
 
     # GETTERS AND SETTERS
-    def get_semesters(self) -> List[int]:
+    def getSemesters(self) -> List[int]:
         return self.semesters
