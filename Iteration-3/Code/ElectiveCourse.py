@@ -24,4 +24,4 @@ class ElectiveCourse(Course):
 
     # GETTERS AND SETTERS
     def getSemesters(self) -> List[int]:
-        return self.semesters
+        return self.__semesters
