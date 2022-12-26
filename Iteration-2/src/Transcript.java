@@ -8,7 +8,7 @@ public class Transcript {
     private Logger log = Logger.getLogger(Transcript.class);
     private double gpa;
     private int creditCompleted;
-    private HashMap<Course, Grade> takenCouerses;
+    private HashMap<Course, Grade> takenCourses;
     private ArrayList<Course> completedCourses;
     private ArrayList<Course> failedCourses;
     private ArrayList<Course> enrolledCourses;
@@ -18,18 +18,18 @@ public class Transcript {
         this.creditCompleted = 0;
         this.failedCourses = new ArrayList<Course>();
         this.completedCourses = new ArrayList<Course>();
-        this.takenCouerses = new LinkedHashMap<Course, Grade>();
+        this.takenCourses = new LinkedHashMap<Course, Grade>();
         this.enrolledCourses = new ArrayList<Course>();
         log.info("Transcript created.");
 
     }
 
-    public Transcript(double gpa, int creditCompleted, int creditTaken, HashMap<Course, Grade> takenCouerses,
+    public Transcript(double gpa, int creditCompleted, int creditTaken, HashMap<Course, Grade> takenCourses,
 
             ArrayList<Course> completedCourses, ArrayList<Course> failedCourses) {
         this.gpa = gpa;
         this.creditCompleted = creditCompleted;
-        this.takenCouerses = takenCouerses;
+        this.takenCourses = takenCourses;
         this.completedCourses = completedCourses;
         this.failedCourses = failedCourses;
         log.info("Transcript created.");
@@ -42,7 +42,7 @@ public class Transcript {
         double totalCredit = 0;
         double studentGpa = 0;
 
-        for (Map.Entry<Course, Grade> set : getTakenCouerses().entrySet()) {
+        for (Map.Entry<Course, Grade> set : gettakenCourses().entrySet()) {
             totalCredit += set.getKey().getCourseCredit();
             if (set.getValue().getLetter() == "AA") {
                 gradeMultiplication += set.getKey().getCourseCredit() * 4.0;
@@ -134,8 +134,8 @@ public class Transcript {
         /* log.info("Completed credits changed."); */
     }
 
-    public HashMap<Course, Grade> getTakenCouerses() {
-        return takenCouerses;
+    public HashMap<Course, Grade> gettakenCourses() {
+        return takenCourses;
     }
 
     public ArrayList<Course> getCompletedCourses() {
