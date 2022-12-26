@@ -1,0 +1,4 @@
+Classlar java koduna gore Python'a donusturuldu. 
+Degisiklik yapilmasi hakkinda konusuldu. 
+Python kodunda yapilan degisikler icin farkli bir branch olusturuldu
+29.12.2022' de toplanti yapilmasi planlandi. 
