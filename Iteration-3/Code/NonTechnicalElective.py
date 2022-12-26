@@ -5,6 +5,6 @@ class NonTechnicalElective(ElectiveCourse):
                  courseHour: str, quota: int, semesters: List[int]):
         super().__init__(courseName, courseCode, courseCredit, courseDay, courseHour, quota, semesters)
 
-    def is_eligible_to_request(self, student: Student) -> bool:
-        return self.semester_control(student)
+    def isEligibleToRequest(self, student: Student) -> bool:
+        return self.semesterControl(student)
 
