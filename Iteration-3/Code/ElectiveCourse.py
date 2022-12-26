@@ -6,7 +6,7 @@ class ElectiveCourse(Course):
         super().__init__(course_name, course_code, course_credit, course_day, course_hour, quota)
         self.__semesters = semesters
 
-    def semester_control(self, student):
+    def semesterControl(self, student):
         is_true = False
         for semester in self.get_semesters():
             if student.get_semester() == semester:
@@ -14,7 +14,7 @@ class ElectiveCourse(Course):
                 break
         return is_true
 
-    def semester_check(self, semester: int) -> bool:
+    def semesterCheck(self, semester: int) -> bool:
         is_true = False
         for s in self.get_semesters():
             if s == semester:
