@@ -25,7 +25,7 @@ class MandatoryCourse(Course):
 
     # GETTERS AND SETTERS
     def getSemester(self) -> int:
-        return self.semester
+        return self.__semester
 
     def getPrequisites(self) -> List[Course]:
-        return self.prerequisites
+        return self.__prerequisites
