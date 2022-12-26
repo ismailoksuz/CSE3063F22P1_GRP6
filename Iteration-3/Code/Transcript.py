@@ -36,11 +36,13 @@ class Transcript:
                 gradeMultiplication += course.getCourseCredit() * 1.0
             elif grade.getLetter() == "FD":
                 gradeMultiplication += course.getCourseCredit() * 0.5
-            elif grade.getLetter() == "FF":
+            '''elif grade.getLetter() == "FF":
                 gradeMultiplication += course.getCourseCredit() * 0.0
             elif grade.getLetter() == "FG":
                 gradeMultiplication += course.getCourseCredit() * 0.0
             elif grade.getLetter() == "DZ":
+                gradeMultiplication += course.getCourseCredit() * 0.0'''
+            elif grade.getLetter() in ["FF","FG","DZ"]:
                 gradeMultiplication += course.getCourseCredit() * 0.0
         studentGpa = round(gradeMultiplication / totalCredit * 100.0) / 100.0
         self.__gpa = studentGpa
