@@ -1,8 +1,5 @@
 from typing import List
 
-from ElectiveCourse import ElectiveCourse
-
-
 class FacultyTechnicalElective(ElectiveCourse):
     def __init__(self, courseName: str, courseCode: str, courseCredit: int, courseDay: int,
                  courseHour: str, quato: int, semesters: List[int], prequisites: List[Course]):
