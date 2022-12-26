@@ -69,3 +69,36 @@ class Transcript:
             if not self.hasBeenPassedCourse(course):
                 return False
         return True
+
+    @property
+    def gpa(self):
+        return self.__gpa
+
+    @gpa.setter
+    def gpa(self, gpa):
+        self.__gpa = gpa
+    
+    @property
+    def creditCompleted(self):
+        return self.__creditCompleted   
+    
+    @creditCompleted.setter
+    def creditCompleted(self, creditCompleted):
+        self.__creditCompleted = creditCompleted
+    
+    @property
+    def takenCourses(self):
+        return self.__takenCourses
+    
+    @property
+    def completedCourses(self):
+        return self.__completedCourses
+    
+    @property
+    def failedCourses(self):
+        return self.__failedCourses
+    
+    @property
+    def enrolledCourses(self):
+        return self.__enrolledCourses
+        
