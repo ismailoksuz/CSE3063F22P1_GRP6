@@ -3,7 +3,7 @@ import random
 import logging
 import  datetime
 from typing import List, cast
-from abc import ABC, abstractmethod #student course instructor advisor person
+from abc import ABC, abstractmethod
 
 class Person(ABC):
 
@@ -203,16 +203,17 @@ class FacultyTechnicalElective(ElectiveCourse):
         self.__prequisites = prequisites
 
     def isEligibleToRequest(self, student) -> bool:
-        return self.semesterControl(student) and student.getTranscript().hasBeenPassedCourses(self.getPrequisites) #look at here again
+        return self.semesterControl(student) and student.getTranscript().hasBeenPassedCourses(self.getPrequisites()) #look at here again
 
     #define getter method
-    @property
+
     def getPrequisites(self) -> List[Course]:
         return self.__prequisites
 
     # define setter method
     def setPrequisites(self, prequisites: List[Course]):
         self.__prequisites = prequisites
+
 
 
 class Instructor(Person):
@@ -512,6 +513,7 @@ class RegistrationSystem:
                 else:
                     randomNum = random.randint(0, len(copyStudentList) - 1)
                     self.__advisorList[count].addStudent(copyStudentList[randomNum])
+                    #print(self.__advisorList)
                     copyStudentList[randomNum].setAdvisor(self.__advisorList[count])
                     print("Student " + copyStudentList[randomNum].getStudentName() + " is assigned advisor "
                             + self.__advisorList[count].getAdvisorName() + ".") # will be log
@@ -553,35 +555,45 @@ class RegistrationSystem:
         for sn in inputSurnames:
             surnames.append(str(sn))
 
+        #yearList = [2022, 2021, 2020, 2019]
+        #for year in yearList:
+        #    for i in range(studentNumberPerYear):
+        #        self.__studentList.append(Student(names[random.randint(0, len(names) - 1)], surnames[random.randint(0, len(surnames) - 1)], year, i))
+        #    print(f"{year} year students are readed successfully.") # will be log
+
         for i in range(1, studentNumberPerYear + 1):
-            newStudent = Student(names[random.randint(0, len(names) - 1)], surnames[random.randint(0, len(surnames) - 1)], 2022, i)
+            newStudent = Student(names[random.randint(0, len(names) - 1)],
+                                 surnames[random.randint(0, len(surnames) - 1)], 2022, i)
             self.__studentList.append(newStudent)
             newStudent.setSemester(self.calculateSemester(newStudent))
             self.createTranscript(newStudent)
 
-        print("First year students are readed successfully.") #will be log
+        print("First year students are readed successfully.")  # will be log
 
         for i in range(1, studentNumberPerYear + 1):
-            newStudent = Student(names[random.randint(0, len(names) - 1)], surnames[random.randint(0, len(surnames) - 1)], 2021, i)
+            newStudent = Student(names[random.randint(0, len(names) - 1)],
+                                 surnames[random.randint(0, len(surnames) - 1)], 2021, i)
             self.__studentList.append(newStudent)
             newStudent.setSemester(self.calculateSemester(newStudent))
             self.createTranscript(newStudent)
-        print("Second year students are readed successfully.") # will be log
+        print("Second year students are readed successfully.")  # will be log
 
         for i in range(1, studentNumberPerYear + 1):
-            newStudent = Student(names[random.randint(0, len(names) - 1)], surnames[random.randint(0, len(surnames) - 1)], 2020, i)
+            newStudent = Student(names[random.randint(0, len(names) - 1)],
+                                 surnames[random.randint(0, len(surnames) - 1)], 2020, i)
             self.__studentList.append(newStudent)
             newStudent.setSemester(self.calculateSemester(newStudent))
             self.createTranscript(newStudent)
-        print("Third year students are readed successfully.") # will be log
+        print("Third year students are readed successfully.")  # will be log
 
         for i in range(1, studentNumberPerYear + 1):
-            newStudent = Student(names[random.randint(0, len(names) - 1)], surnames[random.randint(0, len(surnames) - 1)], 2019, i)
+            newStudent = Student(names[random.randint(0, len(names) - 1)],
+                                 surnames[random.randint(0, len(surnames) - 1)], 2019, i)
             self.__studentList.append(newStudent)
             newStudent.setSemester(self.calculateSemester(newStudent))
             self.createTranscript(newStudent)
-        print("Fourth year students are readed successfully.") # will be log
-        print("All students are readed from students.json.") # will be log
+        print("Fourth year students are readed successfully.")  # will be log
+        print("All students are readed from students.json.")  # will be log
 
     def readCurrentSemester(self, input: dict):
         self.__currentSemester = input["CurrentSemester"]
@@ -670,7 +682,7 @@ class RegistrationSystem:
             self.createStudentOutput(s)
         self.createDepartmentOutput()
 
-    def createTranscript(self, student): # parameter type ??
+    def createTranscript(self, student): # parameter type ?? # infinite loop....
         for mc in self.__mandatoryCourses:
             if mc.isEligibleToBePreviouslyTaken(student):
                 intRandomGrade = random.randint(0, 99)
@@ -678,9 +690,11 @@ class RegistrationSystem:
                 student.getTranscript().getTakenCourses()[mc] = courseGrade
                 student.getTranscript().isCourseCompletedOrFailed(mc, courseGrade.getLetter())
 
+        #********************************
         for i in range(1, student.getSemester()):
             nte = self.__nonTechnicalElectives[random.randint(0, len(self.__nonTechnicalElectives) - 1)]
             while nte in student.getTranscript().getCompletedCourses():
+
                 nte = self.__nonTechnicalElectives[random.randint(0, len(self.__nonTechnicalElectives) - 1)]
             if nte.semesterCheck(i):
                 intRandomGrade = random.randint(0, 99)
@@ -691,7 +705,7 @@ class RegistrationSystem:
                 courseGrade = Grade(nte, intRandomGrade)
                 student.getTranscript().getTakenCourses()[nte] = courseGrade
                 student.getTranscript().isCourseCompletedOrFailed(nte, courseGrade.getLetter()) # ********** completed
-
+        # ************************************
         for i in range(1, student.getSemester()):
             fte = self.__facultyTechnicalElectives[random.randint(0, len(self.__facultyTechnicalElectives) - 1)]
             while fte in student.getTranscript().getCompletedCourses() or fte in student.getTranscript().getFailedCourses():
@@ -705,7 +719,6 @@ class RegistrationSystem:
                 courseGrade = Grade(fte, intRandomGrade)
                 student.getTranscript().getTakenCourses()[fte] = courseGrade
                 student.getTranscript().isCourseCompletedOrFailed(fte, courseGrade.getLetter())
-
         i = 1
         student.getTranscript().calculateCompleteCredit()
         te = self.__technicalElectives[random.randint(0, len(self.__technicalElectives) - 1)]
@@ -714,7 +727,7 @@ class RegistrationSystem:
                 teCount = 0
                 if i == 7:
                     while teCount != 2:
-                        while te in student.getTranscript().getCompletedCourses() or te in student.getTranscript().getFailedCourses() or student.getTranscript().hasBeenPassedCourses(te.getPrequisties()):
+                        while te in student.getTranscript().getCompletedCourses() or te in student.getTranscript().getFailedCourses() or student.getTranscript().hasBeenPassedCourses(te.getPrequisites()):
                             te = self.__technicalElectives[random.randint(0, len(self.__technicalElectives) - 1)]
                         intRandomGrade = random.randint(0, 99)
                         if intRandomGrade >= 90:
@@ -777,7 +790,7 @@ class RegistrationSystem:
             print(s.getStudentName() + ": Student requested all failed courses this semester(if it is open).") # will be log
 
             for gp in self.__graduationCourses:
-                if gp in s.getRequestedCourses:
+                if gp in s.getRequestedCourses():
                     continue
                 if gp.isEligibleToRequest(s) and gp.checkRequiredCredit(s):
                     s.getRequestedCourses().append(gp)
@@ -802,13 +815,13 @@ class RegistrationSystem:
             print(s.getStudentName() + ": Student requested " + str(info) + " technical courses this semester.")
 
             nte = self.__nonTechnicalElectives[random.randint(0, len(self.__nonTechnicalElectives) - 1)]
-            while nte in s.getTranscript().getCompletedCourses:
+            while nte in s.getTranscript().getCompletedCourses():
                 nte = self.__nonTechnicalElectives[random.randint(0, len(self.__nonTechnicalElectives) - 1)]
             if nte.isEligibleToRequest(s):
                 s.getRequestedCourses().append(nte)
 
             fte = self.__facultyTechnicalElectives[random.randint(0, len(self.__facultyTechnicalElectives) - 1)]
-            while fte in s.getTranscript().getCompletedCourses:
+            while fte in s.getTranscript().getCompletedCourses():
                 fte = self.__facultyTechnicalElectives[random.randint(0, len(self.__facultyTechnicalElectives) - 1)]
             if fte.isEligibleToRequest(s):
                 s.getRequestedCourses().append(fte)
@@ -826,17 +839,27 @@ class RegistrationSystem:
         pass # ***** after run the program without an error, fill this function *****
 
     def startSimulation(self) -> None:
-        self.readAdvisors()
-        self.readInput()
-        self.readStudent()
-        self.assignAdvisor(self.__studentList)
-        self.assignInstructor(self.__coursesList)
+        self.readAdvisors() # successfull
+        self.readInput() # successfull
+        self.readStudent() # successfull
+        self.assignAdvisor(self.__studentList) # successfull
+        self.assignInstructor(self.__coursesList) # successfull
         self.requestCoursesForAllStudents()
         self.startRegistration()
         s: Student
         for s in self.__studentList:
             self.createStudentOutput(s)
         self.createDepartmentOutput()
+
+    def getStudentList(self):
+        return self.__studentList
+
+    def getCourseList(self):
+        return self.__coursesList
+
+    def getAdvisorList(self):
+        return self.__advisorList
+
 
 #***********************************&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&******************************************
 
@@ -871,7 +894,7 @@ class Student(Person):
         self.transcript = Transcript()
         self.studentId = StudentId(registrationYear, order)
         self.studentOutput = []
-        self.semester = -1
+        self.semester = 1
         print("Student created =>  " + "Name: " + self.getStudentName() + " RegistrationYear: " + str(self.getRegistrationYear()) + " Order: " + str(self.getOrder())) # will be log
 
     def getStudentOutput(self):
@@ -912,7 +935,7 @@ class Student(Person):
 
     def setSemester(self, semester):
         self.semester = semester
-        print(self.getStudentName() + ": student semester changed.") # will be log
+        print(self.getStudentName() + ": student semester changed. as " + str(self.semester)) # will be log
 
 class StudentId:
 
@@ -972,6 +995,8 @@ class TechnicalElective(ElectiveCourse): # ICreditRequirement will be added.****
 
     def setPrequisites(self, prequisites: List[Course]):
         self.__prequisites = prequisites
+
+
 
 
 class Transcript:
@@ -1036,7 +1061,7 @@ class Transcript:
             return True
         return course in self.__completedCourses
 
-    def hasBeenPassedCourses(self, courses):
+    def hasBeenPassedCourses(self, courses): # infinite loop
         for course in courses:
             if not self.hasBeenPassedCourse(course):
                 return False
@@ -1074,5 +1099,15 @@ def app():
     # print(a.id)
     # print(s.toString())
     rs = RegistrationSystem()
+    #print("Advisor Size:", len(rs.getAdvisorList()))
+    #print("Course Size:", len(rs.getCourseList()))
+    #print("Student Size:", len(rs.getStudentList()))
+    #total = 0
+    #for i in rs.getAdvisorList():
+    #    total += len(i.students)
+    #print(total)
+
+    for i in rs.getCourseList():
+        print(cast(TechnicalElective, i).getPrequisites())
 
 app()
