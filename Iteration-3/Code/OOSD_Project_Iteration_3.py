@@ -53,7 +53,7 @@ class Course(ABC):
         self.__courseName = courseName
         self.__courseCode = courseCode
         self.__courseCredit = courseCredit
-        self.courseSchedule = Schedule(courseDay, courseHour)
+        self.__courseSchedule = Schedule(courseDay, courseHour)
         self.__quota = quota
         self.__students = []
         self.__quotaProblem = 0
@@ -89,34 +89,34 @@ class Course(ABC):
         return self.__courseCredit
 
     def getCourseSchedule(self):
-        return self.courseSchedule
+        return self.__courseSchedule
 
     def getQuotaProblem(self):
-        return self.quotaProblem
+        return self.__quotaProblem
 
     def setQuotaProblem(self, quotaProblem):
-        self.quotaProblem = quotaProblem
-        print(self.getCourseName() + ": Number of quota problem changed." + "(" + "New: " + self.getQuotaProblem() + ")") # will be log
+        self.__quotaProblem = quotaProblem
+        print(self.getCourseName() + ": Number of quota problem changed." + "(" + "New: " + str(self.getQuotaProblem()) + ")") # will be log
 
     def getCollisionProblem(self):
         return self.__collisionProblem
 
     def setCollisionProblem(self, collisionProblem):
         self.__collisionProblem = collisionProblem
-        print(self.getCourseName() + ": Number of collision problem changed." + "(" + "New: " + self.getCollisionProblem() + ")") # will be log
+        print(self.getCourseName() + ": Number of collision problem changed." + "(" + "New: " + str(self.getCollisionProblem()) + ")") # will be log
 
     def getFailedCredits(self):
-        return self.failedCredits
+        return self.__failedCredits
 
     def setFailedCredits(self, failedCredits):
-        self.failedCredits = failedCredits
-        print(self.getCourseName() + ": Number of failed credits changed." + "(" + "New: " + self.getFailedCredits() + ")")
+        self.__failedCredits = failedCredits
+        print(self.getCourseName() + ": Number of failed credits changed." + "(" + "New: " + str(self.getFailedCredits()) + ")")
 
     def getFailedPreq(self):
         return self.__failedPreq
 
     def setFailedPreq(self, failedPreq):
-        self.failedPreq = failedPreq
+        self.__failedPreq = failedPreq
         # print(self.getCourseName() + ": Number of failed prerequisite changed." + "(" + "New: " + self.getFailedPreq() + ")") # will be log
 
 
@@ -245,7 +245,7 @@ class Advisor(Instructor):
         for i in range(len(student.getRequestedCourses())):
             if self.checkQuotaForRegistration(student.getRequestedCourses()[i], student) and self.checkCollision(student, student.getRequestedCourses()[i]):
                 student.getTranscript().getEnrolledCourses().append(student.getRequestedCourses()[i])
-                student.getRequestedCourses().get(i).getStudents().add(student)
+                student.getRequestedCourses()[i].getStudents().append(student)
         print(student.getStudentName() + "'s registration successfully completed.") # will be log
 
     def checkCollision(self, student, course):
@@ -265,7 +265,7 @@ class Advisor(Instructor):
         else:
             course.setQuotaProblem(course.getQuotaProblem() + 1)
             student.getStudentOutput().append("The student couldn't register for " + course.getCourseCode() + " because of a quota problem")
-            print(student.getStudentName() + " couldn't take " + course.getCourseName() + " because course quota is full ( Quota: " + course.getQuato() + ").") # will be log
+            print(student.getStudentName() + " couldn't take " + course.getCourseName() + " because course quota is full ( Quota: " + str(course.getQuato()) + ").") # will be log
             return False
 
     def getStudents(self):
@@ -295,9 +295,8 @@ class MandatoryCourse(Course):
         if (student.getSemester() == self.getSemester()):
             if (not student.getTranscript().hasBeenPassedCourses(self.getPrequisites())):
                 self.setFailedPreq(self.getFailedPreq() + 1)
-                student.getStudentOutput().add("The system didn't allow " + self.getCourseCode() +
-                                               "because student failed prereq." + self.getPrequisites()[
-                                                   0].getCourseCode())
+                # student.getStudentOutput().append("The system didn't allow " + self.getCourseCode() + "because student failed prereq." + self.getPrequisites()[0].getCourseCode())
+                student.getStudentOutput().append("The system didn't allow " + self.getCourseCode() + "because student failed prereq.")
                 return False
             else:
                 return True
@@ -811,8 +810,12 @@ class RegistrationSystem:
             for i in range(limit):
                 te = self.__technicalElectives[random.randint(0, len(self.__technicalElectives) - 1)]
                 transcript = s.getTranscript()
-                while te in transcript.getCompletedCourses or te in transcript.getFailedCourses or te in s.getRequestedCourses():
+                counter = 0
+                while te in transcript.getCompletedCourses() or te in transcript.getFailedCourses() or te in s.getRequestedCourses():
+                    if counter == len(transcript.getCompletedCourses()):
+                        break
                     te = self.__technicalElectives[random.randint(0, len(self.__technicalElectives) - 1)]
+                    counter += 1
                 if te.isEligibleToRequest(s) and te.checkRequiredCredit(s):
                     s.getRequestedCourses().append(te)
             info = 0
