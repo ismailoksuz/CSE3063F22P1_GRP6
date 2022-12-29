@@ -1,19 +1,18 @@
-
+import Course
 from typing import List
-
 class MandatoryCourse(Course):
     def __init__(self, courseName: str, courseCode: str, courseCredit: int, courseDay: int, courseHour: str,
                  quota: int, semester: int, prerequisites: List[Course]):
         super().__init__(courseName, courseCode, courseCredit, courseDay, courseHour, quota)
         self.__semester = semester
         self.__prerequisites = prerequisites
-    
+
     def isEligibleToRequest(self, student):
         if (student.getSemester() == self.getSemester()):
             if (not student.getTranscript().hasBeenPassedCourses(self.getPrequisites())):
                 self.setFailedPreq(self.getFailedPreq() + 1)
-                student.getStudentOutput().add("The system didn't allow " + self.getCourseCode() + 
-                "because student failed prereq." + self.getPrequisites()[0].getCourseCode())
+                # student.getStudentOutput().append("The system didn't allow " + self.getCourseCode() + "because student failed prereq." + self.getPrequisites()[0].getCourseCode())
+                student.getStudentOutput().append("The system didn't allow " + self.getCourseCode() + "because student failed prereq.")
                 return False
             else:
                 return True
