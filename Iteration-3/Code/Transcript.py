@@ -1,16 +1,14 @@
-#This will be the code from Transcript.java translated from java into python
-
-import logging
-
-
+import Course
+from typing import List
 class Transcript:
-    def __init__(self, student):
-        self.__log = logging.getLogger(Transcript.__name__)
-        self.__gpa = 0.0
-        self.__creditCompleted = 0
-        self.__takenCourses = {}
-        self.__completedCourses = []
-        self.__failedCourses = []
+
+    def __init__(self, gpa: float=0.0, creditCompleted: int=0, creditTaken: int=0, takenCourses: dict={}, completedCourses: List[Course]=[], failedCourses: List[Course]=[]):
+        self.__gpa = gpa
+        self.__creditCompleted = creditCompleted
+        self.__creditTaken = creditTaken
+        self.__takenCourses = takenCourses
+        self.__completedCourses = completedCourses
+        self.__failedCourses = failedCourses
         self.__enrolledCourses = []
 
     def calculateGpa(self):
@@ -42,8 +40,6 @@ class Transcript:
                 gradeMultiplication += course.getCourseCredit() * 0.0
             elif grade.getLetter() == "DZ":
                 gradeMultiplication += course.getCourseCredit() * 0.0
-            # elif grade.getLetter() in ["FF","FG","DZ"]:
-            #     gradeMultiplication += course.getCourseCredit() * 0.0
         studentGpa = round(gradeMultiplication / totalCredit * 100.0) / 100.0
         self.__gpa = studentGpa
         return studentGpa
@@ -54,7 +50,7 @@ class Transcript:
             completedCredit += course.getCourseCredit()
         self.__creditCompleted = completedCredit
         return completedCredit
-        
+
     def isCourseCompletedOrFailed(self, course, letter):
         if letter == "AA" or letter == "BA" or letter == "BB" or letter == "CB" or letter == "CC" or letter == "DC" or letter == "DD":
             self.__completedCourses.append(course)
@@ -66,41 +62,32 @@ class Transcript:
             return True
         return course in self.__completedCourses
 
-    def hasBeenPassedCourses(self, courses):
+    def hasBeenPassedCourses(self, courses): # infinite loop
         for course in courses:
             if not self.hasBeenPassedCourse(course):
                 return False
         return True
 
-    @property
-    def gpa(self):
+    def getGpa(self):
         return self.__gpa
 
-    @gpa.setter
-    def gpa(self, gpa):
+    def setGpa(self, gpa):
         self.__gpa = gpa
-    
-    @property
-    def creditCompleted(self):
-        return self.__creditCompleted   
-    
-    @creditCompleted.setter
-    def creditCompleted(self, creditCompleted):
+
+    def getCreditCompleted(self):
+        return self.__creditCompleted
+
+    def setCreditCompleted(self, creditCompleted):
         self.__creditCompleted = creditCompleted
-    
-    @property
-    def takenCourses(self):
+
+    def getTakenCourses(self):
         return self.__takenCourses
-    
-    @property
-    def completedCourses(self):
+
+    def getCompletedCourses(self):
         return self.__completedCourses
-    
-    @property
-    def failedCourses(self):
+
+    def getFailedCourses(self):
         return self.__failedCourses
-    
-    @property
-    def enrolledCourses(self):
+
+    def getEnrolledCourses(self):
         return self.__enrolledCourses
-        
