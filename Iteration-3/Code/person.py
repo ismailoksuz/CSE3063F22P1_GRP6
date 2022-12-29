@@ -14,8 +14,6 @@ class Person(ABC):
         userName = ((self.__firstName + self.__lastName).lower()).replace(" ", "")
         trToing = str.maketrans("çğıöşü", "cgiosu")
         userName = userName.translate(trToing)
-
-
         userEmail = userName + "@marun.edu.tr"
         return userEmail
 
