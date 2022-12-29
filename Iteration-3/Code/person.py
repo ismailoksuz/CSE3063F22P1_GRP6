@@ -1,9 +1,7 @@
+from abc import ABC, abstractmethod
 import random
 
-
-class Person:
-
-    allPerson = []
+class Person(ABC):
 
     def __init__(self, firstName: str, lastName: str):
         self.__firstName = firstName
@@ -11,11 +9,6 @@ class Person:
         self.__email = self.generateEmail()
         self.__phoneNumber = self.generatePhoneNumber()
 
-        # Act. to execute
-        Person.allPerson.append(self)
-
-    def __repr__(self):
-        return f"{self.__class__.__name__}('{self.__firstName}', {self.__lastName}, {self.__email}, {self.__phoneNumber})"
 
     def generateEmail(self):
         userName = ((self.__firstName + self.__lastName).lower()).replace(" ", "")
@@ -34,5 +27,17 @@ class Person:
 
     def getFirstName(self):
         return self.__firstName
+
     def getLastName(self):
         return self.__lastName
+
+    def getEmail(self):
+        return self.__email
+
+    def getPhoneNumber(self):
+        return self.__phoneNumber
+
+    def toString(self):
+        return self.getFirstName() + " " + self.getLastName()
+
+
