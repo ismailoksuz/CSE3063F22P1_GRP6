@@ -1,0 +1,3 @@
+-Genel bir durum değerlendirilmesi yapıldı.
+-Ana kodu doğrudan değiştirerek ve gerekli eklemeler yapılarak projeye devam edilmesi gerektiği kararlaştırıldı.
+-01.01.2023'de toplantı yapılması planlandı.
