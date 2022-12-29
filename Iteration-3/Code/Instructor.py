@@ -1,6 +1,6 @@
-import Person
-import Course
-from typing import List, cast
+from Person import Person
+from Course import Course
+from typing import List
 
 class Instructor(Person):
 

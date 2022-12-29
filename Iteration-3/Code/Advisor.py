@@ -1,6 +1,6 @@
-import Instructor
-import Course
-from typing import List, cast
+from Instructor import Instructor
+from Course import Course
+from typing import List
 
 class Advisor(Instructor):
 
@@ -40,13 +40,13 @@ class Advisor(Instructor):
         return self.students
 
     def setStudents(self, students):
-        self.students = students
+        self.__students = students
 
     def addStudent(self, student):
-        self.students.append(student)
+        self.__students.append(student)
 
     def removeStudent(self, student):
-        self.students.remove(student)
+        self.__students.remove(student)
 
     def getAdvisorName(self):
         return self.getFirstName() + " " + self.getLastName()

@@ -1,16 +1,19 @@
 import json
 import random
+
 from typing import List, cast
-from advisor import Advisor
-from student import Student
-from course import Course
-from GraduationProject import GraduationProject
-from TechnicalElective import TechnicalElective
-from NonTechnicalElective import NonTechnicalElective
-from mandatoryCourse import MandatoryCourse
-from FacultyTechnicalElective import FacultyTechnicalElective
-from Grade import Grade
+from Course import Course
 from ElectiveCourse import ElectiveCourse
+from Grade import Grade
+from Advisor import Advisor
+from MandatoryCourse import MandatoryCourse
+from GraduationProject import GraduationProject
+from NonTechnicalElective import NonTechnicalElective
+from Student import Student
+from TechnicalElective import TechnicalElective
+from FacultyTechnicalElective import FacultyTechnicalElective
+
+
 class RegistrationSystem:
 
     def __init__(self):
@@ -18,10 +21,10 @@ class RegistrationSystem:
         self.__advisorList: List[Advisor] = []
         self.__studentList: List[Student] = []
         self.__coursesList: List[Course] = []
-        self.__mandatoryCourses: List[Course] = []
+        self.__mandatoryCourses: List[MandatoryCourse] = []
         self.__graduationCourses: List[GraduationProject] = []
         self.__technicalElectives: List[TechnicalElective] = []
-        self.__facultyTechnicalElectives: List[TechnicalElective] = []
+        self.__facultyTechnicalElectives: List[FacultyTechnicalElective] = []
         self.__nonTechnicalElectives: List[NonTechnicalElective] = []
         self.startSimulation()
 
@@ -32,216 +35,225 @@ class RegistrationSystem:
                 return c
         return None
 
-    # def readMandatory(self, input: dict):
-    #     inputCourses: dict = input["MandatoryCourses"]
-    #     for c in inputCourses:
-    #         course = c
-    #         courseName = course["courseName"]
-    #         courseCode = course["courseCode"]
-    #         courseQuato = course["quota"]
-    #         courseSemester = course["semester"]
-    #         courseCredit = course[credits]
-    #         courseDay = course["courseDay"]
-    #         courseHour = course["courseHour"]
-    #         prequisitesCourse = []
-    #         prequisites = course["preRequisites"]
-    #         for p in prequisites:
-    #             if self.courseIsThereOrNot(p) is not None:
-    #                 prequisitesCourse.append(self.courseIsThereOrNot(p))
-    #
-    #         mandatoryCourse = MandatoryCourse(courseName, courseCode, courseCredit, courseDay,
-    #                 courseHour, courseQuato, courseSemester, prequisitesCourse)
-    #
-    #         self.__coursesList.append(mandatoryCourse)
-    #         self.__mandatoryCourses.append(mandatoryCourse)
-    #         print(mandatoryCourse.getCourseName() + ": Mandatory course is readed from input.json.") # will be log
+    def readMandatory(self, input: dict):
+        inputCourses: dict = input["MandatoryCourses"]
+        for c in inputCourses:
+            course = c
+            courseName = course["courseName"]
+            courseCode = course["courseCode"]
+            courseQuato = course["quota"]
+            courseSemester = course["semester"]
+            courseCredit = course["credits"]
+            courseDay = course["courseDay"]
+            courseHour = course["courseHour"]
+            prerequisitesCourse = []
+            prerequisites = course["preRequisites"]
+            for p in prerequisites:
+                if self.courseIsThereOrNot(p) is not None:
+                    prerequisitesCourse.append(self.courseIsThereOrNot(p))
 
-    # def readNTE(self, input: dict):
-    #     inputNTECourses = input["nonTechnicalElectiveCourses"]
-    #     inputNTESemesters = inputNTECourses["NTESemesters"]
-    #     for c in inputNTECourses:
-    #         course = c
-    #         courseName = course["courseName"]
-    #         courseCode = course["courseCode"]
-    #         courseQuato = course["quota"]
-    #         courseCredit = course["credits"]
-    #         courseDay = course["courseDay"]
-    #         courseHour = course["coursHour"]
-    #         semesterList = []
-    #         for s in inputNTESemesters:
-    #             semesterList.append(s)
-    #
-    #         nonTechnicalElective = NonTechnicalElective(courseName, courseCode, courseCredit,
-    #                 courseDay, courseHour, courseQuato, semesterList)
-    #         self.__nonTechnicalElectives.append(nonTechnicalElective)
-    #         self.__coursesList.append(nonTechnicalElective)
-    #         print(nonTechnicalElective.getCourseName() + ": NonTechnical elective course is readed from input.json.") # will be log
+            mandatoryCourse = MandatoryCourse(courseName, courseCode, courseCredit, courseDay,
+                    courseHour, courseQuato, courseSemester, prerequisitesCourse)
 
-    # def readTE(self, input: dict):
-    #     inputNTECourses = input["technicalElectiveCourses"]
-    #     inputTESemesters = input["TESemesters"]
-    #     requiredCredit = input["TERequiredCredits"]
-    #     for c in inputNTECourses:
-    #         course = c
-    #         courseName = course["courseName"]
-    #         courseCode = course["courseCode"]
-    #         courseQuato = course["quota"]
-    #         courseCredit = course["credits"]
-    #         courseDay = course["courseDay"]
-    #         courseHour = course["courseHour"]
-    #         prerequisitesCourse = []
-    #         prerequisties = course["preRequisites"]
-    #         for p in prerequisties:
-    #             if self.courseIsThereOrNot(str(p)) is not None:
-    #                 prerequisitesCourse.append(self.courseIsThereOrNot(str(p)))
-    #         semesterList = []
-    #         for s in inputTESemesters:
-    #             semesterList.append(int(s))
-    #         techElectiveCourse  = TechnicalElective(courseName, courseCode, courseCredit, courseDay, courseHour, courseQuato, semesterList, requiredCredit, prerequisitesCourse)
-    #         self.__coursesList.append(techElectiveCourse)
-    #         self.__technicalElectives.append(techElectiveCourse)
-    #         print(techElectiveCourse.getCourseName() + ": Technical elective course is readed from input.json.") # will be log
+            self.__coursesList.append(mandatoryCourse)
+            self.__mandatoryCourses.append(mandatoryCourse)
+            print(mandatoryCourse.getCourseName() + ": Mandatory course is readed from input.json.") # will be log
 
-    # def readFTE(self, input: dict):
-    #     inputNTECourses = input["facultyTechnicalElectiveCourses"]
-    #     inputFTESemesters = input["FTESemesters"]
-    #     for c in inputNTECourses:
-    #         course = c
-    #         courseName = course["courseName"]
-    #         courseCode = course["courseCode"]
-    #         courseQuato = course["quota"]
-    #         courseCredit = course["credits"]
-    #         courseDay = course["courseDay"]
-    #         courseHour = course["courseHour"]
-    #         semesterList = []
-    #         for s in inputFTESemesters:
-    #             semesterList.append(int(s))
-    #         prerequisitesCourse = []
-    #         prerequisites = course["preRequisites"]
-    #         for p in prerequisites:
-    #             if self.courseIsThereOrNot(str(p)) is not None:
-    #                 prerequisitesCourse.append(self.courseIsThereOrNot(str(p)))
-    #         facultyTechnicalElective = FacultyTechnicalElective(courseName, courseCode,
-    #                 courseCredit, courseDay, courseHour, courseQuato, semesterList, prerequisitesCourse)
-    #         self.__facultyTechnicalElectives.append(facultyTechnicalElective)
-    #         self.__coursesList.append(facultyTechnicalElective)
-    #         print(facultyTechnicalElective.getCourseName() + ": Faculty technical elective course is readed from input.json.") # will be log
+    def readNTE(self, input: dict):
+        inputNTECourses = input["nonTechnicalElectiveCourses"]
+        inputNTESemesters = input["NTESemesters"]
+        for c in inputNTECourses:
+            course = c
+            courseName = course["courseName"]
+            courseCode = course["courseCode"]
+            courseQuato = course["quota"]
+            courseCredit = course["credits"]
+            courseDay = course["courseDay"]
+            courseHour = course["courseHour"]
+            semesterList = []
+            for s in inputNTESemesters:
+                semesterList.append(s)
 
-    # def readGraduationProject(self, input: dict):
-    #     inputNTECourses = input["graduationProject"]
-    #     for c in inputNTECourses:
-    #         course = c
-    #         courseName = course["courseName"]
-    #         courseCode = course["courseCode"]
-    #         courseQuato = course["quota"]
-    #         courseSemester = course["semester"]
-    #         courseCredit = course["credits"]
-    #         courseDay = course["courseDay"]
-    #         requiredCredit = course["requiredCredits"]
-    #         courseHour = course["courseHour"]
-    #         prerequisitesCourse = []
-    #         prerequisites  = course["preRequisites"]
-    #         for p in prerequisites:
-    #             if self.courseIsThereOrNot(str(p)) is not None:
-    #                 prerequisitesCourse.append(str(p))
-    #         graduationProject = GraduationProject(courseName, courseCode, courseCredit, courseDay, courseHour, courseQuato, courseSemester, prerequisitesCourse, requiredCredit);
-    #         self.__coursesList.append(graduationProject)
-    #         self.__graduationCourses.append(graduationProject)
-    #         print(graduationProject.getCourseName() + ": Graduation project is readed from input.json.") # will be log
+            nonTechnicalElective = NonTechnicalElective(courseName, courseCode, courseCredit,
+                    courseDay, courseHour, courseQuato, semesterList)
+            self.__nonTechnicalElectives.append(nonTechnicalElective)
+            self.__coursesList.append(nonTechnicalElective)
+            print(nonTechnicalElective.getCourseName() + ": NonTechnical elective course is readed from input.json.") # will be log
 
-    # def readAdvisorInput(self, advisor: dict):
-    #     inputAdvisors = advisor["advisors"]
-    #     for a in inputAdvisors:
-    #         advisors = a
-    #         firstName = advisors["firstName"]
-    #         lastName = advisors["lastName"]
-    #         newAdvisor = Advisor(firstName, lastName)
-    #         self.__advisorList.append(newAdvisor)
-    #         print(newAdvisor.getAdvisorName() + ": Advisor is readed from advisor.json.") # will be log
+    def readTE(self, input: dict):
+        inputNTECourses = input["technicalElectiveCourses"]
+        inputTESemesters = input["TESemesters"]
+        requiredCredit = input["TERequiredCredits"]
+        for c in inputNTECourses:
+            course = c
+            courseName = course["courseName"]
+            courseCode = course["courseCode"]
+            courseQuato = course["quota"]
+            courseCredit = course["credits"]
+            courseDay = course["courseDay"]
+            courseHour = course["courseHour"]
+            prerequisitesCourse = []
+            prerequisties = course["preRequisites"]
+            for p in prerequisties:
+                if self.courseIsThereOrNot(str(p)) is not None:
+                    prerequisitesCourse.append(self.courseIsThereOrNot(str(p)))
+            semesterList = []
+            for s in inputTESemesters:
+                semesterList.append(int(s))
+            techElectiveCourse  = TechnicalElective(courseName, courseCode, courseCredit, courseDay, courseHour, courseQuato, semesterList, requiredCredit, prerequisitesCourse)
+            self.__coursesList.append(techElectiveCourse)
+            self.__technicalElectives.append(techElectiveCourse)
+            print(techElectiveCourse.getCourseName() + ": Technical elective course is readed from input.json.") # will be log
 
-    # Done
-    def assignAdvisor(self): # parameter type ??
+    def readFTE(self, input: dict):
+        inputNTECourses = input["facultyTechnicalElectiveCourses"]
+        inputFTESemesters = input["FTESemesters"]
+        for c in inputNTECourses:
+            course = c
+            courseName = course["courseName"]
+            courseCode = course["courseCode"]
+            courseQuato = course["quota"]
+            courseCredit = course["credits"]
+            courseDay = course["courseDay"]
+            courseHour = course["courseHour"]
+            semesterList = []
+            for s in inputFTESemesters:
+                semesterList.append(int(s))
+            prerequisitesCourse = []
+            prerequisites = course["preRequisites"]
+            for p in prerequisites:
+                if self.courseIsThereOrNot(str(p)) is not None:
+                    prerequisitesCourse.append(self.courseIsThereOrNot(str(p)))
+            facultyTechnicalElective = FacultyTechnicalElective(courseName, courseCode, courseCredit, courseDay, courseHour, courseQuato, semesterList, prerequisitesCourse)
+            self.__facultyTechnicalElectives.append(facultyTechnicalElective)
+            self.__coursesList.append(facultyTechnicalElective)
+            print(facultyTechnicalElective.getCourseName() + ": Faculty technical elective course is readed from input.json.") # will be log
+
+    def readGraduationProject(self, input: dict):
+        inputNTECourses = input["graduationProject"]
+        for c in inputNTECourses:
+            course = c
+            courseName = course["courseName"]
+            courseCode = course["courseCode"]
+            courseQuato = course["quota"]
+            courseSemester = course["semester"]
+            courseCredit = course["credits"]
+            courseDay = course["courseDay"]
+            requiredCredit = course["requiredCredits"]
+            courseHour = course["courseHour"]
+            prerequisitesCourse = []
+            prerequisites  = course["preRequisites"]
+            for p in prerequisites:
+                if self.courseIsThereOrNot(str(p)) is not None:
+                    prerequisitesCourse.append(p)
+            graduationProject = GraduationProject(courseName, courseCode, courseCredit, courseDay, courseHour, courseQuato, courseSemester, prerequisitesCourse, requiredCredit)
+            self.__coursesList.append(graduationProject)
+            self.__graduationCourses.append(graduationProject)
+            print(graduationProject.getCourseName() + ": Graduation project is readed from input.json.") # will be log
+
+    def readAdvisorInput(self, advisor: dict):
+        inputAdvisors = advisor["advisors"]
+        for a in inputAdvisors:
+            advisors = a
+            firstName = advisors["firstName"]
+            lastName = advisors["lastName"]
+            newAdvisor = Advisor(firstName, lastName)
+            self.__advisorList.append(newAdvisor)
+            print(newAdvisor.getAdvisorName() + ": Advisor is readed from advisor.json.") # will be log
+
+    def assignAdvisor(self, studentList): # parameter type ??
         copyStudentList = []
-        for student in Student.allStudent:
+        for student in studentList:
             copyStudentList.append(student)
         if len(copyStudentList) > 0:
             count = 0
-            while len(Advisor.allAdvisors) > count:
+            while len(self.__advisorList) > count:
                 if len(copyStudentList) == 0:
                     break
                 else:
                     randomNum = random.randint(0, len(copyStudentList) - 1)
-                    Advisor.allAdvisors[count].addStudent(copyStudentList[randomNum])
-                    copyStudentList[randomNum].setAdvisor(Advisor.allAdvisors[count])
+                    self.__advisorList[count].addStudent(copyStudentList[randomNum])
+                    #print(self.__advisorList)
+                    copyStudentList[randomNum].setAdvisor(self.__advisorList[count])
                     print("Student " + copyStudentList[randomNum].getStudentName() + " is assigned advisor "
                             + self.__advisorList[count].getAdvisorName() + ".") # will be log
                     del copyStudentList[randomNum]
                     count += 1
-                    if count == len(Advisor.allAdvisors):
+                    if count == len(self.__advisorList):
                         count = 0
         print("All students are assigned a advisor.") # will be log
-    # Done
-    def assignInstructor(self): # parameter type ??
+
+    def assignInstructor(self, courseList): # parameter type ??
         copyCourseList = []
-        for course in Course.allCourses:
+        for course in courseList:
             copyCourseList.append(course)
         if len(copyCourseList) > 0:
             count = 0
-            while len(Course.allCourses) > count:
+            while len(self.__advisorList) > count:
                 if len(copyCourseList) == 0:
                     break
                 else:
                     randomNum = random.randint(0, len(copyCourseList) - 1)
-                    Advisor.allAdvisors[count].addGivenCourse(copyCourseList[randomNum])
-                    copyCourseList[randomNum].setCourseInstructor(Advisor.allAdvisors[count])
+                    self.__advisorList[count].addGivenCourse(copyCourseList[randomNum])
+                    copyCourseList[randomNum].setCourseInstructor(self.__advisorList[count])
                     print("Course " + copyCourseList[randomNum].getCourseName() + " is assigned instructor "
-                            + Advisor.allAdvisors[count].getAdvisorName() + ".") # will be log
+                            + self.__advisorList[count].getAdvisorName() + ".") # will be log
                     del copyCourseList[randomNum]
                     count += 1
-                    if count == len(Advisor.allAdvisors):
+                    if count == len(self.__advisorList):
                         count = 0
         print("All courses are assigned a instructor.") # will be log
 
-    # def readStudentInput(self, student: dict):
-    #     inputNames = student["names"]
-    #     inputSurnames = student["surnames"]
-    #     studentNumberPerYear = student["studentNumberPerYear"]
-    #     names = []
-    #     surnames = []
-    #     for n in inputNames:
-    #         names.append(str(n))
-    #     for sn in inputSurnames:
-    #         surnames.append(str(sn))
-    #
-    #     for i in range(1, studentNumberPerYear + 1):
-    #         newStudent = Student(names[random.randint(0, len(names) - 1)], surnames[random.randint(0, len(surnames) - 1)], 2022, i)
-    #         self.__studentList.append(newStudent)
-    #         newStudent.setSemester(self.calculateSemester(newStudent))
-    #         self.createTranscript(student)
-    #
-    #     print("First year students are readed successfully.") #will be log
-    #
-    #     for i in range(1, studentNumberPerYear + 1):
-    #         newStudent = Student(names[random.randint(0, len(names) - 1)], surnames[random.randint(0, len(surnames) - 1)], 2021, i)
-    #         self.__studentList.append(newStudent)
-    #         newStudent.setSemester(self.calculateSemester(newStudent))
-    #         self.createTranscript(student)
-    #     print("Second year students are readed successfully.") # will be log
-    #
-    #     for i in range(1, studentNumberPerYear + 1):
-    #         newStudent = Student(names[random.randint(0, len(names) - 1)], surnames[random.randint(0, len(surnames) - 1)], 2020, i)
-    #         self.__studentList.append(newStudent)
-    #         newStudent.setSemester(self.calculateSemester(newStudent))
-    #         self.createTranscript(student)
-    #     print("Third year students are readed successfully.") # will be log
-    #
-    #     for i in range(1, studentNumberPerYear + 1):
-    #         newStudent = Student(names[random.randint(0, len(names) - 1)], surnames[random.randint(0, len(surnames) - 1)], 2019, i)
-    #         self.__studentList.append(newStudent)
-    #         newStudent.setSemester(self.calculateSemester(newStudent))
-    #         self.createTranscript(student)
-    #     print("Fourth year students are readed successfully.") # will be log
-    #     print("All students are readed from students.json.") # will be log
+    def readStudentInput(self, student: dict):
+        inputNames = student["names"]
+        inputSurnames = student["surnames"]
+        studentNumberPerYear = student["studentNumberPerYear"]
+        names = []
+        surnames = []
+        for n in inputNames:
+            names.append(str(n))
+        for sn in inputSurnames:
+            surnames.append(str(sn))
+
+        #yearList = [2022, 2021, 2020, 2019]
+        #for year in yearList:
+        #    for i in range(studentNumberPerYear):
+        #        self.__studentList.append(Student(names[random.randint(0, len(names) - 1)], surnames[random.randint(0, len(surnames) - 1)], year, i))
+        #    print(f"{year} year students are readed successfully.") # will be log
+
+        for i in range(1, studentNumberPerYear + 1):
+            newStudent = Student(names[random.randint(0, len(names) - 1)],
+                                 surnames[random.randint(0, len(surnames) - 1)], 2022, i)
+            self.__studentList.append(newStudent)
+            newStudent.setSemester(self.calculateSemester(newStudent))
+            self.createTranscript(newStudent)
+
+        print("First year students are readed successfully.")  # will be log
+
+        for i in range(1, studentNumberPerYear + 1):
+            newStudent = Student(names[random.randint(0, len(names) - 1)],
+                                 surnames[random.randint(0, len(surnames) - 1)], 2021, i)
+            self.__studentList.append(newStudent)
+            newStudent.setSemester(self.calculateSemester(newStudent))
+            self.createTranscript(newStudent)
+        print("Second year students are readed successfully.")  # will be log
+
+        for i in range(1, studentNumberPerYear + 1):
+            newStudent = Student(names[random.randint(0, len(names) - 1)],
+                                 surnames[random.randint(0, len(surnames) - 1)], 2020, i)
+            self.__studentList.append(newStudent)
+            newStudent.setSemester(self.calculateSemester(newStudent))
+            self.createTranscript(newStudent)
+        print("Third year students are readed successfully.")  # will be log
+
+        for i in range(1, studentNumberPerYear + 1):
+            newStudent = Student(names[random.randint(0, len(names) - 1)],
+                                 surnames[random.randint(0, len(surnames) - 1)], 2019, i)
+            self.__studentList.append(newStudent)
+            newStudent.setSemester(self.calculateSemester(newStudent))
+            self.createTranscript(newStudent)
+        print("Fourth year students are readed successfully.")  # will be log
+        print("All students are readed from students.json.")  # will be log
 
     def readCurrentSemester(self, input: dict):
         self.__currentSemester = input["CurrentSemester"]
@@ -264,42 +276,42 @@ class RegistrationSystem:
     def setCurrentSemester(self, currentSemester: str):
         self.__currentSemester = currentSemester
 
-    # def readInput(self):
-    #     try:
-    #         with open("input.json", encoding="utf-8") as input:
-    #             input_jsonToDict = json.load(input)
-    #             self.readMandatory(input_jsonToDict)
-    #             self.readGraduationProject(input_jsonToDict)
-    #             self.readNTE(input_jsonToDict)
-    #             self.readTE(input_jsonToDict)
-    #             self.readFTE(input_jsonToDict)
-    #             self.readCurrentSemester(input_jsonToDict)
-    #             print("input.json file successfully readed.") # will be log
-    #
-    #     except IOError:
-    #         print("input.json file couldn't readed.") # will be log
-    #         exit(1)
+    def readInput(self):
+        try:
+            with open("input.json", encoding="utf-8") as input:
+                input_jsonToDict = json.load(input)
+                self.readMandatory(input_jsonToDict)
+                self.readGraduationProject(input_jsonToDict)
+                self.readNTE(input_jsonToDict)
+                self.readTE(input_jsonToDict)
+                self.readFTE(input_jsonToDict)
+                self.readCurrentSemester(input_jsonToDict)
+                print("input.json file successfully readed.") # will be log
 
-    # def readStudent(self):
-    #     try:
-    #         with open("students.json", encoding="utf-8") as student:
-    #             student_jsonToDict = json.load(student)
-    #             self.readStudentInput(student_jsonToDict)
-    #             print("students.json file successfully readed.") # will be log
-    #     except IOError:
-    #         print("students.json file couldn't readed.") # will be log
-    #         exit(2)
-    #
-    # def readAdvisors(self):
-    #     try:
-    #         with open("advisor.json", encoding="utf-8") as advisor:
-    #             advisor_jsonToDict = json.load(advisor)
-    #             self.readAdvisorInput(advisor_jsonToDict)
-    #             print("advisor.json file successfully readed.") # will be log
-    #
-    #     except IOError:
-    #         print("advisor.json file couldn't readed.")  # will be log
-    #         exit(3)
+        except IOError:
+            print("input.json file couldn't readed.") # will be log
+            exit(1)
+
+    def readStudent(self):
+        try:
+            with open("students.json", encoding="utf-8") as student:
+                student_jsonToDict = json.load(student)
+                self.readStudentInput(student_jsonToDict)
+                print("students.json file successfully readed.") # will be log
+        except IOError:
+            print("students.json file couldn't readed.") # will be log
+            exit(2)
+
+    def readAdvisors(self):
+        try:
+            with open("advisor.json", encoding="utf-8") as advisor:
+                advisor_jsonToDict = json.load(advisor)
+                self.readAdvisorInput(advisor_jsonToDict)
+                print("advisor.json file successfully readed.") # will be log
+
+        except IOError:
+            print("advisor.json file couldn't readed.")  # will be log
+            exit(3)
 
     def simulateSpringAfterFall(self):
         self.setCurrentSemester("spring")
@@ -314,7 +326,7 @@ class RegistrationSystem:
             for c in s.getTranscript().getEnrolledCourses():
                 intRandomGrade = random.randint(0, 99)
                 courseGrade = Grade(c, intRandomGrade)
-                s.getTranscript().getTakenCourses[c] = courseGrade
+                s.getTranscript().getTakenCourses()[c] = courseGrade
                 s.getTranscript().isCourseCompletedOrFailed(c, courseGrade.getLetter())
                 s.getTranscript().calculateCompleteCredit() # ********************************** complete
                 s.getTranscript().calculateGpa()
@@ -330,18 +342,22 @@ class RegistrationSystem:
             self.createStudentOutput(s)
         self.createDepartmentOutput()
 
-    def createTranscript(self, student): # parameter type ??
+    def createTranscript(self, student): # parameter type ?? # infinite loop....
         for mc in self.__mandatoryCourses:
             if mc.isEligibleToBePreviouslyTaken(student):
                 intRandomGrade = random.randint(0, 99)
                 courseGrade = Grade(mc, intRandomGrade)
-                student.getTranscript().getTakenCourses[mc] = courseGrade
+                student.getTranscript().getTakenCourses()[mc] = courseGrade
                 student.getTranscript().isCourseCompletedOrFailed(mc, courseGrade.getLetter())
 
+        #********************************
         for i in range(1, student.getSemester()):
             nte = self.__nonTechnicalElectives[random.randint(0, len(self.__nonTechnicalElectives) - 1)]
-            while nte in student.getTranscript().getCompletedCourses:
-                nte = self.__nonTechnicalElectives[random.randint(0, len(self.__nonTechnicalElectives) - 1)]
+            # while nte in student.getTranscript().getCompletedCourses():
+            #     nte = self.__nonTechnicalElectives[random.randint(0, len(self.__nonTechnicalElectives) - 1)]
+            for nteCourse in student.getTranscript().getCompletedCourses():
+                if(nteCourse == nte):
+                    nte = self.__nonTechnicalElectives[random.randint(0, len(self.__nonTechnicalElectives) - 1)]
             if nte.semesterCheck(i):
                 intRandomGrade = random.randint(0, 99)
                 if intRandomGrade >= 90:
@@ -349,12 +365,12 @@ class RegistrationSystem:
                 elif intRandomGrade < 30:
                     intRandomGrade = random.randint(0, 44)
                 courseGrade = Grade(nte, intRandomGrade)
-                student.getTranscript().getTakenCourses[nte] = courseGrade
+                student.getTranscript().getTakenCourses()[nte] = courseGrade
                 student.getTranscript().isCourseCompletedOrFailed(nte, courseGrade.getLetter()) # ********** completed
-
+        # ************************************
         for i in range(1, student.getSemester()):
             fte = self.__facultyTechnicalElectives[random.randint(0, len(self.__facultyTechnicalElectives) - 1)]
-            while fte in student.getTranscript().getCompletedCourses or fte in student.getTranscript().getFailedCourses():
+            while fte in student.getTranscript().getCompletedCourses() or fte in student.getTranscript().getFailedCourses():
                 fte = self.__facultyTechnicalElectives[random.randint(0, len(self.__facultyTechnicalElectives) - 1)]
             if fte.semesterCheck(i):
                 intRandomGrade = random.randint(0, 99)
@@ -365,17 +381,22 @@ class RegistrationSystem:
                 courseGrade = Grade(fte, intRandomGrade)
                 student.getTranscript().getTakenCourses()[fte] = courseGrade
                 student.getTranscript().isCourseCompletedOrFailed(fte, courseGrade.getLetter())
-
         i = 1
-        student.getTranscript().completeCredit()
+        student.getTranscript().calculateCompleteCredit()
         te = self.__technicalElectives[random.randint(0, len(self.__technicalElectives) - 1)]
         while i < student.getSemester():
             if te.semesterCheck(i) and te.checkRequiredCredit(student):
                 teCount = 0
                 if i == 7:
                     while teCount != 2:
-                        while te in student.getTranscript().getCompletedCourses() or te in student.getTranscript().getFailedCourses() or student.getTranscript().hasBeenPassedCourses(te.getPrequisties()):
+                        # deneme
+                        counter = 0
+                        while te in student.getTranscript().getCompletedCourses() or te in student.getTranscript().getFailedCourses() or student.getTranscript().hasBeenPassedCourses(te.getPrerequisites()):
+
+                            if counter == len(student.getTranscript().getCompletedCourses()):
+                                break
                             te = self.__technicalElectives[random.randint(0, len(self.__technicalElectives) - 1)]
+                            counter += 1
                         intRandomGrade = random.randint(0, 99)
                         if intRandomGrade >= 90:
                             intRandomGrade = random.randint(0, 100 - 85 - 1) + 85
@@ -396,7 +417,7 @@ class RegistrationSystem:
                 elif intRandomGrade < 30:
                     intRandomGrade = random.randint(0, 44)
                 courseGrade = Grade(gp, intRandomGrade)
-                student.getTranscript().getTakenCourses[gp] = courseGrade
+                student.getTranscript().getTakenCourses()[gp] = courseGrade
                 student.getTranscript().isCourseCompletedOrFailed(gp, courseGrade.getLetter())
 
         print(student.getStudentName() + ": Student took all courses for his/her past semesters.")  # will be log
@@ -417,7 +438,7 @@ class RegistrationSystem:
         for s in self.__studentList:
             for mc in currentSemesterMandatoryCourses:
                 if mc.isEligibleToRequest(s):
-                    s.getRequestedCourses.append(mc)
+                    s.getRequestedCourses().append(mc)
             print(s.getStudentName() + ": Student requested all mandatory courses for his/her semester.") # will be log
 
             # Adding the failed courses to the getRequestedCourse Arraylist by checking the semester
@@ -425,19 +446,19 @@ class RegistrationSystem:
                 if isinstance(c, MandatoryCourse):
                     if self.__currentSemester == "fall":
                         if cast(MandatoryCourse, c).getSemester() % 2 != 0:
-                            if c in s.getTranscript().getCompletedCourses:
+                            if c in s.getTranscript().getCompletedCourses():
                                 continue
                             else:
-                                s.getRequestedCourses.append(c)
+                                s.getRequestedCourses().append(c)
                     elif self.__currentSemester == "spring":
                         if cast(MandatoryCourse, c).getSemester() % 2 == 0:
-                            s.getRequestedCourses.append(c)
+                            s.getRequestedCourses().append(c)
                 if isinstance(c, ElectiveCourse):
-                    s.getRequestedCourses.append(c)
+                    s.getRequestedCourses().append(c)
             print(s.getStudentName() + ": Student requested all failed courses this semester(if it is open).") # will be log
 
             for gp in self.__graduationCourses:
-                if gp in s.getRequestedCourses:
+                if gp in s.getRequestedCourses():
                     continue
                 if gp.isEligibleToRequest(s) and gp.checkRequiredCredit(s):
                     s.getRequestedCourses().append(gp)
@@ -450,10 +471,14 @@ class RegistrationSystem:
             for i in range(limit):
                 te = self.__technicalElectives[random.randint(0, len(self.__technicalElectives) - 1)]
                 transcript = s.getTranscript()
+                counter = 0
                 while te in transcript.getCompletedCourses() or te in transcript.getFailedCourses() or te in s.getRequestedCourses():
+                    if counter == len(transcript.getCompletedCourses()):
+                        break
                     te = self.__technicalElectives[random.randint(0, len(self.__technicalElectives) - 1)]
+                    counter += 1
                 if te.isEligibleToRequest(s) and te.checkRequiredCredit(s):
-                    s.getRequestedCourses.append(te)
+                    s.getRequestedCourses().append(te)
             info = 0
             if s.getSemester() == 7:
                 info = 2
@@ -462,8 +487,12 @@ class RegistrationSystem:
             print(s.getStudentName() + ": Student requested " + str(info) + " technical courses this semester.")
 
             nte = self.__nonTechnicalElectives[random.randint(0, len(self.__nonTechnicalElectives) - 1)]
+            counter = 0
             while nte in s.getTranscript().getCompletedCourses():
+                if counter == len(s.getTranscript().getCompletedCourses()):
+                    break
                 nte = self.__nonTechnicalElectives[random.randint(0, len(self.__nonTechnicalElectives) - 1)]
+                counter +=1
             if nte.isEligibleToRequest(s):
                 s.getRequestedCourses().append(nte)
 
@@ -471,7 +500,7 @@ class RegistrationSystem:
             while fte in s.getTranscript().getCompletedCourses():
                 fte = self.__facultyTechnicalElectives[random.randint(0, len(self.__facultyTechnicalElectives) - 1)]
             if fte.isEligibleToRequest(s):
-                s.getRequestedCourses.append(fte)
+                s.getRequestedCourses().append(fte)
             # log ??? *************
 
     def startRegistration(self):
@@ -486,14 +515,45 @@ class RegistrationSystem:
         pass # ***** after run the program without an error, fill this function *****
 
     def startSimulation(self) -> None:
-        self.readAdvisors()
-        self.readInput()
-        self.readStudent()
-        self.assignAdvisor(self.__studentList)
-        self.assignInstructor(self.__coursesList)
+        self.readAdvisors() # successfull
+        self.readInput() # successfull
+        self.readStudent() # successfull
+        self.assignAdvisor(self.__studentList) # successfull
+        self.assignInstructor(self.__coursesList) # successfull
         self.requestCoursesForAllStudents()
         self.startRegistration()
         s: Student
         for s in self.__studentList:
             self.createStudentOutput(s)
         self.createDepartmentOutput()
+
+    def getStudentList(self):
+        return self.__studentList
+
+    def getCourseList(self):
+        return self.__coursesList
+
+    def getAdvisorList(self):
+        return self.__advisorList
+
+
+
+
+def app():
+    # a = StudentId(2015, 1)
+    # s = Schedule(0, "09:30")
+    # print(a.id)
+    # print(s.toString())
+    rs = RegistrationSystem()
+    #print("Advisor Size:", len(rs.getAdvisorList()))
+    #print("Course Size:", len(rs.getCourseList()))
+    #print("Student Size:", len(rs.getStudentList()))
+    #total = 0
+    #for i in rs.getAdvisorList():
+    #    total += len(i.students)
+    #print(total)
+
+    # for i in rs.getCourseList():
+    #     print(cast(TechnicalElective, i).getPrequisites())
+
+app()

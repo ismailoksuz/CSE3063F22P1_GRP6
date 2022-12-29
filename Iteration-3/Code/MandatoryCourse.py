@@ -1,4 +1,4 @@
-import Course
+from Course import Course
 from typing import List
 class MandatoryCourse(Course):
     def __init__(self, courseName: str, courseCode: str, courseCredit: int, courseDay: int, courseHour: str,

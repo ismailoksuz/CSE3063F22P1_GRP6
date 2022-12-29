@@ -1,4 +1,4 @@
-import MandatoryCourse
+from MandatoryCourse import MandatoryCourse
 class GraduationProject(MandatoryCourse):  # ICreditRequirement will be added
 
     def __init__(self, courseName, courseCode, courseCredit, courseDay, courseHour,

@@ -1,5 +1,5 @@
-import ElectiveCourse
-import Course
+from ElectiveCourse import ElectiveCourse
+from Course import Course
 from typing import List
 
 class FacultyTechnicalElective(ElectiveCourse):
@@ -9,12 +9,12 @@ class FacultyTechnicalElective(ElectiveCourse):
         self.__prerequisites = prerequisites
 
     def isEligibleToRequest(self, student) -> bool:
-        return self.semesterControl(student) and student.getTranscript().hasBeenPassedCourses(self.getPrequisites()) #look at here again
+        return self.semesterControl(student) and student.getTranscript().hasBeenPassedCourses(self.getPrerequisites()) #look at here again
 
     #define getter method
 
     def getPrerequisites(self) -> List[Course]:
-        return self.__prequisites
+        return self.__prerequisites
 
     # define setter method
     def setPrerequisites(self, prerequisites: List[Course]):

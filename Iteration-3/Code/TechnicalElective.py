@@ -1,6 +1,6 @@
-import Course
-import ElectiveCourse
-import Student
+from Course import Course
+from ElectiveCourse import ElectiveCourse
+from Student import Student
 from typing import List
 class TechnicalElective(ElectiveCourse): # ICreditRequirement will be added.****
     def __init__(self, courseName: str, courseCode: str, courseCredit: int, courseDay: int, courseHour: str, quota: int, semester: List[int], requiredCredits: int, prerequisites: List[Course]):

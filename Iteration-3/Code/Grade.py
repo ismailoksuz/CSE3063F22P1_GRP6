@@ -1,7 +1,6 @@
 import random
-import logging #edit the log part
-
-
+import logging
+import Course
 class Grade:
 
     def __init__(self, course: Course, courseGrade: int):
@@ -49,4 +48,3 @@ class Grade:
 
     def getLetter(self) -> str:
         return self.__letter
-

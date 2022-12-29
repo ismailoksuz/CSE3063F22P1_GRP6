@@ -1,4 +1,4 @@
-import ElectiveCourse
+from ElectiveCourse import ElectiveCourse
 from typing import List
 
 class NonTechnicalElective(ElectiveCourse):
