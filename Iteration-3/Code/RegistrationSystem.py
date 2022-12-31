@@ -567,8 +567,57 @@ class RegistrationSystem:
         with open(f"{student.getStudentId().toString()}.json", "w", encoding='utf8') as outfile:
             outfile.write(jsonObject)
 
+
+
+
+
     def createDepartmentOutput(self):
-        pass # ***** after run the program without an error, fill this function *****
+        jsonDepartment = {}
+        for course in self.__coursesList:
+            if course in self.__mandatoryCourses:
+                if self.__currentSemester == "fall" and course.getSemester() % 2 != 0 :
+                    jsonListDepartment = []
+                    jsonListDepartment.append(f"{len(course.getStudents())}  Students could register for {course.getCourseCode()}  successfully.")
+                    jsonListDepartment.append(f"{course.getQuotaProblem()} Students couldn't register for Students couldn't register for {course.getCourseCode()} due to the quota problems.")
+                    jsonListDepartment.append(f"{course.getCollisionProblem()} Students couldn't register for {course.getCourseCode()} due to the collision problems.")
+                    jsonListDepartment.append(f"{course.getFailedPreq()} Students couldn't register for {course.getCourseCode()} due to the failed prerequisite.")
+                    if course in self.__graduationCourses:
+                        jsonListDepartment.append(f"{course.getFailedCredits()} Students couldn't register for {course.getCourseCode()} due to the failed credit problems.")
+                    jsonDepartment[f"{course.getCourseName()}"] = jsonListDepartment
+                elif self.__currentSemester == "spring" and course.getSemester() % 2 == 0 :
+                    jsonListDepartment = []
+                    jsonListDepartment.append(
+                        f"{len(course.getStudents())}  Students could register for {course.getCourseCode()}  successfully.")
+                    jsonListDepartment.append(
+                        f"{course.getQuotaProblem()} Students couldn't register for Students couldn't register for {course.getCourseCode()} due to the quota problems.")
+                    jsonListDepartment.append(
+                        f"{course.getCollisionProblem()} Students couldn't register for {course.getCourseCode()} due to the collision problems.")
+                    jsonListDepartment.append(
+                        f"{course.getFailedPreq()} Students couldn't register for {course.getCourseCode()} due to the failed prerequisite.")
+                    if course in self.__graduationCourses:
+                        jsonListDepartment.append(
+                            f"{course.getFailedCredits()} Students couldn't register for {course.getCourseCode()} due to the failed credit problems.")
+                    jsonDepartment[f"{course.getCourseName()}"] = jsonListDepartment
+
+            else:
+                jsonListDepartment = []
+                jsonListDepartment.append(
+                    f"{len(course.getStudents())}  Students could register for {course.getCourseCode()}  successfully.")
+                jsonListDepartment.append(
+                    f"{course.getQuotaProblem()} Students couldn't register for Students couldn't register for {course.getCourseCode()} due to the quota problems.")
+                jsonListDepartment.append(
+                    f"{course.getCollisionProblem()} Students couldn't register for {course.getCourseCode()} due to the collision problems.")
+                if course in self.__technicalElectives:
+                    jsonListDepartment.append(f"{course.getFailedCredits()}  Students couldn't register for {course.getCourseCode()} due to the failed credit problems.")
+                    jsonListDepartment.append(f"{course.getFailedPreq()} Students couldn't register for {course.getCourseCode()} due to the failed prerequisite.")
+                jsonDepartment[f"{course.getCourseName()}"] = jsonListDepartment
+
+
+
+        jsonObject = json.dumps(jsonDepartment, indent=4, ensure_ascii=False)
+
+        with open(f"DEPARTMENT_OUTPUT_{self.__currentSemester.upper()}.json", "w", encoding='utf8') as outfile:
+            outfile.write(jsonObject)
 
     def startSimulation(self) -> None:
         self.readAdvisors() # successfull
