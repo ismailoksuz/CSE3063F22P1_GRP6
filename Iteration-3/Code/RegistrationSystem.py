@@ -503,13 +503,69 @@ class RegistrationSystem:
                 s.getRequestedCourses().append(fte)
             # log ??? *************
 
+
+
     def startRegistration(self):
         for s in self.__studentList:
             s.getAdvisor().completeRegistration(s)
         print("All students have completed their course registrations.") # will be log
 
     def createStudentOutput(self, student): # parameter type??
-        pass # ***** after run the program without an error, fill this function *****
+
+        # Add student info
+        studentDict = {
+            "StudentName": student.toString(),
+            "StudentId": student.getStudentId().toString(),
+            "StudentEmail": student.getEmail(),
+            "StudentPhoneNumber": student.getPhoneNumber(),
+            "SemesterNumber": student.getSemester(),
+            "CompletedCredits": student.getTranscript().getCreditCompleted(),
+            "Gpa": student.getTranscript().getGpa(),
+            "AdvisorName": student.getAdvisor().getAdvisorName()
+        }
+
+        # Add taken course
+        jsonListPastCourses = []
+        for value in student.getTranscript().getTakenCourses().values():
+            jsonDictTakenCourse = {
+                "LetterGrade": value.getLetter(),
+                "CourseName": value.getCourse().getCourseName(),
+                "Course": value.getCourse().getCourseCode()
+            }
+            jsonListPastCourses.append(jsonDictTakenCourse)
+
+        studentDict["Taken Course"] = jsonListPastCourses
+
+        # Add requested courses
+        jsonListRequestedCourses = []
+        for value in student.getRequestedCourses():
+            jsonDictRequestedCourses = {
+                "Course": value.getCourseName()
+            }
+            jsonListRequestedCourses.append(jsonDictRequestedCourses)
+        studentDict["Requested Course"] = jsonListRequestedCourses
+
+        # Add enrolled courses
+        jsonListEnrolledCourses = []
+        for value in student.getTranscript().getEnrolledCourses():
+            jsonDictEnrolledCourses = {
+                "Course": value.getCourseName()
+            }
+            jsonListEnrolledCourses.append(jsonDictEnrolledCourses)
+        studentDict["Enrolled Course"] = jsonListEnrolledCourses
+
+        # Add student output
+        jsonListStudentOutput = []
+        for value in student.getStudentOutput():
+            jsonListStudentOutput.append(value)
+        studentDict["Output"] = jsonListStudentOutput
+
+
+
+        jsonObject = json.dumps(studentDict, indent=4, ensure_ascii=False)
+
+        with open(f"{student.getStudentId().toString()}.json", "w", encoding='utf8') as outfile:
+            outfile.write(jsonObject)
 
     def createDepartmentOutput(self):
         pass # ***** after run the program without an error, fill this function *****
@@ -525,6 +581,7 @@ class RegistrationSystem:
         s: Student
         for s in self.__studentList:
             self.createStudentOutput(s)
+
         self.createDepartmentOutput()
 
     def getStudentList(self):

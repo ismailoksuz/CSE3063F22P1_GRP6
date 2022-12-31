@@ -4,7 +4,7 @@ class StudentId:
         self.__cseCode: str = "1501"
         self.__year: int = year
         self.__order: int = order
-        self.id: str = self.createStudentId()
+        self.__id: str = self.createStudentId()
 
     def createStudentId(self) -> str:
         order_length_dict = {1: "00", 2: "0", 3: ""}
@@ -18,3 +18,7 @@ class StudentId:
 
     def getOrder(self) -> int:
         return self.__order
+
+    def toString(self):
+        return self.__id
+
