@@ -215,11 +215,6 @@ class RegistrationSystem:
         for sn in inputSurnames:
             surnames.append(str(sn))
 
-        #yearList = [2022, 2021, 2020, 2019]
-        #for year in yearList:
-        #    for i in range(studentNumberPerYear):
-        #        self.__studentList.append(Student(names[random.randint(0, len(names) - 1)], surnames[random.randint(0, len(surnames) - 1)], year, i))
-        #    print(f"{year} year students are readed successfully.") # will be log
 
         for i in range(1, studentNumberPerYear + 1):
             newStudent = Student(names[random.randint(0, len(names) - 1)],
@@ -264,9 +259,13 @@ class RegistrationSystem:
         # Semester control is done with CurrentSemester information from input.json file
         calculatedSemester = 0
         if self.__currentSemester == "fall":
-            calculatedSemester = 2 * (student.getCurrentYear() - student.getRegistrationYear() + 1)
+            # calculatedSemester = 2 * (student.getCurrentYear() - student.getRegistrationYear() + 1)
+            calculatedSemester = 2 * (2022 - student.getRegistrationYear() + 1)
+
         elif self.__currentSemester == "spring":
-            calculatedSemester = 2 * ((student.getCurrentYear() + 1) - student.getRegistrationYear())
+            # calculatedSemester = 2 * ((student.getCurrentYear()) - student.getRegistrationYear())
+            calculatedSemester = 2 * (2022 - student.getRegistrationYear())
+
         print(student.getStudentName() + ": Semester calculated according to the input.") # will be log
         return calculatedSemester
 
@@ -353,11 +352,15 @@ class RegistrationSystem:
         #********************************
         for i in range(1, student.getSemester()):
             nte = self.__nonTechnicalElectives[random.randint(0, len(self.__nonTechnicalElectives) - 1)]
-            # while nte in student.getTranscript().getCompletedCourses():
-            #     nte = self.__nonTechnicalElectives[random.randint(0, len(self.__nonTechnicalElectives) - 1)]
-            for nteCourse in student.getTranscript().getCompletedCourses():
-                if(nteCourse == nte):
-                    nte = self.__nonTechnicalElectives[random.randint(0, len(self.__nonTechnicalElectives) - 1)]
+            counter = 0
+            while nte in student.getTranscript().getCompletedCourses() or nte in student.getTranscript().getFailedCourses():
+                if counter == len(student.getTranscript().getCompletedCourses()):
+                    break
+                nte = self.__nonTechnicalElectives[random.randint(0, len(self.__nonTechnicalElectives) - 1)]
+                counter += 1
+            # for nteCourse in student.getTranscript().getCompletedCourses() :
+            #     if(nteCourse == nte):
+            #         nte = self.__nonTechnicalElectives[random.randint(0, len(self.__nonTechnicalElectives) - 1)]
             if nte.semesterCheck(i):
                 intRandomGrade = random.randint(0, 99)
                 if intRandomGrade >= 90:
@@ -370,8 +373,12 @@ class RegistrationSystem:
         # ************************************
         for i in range(1, student.getSemester()):
             fte = self.__facultyTechnicalElectives[random.randint(0, len(self.__facultyTechnicalElectives) - 1)]
+            counter = 0
             while fte in student.getTranscript().getCompletedCourses() or fte in student.getTranscript().getFailedCourses():
+                if counter == len(student.getTranscript().getCompletedCourses()):
+                    break
                 fte = self.__facultyTechnicalElectives[random.randint(0, len(self.__facultyTechnicalElectives) - 1)]
+                counter +=1
             if fte.semesterCheck(i):
                 intRandomGrade = random.randint(0, 99)
                 if intRandomGrade >= 90:
@@ -497,8 +504,12 @@ class RegistrationSystem:
                 s.getRequestedCourses().append(nte)
 
             fte = self.__facultyTechnicalElectives[random.randint(0, len(self.__facultyTechnicalElectives) - 1)]
+            counter1 = 0
             while fte in s.getTranscript().getCompletedCourses():
+                if counter1 == len(s.getTranscript().getCompletedCourses()):
+                    break
                 fte = self.__facultyTechnicalElectives[random.randint(0, len(self.__facultyTechnicalElectives) - 1)]
+                counter1 += 1
             if fte.isEligibleToRequest(s):
                 s.getRequestedCourses().append(fte)
             # log ??? *************
@@ -630,7 +641,7 @@ class RegistrationSystem:
         s: Student
         for s in self.__studentList:
             self.createStudentOutput(s)
-
+        #
         self.createDepartmentOutput()
 
     def getStudentList(self):
