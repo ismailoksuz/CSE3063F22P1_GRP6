@@ -253,20 +253,20 @@ class RegistrationSystem:
     def readCurrentSemester(self, input: dict):
         self.__currentSemester = input["CurrentSemester"]
         return self.__currentSemester
-
-
-    def calculateSemester(self, student) -> int: # parameter type ??
+    
+    def calculateSemester(self, student) -> int:  # parameter type ??
         # Semester control is done with CurrentSemester information from input.json file
         calculatedSemester = 0
         if self.__currentSemester == "fall":
             # calculatedSemester = 2 * (student.getCurrentYear() - student.getRegistrationYear() + 1)
-            calculatedSemester = 2 * (2022 - student.getRegistrationYear() + 1)
+            calculatedSemester = 2 * (2022 - student.getRegistrationYear()) + 1
 
         elif self.__currentSemester == "spring":
             # calculatedSemester = 2 * ((student.getCurrentYear()) - student.getRegistrationYear())
-            calculatedSemester = 2 * (2022 - student.getRegistrationYear())
+            calculatedSemester = 2 * (2022 - student.getRegistrationYear() + 1)
 
-        print(student.getStudentName() + ": Semester calculated according to the input.") # will be log
+        print(student.getStudentName() +
+              ": Semester calculated according to the input.")  # will be log
         return calculatedSemester
 
     def getCurrentSemester(self) -> str:
