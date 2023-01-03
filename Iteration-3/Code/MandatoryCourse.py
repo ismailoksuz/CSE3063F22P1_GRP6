@@ -20,7 +20,14 @@ class MandatoryCourse(Course):
             return False
 
     def isEligibleToBePreviouslyTaken(self, student):
-        return student.getSemester() > self.getSemester() and student.getTranscript().hasBeenPassedCourses(self.getPrerequisites())
+        if student.getSemester() > self.getSemester():
+            if student.getTranscript().hasBeenPassedCourses(self.getPrerequisites()):
+                return True
+            else:
+                return False
+        else:
+            return False
+        # return (student.getSemester() > self.getSemester()) and (student.getTranscript().hasBeenPassedCourses(self.getPrerequisites()))
 
     # GETTERS AND SETTERS
     def getSemester(self) -> int:
