@@ -341,22 +341,27 @@ class RegistrationSystem:
             self.createStudentOutput(s)
         self.createDepartmentOutput()
 
-    def createTranscript(self, student): # parameter type ?? # infinite loop....
+    def createTranscript(self, student: Student):
+
         for mc in self.__mandatoryCourses:
             if mc.isEligibleToBePreviouslyTaken(student):
                 intRandomGrade = random.randint(0, 99)
                 courseGrade = Grade(mc, intRandomGrade)
                 student.getTranscript().getTakenCourses()[mc] = courseGrade
                 student.getTranscript().isCourseCompletedOrFailed(mc, courseGrade.getLetter())
+                print(student.toString() + " " + mc.getCourseName() +
+                      " " + courseGrade.getLetter())
 
-        #********************************
+        # ********************************
         for i in range(1, student.getSemester()):
-            nte = self.__nonTechnicalElectives[random.randint(0, len(self.__nonTechnicalElectives) - 1)]
+            nte = self.__nonTechnicalElectives[random.randint(
+                0, len(self.__nonTechnicalElectives) - 1)]
             counter = 0
             while nte in student.getTranscript().getCompletedCourses() or nte in student.getTranscript().getFailedCourses():
-                if counter == len(student.getTranscript().getCompletedCourses()):
+                if counter == len(student.getTranscript().getCompletedCourses()) + len(student.getTranscript().getFailedCourses()):
                     break
-                nte = self.__nonTechnicalElectives[random.randint(0, len(self.__nonTechnicalElectives) - 1)]
+                nte = self.__nonTechnicalElectives[random.randint(
+                    0, len(self.__nonTechnicalElectives) - 1)]
                 counter += 1
             # for nteCourse in student.getTranscript().getCompletedCourses() :
             #     if(nteCourse == nte):
@@ -369,16 +374,20 @@ class RegistrationSystem:
                     intRandomGrade = random.randint(0, 44)
                 courseGrade = Grade(nte, intRandomGrade)
                 student.getTranscript().getTakenCourses()[nte] = courseGrade
-                student.getTranscript().isCourseCompletedOrFailed(nte, courseGrade.getLetter()) # ********** completed
+                student.getTranscript().isCourseCompletedOrFailed(
+                    nte, courseGrade.getLetter())  # ********** completed
         # ************************************
+
         for i in range(1, student.getSemester()):
-            fte = self.__facultyTechnicalElectives[random.randint(0, len(self.__facultyTechnicalElectives) - 1)]
+            fte = self.__facultyTechnicalElectives[random.randint(
+                0, len(self.__facultyTechnicalElectives) - 1)]
             counter = 0
             while fte in student.getTranscript().getCompletedCourses() or fte in student.getTranscript().getFailedCourses():
-                if counter == len(student.getTranscript().getCompletedCourses()):
+                if counter == len(student.getTranscript().getCompletedCourses()) + len(student.getTranscript().getFailedCourses()):
                     break
-                fte = self.__facultyTechnicalElectives[random.randint(0, len(self.__facultyTechnicalElectives) - 1)]
-                counter +=1
+                fte = self.__facultyTechnicalElectives[random.randint(
+                    0, len(self.__facultyTechnicalElectives) - 1)]
+                counter += 1
             if fte.semesterCheck(i):
                 intRandomGrade = random.randint(0, 99)
                 if intRandomGrade >= 90:
@@ -389,8 +398,10 @@ class RegistrationSystem:
                 student.getTranscript().getTakenCourses()[fte] = courseGrade
                 student.getTranscript().isCourseCompletedOrFailed(fte, courseGrade.getLetter())
         i = 1
+
         student.getTranscript().calculateCompleteCredit()
-        te = self.__technicalElectives[random.randint(0, len(self.__technicalElectives) - 1)]
+        te = self.__technicalElectives[random.randint(
+            0, len(self.__technicalElectives) - 1)]
         while i < student.getSemester():
             if te.semesterCheck(i) and te.checkRequiredCredit(student):
                 teCount = 0
@@ -398,26 +409,30 @@ class RegistrationSystem:
                     while teCount != 2:
                         # deneme
                         counter = 0
-                        while te in student.getTranscript().getCompletedCourses() or te in student.getTranscript().getFailedCourses() or student.getTranscript().hasBeenPassedCourses(te.getPrerequisites()):
+                        while te in student.getTranscript().getCompletedCourses() or te in student.getTranscript().getFailedCourses() or not student.getTranscript().hasBeenPassedCourses(te.getPrerequisites()):
 
-                            if counter == len(student.getTranscript().getCompletedCourses()):
+                            if counter == len(student.getTranscript().getCompletedCourses()) + len(student.getTranscript().getFailedCourses()):
                                 break
-                            te = self.__technicalElectives[random.randint(0, len(self.__technicalElectives) - 1)]
+                            te = self.__technicalElectives[random.randint(
+                                0, len(self.__technicalElectives) - 1)]
                             counter += 1
+
                         intRandomGrade = random.randint(0, 99)
                         if intRandomGrade >= 90:
-                            intRandomGrade = random.randint(0, 100 - 85 - 1) + 85
+                            intRandomGrade = random.randint(
+                                0, 100 - 85 - 1) + 85
                         elif intRandomGrade < 30:
                             intRandomGrade = random.randint(0, 44)
                         courseGrade = Grade(te, intRandomGrade)
-                        student.getTranscript().getTakenCourses()[te] = courseGrade
+                        student.getTranscript().getTakenCourses()[
+                            te] = courseGrade
                         student.getTranscript().isCourseCompletedOrFailed(te, courseGrade.getLetter())
                         teCount += 1
             i += 1
 
         student.getTranscript().calculateCompleteCredit()
         for gp in self.__graduationCourses:
-            if gp.getSemester() < student.getSemester() and gp.checkRequiredCredit(student):
+            if gp.getSemester() < student.getSemester() and student.getTranscript().getCreditCompleted() >= gp.getRequiredCredits():
                 intRandomGrade = random.randint(0, 99)
                 if intRandomGrade >= 90:
                     intRandomGrade = random.randint(0, 100 - 85 - 1) + 85
@@ -427,7 +442,8 @@ class RegistrationSystem:
                 student.getTranscript().getTakenCourses()[gp] = courseGrade
                 student.getTranscript().isCourseCompletedOrFailed(gp, courseGrade.getLetter())
 
-        print(student.getStudentName() + ": Student took all courses for his/her past semesters.")  # will be log
+        print(student.getStudentName(
+        ) + ": Student took all courses for his/her past semesters.")  # will be log
         student.getTranscript().calculateCompleteCredit()
         student.getTranscript().calculateGpa()
 
