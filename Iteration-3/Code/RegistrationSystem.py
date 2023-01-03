@@ -453,16 +453,18 @@ class RegistrationSystem:
         currentSemesterMandatoryCourses = []
         for c in self.__mandatoryCourses:
             if self.__currentSemester == "fall":
-                if c.getSemester() % 2 == 0:
+                if c.getSemester() % 2 != 0:
                     currentSemesterMandatoryCourses.append(c)
             elif self.__currentSemester == "spring":
                 if c.getSemester() % 2 == 0:
                     currentSemesterMandatoryCourses.append(c)
+
         for s in self.__studentList:
             for mc in currentSemesterMandatoryCourses:
                 if mc.isEligibleToRequest(s):
                     s.getRequestedCourses().append(mc)
-            print(s.getStudentName() + ": Student requested all mandatory courses for his/her semester.") # will be log
+            print(s.getStudentName(
+            ) + ": Student requested all mandatory courses for his/her semester.")  # will be log
 
             # Adding the failed courses to the getRequestedCourse Arraylist by checking the semester
             for c in s.getTranscript().getFailedCourses():
@@ -478,7 +480,8 @@ class RegistrationSystem:
                             s.getRequestedCourses().append(c)
                 if isinstance(c, ElectiveCourse):
                     s.getRequestedCourses().append(c)
-            print(s.getStudentName() + ": Student requested all failed courses this semester(if it is open).") # will be log
+            print(s.getStudentName(
+            ) + ": Student requested all failed courses this semester(if it is open).")  # will be log
 
             for gp in self.__graduationCourses:
                 if gp in s.getRequestedCourses():
@@ -487,44 +490,56 @@ class RegistrationSystem:
                     s.getRequestedCourses().append(gp)
 
             limit = 0
+            teList = self.__technicalElectives.copy()
             if s.getSemester() == 7:
                 limit = 2
             elif s.getSemester() == 8:
                 limit = 3
             for i in range(limit):
-                te = self.__technicalElectives[random.randint(0, len(self.__technicalElectives) - 1)]
+                te = teList[random.randint(
+                    0, len(teList) - 1)]
                 transcript = s.getTranscript()
                 counter = 0
                 while te in transcript.getCompletedCourses() or te in transcript.getFailedCourses() or te in s.getRequestedCourses():
-                    if counter == len(transcript.getCompletedCourses()):
+                    teList.remove(te)
+                    if counter == len(transcript.getCompletedCourses()) + len(transcript.getFailedCourses()) + len(s.getRequestedCourses()):
                         break
-                    te = self.__technicalElectives[random.randint(0, len(self.__technicalElectives) - 1)]
+                    te = teList[random.randint(
+                        0, len(teList) - 1)]
                     counter += 1
                 if te.isEligibleToRequest(s) and te.checkRequiredCredit(s):
                     s.getRequestedCourses().append(te)
+                else:
+                    teList.remove(te)
+
             info = 0
             if s.getSemester() == 7:
                 info = 2
             elif s.getSemester() == 8:
                 info = 3
-            print(s.getStudentName() + ": Student requested " + str(info) + " technical courses this semester.")
+            print(s.getStudentName() + ": Student requested " +
+                  str(info) + " technical courses this semester.")
 
-            nte = self.__nonTechnicalElectives[random.randint(0, len(self.__nonTechnicalElectives) - 1)]
+            nte = self.__nonTechnicalElectives[random.randint(
+                0, len(self.__nonTechnicalElectives) - 1)]
             counter = 0
-            while nte in s.getTranscript().getCompletedCourses():
-                if counter == len(s.getTranscript().getCompletedCourses()):
+            while nte in s.getTranscript().getCompletedCourses() or nte in s.getRequestedCourses():
+                if counter == len(s.getTranscript().getCompletedCourses()) + len(s.getRequestedCourses()):
                     break
-                nte = self.__nonTechnicalElectives[random.randint(0, len(self.__nonTechnicalElectives) - 1)]
-                counter +=1
+                nte = self.__nonTechnicalElectives[random.randint(
+                    0, len(self.__nonTechnicalElectives) - 1)]
+                counter += 1
             if nte.isEligibleToRequest(s):
                 s.getRequestedCourses().append(nte)
 
-            fte = self.__facultyTechnicalElectives[random.randint(0, len(self.__facultyTechnicalElectives) - 1)]
+            fte = self.__facultyTechnicalElectives[random.randint(
+                0, len(self.__facultyTechnicalElectives) - 1)]
             counter1 = 0
-            while fte in s.getTranscript().getCompletedCourses():
-                if counter1 == len(s.getTranscript().getCompletedCourses()):
+            while fte in s.getTranscript().getCompletedCourses() or fte in s.getRequestedCourses():
+                if counter1 == len(s.getTranscript().getCompletedCourses()) + len(s.getRequestedCourses()):
                     break
-                fte = self.__facultyTechnicalElectives[random.randint(0, len(self.__facultyTechnicalElectives) - 1)]
+                fte = self.__facultyTechnicalElectives[random.randint(
+                    0, len(self.__facultyTechnicalElectives) - 1)]
                 counter1 += 1
             if fte.isEligibleToRequest(s):
                 s.getRequestedCourses().append(fte)
