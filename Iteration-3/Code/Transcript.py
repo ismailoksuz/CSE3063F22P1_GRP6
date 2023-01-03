@@ -1,5 +1,7 @@
 from Course import Course
-from typing import List
+from typing import List, cast
+
+
 class Transcript:
 
     def __init__(self):
@@ -17,7 +19,7 @@ class Transcript:
 
         if len(self.__takenCourses) == 0:
             return 0
-        
+
         for course, grade in self.__takenCourses.items():
             totalCredit += course.getCourseCredit()
             if grade.getLetter() == "AA":
@@ -62,9 +64,12 @@ class Transcript:
     def hasBeenPassedCourse(self, course):
         if course == None:
             return True
-        return course in self.__completedCourses
+        if course in self.getCompletedCourses():
+            return True
+        else:
+            return False
 
-    def hasBeenPassedCourses(self, courses): # infinite loop
+    def hasBeenPassedCourses(self, courses):  # infinite loop
         for course in courses:
             if not self.hasBeenPassedCourse(course):
                 return False
