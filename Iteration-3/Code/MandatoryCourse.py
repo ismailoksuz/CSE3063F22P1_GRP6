@@ -12,7 +12,7 @@ class MandatoryCourse(Course):
             if (not student.getTranscript().hasBeenPassedCourses(self.getPrerequisites())):
                 self.setFailedPreq(self.getFailedPreq() + 1)
                 # student.getStudentOutput().append("The system didn't allow " + self.getCourseCode() + "because student failed prereq." + self.getPrequisites()[0].getCourseCode())
-                student.getStudentOutput().append("The system didn't allow " + self.getCourseCode() + "because student failed prereq.")
+                student.getStudentOutput().append("The system didn't allow " + self.getCourseCode() + " because student failed prereq.")
                 return False
             else:
                 return True
