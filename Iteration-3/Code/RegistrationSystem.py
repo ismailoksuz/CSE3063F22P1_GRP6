@@ -403,7 +403,7 @@ class RegistrationSystem:
         te = self.__technicalElectives[random.randint(
             0, len(self.__technicalElectives) - 1)]
         while i < student.getSemester():
-            if te.semesterCheck(i) and te.checkRequiredCredit(student):
+            if te.semesterCheck(i) and student.getTranscript().getCreditCompleted() >= te.getRequiredCredits():
                 teCount = 0
                 if i == 7:
                     while teCount != 2:
