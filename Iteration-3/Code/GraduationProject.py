@@ -17,7 +17,7 @@ class GraduationProject(MandatoryCourse):  # ICreditRequirement will be added
         else:
             newFailedCredit = self.getFailedCredits() + 1
             self.setFailedCredits(newFailedCredit)
-            student.StudentOutput.append(
+            student.studentOutput.append(
                 f"The advisor didn't approve graduation project {self.getCourseCode()} because student completed credits < {self.__requiredCredits}")
             #  logging.info(f"Student has not enough credits. {student.studentName} cannot enroll {self.courseName}.")
             return False
