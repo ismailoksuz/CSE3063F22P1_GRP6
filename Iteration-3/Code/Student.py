@@ -1,8 +1,12 @@
+from Advisor import Advisor
 from Transcript import Transcript
 from StudentId import StudentId
 from Person import Person
 import datetime
+
+
 class Student(Person):
+    semester: int
 
     def __init__(self, firstName: str, lastName: str, registrationYear: int, order: int):
         super().__init__(firstName, lastName)
@@ -13,8 +17,8 @@ class Student(Person):
         self.transcript = Transcript()
         self.studentId = StudentId(registrationYear, order)
         self.studentOutput = []
-        self.semester = 1
-        print("Student created =>  " + "Name: " + self.getStudentName() + " RegistrationYear: " + str(self.getRegistrationYear()) + " Order: " + str(self.getOrder())) # will be log
+        print("Student created =>  " + "Name: " + self.getStudentName() + " RegistrationYear: " +
+              str(self.getRegistrationYear()) + " Order: " + str(self.getOrder()))  # will be log
 
     def getStudentOutput(self):
         return self.studentOutput
@@ -31,7 +35,7 @@ class Student(Person):
     def getStudentId(self):
         return self.studentId
 
-    def getAdvisor(self):
+    def getAdvisor(self) -> Advisor:
         return self.advisor
 
     def setAdvisor(self, advisor):
@@ -49,9 +53,10 @@ class Student(Person):
     def getCurrentYear(self):
         return self.currentYear
 
-    def getSemester(self):
+    def getSemester(self) -> int:
         return self.semester
 
     def setSemester(self, semester):
         self.semester = semester
-        print(self.getStudentName() + ": student semester changed. as " + str(self.semester)) # will be log
+        print(self.getStudentName() + ": student semester changed. as " +
+              str(self.semester))  # will be log
