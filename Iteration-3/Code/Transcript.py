@@ -2,14 +2,13 @@ from Course import Course
 from typing import List
 class Transcript:
 
-    def __init__(self, gpa: float=0.0, creditCompleted: int=0, creditTaken: int=0, takenCourses: dict={}, completedCourses: List[Course]=[], failedCourses: List[Course]=[]):
-        self.__gpa = gpa
-        self.__creditCompleted = creditCompleted
-        self.__creditTaken = creditTaken
-        self.__takenCourses = takenCourses
-        self.__completedCourses = completedCourses
-        self.__failedCourses = failedCourses
-        self.__enrolledCourses = []
+    def __init__(self):
+        self.__gpa = 0
+        self.__creditCompleted = 0
+        self.__takenCourses = dict()
+        self.__completedCourses = list()
+        self.__failedCourses = list()
+        self.__enrolledCourses = list()
 
     def calculateGpa(self):
         gradeMultiplication = 0
