@@ -680,7 +680,7 @@ class RegistrationSystem:
         self.assignInstructor(self.__coursesList)  # successfull
         self.assignAdvisor(self.__studentList)  # successfull
         self.requestCoursesForAllStudents()
-        # self.startRegistration()
+        self.startRegistration()
         s: Student
         for s in self.__studentList:
             self.createStudentOutput(s)
