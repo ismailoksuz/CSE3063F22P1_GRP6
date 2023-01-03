@@ -1,5 +1,7 @@
 from Course import Course
 from typing import List
+from Student import Student
+
 class MandatoryCourse(Course):
     def __init__(self, courseName: str, courseCode: str, courseCredit: int, courseDay: int, courseHour: str,
                  quota: int, semester: int, prerequisites: List[Course]):
