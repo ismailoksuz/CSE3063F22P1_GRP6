@@ -15,6 +15,9 @@ class Transcript:
         totalCredit = 0
         studentGpa = 0
 
+        if len(self.__takenCourses) == 0:
+            return 0
+        
         for course, grade in self.__takenCourses.items():
             totalCredit += course.getCourseCredit()
             if grade.getLetter() == "AA":
