@@ -1,4 +1,5 @@
 import json
+import os
 import random
 
 from typing import List, cast
@@ -642,6 +643,8 @@ class RegistrationSystem:
                         f"{course.getCollisionProblem()} Students couldn't register for {course.getCourseCode()} due to the collision problems.")
                     jsonListDepartment.append(
                         f"{course.getFailedPreq()} Students couldn't register for {course.getCourseCode()} due to the failed prerequisite.")
+                    jsonListDepartment.append(
+                        f"{course.getEnrolledCourseLimit()} Students couldn't register for {course.getCourseCode()} due to exceeding the max enrolled courses.")
                     if course in self.__graduationCourses:
                         jsonListDepartment.append(
                             f"{course.getFailedCredits()} Students couldn't register for {course.getCourseCode()} due to the failed credit problems.")
@@ -656,6 +659,8 @@ class RegistrationSystem:
                         f"{course.getCollisionProblem()} Students couldn't register for {course.getCourseCode()} due to the collision problems.")
                     jsonListDepartment.append(
                         f"{course.getFailedPreq()} Students couldn't register for {course.getCourseCode()} due to the failed prerequisite.")
+                    jsonListDepartment.append(
+                        f"{course.getEnrolledCourseLimit()} Students couldn't register for {course.getCourseCode()} due to exceeding the max enrolled courses.")
                     if course in self.__graduationCourses:
                         jsonListDepartment.append(
                             f"{course.getFailedCredits()} Students couldn't register for {course.getCourseCode()} due to the failed credit problems.")
@@ -669,6 +674,8 @@ class RegistrationSystem:
                     f"{course.getQuotaProblem()} Students couldn't register for Students couldn't register for {course.getCourseCode()} due to the quota problems.")
                 jsonListDepartment.append(
                     f"{course.getCollisionProblem()} Students couldn't register for {course.getCourseCode()} due to the collision problems.")
+                jsonListDepartment.append(
+                    f"{course.getEnrolledCourseLimit()} Students couldn't register for {course.getCourseCode()} due to exceeding the max enrolled courses.")
                 if course in self.__technicalElectives:
                     jsonListDepartment.append(
                         f"{course.getFailedCredits()}  Students couldn't register for {course.getCourseCode()} due to the failed credit problems.")
