@@ -617,7 +617,15 @@ class RegistrationSystem:
 
         jsonObject = json.dumps(studentDict, indent=4, ensure_ascii=False)
 
-        with open(f"{student.getStudentId().toString()}.json", "w", encoding='utf8') as outfile:
+        try:
+            if not os.path.exists("Output"):
+                os.makedirs("Output")
+            if not os.path.exists("Output\\Students"):
+                os.makedirs("Output\\Students")
+        except:
+            print("error")
+
+        with open(f"Output\\Students\\{student.getStudentId().toString()}.json", "w", encoding='utf8') as outfile:
             outfile.write(jsonObject)
 
     def createDepartmentOutput(self):
@@ -670,7 +678,7 @@ class RegistrationSystem:
 
         jsonObject = json.dumps(jsonDepartment, indent=4, ensure_ascii=False)
 
-        with open(f"DEPARTMENT_OUTPUT_{self.__currentSemester.upper()}.json", "w", encoding='utf8') as outfile:
+        with open(f"Output\\DEPARTMENT_OUTPUT_{self.__currentSemester.upper()}.json", "w", encoding='utf8') as outfile:
             outfile.write(jsonObject)
 
     def startSimulation(self) -> None:
