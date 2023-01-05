@@ -1,0 +1,4 @@
+-Kodda düzenlemeler yapıldı.
+-Semester ve SummerPractice classları için ne yapılacağı konusunda fikir alışverişinde bulunuldu.
+-Unit Testler için fikir alışverişi yapıldı.
+-06.01.2023'de discord üzerinden online toplantı yapılması planlandı.
