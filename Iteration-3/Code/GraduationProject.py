@@ -1,12 +1,18 @@
+import logging
 from MandatoryCourse import MandatoryCourse
+
+
 class GraduationProject(MandatoryCourse):  # ICreditRequirement will be added
 
     def __init__(self, courseName, courseCode, courseCredit, courseDay, courseHour,
                  quota, semester, prerequisites, requiredCredits):
-        super().__init__(courseName, courseCode, courseCredit, courseDay, courseHour, quota, semester, prerequisites)
+        super().__init__(courseName, courseCode, courseCredit,
+                         courseDay, courseHour, quota, semester, prerequisites)
         self.__requiredCredits = requiredCredits
-        print(f"{self.getCourseName()} ({self.getCourseCode()}) named graduation project created.")
-    #  logging.info(f"{self.courseName} ({self.courseCode}) named graduation project created.")
+        print(
+            f"{self.getCourseName()} ({self.getCourseCode()}) named graduation project created.")
+        logging.info(
+            f"{self.getCourseName()} ({self.getCourseCode()}) named graduation project created.")
 
     def isEligibleToRequest(self, student):
         return super().isEligibleToRequest(student) and self.checkRequiredCredit(student)
@@ -19,9 +25,9 @@ class GraduationProject(MandatoryCourse):  # ICreditRequirement will be added
             self.setFailedCredits(newFailedCredit)
             student.getStudentOutput().append(
                 f"The advisor didn't approve graduation project {self.getCourseCode()} because student completed credits < {self.__requiredCredits}")
-            #  logging.info(f"Student has not enough credits. {student.studentName} cannot enroll {self.courseName}.")
+            logging.info(
+                f"Student has not enough credits. {student.getStudentName()} cannot enroll {self.getCourseName()}.")
             return False
-
 
     def getRequiredCredits(self):
         return self.__requiredCredits
