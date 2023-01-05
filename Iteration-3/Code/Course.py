@@ -79,7 +79,7 @@ class Course(ABC):
     def setFailedPreq(self, failedPreq):
         self.__failedPreq = failedPreq
         logging.info(self.getCourseName() + ": Number of failed prerequisite changed." +
-                     "(" + "New: " + self.getFailedPreq() + ")")
+                     "(" + "New: " + str(self.getFailedPreq()) + ")")
 
     def getEnrolledCourseLimit(self):
         return self.__enrolledCourseLimit
@@ -87,4 +87,4 @@ class Course(ABC):
     def setEnrolledCourseLimit(self, courseLimit):
         self.__enrolledCourseLimit = courseLimit
         logging.info(self.getCourseName() + ": Number of course limit changed." +
-                     "(" + "New: " + self.getFailedPreq() + ")")
+                     "(" + "New: " + str(self.getEnrolledCourseLimit()) + ")")
