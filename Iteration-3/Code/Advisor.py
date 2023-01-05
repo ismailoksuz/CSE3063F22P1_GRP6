@@ -10,7 +10,7 @@ class Advisor(Instructor):
         super().__init__(firstName, lastName, givenCourses)
         self.__students = []
         logging.info(self.getFirstName() + " " + self.getLastName() +
-                     " named advisor created.")  # will be log
+                     " named advisor created.")
 
     def completeRegistration(self, student):
         for i in range(len(student.getRequestedCourses())):
@@ -19,7 +19,7 @@ class Advisor(Instructor):
                     student.getRequestedCourses()[i])
                 student.getRequestedCourses()[i].getStudents().append(student)
         logging.info(student.getStudentName() +
-                     "'s registration successfully completed.")  # will be log
+                     "'s registration successfully completed.")
 
     def checkCollision(self, student, course):
         isTrue = True
@@ -29,7 +29,7 @@ class Advisor(Instructor):
                 student.getStudentOutput().append("Advisor didn't approve " + course.getCourseCode() +
                                                   " because of two hours collision with " + c.getCourseCode() + " in schedule")
                 logging.info(student.getStudentName() + " couldn't take " + course.getCourseName() +
-                             " because of collision with " + c.getCourseName() + ".")  # will be log
+                             " because of collision with " + c.getCourseName() + ".")
                 isTrue = False
                 break
         return isTrue
@@ -42,7 +42,7 @@ class Advisor(Instructor):
             student.getStudentOutput().append("The student couldn't register for " +
                                               course.getCourseCode() + " because of a quota problem")
             logging.info(student.getStudentName() + " couldn't take " + course.getCourseName() +
-                         " because course quota is full ( Quota: " + str(course.getQuato()) + ").")  # will be log
+                         " because course quota is full ( Quota: " + str(course.getQuato()) + ").")
             return False
 
     def checkEnrolledCourseLimit(self, course, student):
@@ -53,7 +53,7 @@ class Advisor(Instructor):
             student.getStudentOutput().append("The student couldn't register for " +
                                               course.getCourseCode() + " due to exceeding the maximum number of courses that can be registered")
             logging.info(student.getStudentName() + " couldn't take " + course.getCourseName() +
-                         " due to exceeding the maximum number of courses that can be registered.")  # will be log
+                         " due to exceeding the maximum number of courses that can be registered.")
             return False
 
     def getStudents(self):
