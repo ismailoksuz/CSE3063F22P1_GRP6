@@ -1,4 +1,5 @@
 from abc import ABC, abstractmethod
+import logging
 from Schedule import Schedule
 
 
@@ -17,8 +18,8 @@ class Course(ABC):
         self.__failedPreq = 0
         self.__enrolledCourseLimit = 0
         self.__courseInstructor = None
-        print(self.getCourseName() + " (" + self.getCourseCode() + ")" +
-              " named course created.")  # will be log
+        logging.info(self.getCourseName() + " (" + self.getCourseCode() + ")" +
+                     " named course created.")  # will be log
 
     @abstractmethod
     def isEligibleToRequest(self, student):
@@ -53,35 +54,35 @@ class Course(ABC):
 
     def setQuotaProblem(self, quotaProblem):
         self.__quotaProblem = quotaProblem
-        print(self.getCourseName() + ": Number of quota problem changed." +
-              "(" + "New: " + str(self.getQuotaProblem()) + ")")  # will be log
+        logging.info(self.getCourseName() + ": Number of quota problem changed." +
+                     "(" + "New: " + str(self.getQuotaProblem()) + ")")  # will be log
 
     def getCollisionProblem(self):
         return self.__collisionProblem
 
     def setCollisionProblem(self, collisionProblem):
         self.__collisionProblem = collisionProblem
-        print(self.getCourseName() + ": Number of collision problem changed." +
-              "(" + "New: " + str(self.getCollisionProblem()) + ")")  # will be log
+        logging.info(self.getCourseName() + ": Number of collision problem changed." +
+                     "(" + "New: " + str(self.getCollisionProblem()) + ")")  # will be log
 
     def getFailedCredits(self):
         return self.__failedCredits
 
     def setFailedCredits(self, failedCredits):
         self.__failedCredits = failedCredits
-        print(self.getCourseName() + ": Number of failed credits changed." +
-              "(" + "New: " + str(self.getFailedCredits()) + ")")
+        logging.info(self.getCourseName() + ": Number of failed credits changed." +
+                     "(" + "New: " + str(self.getFailedCredits()) + ")")
 
     def getFailedPreq(self):
         return self.__failedPreq
 
     def setFailedPreq(self, failedPreq):
         self.__failedPreq = failedPreq
-        # print(self.getCourseName() + ": Number of failed prerequisite changed." + "(" + "New: " + self.getFailedPreq() + ")") # will be log
+        # logging.info(self.getCourseName() + ": Number of failed prerequisite changed." + "(" + "New: " + self.getFailedPreq() + ")") # will be log
 
     def getEnrolledCourseLimit(self):
         return self.__enrolledCourseLimit
 
     def setEnrolledCourseLimit(self, courseLimit):
         self.__enrolledCourseLimit = courseLimit
-        # print(self.getCourseName() + ": Number of failed prerequisite changed." + "(" + "New: " + self.getFailedPreq() + ")") # will be log
+        # logging.info(self.getCourseName() + ": Number of failed prerequisite changed." + "(" + "New: " + self.getFailedPreq() + ")") # will be log
