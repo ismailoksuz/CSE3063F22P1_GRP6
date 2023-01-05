@@ -1,3 +1,4 @@
+import logging
 from Advisor import Advisor
 from Transcript import Transcript
 from StudentId import StudentId
@@ -17,8 +18,8 @@ class Student(Person):
         self.transcript = Transcript()
         self.studentId = StudentId(registrationYear, order)
         self.studentOutput = []
-        print("Student created =>  " + "Name: " + self.getStudentName() + " RegistrationYear: " +
-              str(self.getRegistrationYear()) + " Order: " + str(self.getOrder()))  # will be log
+        logging.info("Student created =>  " + "Name: " + self.getStudentName() + " RegistrationYear: " +
+                     str(self.getRegistrationYear()) + " Order: " + str(self.getOrder()))
 
     def getStudentOutput(self):
         return self.studentOutput
@@ -58,5 +59,5 @@ class Student(Person):
 
     def setSemester(self, semester):
         self.semester = semester
-        print(self.getStudentName() + ": student semester changed. as " +
-              str(self.semester))  # will be log
+        logging.info(self.getStudentName() + ": student semester changed. as " +
+                     str(self.getSemester()))
