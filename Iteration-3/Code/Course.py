@@ -19,7 +19,7 @@ class Course(ABC):
         self.__enrolledCourseLimit = 0
         self.__courseInstructor = None
         logging.info(self.getCourseName() + " (" + self.getCourseCode() + ")" +
-                     " named course created.")  # will be log
+                     " named course created.")
 
     @abstractmethod
     def isEligibleToRequest(self, student):
@@ -55,7 +55,7 @@ class Course(ABC):
     def setQuotaProblem(self, quotaProblem):
         self.__quotaProblem = quotaProblem
         logging.info(self.getCourseName() + ": Number of quota problem changed." +
-                     "(" + "New: " + str(self.getQuotaProblem()) + ")")  # will be log
+                     "(" + "New: " + str(self.getQuotaProblem()) + ")")
 
     def getCollisionProblem(self):
         return self.__collisionProblem
@@ -63,7 +63,7 @@ class Course(ABC):
     def setCollisionProblem(self, collisionProblem):
         self.__collisionProblem = collisionProblem
         logging.info(self.getCourseName() + ": Number of collision problem changed." +
-                     "(" + "New: " + str(self.getCollisionProblem()) + ")")  # will be log
+                     "(" + "New: " + str(self.getCollisionProblem()) + ")")
 
     def getFailedCredits(self):
         return self.__failedCredits
@@ -78,11 +78,13 @@ class Course(ABC):
 
     def setFailedPreq(self, failedPreq):
         self.__failedPreq = failedPreq
-        # logging.info(self.getCourseName() + ": Number of failed prerequisite changed." + "(" + "New: " + self.getFailedPreq() + ")") # will be log
+        logging.info(self.getCourseName() + ": Number of failed prerequisite changed." +
+                     "(" + "New: " + self.getFailedPreq() + ")")
 
     def getEnrolledCourseLimit(self):
         return self.__enrolledCourseLimit
 
     def setEnrolledCourseLimit(self, courseLimit):
         self.__enrolledCourseLimit = courseLimit
-        # logging.info(self.getCourseName() + ": Number of failed prerequisite changed." + "(" + "New: " + self.getFailedPreq() + ")") # will be log
+        logging.info(self.getCourseName() + ": Number of failed prerequisite changed." +
+                     "(" + "New: " + self.getFailedPreq() + ")")
