@@ -9,8 +9,6 @@ class GraduationProject(MandatoryCourse):  # ICreditRequirement will be added
         super().__init__(courseName, courseCode, courseCredit,
                          courseDay, courseHour, quota, semester, prerequisites)
         self.__requiredCredits = requiredCredits
-        print(
-            f"{self.getCourseName()} ({self.getCourseCode()}) named graduation project created.")
         logging.info(
             f"{self.getCourseName()} ({self.getCourseCode()}) named graduation project created.")
 
