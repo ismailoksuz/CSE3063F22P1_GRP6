@@ -1,3 +1,4 @@
+from ElectiveCourse import ElectiveCourse
 from typing import List
 
 class NonTechnicalElective(ElectiveCourse):
@@ -5,6 +6,5 @@ class NonTechnicalElective(ElectiveCourse):
                  courseHour: str, quota: int, semesters: List[int]):
         super().__init__(courseName, courseCode, courseCredit, courseDay, courseHour, quota, semesters)
 
-    def isEligibleToRequest(self, student: Student) -> bool:
+    def isEligibleToRequest(self, student) -> bool:
         return self.semesterControl(student)
-

@@ -1,18 +1,18 @@
+from Course import Course
+from ElectiveCourse import ElectiveCourse
+from Student import Student
 from typing import List
-
-class TechnicalElective(ElectiveCourse, ICreditRequirement):
-    def __init__(self, courseName: str, courseCode: str, courseCredit: int, courseDay: int, courseHour: str, quota: int, semester: List[int], requiredCredits: int, prequisites: List[Course]):
+class TechnicalElective(ElectiveCourse): # ICreditRequirement will be added.****
+    def __init__(self, courseName: str, courseCode: str, courseCredit: int, courseDay: int, courseHour: str, quota: int, semester: List[int], requiredCredits: int, prerequisites: List[Course]):
         super().__init__(courseName, courseCode, courseCredit, courseDay, courseHour, quota, semester)
         self.__requiredCredits = requiredCredits
-        self.__prequisites = prequisites
+        self.__prerequisites = prerequisites
 
     def isEligibleToRequest(self, student: Student) -> bool:
         if self.semesterControl(student):
-            if not student.getTranscript().hasBeenPassedCourses(self.getPrequisites()):
+            if not student.getTranscript().hasBeenPassedCourses(self.getPrerequisites()):
                 self.setFailedPreq(self.getFailedPreq() + 1)
-                student.getStudentOutput().add(
-                    f"The system didn't allow {self.getCourseCode()} because student "
-                    f"failed prereq. {self.getPrequisites()[0].getCourseCode()}")
+                student.getStudentOutput().append(f"The system didn't allow {self.getCourseCode()} because student failed prereq. {self.getPrerequisites()[0].getCourseCode()}")
                 return False
             else:
                 return True
@@ -24,8 +24,7 @@ class TechnicalElective(ElectiveCourse, ICreditRequirement):
             return True
         else:
             self.setFailedCredits(self.getFailedCredits() + 1)
-            student.getStudentOutput.add(f"The advisor didn't approve TE{self.getCourseCode()} because student "
-                                         f"completed credits < {self.getRequiredCredits()}")
+            student.getStudentOutput().append(f"The advisor didn't approve TE{self.getCourseCode()} because student completed credits < {self.getRequiredCredits()}")
             return False
 
     def getRequiredCredits(self) -> int:
@@ -34,8 +33,8 @@ class TechnicalElective(ElectiveCourse, ICreditRequirement):
     def setRequiredCredits(self, requiredCredits: int):
         self.__requiredCredits = requiredCredits
 
-    def getPrequisites(self) -> List[Course]:
-        return self.__prequisites
+    def getPrerequisites(self) -> List[Course]:
+        return self.__prerequisites
 
-    def setPrequisites(self, prequisites: List[Course]):
-        self.__prequisites = prequisites
+    def setPrerequisites(self, prerequisites: List[Course]):
+        self.__prerequisites = prerequisites

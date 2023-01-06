@@ -1,7 +1,7 @@
 import random
-import logging #edit the log part
-
-
+import logging
+import Course
+from Internship import Internship
 class Grade:
 
     def __init__(self, course: Course, courseGrade: int):
@@ -13,6 +13,13 @@ class Grade:
     def getLetterGrade(self):
         letterGrade = ""
         random_number = random.Random()
+        if isinstance(self.__course, Internship):
+            if random.randint(0, 4) != 0:
+                letterGrade = "S"
+            else:
+                letterGrade = "U"
+
+            return letterGrade
         if self.__courseGrade > 100 or self.__courseGrade < 0:
             exit(1)
         elif self.__courseGrade >= 90:
@@ -49,4 +56,3 @@ class Grade:
 
     def getLetter(self) -> str:
         return self.__letter
-
