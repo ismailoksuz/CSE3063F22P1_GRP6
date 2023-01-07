@@ -8,3 +8,5 @@ class Internship(MandatoryCourse):
     def isEligibleToRequest(self, student):
         return student.getSemester() > 4
 
+
+

@@ -3,6 +3,7 @@ from Transcript import Transcript
 from StudentId import StudentId
 from Person import Person
 from Advisor import Advisor
+from Internship import Internship
 import datetime
 
 
@@ -20,6 +21,12 @@ class Student(Person):
         self.__studentOutput = []
         logging.info("Student created =>  " + "Name: " + self.getStudentName() + " RegistrationYear: " +
                      str(self.getRegistrationYear()) + " Order: " + str(self.getOrder()))
+
+    def willBeMultipleInternshipsInRequestedCourses(self):
+        for course in self.__requestedCourses:
+            if isinstance(course, Internship):
+                return False
+        return True
 
     def getStudentOutput(self):
         return self.__studentOutput
@@ -59,5 +66,5 @@ class Student(Person):
 
     def setSemester(self, semester):
         self.__semester = semester
-        logging.info(self.getStudentName() + ": student semester changed. as " +
+        logging.info(self.getStudentName() + ": student semester changed as " +
                      str(self.getSemester()))

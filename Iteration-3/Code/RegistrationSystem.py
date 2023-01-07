@@ -174,7 +174,6 @@ class RegistrationSystem:
             courseSemester = course["semester"]
             internship = Internship(
                 courseName, courseCode, courseCredit, courseSemester, str(noCollision))
-            # print(internship.getCourseSchedule().toString() + "  ****123")
             # self.__coursesList.append(internship)
             # self.__mandatoryCourses.append(internship)
             self.__internships.append(internship)
@@ -593,7 +592,7 @@ class RegistrationSystem:
                 s.getRequestedCourses().append(fte)
 
             for internship in self.__internships:
-                if internship.isEligibleToRequest(s) and internship.getSemester() <= s.getSemester() and internship not in s.getTranscript().getCompletedCourses():
+                if internship.isEligibleToRequest(s) and internship.getSemester() <= s.getSemester() and internship not in s.getTranscript().getCompletedCourses() and s.willBeMultipleInternshipsInRequestedCourses():
                     s.getRequestedCourses().append(internship)
 
     def startRegistration(self):
