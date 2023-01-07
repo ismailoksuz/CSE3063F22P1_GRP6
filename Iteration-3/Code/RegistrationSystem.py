@@ -166,28 +166,29 @@ class RegistrationSystem:
 
     def readInternship(self, input: dict):
         inputInternships = input["Internships"]
-        noCollision = 0
         for course in inputInternships:
             courseName = course["courseName"]
             courseCode = course["courseCode"]
             courseCredit = course["credits"]
             courseSemester = course["semester"]
             internship = Internship(
-                courseName, courseCode, courseCredit, courseSemester, str(noCollision))
+                courseName, courseCode, courseCredit, courseSemester, 30)
             # self.__coursesList.append(internship)
             # self.__mandatoryCourses.append(internship)
             self.__internships.append(internship)
             logging.info(internship.getCourseName() +
                          ": internship is readed from input.json.")
-            noCollision += 3
 
     def readAdvisorInput(self, advisor: dict):
         inputAdvisors = advisor["advisors"]
+        i=1
         for a in inputAdvisors:
             advisors = a
             firstName = advisors["firstName"]
             lastName = advisors["lastName"]
             newAdvisor = Advisor(firstName, lastName)
+            newAdvisor.setinstructorId("1501"+ str(i))
+            i+=1
             self.__advisorList.append(newAdvisor)
             logging.info(newAdvisor.getAdvisorName() +
                          ": Advisor is readed from advisor.json.")
@@ -486,6 +487,8 @@ class RegistrationSystem:
                     internship] = courseGrade
                 student.getTranscript().isCourseCompletedOrFailed(
                     internship, courseGrade.getLetter())
+                logging.info(student.toString() + " " + internship.getCourseName() +
+                                " " + courseGrade.getLetter())
 
         logging.info(student.getStudentName(
         ) + ": Student took all courses for his/her past semesters.")
@@ -611,7 +614,8 @@ class RegistrationSystem:
             "SemesterNumber": student.getSemester(),
             "CompletedCredits": student.getTranscript().getCreditCompleted(),
             "Gpa": student.getTranscript().getGpa(),
-            "AdvisorName": student.getAdvisor().getAdvisorName()
+            "AdvisorName": student.getAdvisor().getAdvisorName(),
+            "AdvisorId": student.getAdvisor().getinstructorId()
         }
 
         # Add taken course
@@ -749,36 +753,3 @@ class RegistrationSystem:
         return self.__internships
 
 
-def app():
-    # a = StudentId(2015, 1)
-    # s = Schedule(0, "09:30")
-    # print(a.id)
-    # print(s.toString())
-    try:
-        if not os.path.exists("Output"):
-            os.makedirs("Output")
-        if not os.path.exists("Output\\Students"):
-            os.makedirs("Output\\Students")
-    except:
-        logging.error("Output folder could not be created.")
-
-    logging.basicConfig(filename="Output\\Application.log",
-                        filemode='w',
-                        format='%(asctime)s,%(msecs)d %(name)s %(levelname)s %(message)s',
-                        datefmt='%H:%M:%S',
-                        level=logging.DEBUG)
-    logging.getLogger().addHandler(logging.StreamHandler())
-    rs = RegistrationSystem()
-    # print("Advisor Size:", len(rs.getAdvisorList()))
-    # print("Course Size:", len(rs.getCourseList()))
-    # print("Student Size:", len(rs.getStudentList()))
-    # total = 0
-    # for i in rs.getAdvisorList():
-    #    total += len(i.students)
-    # print(total)
-
-    # for i in rs.getCourseList():
-    #     print(cast(TechnicalElective, i).getPrequisites())
-
-
-app()
