@@ -15,10 +15,16 @@ class Advisor(Instructor):
 
     def completeRegistration(self, student):
         for i in range(len(student.getRequestedCourses())):
-            if self.checkQuotaForRegistration(student.getRequestedCourses()[i], student) and self.checkCollision(student, student.getRequestedCourses()[i]) and self.checkEnrolledCourseLimit(student.getRequestedCourses()[i], student):
+            if self.checkQuotaForRegistration(student.getRequestedCourses()[i], student) and self.checkCollision(student, student.getRequestedCourses()[i]) and self.checkEnrolledCourseLimit(student.getRequestedCourses()[i], student) and not isinstance(i, Internship):
                 student.getTranscript().getEnrolledCourses().append(
                     student.getRequestedCourses()[i])
                 student.getRequestedCourses()[i].getStudents().append(student)
+
+            if isinstance(i, Internship):
+                student.getTranscript().getEnrolledCourses().append(
+                    student.getRequestedCourses()[i])
+                student.getRequestedCourses()[i].getStudents().append(student)
+
         logging.info(student.getStudentName() +
                      "'s registration successfully completed.")
 
