@@ -292,7 +292,7 @@
       "quota": 200
     },
     {
-      "courseName": "Object-Oriented Sofware Design",
+      "courseName": "Object-Oriented Software Design",
       "courseCode": "CSE3063",
       "semester": 5,
       "credits": 5,
@@ -629,6 +629,20 @@
       "courseHour": "11:00",
       "preRequisites": [""],
       "quota": 50
+    }
+  ],
+  "Internships": [
+    {
+      "courseName": "Summer Practice I",
+      "courseCode": "CSE3000",
+      "credits": 10,
+      "semester": 5
+    },
+    {
+      "courseName": "Summer Practice II",
+      "courseCode": "CSE4000",
+      "credits": 10,
+      "semester": 7
     }
   ]
 }
