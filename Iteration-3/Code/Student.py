@@ -11,53 +11,53 @@ class Student(Person):
 
     def __init__(self, firstName: str, lastName: str, registrationYear: int, order: int):
         super().__init__(firstName, lastName)
-        self.registrationYear = registrationYear
-        self.order = order
-        self.requestedCourses = []
-        self.currentYear = int(datetime.datetime.now().year)
-        self.transcript = Transcript()
-        self.studentId = StudentId(registrationYear, order)
-        self.studentOutput = []
+        self.__registrationYear = registrationYear
+        self.__order = order
+        self.__requestedCourses = []
+        self.__currentYear = int(datetime.datetime.now().year)
+        self.__transcript = Transcript()
+        self.__studentId = StudentId(registrationYear, order)
+        self.__studentOutput = []
         logging.info("Student created =>  " + "Name: " + self.getStudentName() + " RegistrationYear: " +
                      str(self.getRegistrationYear()) + " Order: " + str(self.getOrder()))
 
     def getStudentOutput(self):
-        return self.studentOutput
+        return self.__studentOutput
 
     def setStudentOutput(self, studentOutput):
-        self.studentOutput = studentOutput
+        self.__studentOutput = studentOutput
 
     def getStudentName(self):
         return self.getFirstName() + " " + self.getLastName()
 
     def getTranscript(self):
-        return self.transcript
+        return self.__transcript
 
     def getStudentId(self):
-        return self.studentId
+        return self.__studentId
 
     def getAdvisor(self) -> Advisor:
-        return self.advisor
+        return self.__advisor
 
     def setAdvisor(self, advisor):
-        self.advisor = advisor
+        self.__advisor = advisor
 
     def getRequestedCourses(self):
-        return self.requestedCourses
+        return self.__requestedCourses
 
     def getRegistrationYear(self):
-        return self.registrationYear
+        return self.__registrationYear
 
     def getOrder(self):
-        return self.order
+        return self.__order
 
     def getCurrentYear(self):
-        return self.currentYear
+        return self.__currentYear
 
     def getSemester(self) -> int:
-        return self.semester
+        return self.__semester
 
     def setSemester(self, semester):
-        self.semester = semester
+        self.__semester = semester
         logging.info(self.getStudentName() + ": student semester changed. as " +
                      str(self.getSemester()))
