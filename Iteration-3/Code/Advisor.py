@@ -66,7 +66,7 @@ class Advisor(Instructor):
             return False
 
     def getStudents(self):
-        return self.students
+        return self.__students
 
     def setStudents(self, students):
         self.__students = students
