@@ -1,8 +1,9 @@
 import logging
+from ICreditRequirement import ICreditRequirement
 from MandatoryCourse import MandatoryCourse
 
 
-class GraduationProject(MandatoryCourse):  # ICreditRequirement will be added
+class GraduationProject(MandatoryCourse, ICreditRequirement):
 
     def __init__(self, courseName, courseCode, courseCredit, courseDay, courseHour,
                  quota, semester, prerequisites, requiredCredits):
@@ -16,7 +17,7 @@ class GraduationProject(MandatoryCourse):  # ICreditRequirement will be added
         return super().isEligibleToRequest(student) and self.checkRequiredCredit(student)
 
     def checkRequiredCredit(self, student):
-        if student.transcript.getCreditCompleted() >= self.__requiredCredits:
+        if student.getTranscript().getCreditCompleted() >= self.__requiredCredits:
             return True
         else:
             newFailedCredit = self.getFailedCredits() + 1
