@@ -1,11 +1,14 @@
 import os
 import logging
 from RegistrationSystem import RegistrationSystem
+
+
 class App:
     def __init__(self):
         self.main()
+
     def main(self):
- 
+
         try:
             if not os.path.exists("Output"):
                 os.makedirs("Output")
@@ -21,4 +24,22 @@ class App:
                             level=logging.DEBUG)
         logging.getLogger().addHandler(logging.StreamHandler())
         rs = RegistrationSystem()
-app=App()
+        logging.info("Registration for " + rs.getCurrentSemester() +
+                     " semester successfully completed.")
+
+        if rs.getCurrentSemester().__eq__("spring"):
+            exit(0)
+
+        userChoice = list(
+            input("Do you want to simulate for spring semester with same transcripts? Y/N"))
+        yOrN = userChoice[0].lower()
+
+        if yOrN == 'y':
+            rs.simulateSpringAfterFall()
+            logging.info("Registration for " +
+                         rs.getCurrentSemester() + " successfully completed.")
+
+        logging.info("------END--------")
+
+
+app = App()
