@@ -20,9 +20,6 @@ class Course(ABC):
         self.__courseInstructor = None
         logging.info(self.getCourseName() + " (" + self.getCourseCode() + ")" +
                      " named course created.")
-    
-    def __eq__(self, other) -> bool:
-        return self.getCourseCode() == other.getCourseCode()
 
     @abstractmethod
     def isEligibleToRequest(self, student):

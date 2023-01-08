@@ -8,6 +8,7 @@ import datetime
 
 
 class Student(Person):
+    semester: int
 
     def __init__(self, firstName: str, lastName: str, registrationYear: int, order: int):
         super().__init__(firstName, lastName)
@@ -18,8 +19,6 @@ class Student(Person):
         self.__transcript = Transcript()
         self.__studentId = StudentId(registrationYear, order)
         self.__studentOutput = []
-        self.__semester: int
-        self.__advisor: Advisor
         logging.info("Student created =>  " + "Name: " + self.getStudentName() + " RegistrationYear: " +
                      str(self.getRegistrationYear()) + " Order: " + str(self.getOrder()))
 
