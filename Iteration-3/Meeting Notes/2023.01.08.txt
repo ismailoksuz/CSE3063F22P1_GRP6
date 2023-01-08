@@ -1,0 +1,6 @@
+-RAD pushlandı
+-DCD tamamlandı ve pushlandı.
+-DSD tamamlandı ve pushlandı.
+-Unit testler tamamlandı ve pushlandı.
+-Creation Dependency hazırlandı ve pushlandı.
+-İterasyon 3 tamamlandı.
