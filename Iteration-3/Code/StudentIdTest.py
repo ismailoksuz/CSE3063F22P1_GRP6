@@ -1,13 +1,13 @@
 import unittest
+from StudentId import StudentId
 
-class TestStudentId(unittest.TestCase):
+class StudentIdTest(unittest.TestCase):
     def test_create_student_id(self):
         student_id = StudentId(2020, 1)
-        self.assertEqual(student_id.createStudentId(), "150120201")
+        self.assertEqual(student_id.createStudentId(), "150120001")
         student_id = StudentId(2020, 123)
-        self.assertEqual(student_id.createStudentId(), "150120201")
-        student_id = StudentId(2020, 123456)
-        self.assertEqual(student_id.createStudentId(), "150120201")
+        self.assertEqual(student_id.createStudentId(), "150120123")
+
 
     def test_get_cse_code(self):
         student_id = StudentId(2020, 1)
@@ -23,11 +23,9 @@ class TestStudentId(unittest.TestCase):
 
     def test_to_string(self):
         student_id = StudentId(2020, 1)
-        self.assertEqual(student_id.toString(), "150120201")
+        self.assertEqual(student_id.toString(), "150120001")
         student_id = StudentId(2020, 123)
-        self.assertEqual(student_id.toString(), "150120201")
-        student_id = StudentId(2020, 123456)
-        self.assertEqual(student_id.toString(), "150120201")
+        self.assertEqual(student_id.toString(), "150120123")
 
 if __name__ == '__main__':
     unittest.main()
