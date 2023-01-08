@@ -1,0 +1,6 @@
+-Classlar tamamlanıp pushlandı.
+-Unit testler hazırlanmaya başlandı.
+-RAD yapılmaya başlandı ve tamamlandı.
+-DCD yapılmaya başlandı.
+-DSD yapılmaya başlandı.
+-08.01.2023'de son kez toplanılıp projenin tamamlanması planlandı.
