@@ -23,5 +23,5 @@ class TestGrade(unittest.TestCase):
 if __name__ == '__main__':
     unittest.main()
 
-    dene
+    den
     
