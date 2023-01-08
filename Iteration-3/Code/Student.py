@@ -8,7 +8,7 @@ import datetime
 
 
 class Student(Person):
-    semester: int
+    __semester: int
 
     def __init__(self, firstName: str, lastName: str, registrationYear: int, order: int):
         super().__init__(firstName, lastName)
