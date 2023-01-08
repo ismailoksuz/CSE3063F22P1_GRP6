@@ -1,7 +1,8 @@
 from typing import List
+from abc import ABC
 
 from Course import Course
-class ElectiveCourse(Course):
+class ElectiveCourse(Course, ABC):
     def __init__(self, courseName: str, courseCode: str, courseCredit: int, courseDay: int, courseHour: str,
                  quota: int, semesters: List[int]):
         super().__init__(courseName, courseCode, courseCredit, courseDay, courseHour, quota)
