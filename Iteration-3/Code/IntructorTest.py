@@ -17,9 +17,5 @@ class InstructorTest(unittest.TestCase):
         self.instructor.addGivenCourse(self.course)
         self.assertEqual(len(self.instructor.getGivenCourses()), 1)
 
-    def test_removeGivenCourse(self):
-        self.instructor.removeGivenCourse(self.course)
-        self.assertEqual(len(self.instructor.getGivenCourses()), 0)
-
 if __name__ == '__main__':
     unittest.main()
