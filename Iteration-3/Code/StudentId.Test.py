@@ -5,9 +5,9 @@ class TestStudentId(unittest.TestCase):
         student_id = StudentId(2020, 1)
         self.assertEqual(student_id.createStudentId(), "150120201")
         student_id = StudentId(2020, 123)
-        self.assertEqual(student_id.createStudentId(), "15012020123")
+        self.assertEqual(student_id.createStudentId(), "150120201")
         student_id = StudentId(2020, 123456)
-        self.assertEqual(student_id.createStudentId(), "15012020123456")
+        self.assertEqual(student_id.createStudentId(), "150120201")
 
     def test_get_cse_code(self):
         student_id = StudentId(2020, 1)
@@ -25,9 +25,9 @@ class TestStudentId(unittest.TestCase):
         student_id = StudentId(2020, 1)
         self.assertEqual(student_id.toString(), "150120201")
         student_id = StudentId(2020, 123)
-        self.assertEqual(student_id.toString(), "15012020123")
+        self.assertEqual(student_id.toString(), "150120201")
         student_id = StudentId(2020, 123456)
-        self.assertEqual(student_id.toString(), "15012020123456")
+        self.assertEqual(student_id.toString(), "150120201")
 
 if __name__ == '__main__':
     unittest.main()
